@@ -14,11 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github.client;
+package org.tomitribe.github.core;
 
-import java.util.List;
+import java.io.File;
 
-public interface Page<T> {
-
-    List<T> getItems();
+public class NoPemFileFoundException extends IllegalStateException {
+    public NoPemFileFoundException(final String pemResName) {
+        super(String.format("Unable to resolve pem file. Searched the following locations%n  %s%n  %s%n  classpath",
+                new File(pemResName).getAbsolutePath(),
+                new File(Home.get().ssh(), pemResName).getAbsolutePath()
+        ));
+    }
 }

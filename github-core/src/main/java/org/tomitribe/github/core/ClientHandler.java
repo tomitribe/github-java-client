@@ -16,9 +16,6 @@
  */
 package org.tomitribe.github.core;
 
-import org.tomitribe.github.client.Paged;
-import org.tomitribe.github.client.Preview;
-import org.tomitribe.github.client.Previews;
 import org.tomitribe.util.Join;
 import org.tomitribe.util.reflect.Generics;
 

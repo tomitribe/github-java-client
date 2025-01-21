@@ -19,6 +19,7 @@ package org.tomitribe.github.client;
 
 import org.tomitribe.github.core.ApiOld;
 import org.tomitribe.github.core.Request;
+import org.tomitribe.github.core.Token;
 import org.tomitribe.github.model.Code;
 import org.tomitribe.github.model.CodePage;
 import org.tomitribe.github.model.CreatePullRequest;

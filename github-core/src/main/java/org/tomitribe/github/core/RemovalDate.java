@@ -14,15 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github.client;
+package org.tomitribe.github.core;
 
-import java.io.File;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-public class NoPemFileFoundException extends IllegalStateException {
-    public NoPemFileFoundException(final String pemResName) {
-        super(String.format("Unable to resolve pem file. Searched the following locations%n  %s%n  %s%n  classpath",
-                new File(pemResName).getAbsolutePath(),
-                new File(Home.get().ssh(), pemResName).getAbsolutePath()
-        ));
-    }
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface RemovalDate {
+    String value();
 }

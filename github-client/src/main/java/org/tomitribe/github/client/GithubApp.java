@@ -20,6 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.tomitribe.github.core.Token;
+import org.tomitribe.github.core.Tokens;
 
 import javax.json.bind.annotation.JsonbProperty;
 

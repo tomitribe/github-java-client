@@ -14,29 +14,15 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github.client;
+package org.tomitribe.github.core;
 
-import org.tomitribe.util.dir.Name;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import java.io.File;
-
-/**
- * Strongly-typed version of user.home
- */
-public interface Home {
-
-    @Name(".ssh")
-    File ssh();
-
-    static Home get() {
-        return from(System.getProperty("user.home"));
-    }
-
-    static Home from(final String path) {
-        return from(new File(path).getAbsoluteFile());
-    }
-
-    static Home from(final File file) {
-        return org.tomitribe.util.dir.Dir.of(Home.class, file);
-    }
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface Previews {
+    Preview[] value();
 }

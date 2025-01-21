@@ -22,11 +22,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tomitribe.github.MockService;
 import org.tomitribe.github.Resources;
-import org.tomitribe.github.client.Category;
-import org.tomitribe.github.client.Docs;
-import org.tomitribe.github.client.EnabledForGithubApps;
-import org.tomitribe.github.client.OperationId;
-import org.tomitribe.github.client.Preview;
 import org.tomitribe.github.model.PullRequest;
 
 import javax.servlet.http.HttpServletRequest;

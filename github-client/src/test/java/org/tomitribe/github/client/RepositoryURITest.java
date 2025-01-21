@@ -18,6 +18,7 @@ package org.tomitribe.github.client;
 
 
 import org.junit.Test;
+import org.tomitribe.github.core.RepositoryURI;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
