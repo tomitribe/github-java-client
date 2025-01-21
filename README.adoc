@@ -1,0 +1,5 @@
+# Github API Payloads in Java
+
+Aims to support all aspects of the Github API including the experimental APIs that require feature flags to be set.
+
+At present time this project consists of all potential payloads that can be sent including the checks API.
