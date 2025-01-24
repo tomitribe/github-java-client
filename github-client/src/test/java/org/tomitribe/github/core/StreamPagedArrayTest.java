@@ -16,20 +16,17 @@
  */
 package org.tomitribe.github.core;
 
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.Response;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.tomitribe.github.model.PullRequest;
 import org.tomitribe.util.Join;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.QueryParam;
-import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.core.Response;
 import java.io.IOException;
-import java.lang.reflect.Proxy;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -93,16 +90,11 @@ public class StreamPagedArrayTest {
     }
 
     private PullsClient getClient() {
-        final Client client = ClientBuilder.newClient()
-                .register(new MessageLogger.RequestFilter())
-                .register(new MessageLogger.ResponseFilter());
-
-        final Api api = Api.builder()
-                .api(uri)
-                .client(client)
-                .handler(builder -> builder.header("authorization", "token 23456789dfghjklkjhgfdsdfghuiytrewertyui"))
-                .build();
-        return (PullsClient) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{PullsClient.class}, new ClientHandler(api));
+        return ClientFactory.builder()
+                .host(uri)
+                .accessToken("23456789dfghjklkjhgfdsdfghuiytrewertyui")
+                .build()
+                .getClient(PullsClient.class);
     }
 
     public interface PullsClient {
