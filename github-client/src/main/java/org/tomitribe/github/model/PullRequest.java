@@ -16,11 +16,11 @@
  */
 package org.tomitribe.github.model;
 
+import jakarta.json.bind.annotation.JsonbProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.json.bind.annotation.JsonbProperty;
 
 /**
  * Used by:
@@ -40,10 +40,10 @@ public class PullRequest {
     private Long additions;
 
     @JsonbProperty("assignee")
-    private String assignee;
+    private User assignee;
 
     @JsonbProperty("assignees")
-    private String[] assignees;
+    private User[] assignees;
 
     @JsonbProperty("author_association")
     private String authorAssociation;
