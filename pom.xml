@@ -41,6 +41,8 @@
   <modules>
     <module>github-core</module>
     <module>github-client</module>
+    <module>github-generator</module>
+    <module>github-generator-plugin</module>
   </modules>
 
   <properties>
