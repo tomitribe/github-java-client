@@ -18,10 +18,10 @@ package org.tomitribe.github.core;
 
 import lombok.Data;
 
-import javax.json.bind.annotation.JsonbProperty;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

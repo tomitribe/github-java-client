@@ -85,7 +85,12 @@
       <groupId>org.apache.tomee.bom</groupId>
       <artifactId>tomee-webprofile</artifactId>
       <version>${tomee.version}</version>
-<!--      <scope>test</scope>-->
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tomee.bom</groupId>
+      <artifactId>tomee-webprofile-api</artifactId>
+      <version>${tomee.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -150,12 +155,6 @@
     </dependency>
   </dependencies>
 
-  <properties>
-    <tomee.version>8.0.5</tomee.version>
-    <tomee.javaee.api>8.0-4</tomee.javaee.api>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <failOnMissingWebXml>false</failOnMissingWebXml>
-  </properties>
 
   <build>
     <plugins>

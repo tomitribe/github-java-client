@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 import org.tomitribe.github.core.Token;
 import org.tomitribe.github.core.Tokens;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 
 @Data
 @NoArgsConstructor

@@ -18,7 +18,7 @@ package org.tomitribe.github.core;
 
 import org.tomitribe.util.IO;
 
-import javax.json.bind.Jsonb;
+import jakarta.json.bind.Jsonb;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;

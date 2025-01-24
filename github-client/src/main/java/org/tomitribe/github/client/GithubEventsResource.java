@@ -60,9 +60,9 @@ import org.tomitribe.github.model.TeamAddEvent;
 import org.tomitribe.github.model.TeamEvent;
 import org.tomitribe.github.model.WatchEvent;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.core.MediaType;
 
 //CHECKSTYLE:OFF 
 @Path("/event")

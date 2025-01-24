@@ -18,9 +18,9 @@ package org.tomitribe.github.model;
 
 import org.tomitribe.util.IO;
 
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+import jakarta.json.bind.JsonbConfig;
 import java.io.IOException;
 import java.net.URL;
 

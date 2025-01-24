@@ -16,7 +16,7 @@
  */
 package org.tomitribe.github.core;
 
-import javax.json.bind.adapter.JsonbAdapter;
+import jakarta.json.bind.adapter.JsonbAdapter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 

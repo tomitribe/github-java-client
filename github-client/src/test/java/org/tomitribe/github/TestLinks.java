@@ -18,7 +18,7 @@ package org.tomitribe.github;
 
 import org.tomitribe.github.core.Link;
 
-import javax.ws.rs.WebApplicationException;
+import jakarta.ws.rs.WebApplicationException;
 import java.net.URI;
 
 public class TestLinks {

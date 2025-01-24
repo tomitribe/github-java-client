@@ -20,7 +20,7 @@ import org.apache.tomee.bootstrap.Archive;
 import org.apache.tomee.bootstrap.Server;
 import org.tomitribe.util.IO;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;

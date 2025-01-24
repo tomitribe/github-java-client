@@ -22,9 +22,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.tomitribe.github.core.EnumAdapter;
 
-import javax.json.bind.annotation.JsonbTypeAdapter;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
 
 @Data
 @Builder
