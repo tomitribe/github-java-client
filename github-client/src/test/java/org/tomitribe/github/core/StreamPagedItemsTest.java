@@ -442,9 +442,8 @@ public class StreamPagedItemsTest {
          * Produce a stream with duplicate entries, but not duplicate instances
          */
         final List<String> actual = Stream.concat(
-                githubClient.searchRepositories("q=tomee"),
-                githubClient.searchRepositories("q=tomee")
-        )
+                        githubClient.searchRepositories("q=tomee"),
+                        githubClient.searchRepositories("q=tomee"))
                 .distinct()
                 .map(Repository::getName)
                 .collect(Collectors.toList());

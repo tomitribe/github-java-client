@@ -17,7 +17,6 @@
 package org.tomitribe.github.core;
 
 import org.junit.Test;
-import org.tomitribe.github.core.Suppliers;
 import org.tomitribe.util.Join;
 
 import java.util.ArrayList;
@@ -30,7 +29,6 @@ import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 public class SuppliersTest {

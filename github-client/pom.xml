@@ -54,6 +54,13 @@
       <artifactId>github-core</artifactId>
       <version>0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>org.tomitribe.github</groupId>
+      <artifactId>github-core</artifactId>
+      <version>0.1-SNAPSHOT</version>
+      <classifier>tests</classifier>
+      <scope>test</scope>
+    </dependency>
 <!--    <dependency>-->
 <!--      <groupId>org.apache.geronimo.specs</groupId>-->
 <!--      <artifactId>geronimo-json_1.1_spec</artifactId>-->
