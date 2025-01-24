@@ -19,7 +19,7 @@ package org.tomitribe.github.client;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.tomitribe.github.MockService;
+import org.tomitribe.github.core.MockService;
 import org.tomitribe.github.model.Topics;
 import org.tomitribe.github.core.JsonMarshalling;
 

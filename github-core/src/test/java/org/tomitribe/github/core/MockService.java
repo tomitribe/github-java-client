@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github;
+package org.tomitribe.github.core;
 
 import org.apache.tomee.bootstrap.Archive;
 import org.apache.tomee.bootstrap.Server;

@@ -16,14 +16,6 @@
  */
 package org.tomitribe.github.core;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.tomitribe.github.MockService;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.ws.rs.ClientErrorException;
 import jakarta.ws.rs.DELETE;
@@ -31,9 +23,15 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Context;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import java.io.IOException;
 import java.lang.reflect.Proxy;
 import java.net.URI;
@@ -52,7 +50,7 @@ public class DeleteRequestTest {
 
     @Test
     public void returnVoid() throws Exception {
-        final DeleteClient client = getClient();
+        final DeleteClient client = getClient(DeleteClient.class);
         try {
             client.returnVoid("red", "green", 418);
         } catch (final ClientErrorException e) {
@@ -64,7 +62,7 @@ public class DeleteRequestTest {
 
     @Test
     public void returnJson() throws Exception {
-        final DeleteClient client = getClient();
+        final DeleteClient client = getClient(DeleteClient.class);
         try {
             client.returnJson("red", "green", 489);
         } catch (final ClientErrorException e) {
@@ -75,8 +73,8 @@ public class DeleteRequestTest {
         assertEquals("here you go", message.getText());
     }
 
-    private DeleteClient getClient() {
-        final Client client = ClientBuilder.newClient()
+    public static <Client> Client getClient(final Class<Client> clientClass) {
+        final jakarta.ws.rs.client.Client client = ClientBuilder.newClient()
                 .register(new MessageLogger.RequestFilter())
                 .register(new MessageLogger.ResponseFilter());
 
@@ -85,7 +83,7 @@ public class DeleteRequestTest {
                 .client(client)
                 .handler(builder -> builder.header("authorization", "token 23456789dfghjklkjhgfdsdfghuiytrewertyui"))
                 .build();
-        return (DeleteClient) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{DeleteClient.class}, new ClientHandler(api));
+        return (Client) Proxy.newProxyInstance(clientClass.getClassLoader(), new Class[]{clientClass}, new ClientHandler(api));
     }
 
     @Data

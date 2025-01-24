@@ -20,8 +20,6 @@ import lombok.Builder;
 import lombok.Data;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.tomitribe.github.MockService;
-import org.tomitribe.github.Resources;
 import org.tomitribe.github.model.PullRequest;
 
 import jakarta.servlet.http.HttpServletRequest;

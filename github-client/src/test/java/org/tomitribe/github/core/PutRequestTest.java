@@ -20,9 +20,6 @@ import lombok.Builder;
 import lombok.Data;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.tomitribe.github.JsonAsserts;
-import org.tomitribe.github.MockService;
-import org.tomitribe.github.Resources;
 import org.tomitribe.github.model.CreatePullRequest;
 import org.tomitribe.github.model.PullRequest;
 

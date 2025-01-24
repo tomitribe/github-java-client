@@ -24,7 +24,7 @@ import jakarta.json.bind.JsonbConfig;
 import java.io.IOException;
 import java.net.URL;
 
-import static org.tomitribe.github.JsonAsserts.assertJson;
+import static org.tomitribe.github.core.JsonAsserts.assertJson;
 
 public class PayloadAsserts {
 

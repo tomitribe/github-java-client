@@ -14,10 +14,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github;
+package org.tomitribe.github.core;
 
 import org.apache.openejb.loader.Files;
-import org.tomitribe.github.core.JsonMarshalling;
 import org.tomitribe.util.IO;
 import org.tomitribe.util.JarLocation;
 

@@ -18,9 +18,9 @@ package org.tomitribe.github.client;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.tomitribe.github.JsonAsserts;
-import org.tomitribe.github.MockService;
-import org.tomitribe.github.Resources;
+import org.tomitribe.github.core.JsonAsserts;
+import org.tomitribe.github.core.MockService;
+import org.tomitribe.github.core.Resources;
 import org.tomitribe.github.model.PullRequest;
 
 import jakarta.ws.rs.HeaderParam;

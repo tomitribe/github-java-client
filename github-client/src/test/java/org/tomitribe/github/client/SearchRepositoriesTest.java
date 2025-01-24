@@ -19,10 +19,10 @@ package org.tomitribe.github.client;
 import org.apache.openejb.util.Join;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.tomitribe.github.JsonAsserts;
-import org.tomitribe.github.MockService;
-import org.tomitribe.github.Resources;
-import org.tomitribe.github.TestLinks;
+import org.tomitribe.github.core.JsonAsserts;
+import org.tomitribe.github.core.MockService;
+import org.tomitribe.github.core.Resources;
+import org.tomitribe.github.core.TestLinks;
 import org.tomitribe.github.core.Link;
 import org.tomitribe.github.model.Repository;
 
