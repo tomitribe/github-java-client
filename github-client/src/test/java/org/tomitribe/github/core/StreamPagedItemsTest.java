@@ -16,21 +16,20 @@
  */
 package org.tomitribe.github.core;
 
-import org.apache.openejb.util.Join;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.tomitribe.github.client.GithubClient;
-import org.tomitribe.github.model.RepositoriesPage;
-import org.tomitribe.github.model.Repository;
-
+import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
-import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Response;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.openejb.util.Join;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import java.io.IOException;
-import java.lang.reflect.Proxy;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,16 +48,11 @@ public class StreamPagedItemsTest {
     }
 
     private SearchClient getClient() {
-        final Client client = ClientBuilder.newClient()
-                .register(new MessageLogger.RequestFilter())
-                .register(new MessageLogger.ResponseFilter());
-
-        final Api api = Api.builder()
-                .api(uri)
-                .client(client)
-                .handler(builder -> builder.header("authorization", "token 23456789dfghjklkjhgfdsdfghuiytrewertyui"))
-                .build();
-        return (SearchClient) Proxy.newProxyInstance(this.getClass().getClassLoader(), new Class[]{SearchClient.class}, new ClientHandler(api));
+        return ClientFactory.builder()
+                .accessToken("23456789dfghjklkjhgfdsdfghuiytrewertyui")
+                .host(uri)
+                .build()
+                .getClient(SearchClient.class);
     }
 
     public interface SearchClient {
@@ -322,8 +316,6 @@ public class StreamPagedItemsTest {
     @Test
     public void fullRecord() throws Exception {
 
-        final GithubClient githubClient = GithubClient.builder().api(uri).build();
-
         final String expectedJson = "{\n" +
                 "  \"archive_url\":\"https://api.github.com/repos/EmilLubomirov/CaseBook/{archive_format}{/ref}\",\n" +
                 "  \"archived\":false,\n" +
@@ -417,7 +409,7 @@ public class StreamPagedItemsTest {
                 "  \"watchers_count\":0\n" +
                 "}";
 
-        final Repository actual = githubClient.searchRepositories("q=tomee")
+        final Repository actual = getClient().searchRepositories("q=tomee")
                 .filter(repository -> repository.getName().equals("CaseBook"))
                 .findFirst()
                 .get();
@@ -432,14 +424,14 @@ public class StreamPagedItemsTest {
     @Test
     public void searchesCanBeJoinedDistinctly() throws Exception {
 
-        final GithubClient githubClient = GithubClient.builder().api(uri).build();
+        final SearchClient client = getClient();
 
         /*
          * Produce a stream with duplicate entries, but not duplicate instances
          */
         final List<String> actual = Stream.concat(
-                        githubClient.searchRepositories("q=tomee"),
-                        githubClient.searchRepositories("q=tomee"))
+                        client.searchRepositories("q=tomee"),
+                        client.searchRepositories("q=tomee"))
                 .distinct()
                 .map(Repository::getName)
                 .collect(Collectors.toList());
@@ -714,4 +706,446 @@ public class StreamPagedItemsTest {
 
     }
 
+    @Data
+    @lombok.Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Repository {
+
+        /**
+         * Odd upper-case P required to get around
+         * the fact that "private" is a keyword
+         */
+        @JsonbProperty("private")
+        @SuppressWarnings("PMD.FieldNamingConventions")
+        private Boolean // TODO file bug that capitol P cannot be used
+                _private;
+
+        @JsonbProperty("allow_merge_commit")
+        private Boolean allowMergeCommit;
+
+        @JsonbProperty("allow_rebase_merge")
+        private Boolean allowRebaseMerge;
+
+        @JsonbProperty("allow_squash_merge")
+        private Boolean allowSquashMerge;
+
+        @JsonbProperty("archive_url")
+        private String archiveUrl;
+
+        @JsonbProperty("archived")
+        private Boolean archived;
+
+        @JsonbProperty("assignees_url")
+        private String assigneesUrl;
+
+        @JsonbProperty("blobs_url")
+        private String blobsUrl;
+
+        @JsonbProperty("branches_url")
+        private String branchesUrl;
+
+        @JsonbProperty("clone_url")
+        private String cloneUrl;
+
+        @JsonbProperty("collaborators_url")
+        private String collaboratorsUrl;
+
+        @JsonbProperty("comments_url")
+        private String commentsUrl;
+
+        @JsonbProperty("commits_url")
+        private String commitsUrl;
+
+        @JsonbProperty("compare_url")
+        private String compareUrl;
+
+        @JsonbProperty("contents_url")
+        private String contentsUrl;
+
+        @JsonbProperty("contributors_url")
+        private String contributorsUrl;
+
+        @JsonbProperty("created_at")
+        private String createdAt;
+
+        @JsonbProperty("default_branch")
+        private String defaultBranch;
+
+        @JsonbProperty("deployments_url")
+        private String deploymentsUrl;
+
+        @JsonbProperty("description")
+        private String description;
+
+        @JsonbProperty("disabled")
+        private Boolean disabled;
+
+        @JsonbProperty("downloads_url")
+        private String downloadsUrl;
+
+        @JsonbProperty("events_url")
+        private String eventsUrl;
+
+        @JsonbProperty("fork")
+        private Boolean fork;
+
+        @JsonbProperty("forks")
+        private Long forks;
+
+        @JsonbProperty("forks_count")
+        private Long forksCount;
+
+        @JsonbProperty("forks_url")
+        private String forksUrl;
+
+        @JsonbProperty("full_name")
+        private String fullName;
+
+        @JsonbProperty("git_commits_url")
+        private String gitCommitsUrl;
+
+        @JsonbProperty("git_refs_url")
+        private String gitRefsUrl;
+
+        @JsonbProperty("git_tags_url")
+        private String gitTagsUrl;
+
+        @JsonbProperty("git_url")
+        private String gitUrl;
+
+        @JsonbProperty("has_downloads")
+        private Boolean hasDownloads;
+
+        @JsonbProperty("has_issues")
+        private Boolean hasIssues;
+
+        @JsonbProperty("has_pages")
+        private Boolean hasPages;
+
+        @JsonbProperty("has_projects")
+        private Boolean hasProjects;
+
+        @JsonbProperty("has_wiki")
+        private Boolean hasWiki;
+
+        @JsonbProperty("homepage")
+        private String homepage;
+
+        @JsonbProperty("hooks_url")
+        private String hooksUrl;
+
+        @JsonbProperty("html_url")
+        private String htmlUrl;
+
+        @JsonbProperty("id")
+        private Long id;
+
+        @JsonbProperty("is_template")
+        private Boolean isTemplate;
+
+        @JsonbProperty("issue_comment_url")
+        private String issueCommentUrl;
+
+        @JsonbProperty("issue_events_url")
+        private String issueEventsUrl;
+
+        @JsonbProperty("issues_url")
+        private String issuesUrl;
+
+        @JsonbProperty("keys_url")
+        private String keysUrl;
+
+        @JsonbProperty("labels_url")
+        private String labelsUrl;
+
+        @JsonbProperty("language")
+        private String language;
+
+        @JsonbProperty("languages_url")
+        private String languagesUrl;
+
+        @JsonbProperty("license")
+        private License license;
+
+        @JsonbProperty("master_branch")
+        private String masterBranch;
+
+        @JsonbProperty("merges_url")
+        private String mergesUrl;
+
+        @JsonbProperty("milestones_url")
+        private String milestonesUrl;
+
+        @JsonbProperty("mirror_url")
+        private String mirrorUrl;
+
+        @JsonbProperty("name")
+        private String name;
+
+        @JsonbProperty("network_count")
+        private Integer networkCount;
+
+        @JsonbProperty("node_id")
+        private String nodeId;
+
+        @JsonbProperty("notifications_url")
+        private String notificationsUrl;
+
+        @JsonbProperty("open_issues")
+        private Long openIssues;
+
+        @JsonbProperty("open_issues_count")
+        private Long openIssuesCount;
+
+        @JsonbProperty("owner")
+        private Owner owner;
+
+        @JsonbProperty("permissions")
+        private Permissions permissions;
+
+        @JsonbProperty("pulls_url")
+        private String pullsUrl;
+
+        @JsonbProperty("pushed_at")
+        private String pushedAt;
+
+        @JsonbProperty("releases_url")
+        private String releasesUrl;
+
+        @JsonbProperty("score")
+        private Double score;
+
+        @JsonbProperty("size")
+        private Long size;
+
+        @JsonbProperty("ssh_url")
+        private String sshUrl;
+
+        @JsonbProperty("stargazers")
+        private Long stargazers;
+
+        @JsonbProperty("stargazers_count")
+        private Long stargazersCount;
+
+        @JsonbProperty("stargazers_url")
+        private String stargazersUrl;
+
+        @JsonbProperty("statuses_url")
+        private String statusesUrl;
+
+        @JsonbProperty("subscribers_count")
+        private Integer subscribersCount;
+
+        @JsonbProperty("subscribers_url")
+        private String subscribersUrl;
+
+        @JsonbProperty("subscription_url")
+        private String subscriptionUrl;
+
+        @JsonbProperty("svn_url")
+        private String svnUrl;
+
+        @JsonbProperty("tags_url")
+        private String tagsUrl;
+
+        @JsonbProperty("teams_url")
+        private String teamsUrl;
+
+        @JsonbProperty("topics")
+        private List<String> topics;
+
+        @JsonbProperty("trees_url")
+        private String treesUrl;
+
+        @JsonbProperty("updated_at")
+        private String updatedAt;
+
+        @JsonbProperty("url")
+        private String url;
+
+        @JsonbProperty("watchers")
+        private Long watchers;
+
+        @JsonbProperty("watchers_count")
+        private Long watchersCount;
+    }
+
+    @Data
+    @lombok.Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Permissions {
+
+        @JsonbProperty("admin")
+        private Boolean admin;
+
+        @JsonbProperty("administration")
+        private String administration;
+
+        @JsonbProperty("checks")
+        private String checks;
+
+        @JsonbProperty("contents")
+        private String contents;
+
+        @JsonbProperty("deployments")
+        private String deployments;
+
+        @JsonbProperty("issues")
+        private String issues;
+
+        @JsonbProperty("members")
+        private String members;
+
+        @JsonbProperty("metadata")
+        private String metadata;
+
+        @JsonbProperty("organization_administration")
+        private String organizationAdministration;
+
+        @JsonbProperty("organization_hooks")
+        private String organizationHooks;
+
+        @JsonbProperty("organization_plan")
+        private String organizationPlan;
+
+        @JsonbProperty("organization_projects")
+        private String organizationProjects;
+
+        @JsonbProperty("organization_user_blocking")
+        private String organizationUserBlocking;
+
+        @JsonbProperty("pages")
+        private String pages;
+
+        @JsonbProperty("pull")
+        private Boolean pull;
+
+        @JsonbProperty("pull_requests")
+        private String pullRequests;
+
+        @JsonbProperty("push")
+        private Boolean push;
+
+        @JsonbProperty("repository_hooks")
+        private String repositoryHooks;
+
+        @JsonbProperty("repository_projects")
+        private String repositoryProjects;
+
+        @JsonbProperty("statuses")
+        private String statuses;
+
+        @JsonbProperty("team_discussions")
+        private String teamDiscussions;
+
+        @JsonbProperty("vulnerability_alerts")
+        private String vulnerabilityAlerts;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class License {
+
+        @JsonbProperty("key")
+        private String key;
+
+        @JsonbProperty("name")
+        private String name;
+
+        @JsonbProperty("node_id")
+        private String nodeId;
+
+        @JsonbProperty("spdx_id")
+        private String spdxId;
+
+        @JsonbProperty("url")
+        private URI url;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class Owner {
+
+        @JsonbProperty("avatar_url")
+        private String avatarUrl;
+
+        @JsonbProperty("email")
+        private String email;
+
+        @JsonbProperty("events_url")
+        private String eventsUrl;
+
+        @JsonbProperty("followers_url")
+        private String followersUrl;
+
+        @JsonbProperty("following_url")
+        private String followingUrl;
+
+        @JsonbProperty("gists_url")
+        private String gistsUrl;
+
+        @JsonbProperty("gravatar_id")
+        private String gravatarId;
+
+        @JsonbProperty("html_url")
+        private String htmlUrl;
+
+        @JsonbProperty("id")
+        private Long id;
+
+        @JsonbProperty("login")
+        private String login;
+
+        @JsonbProperty("name")
+        private String name;
+
+        @JsonbProperty("node_id")
+        private String nodeId;
+
+        @JsonbProperty("organizations_url")
+        private String organizationsUrl;
+
+        @JsonbProperty("received_events_url")
+        private String receivedEventsUrl;
+
+        @JsonbProperty("repos_url")
+        private String reposUrl;
+
+        @JsonbProperty("site_admin")
+        private Boolean siteAdmin;
+
+        @JsonbProperty("starred_url")
+        private String starredUrl;
+
+        @JsonbProperty("subscriptions_url")
+        private String subscriptionsUrl;
+
+        @JsonbProperty("type")
+        private String type;
+
+        @JsonbProperty("url")
+        private String url;
+    }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class RepositoriesPage {
+
+        @JsonbProperty("incomplete_results")
+        private Boolean incompleteResults;
+
+        @JsonbProperty("items")
+        private List<Repository> items;
+
+        @JsonbProperty("total_count")
+        private Long totalCount;
+    }
 }
