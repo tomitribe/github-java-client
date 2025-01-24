@@ -16,14 +16,18 @@
  */
 package org.tomitribe.github.core;
 
+import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.Response;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.tomitribe.github.model.PullRequest;
 import org.tomitribe.util.Join;
 
 import java.io.IOException;
@@ -132,4 +136,126 @@ public class StreamPagedArrayTest {
             return MockService.run(MockGithub.class);
         }
     }
+
+    @Data
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class PullRequest {
+
+        @JsonbProperty("additions")
+        private Long additions;
+
+        @JsonbProperty("author_association")
+        private String authorAssociation;
+
+        @JsonbProperty("body")
+        private String body;
+
+        @JsonbProperty("changed_files")
+        private Long changedFiles;
+
+        @JsonbProperty("closed_at")
+        private String closedAt;
+
+        @JsonbProperty("comments")
+        private Long comments;
+
+        @JsonbProperty("comments_url")
+        private String commentsUrl;
+
+        @JsonbProperty("commits")
+        private Long commits;
+
+        @JsonbProperty("commits_url")
+        private String commitsUrl;
+
+        @JsonbProperty("created_at")
+        private String createdAt;
+
+        @JsonbProperty("deletions")
+        private Long deletions;
+
+        @JsonbProperty("diff_url")
+        private String diffUrl;
+
+        @JsonbProperty("draft")
+        private Boolean draft;
+
+        @JsonbProperty("href")
+        private String href;
+
+        @JsonbProperty("html_url")
+        private String htmlUrl;
+
+        @JsonbProperty("id")
+        private Long id;
+
+        @JsonbProperty("issue_url")
+        private String issueUrl;
+
+        @JsonbProperty("locked")
+        private Boolean locked;
+
+        @JsonbProperty("maintainer_can_modify")
+        private Boolean maintainerCanModify;
+
+        @JsonbProperty("merge_commit_sha")
+        private String mergeCommitSha;
+
+        @JsonbProperty("mergeable")
+        private Boolean mergeable;
+
+        @JsonbProperty("mergeable_state")
+        private String mergeableState;
+
+        @JsonbProperty("merged")
+        private Boolean merged;
+
+        @JsonbProperty("merged_at")
+        private String mergedAt;
+
+        @JsonbProperty("merged_by")
+        private String mergedBy;
+
+        @JsonbProperty("node_id")
+        private String nodeId;
+
+        @JsonbProperty("number")
+        private Long number;
+
+        @JsonbProperty("patch_url")
+        private String patchUrl;
+
+        @JsonbProperty("rebaseable")
+        private Boolean rebaseable;
+
+        @JsonbProperty("requested_teams")
+        private String[] requestedTeams;
+
+        @JsonbProperty("review_comment_url")
+        private String reviewCommentUrl;
+
+        @JsonbProperty("review_comments")
+        private Long reviewComments;
+
+        @JsonbProperty("review_comments_url")
+        private String reviewCommentsUrl;
+
+        @JsonbProperty("state")
+        private String state;
+
+        @JsonbProperty("statuses_url")
+        private String statusesUrl;
+
+        @JsonbProperty("title")
+        private String title;
+
+        @JsonbProperty("updated_at")
+        private String updatedAt;
+
+        @JsonbProperty("url")
+        private String url;
+    }
+
 }
