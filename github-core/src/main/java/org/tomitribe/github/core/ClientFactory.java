@@ -13,7 +13,31 @@
  */
 package org.tomitribe.github.core;
 
+import jakarta.ws.rs.client.ClientBuilder;
+import lombok.Builder;
+import lombok.Data;
+
+import java.lang.reflect.Proxy;
+import java.net.URI;
+
+@Data
+@Builder(builderClassName = "Builder")
 public class ClientFactory {
 
+    private final String accessToken;
+    private final URI host;
+
+    public <Client> Client getClient(final Class<Client> clientClass) {
+        final jakarta.ws.rs.client.Client client = ClientBuilder.newClient()
+                .register(new MessageLogger.RequestFilter())
+                .register(new MessageLogger.ResponseFilter());
+
+        final Api api = Api.builder()
+                .api(host)
+                .client(client)
+                .handler(builder -> builder.header("authorization", "token " + accessToken))
+                .build();
+        return (Client) Proxy.newProxyInstance(clientClass.getClassLoader(), new Class[]{clientClass}, new ClientHandler(api));
+    }
 
 }

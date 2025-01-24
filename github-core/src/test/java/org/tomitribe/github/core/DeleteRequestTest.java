@@ -23,7 +23,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.Context;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,7 +32,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.lang.reflect.Proxy;
 import java.net.URI;
 
 import static org.junit.Assert.assertEquals;
@@ -74,16 +72,11 @@ public class DeleteRequestTest {
     }
 
     public static <Client> Client getClient(final Class<Client> clientClass) {
-        final jakarta.ws.rs.client.Client client = ClientBuilder.newClient()
-                .register(new MessageLogger.RequestFilter())
-                .register(new MessageLogger.ResponseFilter());
-
-        final Api api = Api.builder()
-                .api(uri)
-                .client(client)
-                .handler(builder -> builder.header("authorization", "token 23456789dfghjklkjhgfdsdfghuiytrewertyui"))
-                .build();
-        return (Client) Proxy.newProxyInstance(clientClass.getClassLoader(), new Class[]{clientClass}, new ClientHandler(api));
+        return ClientFactory.builder()
+                .accessToken("23456789dfghjklkjhgfdsdfghuiytrewertyui")
+                .host(uri)
+                .build()
+                .getClient(clientClass);
     }
 
     @Data
