@@ -167,7 +167,7 @@ public class PostRequestTest {
             if (!authorization.contains("token")) throw new WebApplicationException(401);
             if (!authorization.contains("23456789dfghjklkjhgfdsdfghuiytrewertyui")) throw new WebApplicationException(401);
 
-            JsonAsserts.assertJsonb("{\n" +
+            JsonAsserts.assertJson("{\n" +
                     "  \"maintainer_can_modify\":true,\n" +
                     "  \"base\":\"master\",\n" +
                     "  \"body\":\"Let's get this done!\",\n" +
@@ -195,7 +195,7 @@ public class PostRequestTest {
             if (!authorization.contains("token")) throw new WebApplicationException(401);
             if (!authorization.contains("23456789dfghjklkjhgfdsdfghuiytrewertyui")) throw new WebApplicationException(401);
 
-            JsonAsserts.assertJsonb("{\n" +
+            JsonAsserts.assertJson("{\n" +
                     "  \"maintainer_can_modify\":true,\n" +
                     "  \"base\":\"master\",\n" +
                     "  \"body\":\"Let's get this done!\",\n" +
