@@ -83,7 +83,7 @@ public class CreatePullRequestTest {
             // Assert the client sends the accept header github will need to allow the preview api call
             if (!accept.contains("application/vnd.github.shadow-cat-preview+json")) throw new WebApplicationException(400);
 
-            JsonAsserts.assertJsonb("{\n" +
+            JsonAsserts.assertJson("{\n" +
                     "  \"maintainer_can_modify\":true,\n" +
                     "  \"base\":\"master\",\n" +
                     "  \"body\":\"Let's get this done!\",\n" +
