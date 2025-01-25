@@ -19,6 +19,7 @@ package org.tomitribe.github.gen;
 import org.tomitribe.util.IO;
 import org.tomitribe.util.Join;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,6 +53,17 @@ public class ProjectAsserts {
      * do not forget to uncomment the call to this method.
      */
     private static void sync(final Project expected, final Project actual, final String path) throws IOException {
+        /*
+         * Update the copy in the target directory
+         */
         IO.copy(actual.file(path), expected.file(path));
+
+        /*
+         * Update the copy in the source for future runs
+         */
+        final String sourcePath = expected.get().getAbsolutePath().replace("/target/test-classes/", "/src/test/resources/");
+        final Project sources = Project.from(new File(sourcePath));
+        IO.copy(actual.file(path), sources.file(path));
+
     }
 }
