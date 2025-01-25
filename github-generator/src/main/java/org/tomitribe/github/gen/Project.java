@@ -17,6 +17,7 @@
 package org.tomitribe.github.gen;
 
 import org.tomitribe.util.JarLocation;
+import org.tomitribe.util.dir.Mkdir;
 import org.tomitribe.util.dir.Name;
 
 import java.io.File;
@@ -25,7 +26,8 @@ import java.util.stream.Stream;
 public interface Project extends Dir {
     Src src();
 
-    Dir target();
+    @Mkdir
+    Target target();
 
     @Name("pom.xml")
     File pomXml();
@@ -46,5 +48,10 @@ public interface Project extends Dir {
 
     static Project from(final File project) {
         return org.tomitribe.util.dir.Dir.of(Project.class, project);
+    }
+
+    interface Target extends Dir {
+        @Mkdir
+        Dir classes();
     }
 }

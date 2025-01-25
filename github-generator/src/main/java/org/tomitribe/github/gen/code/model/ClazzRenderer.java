@@ -26,6 +26,7 @@ import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
 import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
 import org.apache.commons.lang3.text.WordUtils;
+import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
 import org.tomitribe.github.core.EnumAdapter;
 import org.tomitribe.github.gen.ClassDefinition;
@@ -107,6 +108,7 @@ public class ClazzRenderer {
 
         clazz.getComponentIds().stream()
                 .sorted()
+                .distinct()
                 .map(s -> String.format("@ComponentId(\"%s\")", s))
                 .forEach(definition::addRepeatableAnnotation);
 
@@ -259,6 +261,10 @@ public class ClazzRenderer {
 
     private Stream<String> imports(final Clazz clazz) {
         final List<String> imports = new ArrayList<>();
+
+        if (clazz.getComponentIds().size() > 0) {
+            imports.add(ComponentId.class.getName());
+        }
 
         for (final Clazz innerClass : clazz.getInnerClasses()) {
             if (innerClass instanceof EnumClazz) {

@@ -20,6 +20,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
 
 @Data
