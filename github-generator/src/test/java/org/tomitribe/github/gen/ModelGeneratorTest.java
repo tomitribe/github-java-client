@@ -18,8 +18,8 @@ package org.tomitribe.github.gen;
 
 import org.junit.Test;
 import org.tomitribe.github.core.JsonAsserts;
-import org.tomitribe.github.core.Resources;
 import org.tomitribe.github.core.JsonMarshalling;
+import org.tomitribe.github.core.Resources;
 import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.ClazzReference;
 import org.tomitribe.github.gen.code.model.ClazzRenderer;

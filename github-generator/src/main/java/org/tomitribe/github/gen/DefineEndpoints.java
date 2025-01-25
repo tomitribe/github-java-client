@@ -18,8 +18,8 @@ package org.tomitribe.github.gen;
 
 import lombok.Data;
 import org.tomitribe.github.gen.openapi.Content;
+import org.tomitribe.github.gen.openapi.Endpoint;
 import org.tomitribe.github.gen.openapi.OpenApi;
-import org.tomitribe.github.gen.openapi.OpenApiTest;
 import org.tomitribe.github.gen.openapi.Path;
 import org.tomitribe.github.gen.openapi.Response;
 import org.tomitribe.github.gen.openapi.Schema;
@@ -99,13 +99,13 @@ public class DefineEndpoints {
 
 
         final OpenApi openApi = OpenApi.parse(IO.slurp(gen.getGithubOpenApiJson()));
-        final List<OpenApiTest.Endpoint> endpoints = openApi.getPaths().values().stream()
+        final List<Endpoint> endpoints = openApi.getPaths().values().stream()
                 .flatMap(Path::getMethods)
-                .map(OpenApiTest.Endpoint::new)
+                .map(Endpoint::new)
                 .filter(endpoint -> endpoint.getResponse() != null)
                 .collect(Collectors.toList());
 
-        for (final OpenApiTest.Endpoint endpoint : endpoints) {
+        for (final Endpoint endpoint : endpoints) {
             final Response response = endpoint.getResponse();
 
             if (response.getName().equals("204")) continue;

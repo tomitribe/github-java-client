@@ -238,7 +238,8 @@ public class EndpointGenerator {
 
     private Clazz generateResponseClass(final Method method) {
         if (method.getResponses() == null) throw new IllegalStateException("Method has no responses: " + method);
-        if (method.getResponses().values() == null) throw new IllegalStateException("Method has no responses: " + method);
+        if (method.getResponses().values() == null)
+            throw new IllegalStateException("Method has no responses: " + method);
 
         final Response ok = method.getResponses().values().stream()
                 .filter(response -> response.getName().startsWith("2"))

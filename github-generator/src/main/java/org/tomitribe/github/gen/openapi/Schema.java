@@ -36,7 +36,7 @@ public class Schema {
 
     @JsonbTransient
     private String name;
-    
+
     @JsonbProperty("type")
     private String type;
 

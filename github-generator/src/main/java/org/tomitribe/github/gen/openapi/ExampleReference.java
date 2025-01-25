@@ -17,7 +17,6 @@
 package org.tomitribe.github.gen.openapi;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 
 @Data

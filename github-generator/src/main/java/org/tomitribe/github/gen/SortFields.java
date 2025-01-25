@@ -29,6 +29,9 @@ import java.util.List;
  */
 public class SortFields {
 
+    private SortFields() {
+    }
+
     public static String apply(final String source) {
         final ClassDefinition definition = ClassDefinition.parse(source);
         final ClassOrInterfaceDeclaration clazz = definition.getClazz();

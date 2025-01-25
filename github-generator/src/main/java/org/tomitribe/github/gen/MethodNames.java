@@ -33,6 +33,9 @@ import java.util.stream.Stream;
 
 public class MethodNames {
 
+    private MethodNames() {
+    }
+
     public static void main(String[] args) throws IOException {
         final Gen gen = Project.root().src().test().resources().gen();
         gen.getGithubOpenApiJson();

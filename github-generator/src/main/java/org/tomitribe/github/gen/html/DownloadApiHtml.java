@@ -16,10 +16,6 @@
  */
 package org.tomitribe.github.gen.html;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.tomitribe.github.gen.Html;
 import org.tomitribe.github.gen.Project;
 import org.tomitribe.swizzle.stream.StreamBuilder;

@@ -16,8 +16,6 @@
  */
 package org.tomitribe.github.gen.json;
 
-import org.tomitribe.github.gen.util.Words;
-
 import jakarta.json.JsonValue;
 
 import static org.tomitribe.github.gen.util.Words.getVariableName;

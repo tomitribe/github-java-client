@@ -34,6 +34,9 @@ import java.util.stream.Collectors;
  */
 public class RemoveDuplicateImports {
 
+    private RemoveDuplicateImports() {
+    }
+
     public static String apply(String source) {
 
         final CompilationUnit unit = ClassDefinition.parse(source).getUnit();

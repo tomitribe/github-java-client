@@ -36,6 +36,9 @@ import java.util.stream.Stream;
 
 public class HtmlParser {
 
+    private HtmlParser() {
+    }
+
     /**
      * Use this to regenerate the src/test/resources/gen/json files
      */

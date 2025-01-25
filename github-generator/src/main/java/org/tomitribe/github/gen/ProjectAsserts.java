@@ -26,6 +26,9 @@ import java.util.stream.Collectors;
 import static org.junit.Assert.assertEquals;
 
 public class ProjectAsserts {
+    private ProjectAsserts() {
+    }
+
     public static void assertProject(final Project expected, final Project actual) throws IOException {
 
         final String expectedPaths = Join.join("\n", expected.paths().collect(Collectors.toList()));
@@ -34,9 +37,21 @@ public class ProjectAsserts {
 
         final List<String> paths = expected.paths().collect(Collectors.toList());
         for (final String path : paths) {
+//            sync(expected, actual, path);
             final String expectedContent = IO.slurp(expected.file(path));
             final String actualContent = IO.slurp(actual.file(path));
+
             assertEquals(path, expectedContent, actualContent);
         }
+    }
+
+    /**
+     * Convenience method to sync the generated results back to the expected results.
+     * Without this you have to copy each file one-by-one which would take forever.
+     * Once run, make sure to carefully review the git diff before committing and
+     * do not forget to uncomment the call to this method.
+     */
+    private static void sync(final Project expected, final Project actual, final String path) throws IOException {
+        IO.copy(actual.file(path), expected.file(path));
     }
 }

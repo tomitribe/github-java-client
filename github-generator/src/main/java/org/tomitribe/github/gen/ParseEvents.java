@@ -37,6 +37,9 @@ import java.util.stream.Stream;
 
 public class ParseEvents {
 
+    private ParseEvents() {
+    }
+
     public static void main(String[] args) throws IOException {
         final ClassLoader loader = ParseEvents.class.getClassLoader();
         final URL resource = loader.getResource("event-types.html");

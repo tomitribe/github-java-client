@@ -18,16 +18,12 @@ package org.tomitribe.github.gen.code.model;
 
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 @Getter
 public class ClazzReference extends Clazz {
     private final String reference;
 
     public ClazzReference(final String reference) {
-        super(null,null, null, null);
+        super(null, null, null, null);
         this.reference = reference;
     }
 

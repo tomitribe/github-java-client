@@ -19,10 +19,8 @@ package org.tomitribe.github.gen;
 import org.tomitribe.github.core.JsonMarshalling;
 import org.tomitribe.github.gen.openapi.Example;
 import org.tomitribe.github.gen.openapi.OpenApi;
-import org.tomitribe.util.Files;
 import org.tomitribe.util.IO;
 
-import java.io.File;
 import java.util.Map;
 
 public class SaveExamples {

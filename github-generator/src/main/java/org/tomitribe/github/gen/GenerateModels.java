@@ -75,7 +75,7 @@ public class GenerateModels {
             for (final Method method : methods) {
                 final String target = String.format("%s %s", method.getName(), method.getPath().getName());
                 final Clazz.Builder clazz = Clazz.builder().endpoint(target);
-                
+
             }
         }
 

@@ -82,8 +82,9 @@ public class Field {
                 return value.toString().contains(".") ? "Double" : "Long";
             case STRING:
                 return "String";
+            default:
+                return null;
         }
-        return null;
     }
 
     @Override

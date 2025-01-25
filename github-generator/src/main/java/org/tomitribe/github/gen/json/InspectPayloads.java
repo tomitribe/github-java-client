@@ -37,6 +37,9 @@ import static org.tomitribe.github.gen.util.Words.getVariableName;
 
 public class InspectPayloads {
 
+    private InspectPayloads() {
+    }
+
     public static void main(String[] args) {
         final List<Endpoint> endpoints = Project.root().src().test().resources().gen().json().files()
                 .filter(file -> file.getName().endsWith(".json"))
@@ -95,7 +98,8 @@ public class InspectPayloads {
         }
     }
 
-    private final static Pattern PATTERN = Pattern.compile("(get or create|get|add|set|remove|list|delete|update|create|disable|enable|check|reset|revoke|suspend|unsuspend|unlock) (.*)");
+    private final static Pattern PATTERN = Pattern.compile("(get or create|get|add|set|remove|list|delete|" +
+            "update|create|disable|enable|check|reset|revoke|suspend|unsuspend|unlock) (.*)");
 
     private static Signature implySignature(final Endpoint endpoint) {
         final String title = endpoint.getTitle().toLowerCase()

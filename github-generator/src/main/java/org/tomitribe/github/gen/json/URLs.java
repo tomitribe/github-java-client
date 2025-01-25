@@ -18,7 +18,6 @@
 package org.tomitribe.github.gen.json;
 
 
-
 import org.tomitribe.util.JarLocation;
 
 import java.io.File;

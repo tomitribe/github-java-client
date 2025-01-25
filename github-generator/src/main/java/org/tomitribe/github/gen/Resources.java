@@ -25,6 +25,6 @@ public interface Resources extends Dir {
     @Mkdir
     @Name("ExamplesOpenApiTest")
     Dir examplesOpenapi();
-    
+
     Gen gen();
 }
