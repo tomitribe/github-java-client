@@ -35,68 +35,62 @@ public class EndpointRendererTest {
 
     @Test
     public void simple() throws Exception {
-        assertScenario(Scenario.get("simple"));
+        assertScenario("simple");
     }
 
     @Test
     public void voidReturn() throws Exception {
-        assertScenario(Scenario.get("voidReturn"));
+        assertScenario("voidReturn");
     }
 
     @Test
     public void noParameters() throws Exception {
-        assertScenario(Scenario.get("noParameters"));
+        assertScenario("noParameters");
     }
 
     @Test
     public void requestBody() throws Exception {
-        assertScenario(Scenario.get("requestBody"));
+        assertScenario("requestBody");
     }
 
     @Test
     public void returnArrayOfString() throws Exception {
-        assertScenario(Scenario.get("returnArrayOfString"));
+        assertScenario("returnArrayOfString");
     }
 
     @Test
     public void returnArrayOfArray() throws Exception {
-        assertScenario(Scenario.get("returnArrayOfArray"));
+        assertScenario("returnArrayOfArray");
     }
 
     @Test
     public void returnPagedStream() throws Exception {
-        assertScenario(Scenario.get("returnPagedStream"));
+        assertScenario("returnPagedStream");
     }
 
     @Test
     public void returnPagedStreamFromArray() throws Exception {
-        assertScenario(Scenario.get("returnPagedStreamFromArray"));
+        assertScenario("returnPagedStreamFromArray");
     }
 
     @Test
     public void returnPagedStreamUnknown() throws Exception {
-        assertScenario(Scenario.get("returnPagedStreamUnknown"));
+        assertScenario("returnPagedStreamUnknown");
     }
 
     @Test
     public void requestBodyWithParams() throws Exception {
-        assertScenario(Scenario.get("requestBodyWithParams"));
+        assertScenario("requestBodyWithParams");
     }
 
     @Test
     public void all() throws Exception {
-        assertScenario(Scenario.get("all"));
+        assertScenario("all");
     }
 
-    /**
-     * Use this to regenerate the expected java files for any of the test scenarios.
-     */
-    @Test
-    @Ignore("Run this to regenerate any scenario files")
-    public void regenerateScenarios() throws Exception {
-        regenerateScenario(Scenario.source("all"));
-        regenerateScenario(Scenario.source("requestBody"));
-        regenerateScenario(Scenario.source("returnArrayOfString"));
+    private void assertScenario(final String name) throws IOException {
+//        regenerateScenario(Scenario.source(name));
+        assertScenario(Scenario.get(name));
     }
 
     private void regenerateScenario(final Scenario scenario) throws IOException {
