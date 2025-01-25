@@ -59,18 +59,8 @@
       <artifactId>github-core</artifactId>
       <version>0.1-SNAPSHOT</version>
       <classifier>tests</classifier>
-      <scope>test</scope>
+<!--      <scope>test</scope>-->
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>org.apache.geronimo.specs</groupId>-->
-<!--      <artifactId>geronimo-json_1.1_spec</artifactId>-->
-<!--      <version>1.0</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.apache.johnzon</groupId>-->
-<!--      <artifactId>johnzon-jsonb</artifactId>-->
-<!--      <version>1.1.4</version>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>org.tomitribe</groupId>
       <artifactId>churchkey</artifactId>
@@ -107,8 +97,8 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
+      <version>4.13.1</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -119,31 +109,26 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-text</artifactId>
       <version>1.9</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>3.8.1</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>com.github.javaparser</groupId>
       <artifactId>javaparser-core</artifactId>
       <version>3.16.1</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.eclipse.jdt</groupId>
       <artifactId>org.eclipse.jdt.core</artifactId>
       <version>3.22.0</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.eclipse.platform</groupId>
       <artifactId>org.eclipse.text</artifactId>
       <version>3.10.400</version>
-      <scope>test</scope>
     </dependency>
 
   </dependencies>

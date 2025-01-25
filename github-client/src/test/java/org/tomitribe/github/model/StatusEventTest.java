@@ -21,7 +21,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.tomitribe.github.model.PayloadAsserts.assertPayload;
+import static org.tomitribe.github.core.PayloadAsserts.assertPayload;
 
 @Ignore
 public class StatusEventTest {

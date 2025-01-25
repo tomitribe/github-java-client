@@ -21,7 +21,7 @@ import org.tomitribe.github.core.JsonMarshalling;
 
 import java.io.IOException;
 
-import static org.tomitribe.github.model.PayloadAsserts.assertPayload;
+import static org.tomitribe.github.core.PayloadAsserts.assertPayload;
 
 public class ListPullRequestsTest {
 
