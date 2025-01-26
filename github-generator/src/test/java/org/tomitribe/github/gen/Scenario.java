@@ -28,10 +28,6 @@ public interface Scenario extends org.tomitribe.util.dir.Dir {
     @Name("openapi.json")
     File openapiJson();
 
-    default boolean generateModels() {
-        return after().src().main().java().model().get().listFiles().length > 0;
-    }
-
     default OpenApi getOpenApi() {
         try {
             return OpenApi.parse(IO.slurp(openapiJson()));
@@ -44,8 +40,7 @@ public interface Scenario extends org.tomitribe.util.dir.Dir {
 
     Project after();
 
-    static Scenario get(final String testName) {
-        final Class<?> clazz = EndpointRendererTest.class;
+    static Scenario get(final String testName, final Class<?> clazz) {
         final File testClasses = JarLocation.jarLocation(clazz);
         final File target = testClasses.getParentFile();
         final File module = target.getParentFile();
@@ -62,8 +57,7 @@ public interface Scenario extends org.tomitribe.util.dir.Dir {
         return org.tomitribe.util.dir.Dir.of(Scenario.class, tmpdir);
     }
 
-    static Scenario source(final String testName) {
-        final Class<?> clazz = EndpointRendererTest.class;
+    static Scenario source(final String testName, final Class<?> clazz) {
         final File testClasses = JarLocation.jarLocation(clazz);
         final File target = testClasses.getParentFile();
         final File module = target.getParentFile();
