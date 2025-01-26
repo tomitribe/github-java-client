@@ -1,0 +1,208 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "0.0.5",
+    "title": "GitHub v3 REST API",
+    "description": "GitHub's v3 REST API.",
+    "license": {
+      "name": "MIT",
+      "url": "https://spdx.org/licenses/MIT"
+    },
+    "termsOfService": "https://docs.github.com/articles/github-terms-of-service",
+    "contact": {
+      "name": "Support",
+      "url": "https://support.github.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "meta",
+      "description": "Endpoints that give information about the API."
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.github.com"
+    }
+  ],
+  "externalDocs": {
+    "description": "GitHub v3 REST API",
+    "url": "https://developer.github.com/v3/"
+  },
+  "paths": {
+    "/meta": {
+      "get": {
+        "summary": "Get GitHub meta information",
+        "description": "This endpoint provides a list of GitHub's IP addresses. For more information, see \"[About GitHub's IP addresses](https://help.github.com/articles/about-github-s-ip-addresses/).\"",
+        "tags": [
+          "meta"
+        ],
+        "operationId": "meta/get",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://developer.github.com/v3/meta/#get-github-meta-information"
+        },
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/api-overview"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/api-overview"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "previews": [
+          ],
+          "category": "meta",
+          "subcategory": null
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "api-overview": {
+        "title": "Api Overview",
+        "description": "Api Overview",
+        "type": "object",
+        "properties": {
+          "verifiable_password_authentication": {
+            "type": "boolean",
+            "example": true
+          },
+          "ssh_key_fingerprints": {
+            "type": "object",
+            "properties": {
+              "MD5_RSA": {
+                "type": "string"
+              },
+              "MD5_DSA": {
+                "type": "string"
+              },
+              "SHA256_RSA": {
+                "type": "string"
+              },
+              "SHA256_DSA": {
+                "type": "string"
+              }
+            }
+          },
+          "hooks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "127.0.0.1/32"
+            ]
+          },
+          "web": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "127.0.0.1/32"
+            ]
+          },
+          "api": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "127.0.0.1/32"
+            ]
+          },
+          "git": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "127.0.0.1/32"
+            ]
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "192.30.252.153/32",
+              "192.30.252.154/32"
+            ]
+          },
+          "importer": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": [
+              "54.158.161.132",
+              "54.226.70.38"
+            ]
+          },
+          "github_services_sha": {
+            "type": "string",
+            "example": "3a0f86fb8db8eea7ccbb9a95f325ddbedfb25e15"
+          },
+          "installed_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "verifiable_password_authentication"
+        ]
+      }
+    },
+    "examples": {
+      "api-overview": {
+        "value": {
+          "verifiable_password_authentication": true,
+          "ssh_key_fingerprints": {
+            "MD5_RSA": "16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48",
+            "MD5_DSA": "ad:1c:08:a4:40:e3:6f:9c:f5:66:26:5d:4b:33:5d:8c",
+            "SHA256_RSA": "nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8",
+            "SHA256_DSA": "br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ"
+          },
+          "hooks": [
+            "192.30.252.0/22"
+          ],
+          "web": [
+            "192.30.252.0/22",
+            "185.199.108.0/22"
+          ],
+          "api": [
+            "192.30.252.0/22",
+            "185.199.108.0/22"
+          ],
+          "git": [
+            "192.30.252.0/22"
+          ],
+          "pages": [
+            "192.30.252.153/32",
+            "192.30.252.154/32"
+          ],
+          "importer": [
+            "54.158.161.132",
+            "54.226.70.38"
+          ]
+        }
+      }
+    }
+  }
+}
