@@ -39,7 +39,148 @@ import static org.tomitribe.github.gen.ProjectAsserts.assertProject;
 public class Scenarios {
 
     private Scenarios() {
+    }
 
+    public static void assertScenario() throws IOException {
+//        regenerateScenario();
+        final Method test = getTestCaller();
+        assertScenario(Scenario.get(test.getName(), test.getDeclaringClass()));
+    }
+
+    private static void assertScenario(final Scenario scenario) throws IOException {
+
+        final Project actual = Project.from(Files.tmpdir());
+        final OpenApi openApi = scenario.getOpenApi();
+
+        { // Generate the java source from the openapi.json
+            generateSources(actual, openApi);
+        }
+
+        { // Assert Java Sources are as expected
+
+            final Project expected = scenario.after();
+
+            assertProject(expected, actual);
+        }
+
+        final List<? extends Class<?>> classList;
+        { // Assert Java sources compile and Class files load
+            final Dir classes = actual.target().classes();
+
+            DirectoryCompiler.compileDirectory(actual.src().main().java().get(), classes.get());
+
+            final ClassLoader loader = createChildClassLoader(classes.get());
+
+            classList = toClassNames(classes.files(), classes.get())
+                    .map(s -> {
+                        try {
+                            return loader.loadClass(s);
+                        } catch (final ClassNotFoundException e) {
+                            throw new RuntimeException(s, e);
+                        }
+                    })
+                    .collect(Collectors.toList());
+        }
+
+        { // Assert the JSON deserialization and serialization of components
+            final Map<String, ? extends Class<?>> components = classList.stream()
+                    .filter(aClass -> aClass.isAnnotationPresent(ComponentId.class))
+                    .collect(Collectors.toMap(
+                            aClass -> {
+                                final ComponentId componentId = aClass.getAnnotation(ComponentId.class);
+                                return componentId.value();
+                            }, // Key mapper: uses the value from getComponent
+                            Function.identity()             // Value mapper: uses the ExampleReference object itself
+                    ));
+
+            if (openApi.getComponents() == null) return;
+            if (openApi.getComponents().getExamples() == null) return;
+            final Map<String, Example> examples = openApi.getComponents().getExamples();
+
+            for (final Map.Entry<String, ? extends Class<?>> entry : components.entrySet()) {
+                final Example example = examples.get(entry.getKey());
+                if (example == null) continue;
+
+                final Class<?> component = entry.getValue();
+
+                final String json = JsonbInstances.get().toJson(example.getValue());
+                JsonAsserts.assertJsonb(json, component);
+
+            }
+        }
+    }
+
+    private static void generateSources(final Project actual, final OpenApi openApi) {
+        Generator.builder()
+                .openApi(openApi)
+                .project(actual)
+                .generateClient(true)
+                .generateModel(true)
+                .clientPackage("org.tomitribe.github.client")
+                .modelPackage("org.tomitribe.github.model")
+                .build()
+                .generate();
+    }
+
+    /**
+     *
+     * @param directory
+     * @return
+     */
+    private static ClassLoader createChildClassLoader(final File directory) {
+        if (directory == null || !directory.isDirectory()) {
+            throw new IllegalArgumentException("Provided file must be a valid directory.");
+        }
+
+        try {
+            final URL directoryUrl = directory.toURI().toURL();
+            final ClassLoader parentClassLoader = Thread.currentThread().getContextClassLoader();
+
+            return new URLClassLoader(new URL[]{directoryUrl}, parentClassLoader);
+        } catch (final MalformedURLException e) {
+            throw new IllegalArgumentException("Failed to create a URL from the provided directory.", e);
+        }
+    }
+
+    /**
+     * Converts a Stream of File objects to fully qualified class names.
+     *
+     * @param files   the Stream of File objects
+     * @param baseDir the root directory containing the class files
+     * @return a Stream of fully qualified class names
+     * @throws IllegalArgumentException if baseDir is null or not a directory
+     */
+    private static Stream<String> toClassNames(final Stream<File> files, final File baseDir) {
+        if (baseDir == null || !baseDir.isDirectory()) {
+            throw new IllegalArgumentException("baseDir must be a valid directory.");
+        }
+
+        final String basePath = baseDir.getAbsolutePath() + File.separator;
+
+        return files
+                .filter(file -> file.isFile() && file.getName().endsWith(".class"))
+                .map(file -> {
+                    final String filePath = file.getAbsolutePath();
+                    if (!filePath.startsWith(basePath)) {
+                        throw new IllegalArgumentException("File is not under the specified base directory: " + filePath);
+                    }
+                    final String relativePath = filePath.substring(basePath.length());
+                    return relativePath
+                            .replace(File.separatorChar, '.')
+                            .replaceAll("\\.class$", ""); // Remove .class extension
+                });
+    }
+
+    public static void regenerateScenario() throws IOException {
+        final Method test = getTestCaller();
+        final Scenario scenario = Scenario.source(test.getName(), test.getDeclaringClass());
+        final Project expected = scenario.after();
+
+        // Delete the old files
+        Files.remove(expected.src().get());
+
+        // Generate new "expected" files
+        generateSources(expected, scenario.getOpenApi());
     }
 
 
@@ -51,7 +192,7 @@ public class Scenarios {
      * @return the {@link java.lang.reflect.Method} of the test case being invoked
      * @throws IllegalStateException if no matching test case is found in the call stack
      */
-    public static Method getTestCaller() {
+    private static Method getTestCaller() {
         final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 
         for (final StackTraceElement element : stackTrace) {
@@ -78,145 +219,5 @@ public class Scenarios {
         }
 
         throw new IllegalStateException("No JUnit test case found in the call stack.");
-    }
-
-    public static void assertScenario() throws IOException {
-//        regenerateScenario();
-        final Method test = getTestCaller();
-        assertScenario(test.getName(), test.getDeclaringClass());
-    }
-
-    public static void assertScenario(final String name, final Class<?> clazz) throws IOException {
-        assertScenario(Scenario.get(name, clazz));
-    }
-
-    public static void assertScenario(final Scenario scenario) throws IOException {
-
-        final Project actual = Project.from(Files.tmpdir());
-
-        final OpenApi openApi = scenario.getOpenApi();
-        Generator.builder()
-                .openApi(openApi)
-                .project(actual)
-                .generateClient(true)
-                .generateModel(true)
-                .clientPackage("org.tomitribe.github.client")
-                .modelPackage("org.tomitribe.github.model")
-                .build()
-                .generate();
-
-        final Project expected = scenario.after();
-
-        assertProject(expected, actual);
-
-        final Dir classes = actual.target().classes();
-
-        DirectoryCompiler.compileDirectory(actual.src().main().java().get(), classes.get());
-
-        final ClassLoader loader = createChildClassLoader(classes.get());
-
-        final List<? extends Class<?>> classList = toClassNames(classes.files(), classes.get())
-                .map(s -> {
-                    try {
-                        return loader.loadClass(s);
-                    } catch (final ClassNotFoundException e) {
-                        throw new RuntimeException(s, e);
-                    }
-                })
-                .collect(Collectors.toList());
-
-        final Map<String, ? extends Class<?>> components = classList.stream()
-                .filter(aClass -> aClass.isAnnotationPresent(ComponentId.class))
-                .collect(Collectors.toMap(
-                        aClass -> {
-                            final ComponentId componentId = aClass.getAnnotation(ComponentId.class);
-                            return componentId.value();
-                        }, // Key mapper: uses the value from getComponent
-                        Function.identity()             // Value mapper: uses the ExampleReference object itself
-                ));
-
-        if (openApi.getComponents() == null) return;
-        if (openApi.getComponents().getExamples() == null) return;
-        final Map<String, Example> examples = openApi.getComponents().getExamples();
-
-        for (final Map.Entry<String, ? extends Class<?>> entry : components.entrySet()) {
-            final Example example = examples.get(entry.getKey());
-            if (example == null) continue;
-
-            final Class<?> component = entry.getValue();
-
-            final String json = JsonbInstances.get().toJson(example.getValue());
-            JsonAsserts.assertJsonb(json, component);
-
-        }
-        System.out.println(examples);
-
-    }
-
-    public static ClassLoader createChildClassLoader(final File directory) {
-        if (directory == null || !directory.isDirectory()) {
-            throw new IllegalArgumentException("Provided file must be a valid directory.");
-        }
-
-        try {
-            final URL directoryUrl = directory.toURI().toURL();
-            final ClassLoader parentClassLoader = Thread.currentThread().getContextClassLoader();
-
-            return new URLClassLoader(new URL[]{directoryUrl}, parentClassLoader);
-        } catch (final MalformedURLException e) {
-            throw new IllegalArgumentException("Failed to create a URL from the provided directory.", e);
-        }
-    }
-
-    /**
-     * Converts a Stream of File objects to fully qualified class names.
-     *
-     * @param files   the Stream of File objects
-     * @param baseDir the root directory containing the class files
-     * @return a Stream of fully qualified class names
-     * @throws IllegalArgumentException if baseDir is null or not a directory
-     */
-    public static Stream<String> toClassNames(final Stream<File> files, final File baseDir) {
-        if (baseDir == null || !baseDir.isDirectory()) {
-            throw new IllegalArgumentException("baseDir must be a valid directory.");
-        }
-
-        final String basePath = baseDir.getAbsolutePath() + File.separator;
-
-        return files
-                .filter(file -> file.isFile() && file.getName().endsWith(".class"))
-                .map(file -> {
-                    final String filePath = file.getAbsolutePath();
-                    if (!filePath.startsWith(basePath)) {
-                        throw new IllegalArgumentException("File is not under the specified base directory: " + filePath);
-                    }
-                    final String relativePath = filePath.substring(basePath.length());
-                    return relativePath
-                            .replace(File.separatorChar, '.')
-                            .replaceAll("\\.class$", ""); // Remove .class extension
-                });
-    }
-
-    public static void regenerateScenario() throws IOException {
-        final Method test = getTestCaller();
-        regenerateScenario(Scenario.source(test.getName(), test.getDeclaringClass()));
-    }
-
-    private static void regenerateScenario(final Scenario scenario) throws IOException {
-        final Project expected = scenario.after();
-
-        // Delete the old files
-        Files.remove(expected.src().get());
-
-        // Generate new "expected" files
-        Generator.builder()
-                .openApi(scenario.getOpenApi())
-                .project(expected)
-                .generateClient(true)
-                .generateModel(true)
-                .clientPackage("org.tomitribe.github.client")
-                .modelPackage("org.tomitribe.github.model")
-                .build()
-                .generate();
     }
 }
