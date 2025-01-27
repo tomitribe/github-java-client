@@ -1,0 +1,112 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "version": "0.0.5",
+    "title": "GitHub v3 REST API",
+    "description": "GitHub's v3 REST API.",
+    "license": {
+      "name": "MIT",
+      "url": "https://spdx.org/licenses/MIT"
+    },
+    "termsOfService": "https://docs.github.com/articles/github-terms-of-service",
+    "contact": {
+      "name": "Support",
+      "url": "https://support.github.com"
+    }
+  },
+  "tags": [
+    {
+      "name": "meta",
+      "description": "Endpoints that give information about the API."
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.github.com"
+    }
+  ],
+  "externalDocs": {
+    "description": "GitHub v3 REST API",
+    "url": "https://developer.github.com/v3/"
+  },
+  "paths": {
+    "/meta": {
+      "get": {
+        "summary": "Get GitHub meta information",
+        "description": "This endpoint provides a list of GitHub's IP addresses. For more information, see \"[About GitHub's IP addresses](https://help.github.com/articles/about-github-s-ip-addresses/).\"",
+        "tags": [
+          "meta"
+        ],
+        "operationId": "meta/get",
+        "externalDocs": {
+          "description": "API method documentation",
+          "url": "https://developer.github.com/v3/meta/#get-github-meta-information"
+        },
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/single-enum-in-model"
+                },
+                "examples": {
+                  "default": {
+                    "$ref": "#/components/examples/single-enum-in-model"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-github": {
+          "githubCloudOnly": false,
+          "enabledForGitHubApps": true,
+          "previews": [
+          ],
+          "category": "meta",
+          "subcategory": null
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "single-enum-in-model": {
+        "title": "Single Enum in Model",
+        "description": "Single Enum in Model",
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "Single enum",
+            "enum": [
+              "error",
+              "failure",
+              "inactive",
+              "in_progress",
+              "queued",
+              "pending",
+              "success"
+            ]
+          },
+          "installed_version": {
+            "type": "string"
+          }
+        },
+        "required": [
+        ]
+      }
+    },
+    "examples": {
+      "single-enum-in-model": {
+        "value": {
+          "state": "in_progress",
+          "installed_version": "v1.0.3"
+        }
+      }
+    }
+  }
+}
