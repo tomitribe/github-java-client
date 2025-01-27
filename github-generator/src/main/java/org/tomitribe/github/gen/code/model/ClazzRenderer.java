@@ -22,9 +22,25 @@ import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.EnumConstantDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.expr.AssignExpr;
+import com.github.javaparser.ast.expr.FieldAccessExpr;
+import com.github.javaparser.ast.expr.NameExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
+import com.github.javaparser.ast.expr.ThisExpr;
 import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
+import com.github.javaparser.ast.stmt.BlockStmt;
+import com.github.javaparser.ast.stmt.ExpressionStmt;
+import com.github.javaparser.ast.stmt.ReturnStmt;
+import com.github.javaparser.ast.type.ClassOrInterfaceType;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
 import org.apache.commons.lang3.text.WordUtils;
 import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
@@ -37,12 +53,6 @@ import org.tomitribe.util.Join;
 import org.tomitribe.util.PrintString;
 import org.tomitribe.util.Strings;
 
-import jakarta.json.bind.annotation.JsonbProperty;
-import jakarta.json.bind.annotation.JsonbTransient;
-import jakarta.json.bind.annotation.JsonbTypeAdapter;
-import jakarta.ws.rs.HeaderParam;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.QueryParam;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -51,6 +61,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -115,6 +126,7 @@ public class ClazzRenderer {
         addInnerClasses(clazz, definition);
 
         addFields(clazz, definition);
+        addAccessors(clazz, definition);
 
         aPackage.write(className + ".java", definition.clean().toString());
 
@@ -161,7 +173,7 @@ public class ClazzRenderer {
 
             switch (field.getIn()) {
                 case BODY: {
-                    definition.addAnnotation(fieldDeclaration, String.format("@JsonbProperty(\"%s\")", field.getJsonName()));
+//                    definition.addAnnotation(fieldDeclaration, String.format("@JsonbProperty(\"%s\")", field.getJsonName()));
                     break;
                 }
                 case PATH: {
@@ -189,6 +201,108 @@ public class ClazzRenderer {
 
             if (DATE.equals(field.getType())) {
                 definition.addAnnotation(fieldDeclaration, "@JsonbTypeAdapter(DateAdapter.class)");
+            }
+        }
+    }
+
+    public void addAccessors(final Clazz clazz, final ClassDefinition definition) {
+        final List<String> enums = definition.selectEnums()
+                .map(NodeWithSimpleName::getNameAsString)
+                .collect(Collectors.toList());
+
+        final Map<String, MethodDeclaration> stringMethodDeclarationMap = definition.mapMethods();
+        final Set<String> existingMethods = stringMethodDeclarationMap.keySet();
+
+        final Map<String, FieldDeclaration> fields = definition.mapFields();
+        for (final Field field : clazz.getFields()) {
+            final String fieldName = field.getName();
+            final FieldDeclaration fieldDeclaration = fields.get(fieldName);
+
+            if (fieldDeclaration == null) {
+                LOGGER.warning("Field not found for: " + fieldName);
+                continue;
+            }
+
+            final String fieldType = fieldDeclaration.getVariable(0).getType().asString();
+            final String getterName = "get" + Strings.ucfirst(fieldName);
+            final String setterName = "set" + Strings.ucfirst(fieldName);
+
+            final MethodDeclaration getter = new MethodDeclaration()
+                    .addModifier(Modifier.Keyword.PUBLIC)
+                    .setType(fieldType)
+                    .setName(getterName);
+
+            final MethodDeclaration setter = new MethodDeclaration()
+                    .addModifier(Modifier.Keyword.PUBLIC)
+                    .setType("void")
+                    .setName(setterName);
+
+            // Add getter if not already present
+            if (!existingMethods.contains(getterName)) {
+
+                if (enums.contains(field.getType().getSimpleName())) {
+                    definition.addAnnotation(getter, String.format("@JsonbTypeAdapter(%sAdapter.class)", field.getType()));
+                }
+
+                if (DATE.equals(field.getType())) {
+                    definition.addAnnotation(getter, "@JsonbTypeAdapter(DateAdapter.class)");
+                }
+
+                // Add method body: `return this.<fieldName>;`
+                getter.setBody(new BlockStmt().addStatement(new ReturnStmt(new NameExpr("this." + fieldName))));
+
+                definition.getClazz().addMember(getter);
+            }
+
+            // Add setter if not already present
+            if (!existingMethods.contains(setterName)) {
+
+                // Add parameter
+                setter.addParameter(new Parameter(new ClassOrInterfaceType(null, fieldType), fieldName));
+
+                // Add method body: `this.<fieldName> = <fieldName>;`
+                setter.setBody(new BlockStmt().addStatement(
+                        new ExpressionStmt(new AssignExpr(
+                                new FieldAccessExpr(new ThisExpr(), fieldName),
+                                new NameExpr(fieldName),
+                                AssignExpr.Operator.ASSIGN
+                        ))
+                ));
+
+                // Add @JsonbProperty annotation
+                switch (field.getIn()) {
+                    case BODY: {
+                        definition.addAnnotation(getter, String.format("@JsonbProperty(\"%s\")", field.getJsonName()));
+                        definition.addAnnotation(setter, String.format("@JsonbProperty(\"%s\")", field.getJsonName()));
+                        break;
+                    }
+                    case PATH: {
+                        definition.addAnnotation(getter, "@JsonbTransient");
+                        definition.addAnnotation(getter, String.format("@PathParam(\"%s\")", field.getJsonName()));
+                        definition.addAnnotation(setter, "@JsonbTransient");
+                        definition.addAnnotation(setter, String.format("@PathParam(\"%s\")", field.getJsonName()));
+                        break;
+                    }
+                    case QUERY: {
+                        definition.addAnnotation(getter, "@JsonbTransient");
+                        definition.addAnnotation(getter, String.format("@QueryParam(\"%s\")", field.getJsonName()));
+                        definition.addAnnotation(setter, "@JsonbTransient");
+                        definition.addAnnotation(setter, String.format("@QueryParam(\"%s\")", field.getJsonName()));
+                        break;
+                    }
+                    case HEADER: {
+                        definition.addAnnotation(getter, "@JsonbTransient");
+                        definition.addAnnotation(getter, String.format("@HeaderParam(\"%s\")", field.getJsonName()));
+                        definition.addAnnotation(setter, "@JsonbTransient");
+                        definition.addAnnotation(setter, String.format("@HeaderParam(\"%s\")", field.getJsonName()));
+                        break;
+                    }
+                    default:
+                        throw new UnsupportedOperationException(field.getIn().name());
+                }
+
+
+                definition.getClazz().addMember(setter);
             }
         }
     }

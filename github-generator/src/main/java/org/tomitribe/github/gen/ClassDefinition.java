@@ -102,6 +102,10 @@ public class ClassDefinition {
         return clazz.getFields().stream().collect(Collectors.toMap(getName, Function.identity()));
     }
 
+    public Map<String, MethodDeclaration> mapMethods() {
+        return clazz.getMethods().stream()
+                .collect(Collectors.toMap(MethodDeclaration::getNameAsString, Function.identity()));
+    }
     public void addAnnotation(final String annotationSource) {
         addAnnotation(this.clazz, annotationSource);
     }
