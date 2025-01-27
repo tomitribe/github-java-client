@@ -37,4 +37,40 @@ public class RemoveSelectedRepositoryFromOrganizationSecret {
     @JsonbTransient
     @PathParam("secret_name")
     private String secretName;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("repository_id")
+    public Integer getRepositoryId() {
+        return this.repositoryId;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public String getSecretName() {
+        return this.secretName;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("repository_id")
+    public void setRepositoryId(Integer repositoryId) {
+        this.repositoryId = repositoryId;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public void setSecretName(String secretName) {
+        this.secretName = secretName;
+    }
 }

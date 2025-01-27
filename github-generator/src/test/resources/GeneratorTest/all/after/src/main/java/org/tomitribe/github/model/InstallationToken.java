@@ -27,27 +27,82 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/installation-token")
+@ComponentId("installation-token")
 public class InstallationToken {
 
-    @JsonbProperty("expires_at")
     private String expiresAt;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("repositories")
     private List<Repository> repositories;
 
-    @JsonbProperty("repository_selection")
     @JsonbTypeAdapter(RepositorySelectionAdapter.class)
     private RepositorySelection repositorySelection;
 
-    @JsonbProperty("single_file")
     private String singleFile;
 
-    @JsonbProperty("token")
     private String token;
+
+    @JsonbProperty("expires_at")
+    public String getExpiresAt() {
+        return this.expiresAt;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("repositories")
+    public List<Repository> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbTypeAdapter(RepositorySelectionAdapter.class)
+    @JsonbProperty("repository_selection")
+    public RepositorySelection getRepositorySelection() {
+        return this.repositorySelection;
+    }
+
+    @JsonbProperty("single_file")
+    public String getSingleFile() {
+        return this.singleFile;
+    }
+
+    @JsonbProperty("token")
+    public String getToken() {
+        return this.token;
+    }
+
+    @JsonbProperty("expires_at")
+    public void setExpiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<Repository> repositories) {
+        this.repositories = repositories;
+    }
+
+    @JsonbProperty("repository_selection")
+    public void setRepositorySelection(RepositorySelection repositorySelection) {
+        this.repositorySelection = repositorySelection;
+    }
+
+    @JsonbProperty("single_file")
+    public void setSingleFile(String singleFile) {
+        this.singleFile = singleFile;
+    }
+
+    @JsonbProperty("token")
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public enum RepositorySelection {
 

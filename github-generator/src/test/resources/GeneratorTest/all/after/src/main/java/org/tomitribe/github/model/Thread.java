@@ -24,33 +24,114 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/thread")
+@ComponentId("thread")
 public class Thread {
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("last_read_at")
     private String lastReadAt;
 
-    @JsonbProperty("reason")
     private String reason;
 
-    @JsonbProperty("repository")
     private MinimalRepository repository;
 
-    @JsonbProperty("subject")
     private Subject subject;
 
-    @JsonbProperty("subscription_url")
     private String subscriptionUrl;
 
-    @JsonbProperty("unread")
     private Boolean unread;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("last_read_at")
+    public String getLastReadAt() {
+        return this.lastReadAt;
+    }
+
+    @JsonbProperty("reason")
+    public String getReason() {
+        return this.reason;
+    }
+
+    @JsonbProperty("repository")
+    public MinimalRepository getRepository() {
+        return this.repository;
+    }
+
+    @JsonbProperty("subject")
+    public Subject getSubject() {
+        return this.subject;
+    }
+
+    @JsonbProperty("subscription_url")
+    public String getSubscriptionUrl() {
+        return this.subscriptionUrl;
+    }
+
+    @JsonbProperty("unread")
+    public Boolean getUnread() {
+        return this.unread;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("last_read_at")
+    public void setLastReadAt(String lastReadAt) {
+        this.lastReadAt = lastReadAt;
+    }
+
+    @JsonbProperty("reason")
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    @JsonbProperty("repository")
+    public void setRepository(MinimalRepository repository) {
+        this.repository = repository;
+    }
+
+    @JsonbProperty("subject")
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    @JsonbProperty("subscription_url")
+    public void setSubscriptionUrl(String subscriptionUrl) {
+        this.subscriptionUrl = subscriptionUrl;
+    }
+
+    @JsonbProperty("unread")
+    public void setUnread(Boolean unread) {
+        this.unread = unread;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/referrer-traffic")
+@ComponentId("referrer-traffic")
 public class ReferrerTraffic {
 
-    @JsonbProperty("count")
     private Integer count;
 
-    @JsonbProperty("referrer")
     private String referrer;
 
-    @JsonbProperty("uniques")
     private Integer uniques;
+
+    @JsonbProperty("count")
+    public Integer getCount() {
+        return this.count;
+    }
+
+    @JsonbProperty("referrer")
+    public String getReferrer() {
+        return this.referrer;
+    }
+
+    @JsonbProperty("uniques")
+    public Integer getUniques() {
+        return this.uniques;
+    }
+
+    @JsonbProperty("count")
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    @JsonbProperty("referrer")
+    public void setReferrer(String referrer) {
+        this.referrer = referrer;
+    }
+
+    @JsonbProperty("uniques")
+    public void setUniques(Integer uniques) {
+        this.uniques = uniques;
+    }
 }

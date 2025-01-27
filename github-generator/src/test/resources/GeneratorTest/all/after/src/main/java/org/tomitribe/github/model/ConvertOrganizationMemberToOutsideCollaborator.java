@@ -33,4 +33,28 @@ public class ConvertOrganizationMemberToOutsideCollaborator {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

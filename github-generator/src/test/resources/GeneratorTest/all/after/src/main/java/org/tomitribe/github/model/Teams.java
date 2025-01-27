@@ -25,39 +25,147 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Teams {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("members_url")
     private String membersUrl;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("parent")
     private String parent;
 
-    @JsonbProperty("permission")
     private String permission;
 
-    @JsonbProperty("privacy")
     private String privacy;
 
-    @JsonbProperty("repositories_url")
     private String repositoriesUrl;
 
-    @JsonbProperty("slug")
     private String slug;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("members_url")
+    public String getMembersUrl() {
+        return this.membersUrl;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("parent")
+    public String getParent() {
+        return this.parent;
+    }
+
+    @JsonbProperty("permission")
+    public String getPermission() {
+        return this.permission;
+    }
+
+    @JsonbProperty("privacy")
+    public String getPrivacy() {
+        return this.privacy;
+    }
+
+    @JsonbProperty("repositories_url")
+    public String getRepositoriesUrl() {
+        return this.repositoriesUrl;
+    }
+
+    @JsonbProperty("slug")
+    public String getSlug() {
+        return this.slug;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("members_url")
+    public void setMembersUrl(String membersUrl) {
+        this.membersUrl = membersUrl;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("parent")
+    public void setParent(String parent) {
+        this.parent = parent;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
+    @JsonbProperty("privacy")
+    public void setPrivacy(String privacy) {
+        this.privacy = privacy;
+    }
+
+    @JsonbProperty("repositories_url")
+    public void setRepositoriesUrl(String repositoriesUrl) {
+        this.repositoriesUrl = repositoriesUrl;
+    }
+
+    @JsonbProperty("slug")
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

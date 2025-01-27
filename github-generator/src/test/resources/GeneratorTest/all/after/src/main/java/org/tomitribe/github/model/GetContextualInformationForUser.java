@@ -42,6 +42,43 @@ public class GetContextualInformationForUser {
     @PathParam("username")
     private String username;
 
+    @JsonbTransient
+    @QueryParam("subject_id")
+    public String getSubjectId() {
+        return this.subjectId;
+    }
+
+    @JsonbTypeAdapter(SubjectTypeAdapter.class)
+    @JsonbTransient
+    @QueryParam("subject_type")
+    public SubjectType getSubjectType() {
+        return this.subjectType;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @QueryParam("subject_id")
+    public void setSubjectId(String subjectId) {
+        this.subjectId = subjectId;
+    }
+
+    @JsonbTransient
+    @QueryParam("subject_type")
+    public void setSubjectType(SubjectType subjectType) {
+        this.subjectType = subjectType;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public enum SubjectType {
 
         ORGANIZATION("organization"), REPOSITORY("repository"), ISSUE("issue"), PULL_REQUEST("pull_request");

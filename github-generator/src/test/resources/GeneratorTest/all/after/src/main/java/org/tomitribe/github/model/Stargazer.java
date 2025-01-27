@@ -26,13 +26,32 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/stargazer")
+@ComponentId("stargazer")
 public class Stargazer {
 
-    @JsonbProperty("starred_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date starredAt;
 
-    @JsonbProperty("user")
     private SimpleUser user;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("starred_at")
+    public Date getStarredAt() {
+        return this.starredAt;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("starred_at")
+    public void setStarredAt(Date starredAt) {
+        this.starredAt = starredAt;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

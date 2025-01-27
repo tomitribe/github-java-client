@@ -38,4 +38,40 @@ public class ListRepositoriesStarredByUser {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

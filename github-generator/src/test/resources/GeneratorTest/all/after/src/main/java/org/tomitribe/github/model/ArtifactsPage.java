@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ArtifactsPage {
 
-    @JsonbProperty("artifacts")
     private List<Artifact> artifacts;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("artifacts")
+    public List<Artifact> getArtifacts() {
+        return this.artifacts;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("artifacts")
+    public void setArtifacts(List<Artifact> artifacts) {
+        this.artifacts = artifacts;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

@@ -29,13 +29,35 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class SetInteractionRestrictionsForOrganization {
 
-    @JsonbProperty("limit")
     @JsonbTypeAdapter(LimitAdapter.class)
     private Limit limit;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbTypeAdapter(LimitAdapter.class)
+    @JsonbProperty("limit")
+    public Limit getLimit() {
+        return this.limit;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("limit")
+    public void setLimit(Limit limit) {
+        this.limit = limit;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 
     public enum Limit {
 

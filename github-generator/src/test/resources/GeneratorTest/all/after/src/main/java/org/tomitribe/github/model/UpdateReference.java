@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateReference {
 
-    @JsonbProperty("force")
     private Boolean force;
 
     @JsonbTransient
@@ -42,6 +41,61 @@ public class UpdateReference {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("sha")
     private String sha;
+
+    @JsonbProperty("force")
+    public Boolean getForce() {
+        return this.force;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("force")
+    public void setForce(Boolean force) {
+        this.force = force;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
 }

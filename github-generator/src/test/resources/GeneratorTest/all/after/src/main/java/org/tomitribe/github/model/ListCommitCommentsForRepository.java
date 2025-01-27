@@ -33,4 +33,28 @@ public class ListCommitCommentsForRepository {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

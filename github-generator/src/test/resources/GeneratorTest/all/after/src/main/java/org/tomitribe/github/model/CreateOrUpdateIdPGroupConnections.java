@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateOrUpdateIdPGroupConnections {
 
-    @JsonbProperty("groups")
     private List<Groups> groups;
 
     @JsonbTransient
@@ -38,4 +37,38 @@ public class CreateOrUpdateIdPGroupConnections {
     @JsonbTransient
     @PathParam("team_slug")
     private String teamSlug;
+
+    @JsonbProperty("groups")
+    public List<Groups> getGroups() {
+        return this.groups;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbProperty("groups")
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
 }

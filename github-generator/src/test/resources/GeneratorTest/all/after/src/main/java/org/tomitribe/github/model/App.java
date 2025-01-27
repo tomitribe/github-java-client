@@ -26,12 +26,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class App {
 
-    @JsonbProperty("client_id")
     private String clientId;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("client_id")
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("client_id")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

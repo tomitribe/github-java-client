@@ -32,18 +32,75 @@ public class GetOrCreateAuthorizationForSpecificApp {
     @PathParam("client-id")
     private String clientId;
 
-    @JsonbProperty("client_secret")
     private String clientSecret;
 
-    @JsonbProperty("fingerprint")
     private String fingerprint;
 
-    @JsonbProperty("note")
     private String note;
 
-    @JsonbProperty("note_url")
     private String noteUrl;
 
-    @JsonbProperty("scopes")
     private List<String> scopes;
+
+    @JsonbTransient
+    @PathParam("client-id")
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    @JsonbProperty("client_secret")
+    public String getClientSecret() {
+        return this.clientSecret;
+    }
+
+    @JsonbProperty("fingerprint")
+    public String getFingerprint() {
+        return this.fingerprint;
+    }
+
+    @JsonbProperty("note")
+    public String getNote() {
+        return this.note;
+    }
+
+    @JsonbProperty("note_url")
+    public String getNoteUrl() {
+        return this.noteUrl;
+    }
+
+    @JsonbProperty("scopes")
+    public List<String> getScopes() {
+        return this.scopes;
+    }
+
+    @JsonbTransient
+    @PathParam("client-id")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    @JsonbProperty("client_secret")
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
+
+    @JsonbProperty("fingerprint")
+    public void setFingerprint(String fingerprint) {
+        this.fingerprint = fingerprint;
+    }
+
+    @JsonbProperty("note")
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    @JsonbProperty("note_url")
+    public void setNoteUrl(String noteUrl) {
+        this.noteUrl = noteUrl;
+    }
+
+    @JsonbProperty("scopes")
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
+    }
 }

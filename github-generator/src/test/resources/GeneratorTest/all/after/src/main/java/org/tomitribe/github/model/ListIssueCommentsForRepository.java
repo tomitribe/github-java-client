@@ -50,6 +50,67 @@ public class ListIssueCommentsForRepository {
     @QueryParam("sort")
     private Sort sort;
 
+    @JsonbTypeAdapter(DirectionAdapter.class)
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
     public enum Direction {
 
         ASC("asc"), DESC("desc");

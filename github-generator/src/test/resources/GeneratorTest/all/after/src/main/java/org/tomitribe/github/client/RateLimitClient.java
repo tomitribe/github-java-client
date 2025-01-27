@@ -15,15 +15,15 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.RateLimitOverview;
 
 public interface RateLimitClient {
 
     @GET
     @Path("/rate_limit")
-    @OperationId("rate-limit/get")
     @Docs("https://developer.github.com/v3/rate_limit/#get-rate-limit-status-for-the-authenticated-user")
     @EnabledForGithubApps
-    @Category("rate-limit")
     RateLimitOverview getRateLimitStatusForAuthenticatedUser();
 }

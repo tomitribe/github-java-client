@@ -29,4 +29,16 @@ public class GetApp {
     @JsonbTransient
     @PathParam("app_slug")
     private String appSlug;
+
+    @JsonbTransient
+    @PathParam("app_slug")
+    public String getAppSlug() {
+        return this.appSlug;
+    }
+
+    @JsonbTransient
+    @PathParam("app_slug")
+    public void setAppSlug(String appSlug) {
+        this.appSlug = appSlug;
+    }
 }

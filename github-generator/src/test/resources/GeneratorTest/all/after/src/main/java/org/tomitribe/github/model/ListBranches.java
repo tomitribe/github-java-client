@@ -38,4 +38,40 @@ public class ListBranches {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("protected")
+    public Boolean get_protected() {
+        return this._protected;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("protected")
+    public void set_protected(Boolean _protected) {
+        this._protected = _protected;
+    }
 }

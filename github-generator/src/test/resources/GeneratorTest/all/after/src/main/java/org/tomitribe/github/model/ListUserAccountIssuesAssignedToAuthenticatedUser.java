@@ -55,6 +55,81 @@ public class ListUserAccountIssuesAssignedToAuthenticatedUser {
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTypeAdapter(FilterAdapter.class)
+    @JsonbTransient
+    @QueryParam("filter")
+    public Filter getFilter() {
+        return this.filter;
+    }
+
+    @JsonbTransient
+    @QueryParam("labels")
+    public String getLabels() {
+        return this.labels;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbTransient
+    @QueryParam("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("filter")
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    @JsonbTransient
+    @QueryParam("labels")
+    public void setLabels(String labels) {
+        this.labels = labels;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public enum Filter {
 
         ASSIGNED("assigned"), CREATED("created"), MENTIONED("mentioned"), SUBSCRIBED("subscribed"), ALL("all");

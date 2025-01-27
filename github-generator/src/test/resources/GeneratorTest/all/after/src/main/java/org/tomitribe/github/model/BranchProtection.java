@@ -24,39 +24,138 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/branch-protection")
+@ComponentId("branch-protection")
 public class BranchProtection {
 
-    @JsonbProperty("allow_deletions")
     private AllowDeletions allowDeletions;
 
-    @JsonbProperty("allow_force_pushes")
     private AllowForcePushes allowForcePushes;
 
-    @JsonbProperty("enabled")
     private Boolean enabled;
 
-    @JsonbProperty("enforce_admins")
     private ProtectedBranchAdminEnforced enforceAdmins;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("protection_url")
     private String protectionUrl;
 
-    @JsonbProperty("required_linear_history")
     private RequiredLinearHistory requiredLinearHistory;
 
-    @JsonbProperty("required_pull_request_reviews")
     private ProtectedBranchPullRequestReview requiredPullRequestReviews;
 
-    @JsonbProperty("required_status_checks")
     private RequiredStatusChecks requiredStatusChecks;
 
-    @JsonbProperty("restrictions")
     private BranchRestrictionPolicy restrictions;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("allow_deletions")
+    public AllowDeletions getAllowDeletions() {
+        return this.allowDeletions;
+    }
+
+    @JsonbProperty("allow_force_pushes")
+    public AllowForcePushes getAllowForcePushes() {
+        return this.allowForcePushes;
+    }
+
+    @JsonbProperty("enabled")
+    public Boolean getEnabled() {
+        return this.enabled;
+    }
+
+    @JsonbProperty("enforce_admins")
+    public ProtectedBranchAdminEnforced getEnforceAdmins() {
+        return this.enforceAdmins;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("protection_url")
+    public String getProtectionUrl() {
+        return this.protectionUrl;
+    }
+
+    @JsonbProperty("required_linear_history")
+    public RequiredLinearHistory getRequiredLinearHistory() {
+        return this.requiredLinearHistory;
+    }
+
+    @JsonbProperty("required_pull_request_reviews")
+    public ProtectedBranchPullRequestReview getRequiredPullRequestReviews() {
+        return this.requiredPullRequestReviews;
+    }
+
+    @JsonbProperty("required_status_checks")
+    public RequiredStatusChecks getRequiredStatusChecks() {
+        return this.requiredStatusChecks;
+    }
+
+    @JsonbProperty("restrictions")
+    public BranchRestrictionPolicy getRestrictions() {
+        return this.restrictions;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("allow_deletions")
+    public void setAllowDeletions(AllowDeletions allowDeletions) {
+        this.allowDeletions = allowDeletions;
+    }
+
+    @JsonbProperty("allow_force_pushes")
+    public void setAllowForcePushes(AllowForcePushes allowForcePushes) {
+        this.allowForcePushes = allowForcePushes;
+    }
+
+    @JsonbProperty("enabled")
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    @JsonbProperty("enforce_admins")
+    public void setEnforceAdmins(ProtectedBranchAdminEnforced enforceAdmins) {
+        this.enforceAdmins = enforceAdmins;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("protection_url")
+    public void setProtectionUrl(String protectionUrl) {
+        this.protectionUrl = protectionUrl;
+    }
+
+    @JsonbProperty("required_linear_history")
+    public void setRequiredLinearHistory(RequiredLinearHistory requiredLinearHistory) {
+        this.requiredLinearHistory = requiredLinearHistory;
+    }
+
+    @JsonbProperty("required_pull_request_reviews")
+    public void setRequiredPullRequestReviews(ProtectedBranchPullRequestReview requiredPullRequestReviews) {
+        this.requiredPullRequestReviews = requiredPullRequestReviews;
+    }
+
+    @JsonbProperty("required_status_checks")
+    public void setRequiredStatusChecks(RequiredStatusChecks requiredStatusChecks) {
+        this.requiredStatusChecks = requiredStatusChecks;
+    }
+
+    @JsonbProperty("restrictions")
+    public void setRestrictions(BranchRestrictionPolicy restrictions) {
+        this.restrictions = restrictions;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

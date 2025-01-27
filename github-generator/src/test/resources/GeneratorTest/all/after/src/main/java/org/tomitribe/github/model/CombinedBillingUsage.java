@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/combined-billing-usage")
+@ComponentId("combined-billing-usage")
 public class CombinedBillingUsage {
 
-    @JsonbProperty("days_left_in_billing_cycle")
     private Integer daysLeftInBillingCycle;
 
-    @JsonbProperty("estimated_paid_storage_for_month")
     private Integer estimatedPaidStorageForMonth;
 
-    @JsonbProperty("estimated_storage_for_month")
     private Integer estimatedStorageForMonth;
+
+    @JsonbProperty("days_left_in_billing_cycle")
+    public Integer getDaysLeftInBillingCycle() {
+        return this.daysLeftInBillingCycle;
+    }
+
+    @JsonbProperty("estimated_paid_storage_for_month")
+    public Integer getEstimatedPaidStorageForMonth() {
+        return this.estimatedPaidStorageForMonth;
+    }
+
+    @JsonbProperty("estimated_storage_for_month")
+    public Integer getEstimatedStorageForMonth() {
+        return this.estimatedStorageForMonth;
+    }
+
+    @JsonbProperty("days_left_in_billing_cycle")
+    public void setDaysLeftInBillingCycle(Integer daysLeftInBillingCycle) {
+        this.daysLeftInBillingCycle = daysLeftInBillingCycle;
+    }
+
+    @JsonbProperty("estimated_paid_storage_for_month")
+    public void setEstimatedPaidStorageForMonth(Integer estimatedPaidStorageForMonth) {
+        this.estimatedPaidStorageForMonth = estimatedPaidStorageForMonth;
+    }
+
+    @JsonbProperty("estimated_storage_for_month")
+    public void setEstimatedStorageForMonth(Integer estimatedStorageForMonth) {
+        this.estimatedStorageForMonth = estimatedStorageForMonth;
+    }
 }

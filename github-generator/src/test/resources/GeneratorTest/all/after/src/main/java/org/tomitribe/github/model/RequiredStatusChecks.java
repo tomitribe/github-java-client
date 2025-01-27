@@ -26,18 +26,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RequiredStatusChecks {
 
-    @JsonbProperty("contexts")
     private List<String> contexts;
 
-    @JsonbProperty("contexts_url")
     private String contextsUrl;
 
-    @JsonbProperty("enforcement_level")
     private String enforcementLevel;
 
-    @JsonbProperty("strict")
     private Boolean strict;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("contexts")
+    public List<String> getContexts() {
+        return this.contexts;
+    }
+
+    @JsonbProperty("contexts_url")
+    public String getContextsUrl() {
+        return this.contextsUrl;
+    }
+
+    @JsonbProperty("enforcement_level")
+    public String getEnforcementLevel() {
+        return this.enforcementLevel;
+    }
+
+    @JsonbProperty("strict")
+    public Boolean getStrict() {
+        return this.strict;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("contexts")
+    public void setContexts(List<String> contexts) {
+        this.contexts = contexts;
+    }
+
+    @JsonbProperty("contexts_url")
+    public void setContextsUrl(String contextsUrl) {
+        this.contextsUrl = contextsUrl;
+    }
+
+    @JsonbProperty("enforcement_level")
+    public void setEnforcementLevel(String enforcementLevel) {
+        this.enforcementLevel = enforcementLevel;
+    }
+
+    @JsonbProperty("strict")
+    public void setStrict(Boolean strict) {
+        this.strict = strict;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

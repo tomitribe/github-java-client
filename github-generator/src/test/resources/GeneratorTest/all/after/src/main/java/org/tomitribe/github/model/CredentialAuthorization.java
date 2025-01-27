@@ -27,32 +27,106 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/credential-authorization")
+@ComponentId("credential-authorization")
 public class CredentialAuthorization {
 
-    @JsonbProperty("credential_accessed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date credentialAccessedAt;
 
-    @JsonbProperty("credential_authorized_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date credentialAuthorizedAt;
 
-    @JsonbProperty("credential_id")
     private Integer credentialId;
 
-    @JsonbProperty("credential_type")
     private String credentialType;
 
-    @JsonbProperty("fingerprint")
     private String fingerprint;
 
-    @JsonbProperty("login")
     private String login;
 
-    @JsonbProperty("scopes")
     private List<String> scopes;
 
-    @JsonbProperty("token_last_eight")
     private String tokenLastEight;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("credential_accessed_at")
+    public Date getCredentialAccessedAt() {
+        return this.credentialAccessedAt;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("credential_authorized_at")
+    public Date getCredentialAuthorizedAt() {
+        return this.credentialAuthorizedAt;
+    }
+
+    @JsonbProperty("credential_id")
+    public Integer getCredentialId() {
+        return this.credentialId;
+    }
+
+    @JsonbProperty("credential_type")
+    public String getCredentialType() {
+        return this.credentialType;
+    }
+
+    @JsonbProperty("fingerprint")
+    public String getFingerprint() {
+        return this.fingerprint;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
+    @JsonbProperty("scopes")
+    public List<String> getScopes() {
+        return this.scopes;
+    }
+
+    @JsonbProperty("token_last_eight")
+    public String getTokenLastEight() {
+        return this.tokenLastEight;
+    }
+
+    @JsonbProperty("credential_accessed_at")
+    public void setCredentialAccessedAt(Date credentialAccessedAt) {
+        this.credentialAccessedAt = credentialAccessedAt;
+    }
+
+    @JsonbProperty("credential_authorized_at")
+    public void setCredentialAuthorizedAt(Date credentialAuthorizedAt) {
+        this.credentialAuthorizedAt = credentialAuthorizedAt;
+    }
+
+    @JsonbProperty("credential_id")
+    public void setCredentialId(Integer credentialId) {
+        this.credentialId = credentialId;
+    }
+
+    @JsonbProperty("credential_type")
+    public void setCredentialType(String credentialType) {
+        this.credentialType = credentialType;
+    }
+
+    @JsonbProperty("fingerprint")
+    public void setFingerprint(String fingerprint) {
+        this.fingerprint = fingerprint;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("scopes")
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
+    }
+
+    @JsonbProperty("token_last_eight")
+    public void setTokenLastEight(String tokenLastEight) {
+        this.tokenLastEight = tokenLastEight;
+    }
 }

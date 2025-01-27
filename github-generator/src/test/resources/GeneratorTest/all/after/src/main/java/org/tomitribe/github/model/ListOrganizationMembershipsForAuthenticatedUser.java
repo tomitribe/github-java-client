@@ -33,6 +33,19 @@ public class ListOrganizationMembershipsForAuthenticatedUser {
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbTransient
+    @QueryParam("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public enum State {
 
         ACTIVE("active"), PENDING("pending");

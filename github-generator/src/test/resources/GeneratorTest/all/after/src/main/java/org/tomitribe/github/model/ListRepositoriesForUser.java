@@ -48,6 +48,57 @@ public class ListRepositoriesForUser {
     @PathParam("username")
     private String username;
 
+    @JsonbTypeAdapter(DirectionAdapter.class)
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTypeAdapter(TypeAdapter.class)
+    @JsonbTransient
+    @QueryParam("type")
+    public Type getType() {
+        return this.type;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("type")
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public enum Direction {
 
         ASC("asc"), DESC("desc");

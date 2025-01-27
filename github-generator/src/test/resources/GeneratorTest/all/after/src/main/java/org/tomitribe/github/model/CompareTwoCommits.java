@@ -41,4 +41,52 @@ public class CompareTwoCommits {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("base")
+    public String getBase() {
+        return this.base;
+    }
+
+    @JsonbTransient
+    @PathParam("head")
+    public String getHead() {
+        return this.head;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("base")
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    @JsonbTransient
+    @PathParam("head")
+    public void setHead(String head) {
+        this.head = head;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

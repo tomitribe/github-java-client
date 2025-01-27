@@ -24,36 +24,126 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/check-annotation")
+@ComponentId("check-annotation")
 public class CheckAnnotation {
 
-    @JsonbProperty("annotation_level")
     private String annotationLevel;
 
-    @JsonbProperty("blob_href")
     private String blobHref;
 
-    @JsonbProperty("end_column")
     private Integer endColumn;
 
-    @JsonbProperty("end_line")
     private Integer endLine;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("raw_details")
     private String rawDetails;
 
-    @JsonbProperty("start_column")
     private Integer startColumn;
 
-    @JsonbProperty("start_line")
     private Integer startLine;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("annotation_level")
+    public String getAnnotationLevel() {
+        return this.annotationLevel;
+    }
+
+    @JsonbProperty("blob_href")
+    public String getBlobHref() {
+        return this.blobHref;
+    }
+
+    @JsonbProperty("end_column")
+    public Integer getEndColumn() {
+        return this.endColumn;
+    }
+
+    @JsonbProperty("end_line")
+    public Integer getEndLine() {
+        return this.endLine;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("raw_details")
+    public String getRawDetails() {
+        return this.rawDetails;
+    }
+
+    @JsonbProperty("start_column")
+    public Integer getStartColumn() {
+        return this.startColumn;
+    }
+
+    @JsonbProperty("start_line")
+    public Integer getStartLine() {
+        return this.startLine;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("annotation_level")
+    public void setAnnotationLevel(String annotationLevel) {
+        this.annotationLevel = annotationLevel;
+    }
+
+    @JsonbProperty("blob_href")
+    public void setBlobHref(String blobHref) {
+        this.blobHref = blobHref;
+    }
+
+    @JsonbProperty("end_column")
+    public void setEndColumn(Integer endColumn) {
+        this.endColumn = endColumn;
+    }
+
+    @JsonbProperty("end_line")
+    public void setEndLine(Integer endLine) {
+        this.endLine = endLine;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("raw_details")
+    public void setRawDetails(String rawDetails) {
+        this.rawDetails = rawDetails;
+    }
+
+    @JsonbProperty("start_column")
+    public void setStartColumn(Integer startColumn) {
+        this.startColumn = startColumn;
+    }
+
+    @JsonbProperty("start_line")
+    public void setStartLine(Integer startLine) {
+        this.startLine = startLine;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

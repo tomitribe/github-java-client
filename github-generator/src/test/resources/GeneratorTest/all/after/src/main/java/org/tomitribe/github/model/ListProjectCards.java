@@ -38,6 +38,31 @@ public class ListProjectCards {
     @PathParam("column_id")
     private Integer columnId;
 
+    @JsonbTypeAdapter(ArchivedStateAdapter.class)
+    @JsonbTransient
+    @QueryParam("archived_state")
+    public ArchivedState getArchivedState() {
+        return this.archivedState;
+    }
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public Integer getColumnId() {
+        return this.columnId;
+    }
+
+    @JsonbTransient
+    @QueryParam("archived_state")
+    public void setArchivedState(ArchivedState archivedState) {
+        this.archivedState = archivedState;
+    }
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public void setColumnId(Integer columnId) {
+        this.columnId = columnId;
+    }
+
     public enum ArchivedState {
 
         ALL("all"), ARCHIVED("archived"), NOT_ARCHIVED("not_archived");

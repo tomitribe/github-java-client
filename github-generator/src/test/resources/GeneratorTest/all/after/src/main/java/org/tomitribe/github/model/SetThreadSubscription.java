@@ -27,10 +27,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SetThreadSubscription {
 
-    @JsonbProperty("ignored")
     private Boolean ignored;
 
     @JsonbTransient
     @PathParam("thread_id")
     private Integer threadId;
+
+    @JsonbProperty("ignored")
+    public Boolean getIgnored() {
+        return this.ignored;
+    }
+
+    @JsonbTransient
+    @PathParam("thread_id")
+    public Integer getThreadId() {
+        return this.threadId;
+    }
+
+    @JsonbProperty("ignored")
+    public void setIgnored(Boolean ignored) {
+        this.ignored = ignored;
+    }
+
+    @JsonbTransient
+    @PathParam("thread_id")
+    public void setThreadId(Integer threadId) {
+        this.threadId = threadId;
+    }
 }

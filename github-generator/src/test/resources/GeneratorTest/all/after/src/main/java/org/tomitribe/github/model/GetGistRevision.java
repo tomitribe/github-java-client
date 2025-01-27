@@ -33,4 +33,28 @@ public class GetGistRevision {
     @JsonbTransient
     @PathParam("sha")
     private String sha;
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public String getGistId() {
+        return this.gistId;
+    }
+
+    @JsonbTransient
+    @PathParam("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public void setGistId(String gistId) {
+        this.gistId = gistId;
+    }
+
+    @JsonbTransient
+    @PathParam("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
 }

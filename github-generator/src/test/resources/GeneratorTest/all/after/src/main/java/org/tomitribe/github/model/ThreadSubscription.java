@@ -27,28 +27,92 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/thread-subscription")
+@ComponentId("thread-subscription")
 public class ThreadSubscription {
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("ignored")
     private Boolean ignored;
 
-    @JsonbProperty("reason")
     private String reason;
 
-    @JsonbProperty("repository_url")
     private URI repositoryUrl;
 
-    @JsonbProperty("subscribed")
     private Boolean subscribed;
 
-    @JsonbProperty("thread_url")
     private URI threadUrl;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("ignored")
+    public Boolean getIgnored() {
+        return this.ignored;
+    }
+
+    @JsonbProperty("reason")
+    public String getReason() {
+        return this.reason;
+    }
+
+    @JsonbProperty("repository_url")
+    public URI getRepositoryUrl() {
+        return this.repositoryUrl;
+    }
+
+    @JsonbProperty("subscribed")
+    public Boolean getSubscribed() {
+        return this.subscribed;
+    }
+
+    @JsonbProperty("thread_url")
+    public URI getThreadUrl() {
+        return this.threadUrl;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("ignored")
+    public void setIgnored(Boolean ignored) {
+        this.ignored = ignored;
+    }
+
+    @JsonbProperty("reason")
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    @JsonbProperty("repository_url")
+    public void setRepositoryUrl(URI repositoryUrl) {
+        this.repositoryUrl = repositoryUrl;
+    }
+
+    @JsonbProperty("subscribed")
+    public void setSubscribed(Boolean subscribed) {
+        this.subscribed = subscribed;
+    }
+
+    @JsonbProperty("thread_url")
+    public void setThreadUrl(URI threadUrl) {
+        this.threadUrl = threadUrl;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

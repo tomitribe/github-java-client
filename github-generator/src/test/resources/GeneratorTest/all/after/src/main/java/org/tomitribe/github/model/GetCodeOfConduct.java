@@ -29,4 +29,16 @@ public class GetCodeOfConduct {
     @JsonbTransient
     @PathParam("key")
     private String key;
+
+    @JsonbTransient
+    @PathParam("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbTransient
+    @PathParam("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

@@ -27,24 +27,87 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Output {
 
-    @JsonbProperty("annotations")
     private List<Annotations> annotations;
 
-    @JsonbProperty("annotations_count")
     private Integer annotationsCount;
 
-    @JsonbProperty("annotations_url")
     private URI annotationsUrl;
 
-    @JsonbProperty("images")
     private List<Images> images;
 
-    @JsonbProperty("summary")
     private String summary;
 
-    @JsonbProperty("text")
     private String text;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("annotations")
+    public List<Annotations> getAnnotations() {
+        return this.annotations;
+    }
+
+    @JsonbProperty("annotations_count")
+    public Integer getAnnotationsCount() {
+        return this.annotationsCount;
+    }
+
+    @JsonbProperty("annotations_url")
+    public URI getAnnotationsUrl() {
+        return this.annotationsUrl;
+    }
+
+    @JsonbProperty("images")
+    public List<Images> getImages() {
+        return this.images;
+    }
+
+    @JsonbProperty("summary")
+    public String getSummary() {
+        return this.summary;
+    }
+
+    @JsonbProperty("text")
+    public String getText() {
+        return this.text;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("annotations")
+    public void setAnnotations(List<Annotations> annotations) {
+        this.annotations = annotations;
+    }
+
+    @JsonbProperty("annotations_count")
+    public void setAnnotationsCount(Integer annotationsCount) {
+        this.annotationsCount = annotationsCount;
+    }
+
+    @JsonbProperty("annotations_url")
+    public void setAnnotationsUrl(URI annotationsUrl) {
+        this.annotationsUrl = annotationsUrl;
+    }
+
+    @JsonbProperty("images")
+    public void setImages(List<Images> images) {
+        this.images = images;
+    }
+
+    @JsonbProperty("summary")
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    @JsonbProperty("text")
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

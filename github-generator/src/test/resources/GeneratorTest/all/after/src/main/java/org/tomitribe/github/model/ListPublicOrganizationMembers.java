@@ -29,4 +29,16 @@ public class ListPublicOrganizationMembers {
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

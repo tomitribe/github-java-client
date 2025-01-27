@@ -27,32 +27,106 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/page-build")
+@ComponentId("page-build")
 public class PageBuild {
 
-    @JsonbProperty("commit")
     private String commit;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("duration")
     private Integer duration;
 
-    @JsonbProperty("error")
     private Error error;
 
-    @JsonbProperty("pusher")
     private SimpleUser pusher;
 
-    @JsonbProperty("status")
     private String status;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("commit")
+    public String getCommit() {
+        return this.commit;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("duration")
+    public Integer getDuration() {
+        return this.duration;
+    }
+
+    @JsonbProperty("error")
+    public Error getError() {
+        return this.error;
+    }
+
+    @JsonbProperty("pusher")
+    public SimpleUser getPusher() {
+        return this.pusher;
+    }
+
+    @JsonbProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("commit")
+    public void setCommit(String commit) {
+        this.commit = commit;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("duration")
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    @JsonbProperty("error")
+    public void setError(Error error) {
+        this.error = error;
+    }
+
+    @JsonbProperty("pusher")
+    public void setPusher(SimpleUser pusher) {
+        this.pusher = pusher;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

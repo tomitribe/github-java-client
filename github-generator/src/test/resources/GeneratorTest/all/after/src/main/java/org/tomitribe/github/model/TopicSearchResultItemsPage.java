@@ -26,12 +26,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TopicSearchResultItemsPage {
 
-    @JsonbProperty("incomplete_results")
     private Boolean incompleteResults;
 
-    @JsonbProperty("items")
     private List<TopicSearchResultItem> items;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("incomplete_results")
+    public Boolean getIncompleteResults() {
+        return this.incompleteResults;
+    }
+
+    @JsonbProperty("items")
+    public List<TopicSearchResultItem> getItems() {
+        return this.items;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("incomplete_results")
+    public void setIncompleteResults(Boolean incompleteResults) {
+        this.incompleteResults = incompleteResults;
+    }
+
+    @JsonbProperty("items")
+    public void setItems(List<TopicSearchResultItem> items) {
+        this.items = items;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

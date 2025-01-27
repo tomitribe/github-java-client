@@ -26,42 +26,159 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Subkeys {
 
-    @JsonbProperty("can_certify")
     private Boolean canCertify;
 
-    @JsonbProperty("can_encrypt_comms")
     private Boolean canEncryptComms;
 
-    @JsonbProperty("can_encrypt_storage")
     private Boolean canEncryptStorage;
 
-    @JsonbProperty("can_sign")
     private Boolean canSign;
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("emails")
     private List<Emails> emails;
 
-    @JsonbProperty("expires_at")
     private String expiresAt;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("key_id")
     private String keyId;
 
-    @JsonbProperty("primary_key_id")
     private Integer primaryKeyId;
 
-    @JsonbProperty("public_key")
     private String publicKey;
 
-    @JsonbProperty("raw_key")
     private String rawKey;
 
-    @JsonbProperty("subkeys")
     private List<Subkeys> subkeys;
+
+    @JsonbProperty("can_certify")
+    public Boolean getCanCertify() {
+        return this.canCertify;
+    }
+
+    @JsonbProperty("can_encrypt_comms")
+    public Boolean getCanEncryptComms() {
+        return this.canEncryptComms;
+    }
+
+    @JsonbProperty("can_encrypt_storage")
+    public Boolean getCanEncryptStorage() {
+        return this.canEncryptStorage;
+    }
+
+    @JsonbProperty("can_sign")
+    public Boolean getCanSign() {
+        return this.canSign;
+    }
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("emails")
+    public List<Emails> getEmails() {
+        return this.emails;
+    }
+
+    @JsonbProperty("expires_at")
+    public String getExpiresAt() {
+        return this.expiresAt;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("key_id")
+    public String getKeyId() {
+        return this.keyId;
+    }
+
+    @JsonbProperty("primary_key_id")
+    public Integer getPrimaryKeyId() {
+        return this.primaryKeyId;
+    }
+
+    @JsonbProperty("public_key")
+    public String getPublicKey() {
+        return this.publicKey;
+    }
+
+    @JsonbProperty("raw_key")
+    public String getRawKey() {
+        return this.rawKey;
+    }
+
+    @JsonbProperty("subkeys")
+    public List<Subkeys> getSubkeys() {
+        return this.subkeys;
+    }
+
+    @JsonbProperty("can_certify")
+    public void setCanCertify(Boolean canCertify) {
+        this.canCertify = canCertify;
+    }
+
+    @JsonbProperty("can_encrypt_comms")
+    public void setCanEncryptComms(Boolean canEncryptComms) {
+        this.canEncryptComms = canEncryptComms;
+    }
+
+    @JsonbProperty("can_encrypt_storage")
+    public void setCanEncryptStorage(Boolean canEncryptStorage) {
+        this.canEncryptStorage = canEncryptStorage;
+    }
+
+    @JsonbProperty("can_sign")
+    public void setCanSign(Boolean canSign) {
+        this.canSign = canSign;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("emails")
+    public void setEmails(List<Emails> emails) {
+        this.emails = emails;
+    }
+
+    @JsonbProperty("expires_at")
+    public void setExpiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("key_id")
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    @JsonbProperty("primary_key_id")
+    public void setPrimaryKeyId(Integer primaryKeyId) {
+        this.primaryKeyId = primaryKeyId;
+    }
+
+    @JsonbProperty("public_key")
+    public void setPublicKey(String publicKey) {
+        this.publicKey = publicKey;
+    }
+
+    @JsonbProperty("raw_key")
+    public void setRawKey(String rawKey) {
+        this.rawKey = rawKey;
+    }
+
+    @JsonbProperty("subkeys")
+    public void setSubkeys(List<Subkeys> subkeys) {
+        this.subkeys = subkeys;
+    }
 }

@@ -28,48 +28,160 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/code-scanning-alert")
+@ComponentId("code-scanning-alert")
 public class CodeScanningAlert {
 
-    @JsonbProperty("closed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date closedAt;
 
-    @JsonbProperty("closed_by")
     private SimpleUser closedBy;
 
-    @JsonbProperty("closed_reason")
     @JsonbTypeAdapter(ClosedReasonAdapter.class)
     private ClosedReason closedReason;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("open")
     private Boolean open;
 
-    @JsonbProperty("rule_description")
     private String ruleDescription;
 
-    @JsonbProperty("rule_id")
     private String ruleId;
 
-    @JsonbProperty("rule_severity")
     @JsonbTypeAdapter(RuleSeverityAdapter.class)
     private RuleSeverity ruleSeverity;
 
-    @JsonbProperty("tool")
     private String tool;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("closed_at")
+    public Date getClosedAt() {
+        return this.closedAt;
+    }
+
+    @JsonbProperty("closed_by")
+    public SimpleUser getClosedBy() {
+        return this.closedBy;
+    }
+
+    @JsonbTypeAdapter(ClosedReasonAdapter.class)
+    @JsonbProperty("closed_reason")
+    public ClosedReason getClosedReason() {
+        return this.closedReason;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbProperty("open")
+    public Boolean getOpen() {
+        return this.open;
+    }
+
+    @JsonbProperty("rule_description")
+    public String getRuleDescription() {
+        return this.ruleDescription;
+    }
+
+    @JsonbProperty("rule_id")
+    public String getRuleId() {
+        return this.ruleId;
+    }
+
+    @JsonbTypeAdapter(RuleSeverityAdapter.class)
+    @JsonbProperty("rule_severity")
+    public RuleSeverity getRuleSeverity() {
+        return this.ruleSeverity;
+    }
+
+    @JsonbProperty("tool")
+    public String getTool() {
+        return this.tool;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("closed_at")
+    public void setClosedAt(Date closedAt) {
+        this.closedAt = closedAt;
+    }
+
+    @JsonbProperty("closed_by")
+    public void setClosedBy(SimpleUser closedBy) {
+        this.closedBy = closedBy;
+    }
+
+    @JsonbProperty("closed_reason")
+    public void setClosedReason(ClosedReason closedReason) {
+        this.closedReason = closedReason;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("open")
+    public void setOpen(Boolean open) {
+        this.open = open;
+    }
+
+    @JsonbProperty("rule_description")
+    public void setRuleDescription(String ruleDescription) {
+        this.ruleDescription = ruleDescription;
+    }
+
+    @JsonbProperty("rule_id")
+    public void setRuleId(String ruleId) {
+        this.ruleId = ruleId;
+    }
+
+    @JsonbProperty("rule_severity")
+    public void setRuleSeverity(RuleSeverity ruleSeverity) {
+        this.ruleSeverity = ruleSeverity;
+    }
+
+    @JsonbProperty("tool")
+    public void setTool(String tool) {
+        this.tool = tool;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public enum ClosedReason {
 

@@ -29,4 +29,16 @@ public class CreateGitHubAppFromManifest {
     @JsonbTransient
     @PathParam("code")
     private String code;
+
+    @JsonbTransient
+    @PathParam("code")
+    public String getCode() {
+        return this.code;
+    }
+
+    @JsonbTransient
+    @PathParam("code")
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

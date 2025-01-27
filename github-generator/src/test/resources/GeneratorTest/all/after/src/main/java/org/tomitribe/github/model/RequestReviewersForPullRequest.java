@@ -40,9 +40,63 @@ public class RequestReviewersForPullRequest {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("reviewers")
     private List<String> reviewers;
 
-    @JsonbProperty("team_reviewers")
     private List<String> teamReviewers;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public Integer getPullNumber() {
+        return this.pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("reviewers")
+    public List<String> getReviewers() {
+        return this.reviewers;
+    }
+
+    @JsonbProperty("team_reviewers")
+    public List<String> getTeamReviewers() {
+        return this.teamReviewers;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public void setPullNumber(Integer pullNumber) {
+        this.pullNumber = pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("reviewers")
+    public void setReviewers(List<String> reviewers) {
+        this.reviewers = reviewers;
+    }
+
+    @JsonbProperty("team_reviewers")
+    public void setTeamReviewers(List<String> teamReviewers) {
+        this.teamReviewers = teamReviewers;
+    }
 }

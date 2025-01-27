@@ -38,6 +38,31 @@ public class ListProjectCollaborators {
     @PathParam("project-id")
     private Integer projectId;
 
+    @JsonbTypeAdapter(AffiliationAdapter.class)
+    @JsonbTransient
+    @QueryParam("affiliation")
+    public Affiliation getAffiliation() {
+        return this.affiliation;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbTransient
+    @QueryParam("affiliation")
+    public void setAffiliation(Affiliation affiliation) {
+        this.affiliation = affiliation;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
+
     public enum Affiliation {
 
         OUTSIDE("outside"), DIRECT("direct"), ALL("all");

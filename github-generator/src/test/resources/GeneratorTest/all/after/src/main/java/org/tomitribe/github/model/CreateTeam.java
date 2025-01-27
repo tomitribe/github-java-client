@@ -30,32 +30,109 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateTeam {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("maintainers")
     private List<String> maintainers;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
 
-    @JsonbProperty("parent_team_id")
     private Integer parentTeamId;
 
-    @JsonbProperty("permission")
     @JsonbTypeAdapter(PermissionAdapter.class)
     private Permission permission;
 
-    @JsonbProperty("privacy")
     @JsonbTypeAdapter(PrivacyAdapter.class)
     private Privacy privacy;
 
-    @JsonbProperty("repo_names")
     private List<String> repoNames;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("maintainers")
+    public List<String> getMaintainers() {
+        return this.maintainers;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("parent_team_id")
+    public Integer getParentTeamId() {
+        return this.parentTeamId;
+    }
+
+    @JsonbTypeAdapter(PermissionAdapter.class)
+    @JsonbProperty("permission")
+    public Permission getPermission() {
+        return this.permission;
+    }
+
+    @JsonbTypeAdapter(PrivacyAdapter.class)
+    @JsonbProperty("privacy")
+    public Privacy getPrivacy() {
+        return this.privacy;
+    }
+
+    @JsonbProperty("repo_names")
+    public List<String> getRepoNames() {
+        return this.repoNames;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("maintainers")
+    public void setMaintainers(List<String> maintainers) {
+        this.maintainers = maintainers;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbProperty("parent_team_id")
+    public void setParentTeamId(Integer parentTeamId) {
+        this.parentTeamId = parentTeamId;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
+
+    @JsonbProperty("privacy")
+    public void setPrivacy(Privacy privacy) {
+        this.privacy = privacy;
+    }
+
+    @JsonbProperty("repo_names")
+    public void setRepoNames(List<String> repoNames) {
+        this.repoNames = repoNames;
+    }
 
     public enum Permission {
 

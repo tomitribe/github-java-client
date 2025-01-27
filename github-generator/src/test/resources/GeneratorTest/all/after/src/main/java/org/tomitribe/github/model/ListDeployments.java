@@ -50,4 +50,76 @@ public class ListDeployments {
     @JsonbTransient
     @QueryParam("task")
     private String task;
+
+    @JsonbTransient
+    @QueryParam("environment")
+    public String getEnvironment() {
+        return this.environment;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbTransient
+    @QueryParam("task")
+    public String getTask() {
+        return this.task;
+    }
+
+    @JsonbTransient
+    @QueryParam("environment")
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbTransient
+    @QueryParam("task")
+    public void setTask(String task) {
+        this.task = task;
+    }
 }

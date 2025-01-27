@@ -24,21 +24,66 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/pull-request-minimal")
+@ComponentId("pull-request-minimal")
 public class PullRequestMinimal {
 
-    @JsonbProperty("base")
     private Base base;
 
-    @JsonbProperty("head")
     private Head head;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("base")
+    public Base getBase() {
+        return this.base;
+    }
+
+    @JsonbProperty("head")
+    public Head getHead() {
+        return this.head;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("base")
+    public void setBase(Base base) {
+        this.base = base;
+    }
+
+    @JsonbProperty("head")
+    public void setHead(Head head) {
+        this.head = head;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

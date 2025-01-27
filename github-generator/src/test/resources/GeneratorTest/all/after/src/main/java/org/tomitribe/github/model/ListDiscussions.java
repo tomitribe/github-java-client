@@ -38,4 +38,40 @@ public class ListDiscussions {
     @JsonbTransient
     @PathParam("team_slug")
     private String teamSlug;
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
 }

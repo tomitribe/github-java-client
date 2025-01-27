@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/short-blob")
+@ComponentId("short-blob")
 public class ShortBlob {
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

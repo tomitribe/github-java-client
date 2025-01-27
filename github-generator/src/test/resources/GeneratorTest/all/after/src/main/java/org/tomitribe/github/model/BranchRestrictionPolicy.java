@@ -26,27 +26,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/branch-restriction-policy")
+@ComponentId("branch-restriction-policy")
 public class BranchRestrictionPolicy {
 
-    @JsonbProperty("apps")
     private List<Apps> apps;
 
-    @JsonbProperty("apps_url")
     private URI appsUrl;
 
-    @JsonbProperty("teams")
     private List<Teams> teams;
 
-    @JsonbProperty("teams_url")
     private URI teamsUrl;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("users")
     private List<Users> users;
 
-    @JsonbProperty("users_url")
     private URI usersUrl;
+
+    @JsonbProperty("apps")
+    public List<Apps> getApps() {
+        return this.apps;
+    }
+
+    @JsonbProperty("apps_url")
+    public URI getAppsUrl() {
+        return this.appsUrl;
+    }
+
+    @JsonbProperty("teams")
+    public List<Teams> getTeams() {
+        return this.teams;
+    }
+
+    @JsonbProperty("teams_url")
+    public URI getTeamsUrl() {
+        return this.teamsUrl;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("users")
+    public List<Users> getUsers() {
+        return this.users;
+    }
+
+    @JsonbProperty("users_url")
+    public URI getUsersUrl() {
+        return this.usersUrl;
+    }
+
+    @JsonbProperty("apps")
+    public void setApps(List<Apps> apps) {
+        this.apps = apps;
+    }
+
+    @JsonbProperty("apps_url")
+    public void setAppsUrl(URI appsUrl) {
+        this.appsUrl = appsUrl;
+    }
+
+    @JsonbProperty("teams")
+    public void setTeams(List<Teams> teams) {
+        this.teams = teams;
+    }
+
+    @JsonbProperty("teams_url")
+    public void setTeamsUrl(URI teamsUrl) {
+        this.teamsUrl = teamsUrl;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("users")
+    public void setUsers(List<Users> users) {
+        this.users = users;
+    }
+
+    @JsonbProperty("users_url")
+    public void setUsersUrl(URI usersUrl) {
+        this.usersUrl = usersUrl;
+    }
 }

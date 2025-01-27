@@ -27,10 +27,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateDiscussion {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
@@ -41,6 +39,59 @@ public class CreateDiscussion {
     @PathParam("team_slug")
     private String teamSlug;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 }

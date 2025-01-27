@@ -33,4 +33,28 @@ public class RemoveSAMLSSOAuthorizationForOrganization {
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbTransient
+    @PathParam("credential_id")
+    public Integer getCredentialId() {
+        return this.credentialId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("credential_id")
+    public void setCredentialId(Integer credentialId) {
+        this.credentialId = credentialId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

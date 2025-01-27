@@ -27,13 +27,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MergeBranch {
 
-    @JsonbProperty("base")
     private String base;
 
-    @JsonbProperty("commit_message")
     private String commitMessage;
 
-    @JsonbProperty("head")
     private String head;
 
     @JsonbTransient
@@ -43,4 +40,58 @@ public class MergeBranch {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("base")
+    public String getBase() {
+        return this.base;
+    }
+
+    @JsonbProperty("commit_message")
+    public String getCommitMessage() {
+        return this.commitMessage;
+    }
+
+    @JsonbProperty("head")
+    public String getHead() {
+        return this.head;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("base")
+    public void setBase(String base) {
+        this.base = base;
+    }
+
+    @JsonbProperty("commit_message")
+    public void setCommitMessage(String commitMessage) {
+        this.commitMessage = commitMessage;
+    }
+
+    @JsonbProperty("head")
+    public void setHead(String head) {
+        this.head = head;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

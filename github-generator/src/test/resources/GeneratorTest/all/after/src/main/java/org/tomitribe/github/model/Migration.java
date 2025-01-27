@@ -28,47 +28,166 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/migration")
+@ComponentId("migration")
 public class Migration {
 
-    @JsonbProperty("archive_url")
     private URI archiveUrl;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("exclude")
     private List<Exclude> exclude;
 
-    @JsonbProperty("exclude_attachments")
     private Boolean excludeAttachments;
 
-    @JsonbProperty("guid")
     private String guid;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("lock_repositories")
     private Boolean lockRepositories;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("owner")
     private SimpleUser owner;
 
-    @JsonbProperty("repositories")
     private List<Repository> repositories;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("archive_url")
+    public URI getArchiveUrl() {
+        return this.archiveUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("exclude")
+    public List<Exclude> getExclude() {
+        return this.exclude;
+    }
+
+    @JsonbProperty("exclude_attachments")
+    public Boolean getExcludeAttachments() {
+        return this.excludeAttachments;
+    }
+
+    @JsonbProperty("guid")
+    public String getGuid() {
+        return this.guid;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("lock_repositories")
+    public Boolean getLockRepositories() {
+        return this.lockRepositories;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public SimpleUser getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("repositories")
+    public List<Repository> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("archive_url")
+    public void setArchiveUrl(URI archiveUrl) {
+        this.archiveUrl = archiveUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("exclude")
+    public void setExclude(List<Exclude> exclude) {
+        this.exclude = exclude;
+    }
+
+    @JsonbProperty("exclude_attachments")
+    public void setExcludeAttachments(Boolean excludeAttachments) {
+        this.excludeAttachments = excludeAttachments;
+    }
+
+    @JsonbProperty("guid")
+    public void setGuid(String guid) {
+        this.guid = guid;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("lock_repositories")
+    public void setLockRepositories(Boolean lockRepositories) {
+        this.lockRepositories = lockRepositories;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public void setOwner(SimpleUser owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<Repository> repositories) {
+        this.repositories = repositories;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

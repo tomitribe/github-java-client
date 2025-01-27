@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/verification")
+@ComponentId("verification")
 public class Verification {
 
-    @JsonbProperty("payload")
     private String payload;
 
-    @JsonbProperty("reason")
     private String reason;
 
-    @JsonbProperty("signature")
     private String signature;
 
-    @JsonbProperty("verified")
     private Boolean verified;
+
+    @JsonbProperty("payload")
+    public String getPayload() {
+        return this.payload;
+    }
+
+    @JsonbProperty("reason")
+    public String getReason() {
+        return this.reason;
+    }
+
+    @JsonbProperty("signature")
+    public String getSignature() {
+        return this.signature;
+    }
+
+    @JsonbProperty("verified")
+    public Boolean getVerified() {
+        return this.verified;
+    }
+
+    @JsonbProperty("payload")
+    public void setPayload(String payload) {
+        this.payload = payload;
+    }
+
+    @JsonbProperty("reason")
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    @JsonbProperty("signature")
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    @JsonbProperty("verified")
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
 }

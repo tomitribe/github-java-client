@@ -42,4 +42,52 @@ public class ListCodeScanningAlertsForRepository {
     @JsonbTransient
     @QueryParam("state")
     private String state;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(String state) {
+        this.state = state;
+    }
 }

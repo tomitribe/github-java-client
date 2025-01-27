@@ -26,31 +26,104 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/event")
+@ComponentId("event")
 public class Event {
 
-    @JsonbProperty("public")
     private Boolean _public;
 
-    @JsonbProperty("actor")
     private Actor actor;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("org")
     private Actor org;
 
-    @JsonbProperty("payload")
     private Payload payload;
 
-    @JsonbProperty("repo")
     private Repo repo;
 
-    @JsonbProperty("type")
     private String type;
+
+    @JsonbProperty("actor")
+    public Actor getActor() {
+        return this.actor;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("org")
+    public Actor getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("payload")
+    public Payload getPayload() {
+        return this.payload;
+    }
+
+    @JsonbProperty("repo")
+    public Repo getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("public")
+    public Boolean get_public() {
+        return this._public;
+    }
+
+    @JsonbProperty("actor")
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("org")
+    public void setOrg(Actor org) {
+        this.org = org;
+    }
+
+    @JsonbProperty("payload")
+    public void setPayload(Payload payload) {
+        this.payload = payload;
+    }
+
+    @JsonbProperty("repo")
+    public void setRepo(Repo repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("public")
+    public void set_public(Boolean _public) {
+        this._public = _public;
+    }
 }

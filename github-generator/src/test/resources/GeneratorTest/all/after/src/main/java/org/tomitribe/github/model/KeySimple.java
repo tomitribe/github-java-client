@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/key-simple")
+@ComponentId("key-simple")
 public class KeySimple {
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("key")
     private String key;
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

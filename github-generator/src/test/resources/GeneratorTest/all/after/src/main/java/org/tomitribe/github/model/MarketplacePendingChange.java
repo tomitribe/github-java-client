@@ -25,18 +25,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MarketplacePendingChange {
 
-    @JsonbProperty("effective_date")
     private String effectiveDate;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("is_installed")
     private Boolean isInstalled;
 
-    @JsonbProperty("plan")
     private MarketplaceListingPlan plan;
 
-    @JsonbProperty("unit_count")
     private Integer unitCount;
+
+    @JsonbProperty("effective_date")
+    public String getEffectiveDate() {
+        return this.effectiveDate;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("is_installed")
+    public Boolean getIsInstalled() {
+        return this.isInstalled;
+    }
+
+    @JsonbProperty("plan")
+    public MarketplaceListingPlan getPlan() {
+        return this.plan;
+    }
+
+    @JsonbProperty("unit_count")
+    public Integer getUnitCount() {
+        return this.unitCount;
+    }
+
+    @JsonbProperty("effective_date")
+    public void setEffectiveDate(String effectiveDate) {
+        this.effectiveDate = effectiveDate;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("is_installed")
+    public void setIsInstalled(Boolean isInstalled) {
+        this.isInstalled = isInstalled;
+    }
+
+    @JsonbProperty("plan")
+    public void setPlan(MarketplaceListingPlan plan) {
+        this.plan = plan;
+    }
+
+    @JsonbProperty("unit_count")
+    public void setUnitCount(Integer unitCount) {
+        this.unitCount = unitCount;
+    }
 }

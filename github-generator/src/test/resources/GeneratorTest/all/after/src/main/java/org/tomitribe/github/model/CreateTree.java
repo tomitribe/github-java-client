@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateTree {
 
-    @JsonbProperty("base_tree")
     private String baseTree;
 
     @JsonbTransient
@@ -39,6 +38,49 @@ public class CreateTree {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("tree")
     private List<Tree> tree;
+
+    @JsonbProperty("base_tree")
+    public String getBaseTree() {
+        return this.baseTree;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("tree")
+    public List<Tree> getTree() {
+        return this.tree;
+    }
+
+    @JsonbProperty("base_tree")
+    public void setBaseTree(String baseTree) {
+        this.baseTree = baseTree;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("tree")
+    public void setTree(List<Tree> tree) {
+        this.tree = tree;
+    }
 }

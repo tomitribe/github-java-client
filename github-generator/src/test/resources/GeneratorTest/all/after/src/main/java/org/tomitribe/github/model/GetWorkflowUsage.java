@@ -37,4 +37,40 @@ public class GetWorkflowUsage {
     @JsonbTransient
     @PathParam("workflow-id")
     private Integer workflowId;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("workflow-id")
+    public Integer getWorkflowId() {
+        return this.workflowId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("workflow-id")
+    public void setWorkflowId(Integer workflowId) {
+        this.workflowId = workflowId;
+    }
 }

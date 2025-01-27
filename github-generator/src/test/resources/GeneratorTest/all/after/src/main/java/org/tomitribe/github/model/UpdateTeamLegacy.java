@@ -29,26 +29,85 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateTeamLegacy {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("parent_team_id")
     private Integer parentTeamId;
 
-    @JsonbProperty("permission")
     @JsonbTypeAdapter(PermissionAdapter.class)
     private Permission permission;
 
-    @JsonbProperty("privacy")
     @JsonbTypeAdapter(PrivacyAdapter.class)
     private Privacy privacy;
 
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("parent_team_id")
+    public Integer getParentTeamId() {
+        return this.parentTeamId;
+    }
+
+    @JsonbTypeAdapter(PermissionAdapter.class)
+    @JsonbProperty("permission")
+    public Permission getPermission() {
+        return this.permission;
+    }
+
+    @JsonbTypeAdapter(PrivacyAdapter.class)
+    @JsonbProperty("privacy")
+    public Privacy getPrivacy() {
+        return this.privacy;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("parent_team_id")
+    public void setParentTeamId(Integer parentTeamId) {
+        this.parentTeamId = parentTeamId;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
+
+    @JsonbProperty("privacy")
+    public void setPrivacy(Privacy privacy) {
+        this.privacy = privacy;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 
     public enum Permission {
 

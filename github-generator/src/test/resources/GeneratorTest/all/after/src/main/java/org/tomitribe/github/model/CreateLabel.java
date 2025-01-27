@@ -27,13 +27,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateLabel {
 
-    @JsonbProperty("color")
     private String color;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
@@ -43,4 +40,58 @@ public class CreateLabel {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("color")
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

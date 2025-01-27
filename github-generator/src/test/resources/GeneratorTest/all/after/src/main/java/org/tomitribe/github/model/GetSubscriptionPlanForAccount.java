@@ -29,4 +29,16 @@ public class GetSubscriptionPlanForAccount {
     @JsonbTransient
     @PathParam("account_id")
     private Integer accountId;
+
+    @JsonbTransient
+    @PathParam("account_id")
+    public Integer getAccountId() {
+        return this.accountId;
+    }
+
+    @JsonbTransient
+    @PathParam("account_id")
+    public void setAccountId(Integer accountId) {
+        this.accountId = accountId;
+    }
 }

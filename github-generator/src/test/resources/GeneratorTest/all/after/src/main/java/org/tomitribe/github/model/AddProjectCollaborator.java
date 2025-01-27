@@ -29,7 +29,6 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class AddProjectCollaborator {
 
-    @JsonbProperty("permission")
     @JsonbTypeAdapter(PermissionAdapter.class)
     private Permission permission;
 
@@ -40,6 +39,41 @@ public class AddProjectCollaborator {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTypeAdapter(PermissionAdapter.class)
+    @JsonbProperty("permission")
+    public Permission getPermission() {
+        return this.permission;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public enum Permission {
 

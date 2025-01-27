@@ -29,4 +29,16 @@ public class SearchTopics {
     @JsonbTransient
     @QueryParam("q")
     private String q;
+
+    @JsonbTransient
+    @QueryParam("q")
+    public String getQ() {
+        return this.q;
+    }
+
+    @JsonbTransient
+    @QueryParam("q")
+    public void setQ(String q) {
+        this.q = q;
+    }
 }

@@ -25,18 +25,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/git-ref")
+@ComponentId("git-ref")
 public class GitRef {
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("object")
     private Object object;
 
-    @JsonbProperty("ref")
     private String ref;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("object")
+    public Object getObject() {
+        return this.object;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("object")
+    public void setObject(Object object) {
+        this.object = object;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

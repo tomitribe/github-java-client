@@ -24,24 +24,78 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/actions-public-key")
+@ComponentId("actions-public-key")
 public class ActionsPublicKey {
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("key")
     private String key;
 
-    @JsonbProperty("key_id")
     private String keyId;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbProperty("key_id")
+    public String getKeyId() {
+        return this.keyId;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @JsonbProperty("key_id")
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

@@ -25,9 +25,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MACOS {
 
-    @JsonbProperty("jobs")
     private Integer jobs;
 
-    @JsonbProperty("total_ms")
     private Integer totalMs;
+
+    @JsonbProperty("jobs")
+    public Integer getJobs() {
+        return this.jobs;
+    }
+
+    @JsonbProperty("total_ms")
+    public Integer getTotalMs() {
+        return this.totalMs;
+    }
+
+    @JsonbProperty("jobs")
+    public void setJobs(Integer jobs) {
+        this.jobs = jobs;
+    }
+
+    @JsonbProperty("total_ms")
+    public void setTotalMs(Integer totalMs) {
+        this.totalMs = totalMs;
+    }
 }

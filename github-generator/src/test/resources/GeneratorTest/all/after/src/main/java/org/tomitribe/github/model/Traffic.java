@@ -26,16 +26,44 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/traffic")
+@ComponentId("traffic")
 public class Traffic {
 
-    @JsonbProperty("count")
     private Integer count;
 
-    @JsonbProperty("timestamp")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date timestamp;
 
-    @JsonbProperty("uniques")
     private Integer uniques;
+
+    @JsonbProperty("count")
+    public Integer getCount() {
+        return this.count;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("timestamp")
+    public Date getTimestamp() {
+        return this.timestamp;
+    }
+
+    @JsonbProperty("uniques")
+    public Integer getUniques() {
+        return this.uniques;
+    }
+
+    @JsonbProperty("count")
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    @JsonbProperty("timestamp")
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @JsonbProperty("uniques")
+    public void setUniques(Integer uniques) {
+        this.uniques = uniques;
+    }
 }

@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Name {
 
-    @JsonbProperty("familyName")
     private String familyName;
 
-    @JsonbProperty("formatted")
     private String formatted;
 
-    @JsonbProperty("givenName")
     private String givenName;
+
+    @JsonbProperty("familyName")
+    public String getFamilyName() {
+        return this.familyName;
+    }
+
+    @JsonbProperty("formatted")
+    public String getFormatted() {
+        return this.formatted;
+    }
+
+    @JsonbProperty("givenName")
+    public String getGivenName() {
+        return this.givenName;
+    }
+
+    @JsonbProperty("familyName")
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
+    }
+
+    @JsonbProperty("formatted")
+    public void setFormatted(String formatted) {
+        this.formatted = formatted;
+    }
+
+    @JsonbProperty("givenName")
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
 }

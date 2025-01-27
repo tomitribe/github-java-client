@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Matches {
 
-    @JsonbProperty("indices")
     private List<Integer> indices;
 
-    @JsonbProperty("text")
     private String text;
+
+    @JsonbProperty("indices")
+    public List<Integer> getIndices() {
+        return this.indices;
+    }
+
+    @JsonbProperty("text")
+    public String getText() {
+        return this.text;
+    }
+
+    @JsonbProperty("indices")
+    public void setIndices(List<Integer> indices) {
+        this.indices = indices;
+    }
+
+    @JsonbProperty("text")
+    public void setText(String text) {
+        this.text = text;
+    }
 }

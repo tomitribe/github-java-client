@@ -27,10 +27,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateGistComment {
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
     @PathParam("gist_id")
     private String gistId;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public String getGistId() {
+        return this.gistId;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public void setGistId(String gistId) {
+        this.gistId = gistId;
+    }
 }

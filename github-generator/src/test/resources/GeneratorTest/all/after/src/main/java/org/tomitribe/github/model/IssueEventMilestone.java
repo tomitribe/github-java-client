@@ -24,9 +24,18 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-event-milestone")
+@ComponentId("issue-event-milestone")
 public class IssueEventMilestone {
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

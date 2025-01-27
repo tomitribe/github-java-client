@@ -28,16 +28,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateRepositoryWebhook {
 
-    @JsonbProperty("active")
     private Boolean active;
 
-    @JsonbProperty("config")
     private Config config;
 
-    @JsonbProperty("events")
     private List<String> events;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
@@ -47,4 +43,68 @@ public class CreateRepositoryWebhook {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("active")
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    @JsonbProperty("config")
+    public Config getConfig() {
+        return this.config;
+    }
+
+    @JsonbProperty("events")
+    public List<String> getEvents() {
+        return this.events;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("active")
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    @JsonbProperty("config")
+    public void setConfig(Config config) {
+        this.config = config;
+    }
+
+    @JsonbProperty("events")
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

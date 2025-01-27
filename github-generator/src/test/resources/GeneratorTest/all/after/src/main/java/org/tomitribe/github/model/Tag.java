@@ -25,21 +25,66 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/tag")
+@ComponentId("tag")
 public class Tag {
 
-    @JsonbProperty("commit")
     private Commit commit;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("tarball_url")
     private URI tarballUrl;
 
-    @JsonbProperty("zipball_url")
     private URI zipballUrl;
+
+    @JsonbProperty("commit")
+    public Commit getCommit() {
+        return this.commit;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("tarball_url")
+    public URI getTarballUrl() {
+        return this.tarballUrl;
+    }
+
+    @JsonbProperty("zipball_url")
+    public URI getZipballUrl() {
+        return this.zipballUrl;
+    }
+
+    @JsonbProperty("commit")
+    public void setCommit(Commit commit) {
+        this.commit = commit;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("tarball_url")
+    public void setTarballUrl(URI tarballUrl) {
+        this.tarballUrl = tarballUrl;
+    }
+
+    @JsonbProperty("zipball_url")
+    public void setZipballUrl(URI zipballUrl) {
+        this.zipballUrl = zipballUrl;
+    }
 }

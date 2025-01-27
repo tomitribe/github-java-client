@@ -37,4 +37,40 @@ public class GetReleaseByTagName {
     @JsonbTransient
     @PathParam("tag")
     private String tag;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("tag")
+    public String getTag() {
+        return this.tag;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("tag")
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
 }

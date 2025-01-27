@@ -35,6 +35,39 @@ public class CreateGitHubPagesSite {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("source")
     private Source source;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("source")
+    public Source getSource() {
+        return this.source;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("source")
+    public void setSource(Source source) {
+        this.source = source;
+    }
 }

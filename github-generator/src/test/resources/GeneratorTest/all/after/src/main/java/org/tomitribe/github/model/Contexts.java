@@ -25,9 +25,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Contexts {
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("octicon")
     private String octicon;
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("octicon")
+    public String getOcticon() {
+        return this.octicon;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("octicon")
+    public void setOcticon(String octicon) {
+        this.octicon = octicon;
+    }
 }

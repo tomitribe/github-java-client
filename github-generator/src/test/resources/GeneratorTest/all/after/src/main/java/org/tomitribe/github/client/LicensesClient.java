@@ -16,6 +16,8 @@ package org.tomitribe.github.client;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.GetAllCommonlyUsedLicenses;
 import org.tomitribe.github.model.GetLicense;
 import org.tomitribe.github.model.GetLicenseForRepository;
@@ -27,41 +29,31 @@ public interface LicensesClient {
 
     @GET
     @Path("/licenses")
-    @OperationId("licenses/get-all-commonly-used")
     @Docs("https://developer.github.com/v3/licenses/#get-all-commonly-used-licenses")
     @EnabledForGithubApps
-    @Category("licenses")
     Stream<LicenseSimple> getAllCommonlyUsedLicenses(final GetAllCommonlyUsedLicenses getAllCommonlyUsedLicenses);
 
     @GET
     @Path("/licenses/{license}")
-    @OperationId("licenses/get")
     @Docs("https://developer.github.com/v3/licenses/#get-a-license")
     @EnabledForGithubApps
-    @Category("licenses")
     License getLicense(final GetLicense getLicense);
 
     @GET
     @Path("/licenses/{license}")
-    @OperationId("licenses/get")
     @Docs("https://developer.github.com/v3/licenses/#get-a-license")
     @EnabledForGithubApps
-    @Category("licenses")
     License getLicense(@PathParam("license") final String license);
 
     @GET
     @Path("/repos/{owner}/{repo}/license")
-    @OperationId("licenses/get-for-repo")
     @Docs("https://developer.github.com/v3/licenses/#get-the-license-for-a-repository")
     @EnabledForGithubApps
-    @Category("licenses")
     LicenseContent getLicenseForRepository(final GetLicenseForRepository getLicenseForRepository);
 
     @GET
     @Path("/repos/{owner}/{repo}/license")
-    @OperationId("licenses/get-for-repo")
     @Docs("https://developer.github.com/v3/licenses/#get-the-license-for-a-repository")
     @EnabledForGithubApps
-    @Category("licenses")
     LicenseContent getLicenseForRepository(@PathParam("owner") final String owner, @PathParam("repo") final String repo);
 }

@@ -31,10 +31,8 @@ public class UpdateReleaseAsset {
     @PathParam("asset_id")
     private Integer assetId;
 
-    @JsonbProperty("label")
     private String label;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
@@ -45,6 +43,71 @@ public class UpdateReleaseAsset {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("state")
     private String state;
+
+    @JsonbTransient
+    @PathParam("asset_id")
+    public Integer getAssetId() {
+        return this.assetId;
+    }
+
+    @JsonbProperty("label")
+    public String getLabel() {
+        return this.label;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @PathParam("asset_id")
+    public void setAssetId(Integer assetId) {
+        this.assetId = assetId;
+    }
+
+    @JsonbProperty("label")
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
 }

@@ -46,4 +46,64 @@ public class ListCheckSuitesForGitReference {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @QueryParam("app_id")
+    public Integer getAppId() {
+        return this.appId;
+    }
+
+    @JsonbTransient
+    @QueryParam("check_name")
+    public String getCheckName() {
+        return this.checkName;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("app_id")
+    public void setAppId(Integer appId) {
+        this.appId = appId;
+    }
+
+    @JsonbTransient
+    @QueryParam("check_name")
+    public void setCheckName(String checkName) {
+        this.checkName = checkName;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

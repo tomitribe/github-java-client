@@ -28,16 +28,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateRepositoryWebhook {
 
-    @JsonbProperty("active")
     private Boolean active;
 
-    @JsonbProperty("add_events")
     private List<String> addEvents;
 
-    @JsonbProperty("config")
     private Config config;
 
-    @JsonbProperty("events")
     private List<String> events;
 
     @JsonbTransient
@@ -48,10 +44,95 @@ public class UpdateRepositoryWebhook {
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("remove_events")
     private List<String> removeEvents;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("active")
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    @JsonbProperty("add_events")
+    public List<String> getAddEvents() {
+        return this.addEvents;
+    }
+
+    @JsonbProperty("config")
+    public Config getConfig() {
+        return this.config;
+    }
+
+    @JsonbProperty("events")
+    public List<String> getEvents() {
+        return this.events;
+    }
+
+    @JsonbTransient
+    @PathParam("hook-id")
+    public Integer getHookId() {
+        return this.hookId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("remove_events")
+    public List<String> getRemoveEvents() {
+        return this.removeEvents;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("active")
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    @JsonbProperty("add_events")
+    public void setAddEvents(List<String> addEvents) {
+        this.addEvents = addEvents;
+    }
+
+    @JsonbProperty("config")
+    public void setConfig(Config config) {
+        this.config = config;
+    }
+
+    @JsonbProperty("events")
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    @JsonbTransient
+    @PathParam("hook-id")
+    public void setHookId(Integer hookId) {
+        this.hookId = hookId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("remove_events")
+    public void setRemoveEvents(List<String> removeEvents) {
+        this.removeEvents = removeEvents;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

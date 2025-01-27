@@ -27,10 +27,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateOrUpdateRepositorySecret {
 
-    @JsonbProperty("encrypted_value")
     private String encryptedValue;
 
-    @JsonbProperty("key_id")
     private String keyId;
 
     @JsonbTransient
@@ -44,4 +42,60 @@ public class CreateOrUpdateRepositorySecret {
     @JsonbTransient
     @PathParam("secret_name")
     private String secretName;
+
+    @JsonbProperty("encrypted_value")
+    public String getEncryptedValue() {
+        return this.encryptedValue;
+    }
+
+    @JsonbProperty("key_id")
+    public String getKeyId() {
+        return this.keyId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public String getSecretName() {
+        return this.secretName;
+    }
+
+    @JsonbProperty("encrypted_value")
+    public void setEncryptedValue(String encryptedValue) {
+        this.encryptedValue = encryptedValue;
+    }
+
+    @JsonbProperty("key_id")
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public void setSecretName(String secretName) {
+        this.secretName = secretName;
+    }
 }

@@ -29,4 +29,16 @@ public class GetSingleGrant {
     @JsonbTransient
     @PathParam("grant_id")
     private Integer grantId;
+
+    @JsonbTransient
+    @PathParam("grant_id")
+    public Integer getGrantId() {
+        return this.grantId;
+    }
+
+    @JsonbTransient
+    @PathParam("grant_id")
+    public void setGrantId(Integer grantId) {
+        this.grantId = grantId;
+    }
 }

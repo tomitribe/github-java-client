@@ -45,4 +45,64 @@ public class DeleteTeamDiscussionCommentReaction {
     @JsonbTransient
     @PathParam("team_slug")
     private String teamSlug;
+
+    @JsonbTransient
+    @PathParam("comment-number")
+    public Integer getCommentNumber() {
+        return this.commentNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public Integer getDiscussionNumber() {
+        return this.discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("reaction-id")
+    public Integer getReactionId() {
+        return this.reactionId;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbTransient
+    @PathParam("comment-number")
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public void setDiscussionNumber(Integer discussionNumber) {
+        this.discussionNumber = discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("reaction-id")
+    public void setReactionId(Integer reactionId) {
+        this.reactionId = reactionId;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
 }

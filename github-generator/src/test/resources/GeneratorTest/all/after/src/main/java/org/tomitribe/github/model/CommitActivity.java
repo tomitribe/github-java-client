@@ -25,15 +25,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/commit-activity")
+@ComponentId("commit-activity")
 public class CommitActivity {
 
-    @JsonbProperty("days")
     private List<Integer> days;
 
-    @JsonbProperty("total")
     private Integer total;
 
-    @JsonbProperty("week")
     private Integer week;
+
+    @JsonbProperty("days")
+    public List<Integer> getDays() {
+        return this.days;
+    }
+
+    @JsonbProperty("total")
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    @JsonbProperty("week")
+    public Integer getWeek() {
+        return this.week;
+    }
+
+    @JsonbProperty("days")
+    public void setDays(List<Integer> days) {
+        this.days = days;
+    }
+
+    @JsonbProperty("total")
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    @JsonbProperty("week")
+    public void setWeek(Integer week) {
+        this.week = week;
+    }
 }

@@ -30,30 +30,23 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateCheckRun {
 
-    @JsonbProperty("actions")
     private List<Actions> actions;
 
     @JsonbTransient
     @PathParam("check_run_id")
     private Integer checkRunId;
 
-    @JsonbProperty("completed_at")
     private String completedAt;
 
-    @JsonbProperty("conclusion")
     @JsonbTypeAdapter(ConclusionAdapter.class)
     private Conclusion conclusion;
 
-    @JsonbProperty("details_url")
     private String detailsUrl;
 
-    @JsonbProperty("external_id")
     private String externalId;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("output")
     private Output output;
 
     @JsonbTransient
@@ -64,12 +57,138 @@ public class UpdateCheckRun {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("started_at")
     private String startedAt;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
+
+    @JsonbProperty("actions")
+    public List<Actions> getActions() {
+        return this.actions;
+    }
+
+    @JsonbTransient
+    @PathParam("check_run_id")
+    public Integer getCheckRunId() {
+        return this.checkRunId;
+    }
+
+    @JsonbProperty("completed_at")
+    public String getCompletedAt() {
+        return this.completedAt;
+    }
+
+    @JsonbTypeAdapter(ConclusionAdapter.class)
+    @JsonbProperty("conclusion")
+    public Conclusion getConclusion() {
+        return this.conclusion;
+    }
+
+    @JsonbProperty("details_url")
+    public String getDetailsUrl() {
+        return this.detailsUrl;
+    }
+
+    @JsonbProperty("external_id")
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("output")
+    public Output getOutput() {
+        return this.output;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("started_at")
+    public String getStartedAt() {
+        return this.startedAt;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("actions")
+    public void setActions(List<Actions> actions) {
+        this.actions = actions;
+    }
+
+    @JsonbTransient
+    @PathParam("check_run_id")
+    public void setCheckRunId(Integer checkRunId) {
+        this.checkRunId = checkRunId;
+    }
+
+    @JsonbProperty("completed_at")
+    public void setCompletedAt(String completedAt) {
+        this.completedAt = completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public void setConclusion(Conclusion conclusion) {
+        this.conclusion = conclusion;
+    }
+
+    @JsonbProperty("details_url")
+    public void setDetailsUrl(String detailsUrl) {
+        this.detailsUrl = detailsUrl;
+    }
+
+    @JsonbProperty("external_id")
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("output")
+    public void setOutput(Output output) {
+        this.output = output;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("started_at")
+    public void setStartedAt(String startedAt) {
+        this.startedAt = startedAt;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public enum Conclusion {
 

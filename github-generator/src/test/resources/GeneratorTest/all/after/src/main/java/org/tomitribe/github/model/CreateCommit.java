@@ -28,29 +28,107 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateCommit {
 
-    @JsonbProperty("author")
     private Author author;
 
-    @JsonbProperty("committer")
     private Committer committer;
 
-    @JsonbProperty("message")
     private String message;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("parents")
     private List<String> parents;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("signature")
     private String signature;
 
-    @JsonbProperty("tree")
     private String tree;
+
+    @JsonbProperty("author")
+    public Author getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("committer")
+    public Committer getCommitter() {
+        return this.committer;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("parents")
+    public List<String> getParents() {
+        return this.parents;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("signature")
+    public String getSignature() {
+        return this.signature;
+    }
+
+    @JsonbProperty("tree")
+    public String getTree() {
+        return this.tree;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("committer")
+    public void setCommitter(Committer committer) {
+        this.committer = committer;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("parents")
+    public void setParents(List<String> parents) {
+        this.parents = parents;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("signature")
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    @JsonbProperty("tree")
+    public void setTree(String tree) {
+        this.tree = tree;
+    }
 }

@@ -29,26 +29,20 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateReviewCommentForPullRequest {
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("commit_id")
     private String commitId;
 
-    @JsonbProperty("in_reply_to")
     private Integer inReplyTo;
 
-    @JsonbProperty("line")
     private Integer line;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("position")
     private Integer position;
 
     @JsonbTransient
@@ -59,16 +53,141 @@ public class CreateReviewCommentForPullRequest {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("side")
     @JsonbTypeAdapter(SideAdapter.class)
     private Side side;
 
-    @JsonbProperty("start_line")
     private Integer startLine;
 
-    @JsonbProperty("start_side")
     @JsonbTypeAdapter(StartSideAdapter.class)
     private StartSide startSide;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("commit_id")
+    public String getCommitId() {
+        return this.commitId;
+    }
+
+    @JsonbProperty("in_reply_to")
+    public Integer getInReplyTo() {
+        return this.inReplyTo;
+    }
+
+    @JsonbProperty("line")
+    public Integer getLine() {
+        return this.line;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("position")
+    public Integer getPosition() {
+        return this.position;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public Integer getPullNumber() {
+        return this.pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(SideAdapter.class)
+    @JsonbProperty("side")
+    public Side getSide() {
+        return this.side;
+    }
+
+    @JsonbProperty("start_line")
+    public Integer getStartLine() {
+        return this.startLine;
+    }
+
+    @JsonbTypeAdapter(StartSideAdapter.class)
+    @JsonbProperty("start_side")
+    public StartSide getStartSide() {
+        return this.startSide;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("commit_id")
+    public void setCommitId(String commitId) {
+        this.commitId = commitId;
+    }
+
+    @JsonbProperty("in_reply_to")
+    public void setInReplyTo(Integer inReplyTo) {
+        this.inReplyTo = inReplyTo;
+    }
+
+    @JsonbProperty("line")
+    public void setLine(Integer line) {
+        this.line = line;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("position")
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public void setPullNumber(Integer pullNumber) {
+        this.pullNumber = pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("side")
+    public void setSide(Side side) {
+        this.side = side;
+    }
+
+    @JsonbProperty("start_line")
+    public void setStartLine(Integer startLine) {
+        this.startLine = startLine;
+    }
+
+    @JsonbProperty("start_side")
+    public void setStartSide(StartSide startSide) {
+        this.startSide = startSide;
+    }
 
     public enum Side {
 

@@ -25,27 +25,99 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Groups {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("display")
     private String display;
 
-    @JsonbProperty("group_description")
     private String groupDescription;
 
-    @JsonbProperty("group_id")
     private String groupId;
 
-    @JsonbProperty("group_name")
     private String groupName;
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("value")
     private String value;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("display")
+    public String getDisplay() {
+        return this.display;
+    }
+
+    @JsonbProperty("group_description")
+    public String getGroupDescription() {
+        return this.groupDescription;
+    }
+
+    @JsonbProperty("group_id")
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    @JsonbProperty("group_name")
+    public String getGroupName() {
+        return this.groupName;
+    }
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("display")
+    public void setDisplay(String display) {
+        this.display = display;
+    }
+
+    @JsonbProperty("group_description")
+    public void setGroupDescription(String groupDescription) {
+        this.groupDescription = groupDescription;
+    }
+
+    @JsonbProperty("group_id")
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    @JsonbProperty("group_name")
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("value")
+    public void setValue(String value) {
+        this.value = value;
+    }
 }

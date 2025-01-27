@@ -25,15 +25,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateGitHubAppFromManifestResponse {
 
-    @JsonbProperty("client_id")
     private String clientId;
 
-    @JsonbProperty("client_secret")
     private String clientSecret;
 
-    @JsonbProperty("pem")
     private String pem;
 
-    @JsonbProperty("webhook_secret")
     private String webhookSecret;
+
+    @JsonbProperty("client_id")
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    @JsonbProperty("client_secret")
+    public String getClientSecret() {
+        return this.clientSecret;
+    }
+
+    @JsonbProperty("pem")
+    public String getPem() {
+        return this.pem;
+    }
+
+    @JsonbProperty("webhook_secret")
+    public String getWebhookSecret() {
+        return this.webhookSecret;
+    }
+
+    @JsonbProperty("client_id")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    @JsonbProperty("client_secret")
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
+
+    @JsonbProperty("pem")
+    public void setPem(String pem) {
+        this.pem = pem;
+    }
+
+    @JsonbProperty("webhook_secret")
+    public void setWebhookSecret(String webhookSecret) {
+        this.webhookSecret = webhookSecret;
+    }
 }

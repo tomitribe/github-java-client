@@ -33,4 +33,28 @@ public class ListInstallationsForAuthenticatedApp {
     @JsonbTransient
     @QueryParam("since")
     private String since;
+
+    @JsonbTransient
+    @QueryParam("outdated")
+    public String getOutdated() {
+        return this.outdated;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @QueryParam("outdated")
+    public void setOutdated(String outdated) {
+        this.outdated = outdated;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
 }

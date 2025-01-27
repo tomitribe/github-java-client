@@ -27,12 +27,31 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class Source {
 
-    @JsonbProperty("branch")
     @JsonbTypeAdapter(BranchAdapter.class)
     private Branch branch;
 
-    @JsonbProperty("path")
     private String path;
+
+    @JsonbTypeAdapter(BranchAdapter.class)
+    @JsonbProperty("branch")
+    public Branch getBranch() {
+        return this.branch;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("branch")
+    public void setBranch(Branch branch) {
+        this.branch = branch;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public enum Branch {
 

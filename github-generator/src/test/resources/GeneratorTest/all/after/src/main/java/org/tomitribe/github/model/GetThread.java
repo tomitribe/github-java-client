@@ -29,4 +29,16 @@ public class GetThread {
     @JsonbTransient
     @PathParam("thread_id")
     private Integer threadId;
+
+    @JsonbTransient
+    @PathParam("thread_id")
+    public Integer getThreadId() {
+        return this.threadId;
+    }
+
+    @JsonbTransient
+    @PathParam("thread_id")
+    public void setThreadId(Integer threadId) {
+        this.threadId = threadId;
+    }
 }

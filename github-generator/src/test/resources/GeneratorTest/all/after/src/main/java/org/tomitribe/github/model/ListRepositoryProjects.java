@@ -42,6 +42,43 @@ public class ListRepositoryProjects {
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbTransient
+    @QueryParam("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public enum State {
 
         OPEN("open"), CLOSED("closed"), ALL("all");

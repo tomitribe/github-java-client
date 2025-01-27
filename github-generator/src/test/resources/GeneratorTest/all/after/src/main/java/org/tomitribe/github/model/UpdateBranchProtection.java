@@ -27,17 +27,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateBranchProtection {
 
-    @JsonbProperty("allow_deletions")
     private Boolean allowDeletions;
 
-    @JsonbProperty("allow_force_pushes")
     private Boolean allowForcePushes;
 
     @JsonbTransient
     @PathParam("branch")
     private String branch;
 
-    @JsonbProperty("enforce_admins")
     private Boolean enforceAdmins;
 
     @JsonbTransient
@@ -48,15 +45,117 @@ public class UpdateBranchProtection {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("required_linear_history")
     private Boolean requiredLinearHistory;
 
-    @JsonbProperty("required_pull_request_reviews")
     private RequiredPullRequestReviews requiredPullRequestReviews;
 
-    @JsonbProperty("required_status_checks")
     private RequiredStatusChecks requiredStatusChecks;
 
-    @JsonbProperty("restrictions")
     private Restrictions restrictions;
+
+    @JsonbProperty("allow_deletions")
+    public Boolean getAllowDeletions() {
+        return this.allowDeletions;
+    }
+
+    @JsonbProperty("allow_force_pushes")
+    public Boolean getAllowForcePushes() {
+        return this.allowForcePushes;
+    }
+
+    @JsonbTransient
+    @PathParam("branch")
+    public String getBranch() {
+        return this.branch;
+    }
+
+    @JsonbProperty("enforce_admins")
+    public Boolean getEnforceAdmins() {
+        return this.enforceAdmins;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("required_linear_history")
+    public Boolean getRequiredLinearHistory() {
+        return this.requiredLinearHistory;
+    }
+
+    @JsonbProperty("required_pull_request_reviews")
+    public RequiredPullRequestReviews getRequiredPullRequestReviews() {
+        return this.requiredPullRequestReviews;
+    }
+
+    @JsonbProperty("required_status_checks")
+    public RequiredStatusChecks getRequiredStatusChecks() {
+        return this.requiredStatusChecks;
+    }
+
+    @JsonbProperty("restrictions")
+    public Restrictions getRestrictions() {
+        return this.restrictions;
+    }
+
+    @JsonbProperty("allow_deletions")
+    public void setAllowDeletions(Boolean allowDeletions) {
+        this.allowDeletions = allowDeletions;
+    }
+
+    @JsonbProperty("allow_force_pushes")
+    public void setAllowForcePushes(Boolean allowForcePushes) {
+        this.allowForcePushes = allowForcePushes;
+    }
+
+    @JsonbTransient
+    @PathParam("branch")
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    @JsonbProperty("enforce_admins")
+    public void setEnforceAdmins(Boolean enforceAdmins) {
+        this.enforceAdmins = enforceAdmins;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("required_linear_history")
+    public void setRequiredLinearHistory(Boolean requiredLinearHistory) {
+        this.requiredLinearHistory = requiredLinearHistory;
+    }
+
+    @JsonbProperty("required_pull_request_reviews")
+    public void setRequiredPullRequestReviews(RequiredPullRequestReviews requiredPullRequestReviews) {
+        this.requiredPullRequestReviews = requiredPullRequestReviews;
+    }
+
+    @JsonbProperty("required_status_checks")
+    public void setRequiredStatusChecks(RequiredStatusChecks requiredStatusChecks) {
+        this.requiredStatusChecks = requiredStatusChecks;
+    }
+
+    @JsonbProperty("restrictions")
+    public void setRestrictions(Restrictions restrictions) {
+        this.restrictions = restrictions;
+    }
 }

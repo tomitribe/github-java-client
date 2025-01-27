@@ -30,23 +30,18 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateIssue {
 
-    @JsonbProperty("assignee")
     private String assignee;
 
-    @JsonbProperty("assignees")
     private List<String> assignees;
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
     @PathParam("issue_number")
     private Integer issueNumber;
 
-    @JsonbProperty("labels")
     private List<Object> labels;
 
-    @JsonbProperty("milestone")
     private Integer milestone;
 
     @JsonbTransient
@@ -57,12 +52,117 @@ public class UpdateIssue {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("assignee")
+    public String getAssignee() {
+        return this.assignee;
+    }
+
+    @JsonbProperty("assignees")
+    public List<String> getAssignees() {
+        return this.assignees;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public Integer getIssueNumber() {
+        return this.issueNumber;
+    }
+
+    @JsonbProperty("labels")
+    public List<Object> getLabels() {
+        return this.labels;
+    }
+
+    @JsonbProperty("milestone")
+    public Integer getMilestone() {
+        return this.milestone;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbProperty("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("assignee")
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
+    }
+
+    @JsonbProperty("assignees")
+    public void setAssignees(List<String> assignees) {
+        this.assignees = assignees;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public void setIssueNumber(Integer issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    @JsonbProperty("labels")
+    public void setLabels(List<Object> labels) {
+        this.labels = labels;
+    }
+
+    @JsonbProperty("milestone")
+    public void setMilestone(Integer milestone) {
+        this.milestone = milestone;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public enum State {
 

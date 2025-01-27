@@ -28,78 +28,286 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/import")
+@ComponentId("import")
 public class _import {
 
-    @JsonbProperty("authors_count")
     private Integer authorsCount;
 
-    @JsonbProperty("authors_url")
     private URI authorsUrl;
 
-    @JsonbProperty("commit_count")
     private Integer commitCount;
 
-    @JsonbProperty("error_message")
     private String errorMessage;
 
-    @JsonbProperty("failed_step")
     private String failedStep;
 
-    @JsonbProperty("has_large_files")
     private Boolean hasLargeFiles;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("import_percent")
     private Integer importPercent;
 
-    @JsonbProperty("large_files_count")
     private Integer largeFilesCount;
 
-    @JsonbProperty("large_files_size")
     private Integer largeFilesSize;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("project_choices")
     private List<ProjectChoices> projectChoices;
 
-    @JsonbProperty("push_percent")
     private Integer pushPercent;
 
-    @JsonbProperty("repository_url")
     private URI repositoryUrl;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
 
-    @JsonbProperty("status_text")
     private String statusText;
 
-    @JsonbProperty("svc_root")
     private String svcRoot;
 
-    @JsonbProperty("svn_root")
     private String svnRoot;
 
-    @JsonbProperty("tfvc_project")
     private String tfvcProject;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("use_lfs")
     private String useLfs;
 
-    @JsonbProperty("vcs")
     private String vcs;
 
-    @JsonbProperty("vcs_url")
     private String vcsUrl;
+
+    @JsonbProperty("authors_count")
+    public Integer getAuthorsCount() {
+        return this.authorsCount;
+    }
+
+    @JsonbProperty("authors_url")
+    public URI getAuthorsUrl() {
+        return this.authorsUrl;
+    }
+
+    @JsonbProperty("commit_count")
+    public Integer getCommitCount() {
+        return this.commitCount;
+    }
+
+    @JsonbProperty("error_message")
+    public String getErrorMessage() {
+        return this.errorMessage;
+    }
+
+    @JsonbProperty("failed_step")
+    public String getFailedStep() {
+        return this.failedStep;
+    }
+
+    @JsonbProperty("has_large_files")
+    public Boolean getHasLargeFiles() {
+        return this.hasLargeFiles;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("import_percent")
+    public Integer getImportPercent() {
+        return this.importPercent;
+    }
+
+    @JsonbProperty("large_files_count")
+    public Integer getLargeFilesCount() {
+        return this.largeFilesCount;
+    }
+
+    @JsonbProperty("large_files_size")
+    public Integer getLargeFilesSize() {
+        return this.largeFilesSize;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("project_choices")
+    public List<ProjectChoices> getProjectChoices() {
+        return this.projectChoices;
+    }
+
+    @JsonbProperty("push_percent")
+    public Integer getPushPercent() {
+        return this.pushPercent;
+    }
+
+    @JsonbProperty("repository_url")
+    public URI getRepositoryUrl() {
+        return this.repositoryUrl;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("status_text")
+    public String getStatusText() {
+        return this.statusText;
+    }
+
+    @JsonbProperty("svc_root")
+    public String getSvcRoot() {
+        return this.svcRoot;
+    }
+
+    @JsonbProperty("svn_root")
+    public String getSvnRoot() {
+        return this.svnRoot;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public String getTfvcProject() {
+        return this.tfvcProject;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("use_lfs")
+    public String getUseLfs() {
+        return this.useLfs;
+    }
+
+    @JsonbProperty("vcs")
+    public String getVcs() {
+        return this.vcs;
+    }
+
+    @JsonbProperty("vcs_url")
+    public String getVcsUrl() {
+        return this.vcsUrl;
+    }
+
+    @JsonbProperty("authors_count")
+    public void setAuthorsCount(Integer authorsCount) {
+        this.authorsCount = authorsCount;
+    }
+
+    @JsonbProperty("authors_url")
+    public void setAuthorsUrl(URI authorsUrl) {
+        this.authorsUrl = authorsUrl;
+    }
+
+    @JsonbProperty("commit_count")
+    public void setCommitCount(Integer commitCount) {
+        this.commitCount = commitCount;
+    }
+
+    @JsonbProperty("error_message")
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    @JsonbProperty("failed_step")
+    public void setFailedStep(String failedStep) {
+        this.failedStep = failedStep;
+    }
+
+    @JsonbProperty("has_large_files")
+    public void setHasLargeFiles(Boolean hasLargeFiles) {
+        this.hasLargeFiles = hasLargeFiles;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("import_percent")
+    public void setImportPercent(Integer importPercent) {
+        this.importPercent = importPercent;
+    }
+
+    @JsonbProperty("large_files_count")
+    public void setLargeFilesCount(Integer largeFilesCount) {
+        this.largeFilesCount = largeFilesCount;
+    }
+
+    @JsonbProperty("large_files_size")
+    public void setLargeFilesSize(Integer largeFilesSize) {
+        this.largeFilesSize = largeFilesSize;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("project_choices")
+    public void setProjectChoices(List<ProjectChoices> projectChoices) {
+        this.projectChoices = projectChoices;
+    }
+
+    @JsonbProperty("push_percent")
+    public void setPushPercent(Integer pushPercent) {
+        this.pushPercent = pushPercent;
+    }
+
+    @JsonbProperty("repository_url")
+    public void setRepositoryUrl(URI repositoryUrl) {
+        this.repositoryUrl = repositoryUrl;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("status_text")
+    public void setStatusText(String statusText) {
+        this.statusText = statusText;
+    }
+
+    @JsonbProperty("svc_root")
+    public void setSvcRoot(String svcRoot) {
+        this.svcRoot = svcRoot;
+    }
+
+    @JsonbProperty("svn_root")
+    public void setSvnRoot(String svnRoot) {
+        this.svnRoot = svnRoot;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public void setTfvcProject(String tfvcProject) {
+        this.tfvcProject = tfvcProject;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("use_lfs")
+    public void setUseLfs(String useLfs) {
+        this.useLfs = useLfs;
+    }
+
+    @JsonbProperty("vcs")
+    public void setVcs(String vcs) {
+        this.vcs = vcs;
+    }
+
+    @JsonbProperty("vcs_url")
+    public void setVcsUrl(String vcsUrl) {
+        this.vcsUrl = vcsUrl;
+    }
 
     public enum Status {
 

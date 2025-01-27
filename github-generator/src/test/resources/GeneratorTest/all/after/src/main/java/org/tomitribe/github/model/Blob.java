@@ -25,27 +25,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/blob")
+@ComponentId("blob")
 public class Blob {
 
-    @JsonbProperty("content")
     private String content;
 
-    @JsonbProperty("encoding")
     private String encoding;
 
-    @JsonbProperty("highlighted_content")
     private String highlightedContent;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("size")
     private Integer size;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("encoding")
+    public String getEncoding() {
+        return this.encoding;
+    }
+
+    @JsonbProperty("highlighted_content")
+    public String getHighlightedContent() {
+        return this.highlightedContent;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @JsonbProperty("encoding")
+    public void setEncoding(String encoding) {
+        this.encoding = encoding;
+    }
+
+    @JsonbProperty("highlighted_content")
+    public void setHighlightedContent(String highlightedContent) {
+        this.highlightedContent = highlightedContent;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("size")
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

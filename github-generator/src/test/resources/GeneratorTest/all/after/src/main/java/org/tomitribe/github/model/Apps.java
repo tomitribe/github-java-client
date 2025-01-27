@@ -26,39 +26,147 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Apps {
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("events")
     private List<String> events;
 
-    @JsonbProperty("external_url")
     private String externalUrl;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("owner")
     private Owner owner;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("slug")
     private String slug;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("events")
+    public List<String> getEvents() {
+        return this.events;
+    }
+
+    @JsonbProperty("external_url")
+    public String getExternalUrl() {
+        return this.externalUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public Owner getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("slug")
+    public String getSlug() {
+        return this.slug;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("events")
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    @JsonbProperty("external_url")
+    public void setExternalUrl(String externalUrl) {
+        this.externalUrl = externalUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public void setOwner(Owner owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("slug")
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

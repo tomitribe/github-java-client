@@ -33,4 +33,28 @@ public class DeleteSCIMUserFromOrganization {
     @JsonbTransient
     @PathParam("scim_user_id")
     private String scimUserId;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("scim_user_id")
+    public String getScimUserId() {
+        return this.scimUserId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("scim_user_id")
+    public void setScimUserId(String scimUserId) {
+        this.scimUserId = scimUserId;
+    }
 }

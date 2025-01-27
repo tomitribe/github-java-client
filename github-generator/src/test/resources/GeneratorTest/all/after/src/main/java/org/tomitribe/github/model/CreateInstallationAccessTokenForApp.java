@@ -32,12 +32,51 @@ public class CreateInstallationAccessTokenForApp {
     @PathParam("installation_id")
     private Integer installationId;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("repositories")
     private List<String> repositories;
 
-    @JsonbProperty("repository_ids")
     private List<Integer> repositoryIds;
+
+    @JsonbTransient
+    @PathParam("installation_id")
+    public Integer getInstallationId() {
+        return this.installationId;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("repositories")
+    public List<String> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbProperty("repository_ids")
+    public List<Integer> getRepositoryIds() {
+        return this.repositoryIds;
+    }
+
+    @JsonbTransient
+    @PathParam("installation_id")
+    public void setInstallationId(Integer installationId) {
+        this.installationId = installationId;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<String> repositories) {
+        this.repositories = repositories;
+    }
+
+    @JsonbProperty("repository_ids")
+    public void setRepositoryIds(List<Integer> repositoryIds) {
+        this.repositoryIds = repositoryIds;
+    }
 }

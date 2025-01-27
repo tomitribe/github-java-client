@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/branch-short")
+@ComponentId("branch-short")
 public class BranchShort {
 
-    @JsonbProperty("protected")
     private Boolean _protected;
 
-    @JsonbProperty("commit")
     private Commit commit;
 
-    @JsonbProperty("name")
     private String name;
+
+    @JsonbProperty("commit")
+    public Commit getCommit() {
+        return this.commit;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("protected")
+    public Boolean get_protected() {
+        return this._protected;
+    }
+
+    @JsonbProperty("commit")
+    public void setCommit(Commit commit) {
+        this.commit = commit;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("protected")
+    public void set_protected(Boolean _protected) {
+        this._protected = _protected;
+    }
 }

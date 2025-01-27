@@ -25,27 +25,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/porter-author")
+@ComponentId("porter-author")
 public class PorterAuthor {
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("import_url")
     private URI importUrl;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("remote_id")
     private String remoteId;
 
-    @JsonbProperty("remote_name")
     private String remoteName;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("import_url")
+    public URI getImportUrl() {
+        return this.importUrl;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("remote_id")
+    public String getRemoteId() {
+        return this.remoteId;
+    }
+
+    @JsonbProperty("remote_name")
+    public String getRemoteName() {
+        return this.remoteName;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("import_url")
+    public void setImportUrl(URI importUrl) {
+        this.importUrl = importUrl;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("remote_id")
+    public void setRemoteId(String remoteId) {
+        this.remoteId = remoteId;
+    }
+
+    @JsonbProperty("remote_name")
+    public void setRemoteName(String remoteName) {
+        this.remoteName = remoteName;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

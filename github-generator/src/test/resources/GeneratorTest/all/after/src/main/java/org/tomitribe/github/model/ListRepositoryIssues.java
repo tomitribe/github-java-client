@@ -75,6 +75,140 @@ public class ListRepositoryIssues {
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
+    @JsonbTransient
+    @QueryParam("assignee")
+    public String getAssignee() {
+        return this.assignee;
+    }
+
+    @JsonbTransient
+    @QueryParam("creator")
+    public String getCreator() {
+        return this.creator;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("labels")
+    public String getLabels() {
+        return this.labels;
+    }
+
+    @JsonbTransient
+    @QueryParam("mentioned")
+    public String getMentioned() {
+        return this.mentioned;
+    }
+
+    @JsonbTransient
+    @QueryParam("milestone")
+    public String getMilestone() {
+        return this.milestone;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbTransient
+    @QueryParam("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @QueryParam("assignee")
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
+    }
+
+    @JsonbTransient
+    @QueryParam("creator")
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("labels")
+    public void setLabels(String labels) {
+        this.labels = labels;
+    }
+
+    @JsonbTransient
+    @QueryParam("mentioned")
+    public void setMentioned(String mentioned) {
+        this.mentioned = mentioned;
+    }
+
+    @JsonbTransient
+    @QueryParam("milestone")
+    public void setMilestone(String milestone) {
+        this.milestone = milestone;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public enum Sort {
 
         CREATED("created"), UPDATED("updated"), COMMENTS("comments");

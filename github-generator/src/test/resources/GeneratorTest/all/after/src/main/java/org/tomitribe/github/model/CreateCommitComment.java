@@ -27,27 +27,99 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateCommitComment {
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
     @PathParam("commit_sha")
     private String commitSha;
 
-    @JsonbProperty("line")
     private Integer line;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("position")
     private Integer position;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("commit_sha")
+    public String getCommitSha() {
+        return this.commitSha;
+    }
+
+    @JsonbProperty("line")
+    public Integer getLine() {
+        return this.line;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("position")
+    public Integer getPosition() {
+        return this.position;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("commit_sha")
+    public void setCommitSha(String commitSha) {
+        this.commitSha = commitSha;
+    }
+
+    @JsonbProperty("line")
+    public void setLine(Integer line) {
+        this.line = line;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("position")
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

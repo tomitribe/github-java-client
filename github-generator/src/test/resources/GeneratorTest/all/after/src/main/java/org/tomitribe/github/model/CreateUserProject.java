@@ -25,9 +25,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateUserProject {
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("name")
     private String name;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
 }

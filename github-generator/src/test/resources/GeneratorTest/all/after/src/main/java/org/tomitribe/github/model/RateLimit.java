@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/rate-limit")
+@ComponentId("rate-limit")
 public class RateLimit {
 
-    @JsonbProperty("limit")
     private Integer limit;
 
-    @JsonbProperty("remaining")
     private Integer remaining;
 
-    @JsonbProperty("reset")
     private Integer reset;
+
+    @JsonbProperty("limit")
+    public Integer getLimit() {
+        return this.limit;
+    }
+
+    @JsonbProperty("remaining")
+    public Integer getRemaining() {
+        return this.remaining;
+    }
+
+    @JsonbProperty("reset")
+    public Integer getReset() {
+        return this.reset;
+    }
+
+    @JsonbProperty("limit")
+    public void setLimit(Integer limit) {
+        this.limit = limit;
+    }
+
+    @JsonbProperty("remaining")
+    public void setRemaining(Integer remaining) {
+        this.remaining = remaining;
+    }
+
+    @JsonbProperty("reset")
+    public void setReset(Integer reset) {
+        this.reset = reset;
+    }
 }

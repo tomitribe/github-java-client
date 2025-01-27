@@ -25,27 +25,99 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateAuthenticatedUser {
 
-    @JsonbProperty("bio")
     private String bio;
 
-    @JsonbProperty("blog")
     private String blog;
 
-    @JsonbProperty("company")
     private String company;
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("hireable")
     private Boolean hireable;
 
-    @JsonbProperty("location")
     private String location;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("twitter_username")
     private String twitterUsername;
+
+    @JsonbProperty("bio")
+    public String getBio() {
+        return this.bio;
+    }
+
+    @JsonbProperty("blog")
+    public String getBlog() {
+        return this.blog;
+    }
+
+    @JsonbProperty("company")
+    public String getCompany() {
+        return this.company;
+    }
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("hireable")
+    public Boolean getHireable() {
+        return this.hireable;
+    }
+
+    @JsonbProperty("location")
+    public String getLocation() {
+        return this.location;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("twitter_username")
+    public String getTwitterUsername() {
+        return this.twitterUsername;
+    }
+
+    @JsonbProperty("bio")
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    @JsonbProperty("blog")
+    public void setBlog(String blog) {
+        this.blog = blog;
+    }
+
+    @JsonbProperty("company")
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("hireable")
+    public void setHireable(Boolean hireable) {
+        this.hireable = hireable;
+    }
+
+    @JsonbProperty("location")
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("twitter_username")
+    public void setTwitterUsername(String twitterUsername) {
+        this.twitterUsername = twitterUsername;
+    }
 }

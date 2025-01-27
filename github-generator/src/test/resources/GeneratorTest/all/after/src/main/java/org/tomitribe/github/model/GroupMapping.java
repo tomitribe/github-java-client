@@ -25,24 +25,78 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/group-mapping")
+@ComponentId("group-mapping")
 public class GroupMapping {
 
-    @JsonbProperty("group_description")
     private String groupDescription;
 
-    @JsonbProperty("group_id")
     private String groupId;
 
-    @JsonbProperty("group_name")
     private String groupName;
 
-    @JsonbProperty("groups")
     private List<Groups> groups;
 
-    @JsonbProperty("status")
     private String status;
 
-    @JsonbProperty("synced_at")
     private String syncedAt;
+
+    @JsonbProperty("group_description")
+    public String getGroupDescription() {
+        return this.groupDescription;
+    }
+
+    @JsonbProperty("group_id")
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    @JsonbProperty("group_name")
+    public String getGroupName() {
+        return this.groupName;
+    }
+
+    @JsonbProperty("groups")
+    public List<Groups> getGroups() {
+        return this.groups;
+    }
+
+    @JsonbProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("synced_at")
+    public String getSyncedAt() {
+        return this.syncedAt;
+    }
+
+    @JsonbProperty("group_description")
+    public void setGroupDescription(String groupDescription) {
+        this.groupDescription = groupDescription;
+    }
+
+    @JsonbProperty("group_id")
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    @JsonbProperty("group_name")
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    @JsonbProperty("groups")
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("synced_at")
+    public void setSyncedAt(String syncedAt) {
+        this.syncedAt = syncedAt;
+    }
 }

@@ -25,42 +25,150 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/scim-user")
+@ComponentId("scim-user")
 public class ScimUser {
 
-    @JsonbProperty("active")
     private Boolean active;
 
-    @JsonbProperty("displayName")
     private String displayName;
 
-    @JsonbProperty("emails")
     private List<Emails> emails;
 
-    @JsonbProperty("externalId")
     private String externalId;
 
-    @JsonbProperty("groups")
     private List<Groups> groups;
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("meta")
     private Meta meta;
 
-    @JsonbProperty("name")
     private Name name;
 
-    @JsonbProperty("operations")
     private List<Operations> operations;
 
-    @JsonbProperty("organization_id")
     private Integer organizationId;
 
-    @JsonbProperty("schemas")
     private List<String> schemas;
 
-    @JsonbProperty("userName")
     private String userName;
+
+    @JsonbProperty("active")
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    @JsonbProperty("displayName")
+    public String getDisplayName() {
+        return this.displayName;
+    }
+
+    @JsonbProperty("emails")
+    public List<Emails> getEmails() {
+        return this.emails;
+    }
+
+    @JsonbProperty("externalId")
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    @JsonbProperty("groups")
+    public List<Groups> getGroups() {
+        return this.groups;
+    }
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("meta")
+    public Meta getMeta() {
+        return this.meta;
+    }
+
+    @JsonbProperty("name")
+    public Name getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("operations")
+    public List<Operations> getOperations() {
+        return this.operations;
+    }
+
+    @JsonbProperty("organization_id")
+    public Integer getOrganizationId() {
+        return this.organizationId;
+    }
+
+    @JsonbProperty("schemas")
+    public List<String> getSchemas() {
+        return this.schemas;
+    }
+
+    @JsonbProperty("userName")
+    public String getUserName() {
+        return this.userName;
+    }
+
+    @JsonbProperty("active")
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    @JsonbProperty("displayName")
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+
+    @JsonbProperty("emails")
+    public void setEmails(List<Emails> emails) {
+        this.emails = emails;
+    }
+
+    @JsonbProperty("externalId")
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    @JsonbProperty("groups")
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("meta")
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+    @JsonbProperty("name")
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("operations")
+    public void setOperations(List<Operations> operations) {
+        this.operations = operations;
+    }
+
+    @JsonbProperty("organization_id")
+    public void setOrganizationId(Integer organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    @JsonbProperty("schemas")
+    public void setSchemas(List<String> schemas) {
+        this.schemas = schemas;
+    }
+
+    @JsonbProperty("userName")
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }

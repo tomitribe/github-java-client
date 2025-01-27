@@ -15,15 +15,15 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.GetEmojisResponse;
 
 public interface EmojisClient {
 
     @GET
     @Path("/emojis")
-    @OperationId("emojis/get")
     @Docs("https://developer.github.com/v3/emojis/#get-emojis")
     @EnabledForGithubApps
-    @Category("emojis")
     GetEmojisResponse getEmojis();
 }

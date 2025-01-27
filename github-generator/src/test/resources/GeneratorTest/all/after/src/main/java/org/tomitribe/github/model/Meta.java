@@ -28,17 +28,55 @@ import org.tomitribe.github.core.DateAdapter;
 @NoArgsConstructor
 public class Meta {
 
-    @JsonbProperty("created")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date created;
 
-    @JsonbProperty("lastModified")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date lastModified;
 
-    @JsonbProperty("location")
     private URI location;
 
-    @JsonbProperty("resourceType")
     private String resourceType;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created")
+    public Date getCreated() {
+        return this.created;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("lastModified")
+    public Date getLastModified() {
+        return this.lastModified;
+    }
+
+    @JsonbProperty("location")
+    public URI getLocation() {
+        return this.location;
+    }
+
+    @JsonbProperty("resourceType")
+    public String getResourceType() {
+        return this.resourceType;
+    }
+
+    @JsonbProperty("created")
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    @JsonbProperty("lastModified")
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
+    @JsonbProperty("location")
+    public void setLocation(URI location) {
+        this.location = location;
+    }
+
+    @JsonbProperty("resourceType")
+    public void setResourceType(String resourceType) {
+        this.resourceType = resourceType;
+    }
 }

@@ -27,10 +27,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateBlob {
 
-    @JsonbProperty("content")
     private String content;
 
-    @JsonbProperty("encoding")
     private String encoding;
 
     @JsonbTransient
@@ -40,4 +38,48 @@ public class CreateBlob {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("encoding")
+    public String getEncoding() {
+        return this.encoding;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @JsonbProperty("encoding")
+    public void setEncoding(String encoding) {
+        this.encoding = encoding;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

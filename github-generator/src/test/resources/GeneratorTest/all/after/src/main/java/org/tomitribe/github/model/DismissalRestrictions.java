@@ -27,18 +27,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DismissalRestrictions {
 
-    @JsonbProperty("teams")
     private List<String> teams;
 
-    @JsonbProperty("teams_url")
     private URI teamsUrl;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("users")
     private List<String> users;
 
-    @JsonbProperty("users_url")
     private URI usersUrl;
+
+    @JsonbProperty("teams")
+    public List<Team> getTeams() {
+        return this.teams;
+    }
+
+    @JsonbProperty("teams_url")
+    public String getTeamsUrl() {
+        return this.teamsUrl;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("users")
+    public List<SimpleUser> getUsers() {
+        return this.users;
+    }
+
+    @JsonbProperty("users_url")
+    public String getUsersUrl() {
+        return this.usersUrl;
+    }
+
+    @JsonbProperty("teams")
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
+    @JsonbProperty("teams_url")
+    public void setTeamsUrl(String teamsUrl) {
+        this.teamsUrl = teamsUrl;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("users")
+    public void setUsers(List<SimpleUser> users) {
+        this.users = users;
+    }
+
+    @JsonbProperty("users_url")
+    public void setUsersUrl(String usersUrl) {
+        this.usersUrl = usersUrl;
+    }
 }

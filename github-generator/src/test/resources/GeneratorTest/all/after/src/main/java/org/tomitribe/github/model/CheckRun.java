@@ -29,59 +29,206 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/check-run")
+@ComponentId("check-run")
 public class CheckRun {
 
-    @JsonbProperty("app")
     private Integration app;
 
-    @JsonbProperty("check_suite")
     private CheckSuite checkSuite;
 
-    @JsonbProperty("completed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date completedAt;
 
-    @JsonbProperty("conclusion")
     private String conclusion;
 
-    @JsonbProperty("details_url")
     private String detailsUrl;
 
-    @JsonbProperty("external_id")
     private String externalId;
 
-    @JsonbProperty("head_sha")
     private String headSha;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("output")
     private Output output;
 
-    @JsonbProperty("pull_requests")
     private List<PullRequestMinimal> pullRequests;
 
-    @JsonbProperty("started_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date startedAt;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("app")
+    public Integration getApp() {
+        return this.app;
+    }
+
+    @JsonbProperty("check_suite")
+    public CheckSuite getCheckSuite() {
+        return this.checkSuite;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("completed_at")
+    public Date getCompletedAt() {
+        return this.completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public String getConclusion() {
+        return this.conclusion;
+    }
+
+    @JsonbProperty("details_url")
+    public String getDetailsUrl() {
+        return this.detailsUrl;
+    }
+
+    @JsonbProperty("external_id")
+    public String getExternalId() {
+        return this.externalId;
+    }
+
+    @JsonbProperty("head_sha")
+    public String getHeadSha() {
+        return this.headSha;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("output")
+    public Output getOutput() {
+        return this.output;
+    }
+
+    @JsonbProperty("pull_requests")
+    public List<PullRequestMinimal> getPullRequests() {
+        return this.pullRequests;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("started_at")
+    public Date getStartedAt() {
+        return this.startedAt;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("app")
+    public void setApp(Integration app) {
+        this.app = app;
+    }
+
+    @JsonbProperty("check_suite")
+    public void setCheckSuite(CheckSuite checkSuite) {
+        this.checkSuite = checkSuite;
+    }
+
+    @JsonbProperty("completed_at")
+    public void setCompletedAt(Date completedAt) {
+        this.completedAt = completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public void setConclusion(String conclusion) {
+        this.conclusion = conclusion;
+    }
+
+    @JsonbProperty("details_url")
+    public void setDetailsUrl(String detailsUrl) {
+        this.detailsUrl = detailsUrl;
+    }
+
+    @JsonbProperty("external_id")
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    @JsonbProperty("head_sha")
+    public void setHeadSha(String headSha) {
+        this.headSha = headSha;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("output")
+    public void setOutput(Output output) {
+        this.output = output;
+    }
+
+    @JsonbProperty("pull_requests")
+    public void setPullRequests(List<PullRequestMinimal> pullRequests) {
+        this.pullRequests = pullRequests;
+    }
+
+    @JsonbProperty("started_at")
+    public void setStartedAt(Date startedAt) {
+        this.startedAt = startedAt;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public enum Status {
 

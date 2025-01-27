@@ -29,61 +29,210 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/milestone")
+@ComponentId("milestone")
 public class Milestone {
 
-    @JsonbProperty("closed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date closedAt;
 
-    @JsonbProperty("closed_issues")
     private Integer closedIssues;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("creator")
     private SimpleUser creator;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("due_on")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date dueOn;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("labels_url")
     private URI labelsUrl;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("open_issues")
     private Integer openIssues;
 
-    @JsonbProperty("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("closed_at")
+    public Date getClosedAt() {
+        return this.closedAt;
+    }
+
+    @JsonbProperty("closed_issues")
+    public Integer getClosedIssues() {
+        return this.closedIssues;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public SimpleUser getCreator() {
+        return this.creator;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("due_on")
+    public Date getDueOn() {
+        return this.dueOn;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("labels_url")
+    public URI getLabelsUrl() {
+        return this.labelsUrl;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbProperty("open_issues")
+    public Integer getOpenIssues() {
+        return this.openIssues;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbProperty("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("closed_at")
+    public void setClosedAt(Date closedAt) {
+        this.closedAt = closedAt;
+    }
+
+    @JsonbProperty("closed_issues")
+    public void setClosedIssues(Integer closedIssues) {
+        this.closedIssues = closedIssues;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public void setCreator(SimpleUser creator) {
+        this.creator = creator;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("due_on")
+    public void setDueOn(Date dueOn) {
+        this.dueOn = dueOn;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("labels_url")
+    public void setLabelsUrl(URI labelsUrl) {
+        this.labelsUrl = labelsUrl;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("open_issues")
+    public void setOpenIssues(Integer openIssues) {
+        this.openIssues = openIssues;
+    }
+
+    @JsonbProperty("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum State {
 

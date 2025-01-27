@@ -42,4 +42,52 @@ public class ListIssueComments {
     @JsonbTransient
     @QueryParam("since")
     private String since;
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public Integer getIssueNumber() {
+        return this.issueNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public void setIssueNumber(Integer issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
 }

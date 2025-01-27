@@ -28,13 +28,43 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateGist {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("files")
     private Map<String, File> files;
 
     @JsonbTransient
     @PathParam("gist_id")
     private String gistId;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("files")
+    public Map<String, File> getFiles() {
+        return this.files;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public String getGistId() {
+        return this.gistId;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(Map<String, File> files) {
+        this.files = files;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public void setGistId(String gistId) {
+        this.gistId = gistId;
+    }
 }

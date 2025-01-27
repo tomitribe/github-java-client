@@ -46,6 +46,55 @@ public class ListReactionsForTeamDiscussion {
     @PathParam("team_slug")
     private String teamSlug;
 
+    @JsonbTypeAdapter(ContentAdapter.class)
+    @JsonbTransient
+    @QueryParam("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public Integer getDiscussionNumber() {
+        return this.discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbTransient
+    @QueryParam("content")
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public void setDiscussionNumber(Integer discussionNumber) {
+        this.discussionNumber = discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
+
     public enum Content {
 
         PLUS_ONE("+1"),

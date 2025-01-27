@@ -33,7 +33,6 @@ public class CreateReactionForTeamDiscussionCommentLegacy {
     @PathParam("comment-number")
     private Integer commentNumber;
 
-    @JsonbProperty("content")
     @JsonbTypeAdapter(ContentAdapter.class)
     private Content content;
 
@@ -44,6 +43,53 @@ public class CreateReactionForTeamDiscussionCommentLegacy {
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbTransient
+    @PathParam("comment-number")
+    public Integer getCommentNumber() {
+        return this.commentNumber;
+    }
+
+    @JsonbTypeAdapter(ContentAdapter.class)
+    @JsonbProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public Integer getDiscussionNumber() {
+        return this.discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbTransient
+    @PathParam("comment-number")
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public void setDiscussionNumber(Integer discussionNumber) {
+        this.discussionNumber = discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 
     public enum Content {
 

@@ -26,57 +26,219 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
 
-    @JsonbProperty("avatar_url")
     private URI avatarUrl;
 
-    @JsonbProperty("events_url")
     private String eventsUrl;
 
-    @JsonbProperty("followers_url")
     private URI followersUrl;
 
-    @JsonbProperty("following_url")
     private String followingUrl;
 
-    @JsonbProperty("gists_url")
     private String gistsUrl;
 
-    @JsonbProperty("gravatar_id")
     private String gravatarId;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("login")
     private String login;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("organizations_url")
     private URI organizationsUrl;
 
-    @JsonbProperty("received_events_url")
     private URI receivedEventsUrl;
 
-    @JsonbProperty("repos_url")
     private URI reposUrl;
 
-    @JsonbProperty("site_admin")
     private Boolean siteAdmin;
 
-    @JsonbProperty("starred_url")
     private String starredUrl;
 
-    @JsonbProperty("subscriptions_url")
     private URI subscriptionsUrl;
 
-    @JsonbProperty("type")
     private String type;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("avatar_url")
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    @JsonbProperty("events_url")
+    public String getEventsUrl() {
+        return this.eventsUrl;
+    }
+
+    @JsonbProperty("followers_url")
+    public String getFollowersUrl() {
+        return this.followersUrl;
+    }
+
+    @JsonbProperty("following_url")
+    public String getFollowingUrl() {
+        return this.followingUrl;
+    }
+
+    @JsonbProperty("gists_url")
+    public String getGistsUrl() {
+        return this.gistsUrl;
+    }
+
+    @JsonbProperty("gravatar_id")
+    public String getGravatarId() {
+        return this.gravatarId;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("organizations_url")
+    public String getOrganizationsUrl() {
+        return this.organizationsUrl;
+    }
+
+    @JsonbProperty("received_events_url")
+    public String getReceivedEventsUrl() {
+        return this.receivedEventsUrl;
+    }
+
+    @JsonbProperty("repos_url")
+    public String getReposUrl() {
+        return this.reposUrl;
+    }
+
+    @JsonbProperty("site_admin")
+    public Boolean getSiteAdmin() {
+        return this.siteAdmin;
+    }
+
+    @JsonbProperty("starred_url")
+    public String getStarredUrl() {
+        return this.starredUrl;
+    }
+
+    @JsonbProperty("subscriptions_url")
+    public String getSubscriptionsUrl() {
+        return this.subscriptionsUrl;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("avatar_url")
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @JsonbProperty("events_url")
+    public void setEventsUrl(String eventsUrl) {
+        this.eventsUrl = eventsUrl;
+    }
+
+    @JsonbProperty("followers_url")
+    public void setFollowersUrl(String followersUrl) {
+        this.followersUrl = followersUrl;
+    }
+
+    @JsonbProperty("following_url")
+    public void setFollowingUrl(String followingUrl) {
+        this.followingUrl = followingUrl;
+    }
+
+    @JsonbProperty("gists_url")
+    public void setGistsUrl(String gistsUrl) {
+        this.gistsUrl = gistsUrl;
+    }
+
+    @JsonbProperty("gravatar_id")
+    public void setGravatarId(String gravatarId) {
+        this.gravatarId = gravatarId;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("organizations_url")
+    public void setOrganizationsUrl(String organizationsUrl) {
+        this.organizationsUrl = organizationsUrl;
+    }
+
+    @JsonbProperty("received_events_url")
+    public void setReceivedEventsUrl(String receivedEventsUrl) {
+        this.receivedEventsUrl = receivedEventsUrl;
+    }
+
+    @JsonbProperty("repos_url")
+    public void setReposUrl(String reposUrl) {
+        this.reposUrl = reposUrl;
+    }
+
+    @JsonbProperty("site_admin")
+    public void setSiteAdmin(Boolean siteAdmin) {
+        this.siteAdmin = siteAdmin;
+    }
+
+    @JsonbProperty("starred_url")
+    public void setStarredUrl(String starredUrl) {
+        this.starredUrl = starredUrl;
+    }
+
+    @JsonbProperty("subscriptions_url")
+    public void setSubscriptionsUrl(String subscriptionsUrl) {
+        this.subscriptionsUrl = subscriptionsUrl;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

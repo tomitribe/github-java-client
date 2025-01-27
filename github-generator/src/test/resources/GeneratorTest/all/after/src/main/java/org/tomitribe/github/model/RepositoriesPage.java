@@ -26,12 +26,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RepositoriesPage {
 
-    @JsonbProperty("repositories")
     private List<Repository> repositories;
 
-    @JsonbProperty("repository_selection")
     private String repositorySelection;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("repositories")
+    public List<Repository> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbProperty("repository_selection")
+    public String getRepositorySelection() {
+        return this.repositorySelection;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<Repository> repositories) {
+        this.repositories = repositories;
+    }
+
+    @JsonbProperty("repository_selection")
+    public void setRepositorySelection(String repositorySelection) {
+        this.repositorySelection = repositorySelection;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

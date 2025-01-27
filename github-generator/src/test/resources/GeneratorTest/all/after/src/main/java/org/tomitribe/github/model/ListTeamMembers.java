@@ -42,6 +42,43 @@ public class ListTeamMembers {
     @PathParam("team_slug")
     private String teamSlug;
 
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbTransient
+    @QueryParam("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @QueryParam("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
+
     public enum Role {
 
         MEMBER("member"), MAINTAINER("maintainer"), ALL("all");

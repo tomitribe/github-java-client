@@ -37,4 +37,40 @@ public class DeleteSelfHostedRunnerFromRepository {
     @JsonbTransient
     @PathParam("runner_id")
     private Integer runnerId;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("runner_id")
+    public Integer getRunnerId() {
+        return this.runnerId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("runner_id")
+    public void setRunnerId(Integer runnerId) {
+        this.runnerId = runnerId;
+    }
 }

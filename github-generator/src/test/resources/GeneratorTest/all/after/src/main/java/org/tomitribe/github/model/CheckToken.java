@@ -27,10 +27,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CheckToken {
 
-    @JsonbProperty("access_token")
     private String accessToken;
 
     @JsonbTransient
     @PathParam("client-id")
     private String clientId;
+
+    @JsonbProperty("access_token")
+    public String getAccessToken() {
+        return this.accessToken;
+    }
+
+    @JsonbTransient
+    @PathParam("client-id")
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    @JsonbProperty("access_token")
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    @JsonbTransient
+    @PathParam("client-id")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 }

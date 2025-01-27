@@ -29,16 +29,12 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateProject {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("organization_permission")
     @JsonbTypeAdapter(OrganizationPermissionAdapter.class)
     private OrganizationPermission organizationPermission;
 
@@ -46,8 +42,70 @@ public class UpdateProject {
     @PathParam("project-id")
     private Integer projectId;
 
-    @JsonbProperty("state")
     private String state;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTypeAdapter(OrganizationPermissionAdapter.class)
+    @JsonbProperty("organization_permission")
+    public OrganizationPermission getOrganizationPermission() {
+        return this.organizationPermission;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("organization_permission")
+    public void setOrganizationPermission(OrganizationPermission organizationPermission) {
+        this.organizationPermission = organizationPermission;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 
     public enum OrganizationPermission {
 

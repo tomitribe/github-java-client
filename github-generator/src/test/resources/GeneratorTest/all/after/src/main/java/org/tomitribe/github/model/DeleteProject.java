@@ -29,4 +29,16 @@ public class DeleteProject {
     @JsonbTransient
     @PathParam("project-id")
     private Integer projectId;
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
 }

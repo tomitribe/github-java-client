@@ -41,6 +41,43 @@ public class SearchRepositories {
     @JsonbTypeAdapter(SortAdapter.class)
     private Sort sort;
 
+    @JsonbTransient
+    @QueryParam("order")
+    public Order getOrder() {
+        return this.order;
+    }
+
+    @JsonbTransient
+    @QueryParam("q")
+    public String getQ() {
+        return this.q;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("order")
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    @JsonbTransient
+    @QueryParam("q")
+    public void setQ(String q) {
+        this.q = q;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
     public enum Sort {
 
         STARS("stars"), FORKS("forks"), HELP_WANTED_ISSUES("help-wanted-issues"), UPDATED("updated");

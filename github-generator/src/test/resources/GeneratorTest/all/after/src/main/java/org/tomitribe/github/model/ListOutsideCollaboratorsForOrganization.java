@@ -38,6 +38,31 @@ public class ListOutsideCollaboratorsForOrganization {
     @PathParam("org")
     private String org;
 
+    @JsonbTypeAdapter(FilterAdapter.class)
+    @JsonbTransient
+    @QueryParam("filter")
+    public Filter getFilter() {
+        return this.filter;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @QueryParam("filter")
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
     public enum Filter {
 
         _2FA_DISABLED("2fa_disabled"), ALL("all");

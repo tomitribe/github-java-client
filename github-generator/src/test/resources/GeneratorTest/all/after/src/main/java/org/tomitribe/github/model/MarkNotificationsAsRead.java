@@ -27,10 +27,29 @@ import org.tomitribe.github.core.DateAdapter;
 @NoArgsConstructor
 public class MarkNotificationsAsRead {
 
-    @JsonbProperty("last_read_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date lastReadAt;
 
-    @JsonbProperty("read")
     private Boolean read;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("last_read_at")
+    public Date getLastReadAt() {
+        return this.lastReadAt;
+    }
+
+    @JsonbProperty("read")
+    public Boolean getRead() {
+        return this.read;
+    }
+
+    @JsonbProperty("last_read_at")
+    public void setLastReadAt(Date lastReadAt) {
+        this.lastReadAt = lastReadAt;
+    }
+
+    @JsonbProperty("read")
+    public void setRead(Boolean read) {
+        this.read = read;
+    }
 }

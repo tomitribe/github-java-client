@@ -26,6 +26,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Self {
 
-    @JsonbProperty("href")
     private URI href;
+
+    @JsonbProperty("href")
+    public URI getHref() {
+        return this.href;
+    }
+
+    @JsonbProperty("href")
+    public void setHref(URI href) {
+        this.href = href;
+    }
 }

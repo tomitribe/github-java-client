@@ -33,4 +33,28 @@ public class AddRepositoryToAppInstallation {
     @JsonbTransient
     @PathParam("repository_id")
     private Integer repositoryId;
+
+    @JsonbTransient
+    @PathParam("installation_id")
+    public Integer getInstallationId() {
+        return this.installationId;
+    }
+
+    @JsonbTransient
+    @PathParam("repository_id")
+    public Integer getRepositoryId() {
+        return this.repositoryId;
+    }
+
+    @JsonbTransient
+    @PathParam("installation_id")
+    public void setInstallationId(Integer installationId) {
+        this.installationId = installationId;
+    }
+
+    @JsonbTransient
+    @PathParam("repository_id")
+    public void setRepositoryId(Integer repositoryId) {
+        this.repositoryId = repositoryId;
+    }
 }

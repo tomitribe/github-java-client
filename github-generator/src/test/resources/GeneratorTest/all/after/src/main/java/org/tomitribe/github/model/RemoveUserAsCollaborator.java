@@ -33,4 +33,28 @@ public class RemoveUserAsCollaborator {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

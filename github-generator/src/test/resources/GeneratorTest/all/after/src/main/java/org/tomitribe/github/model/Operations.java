@@ -27,15 +27,43 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class Operations {
 
-    @JsonbProperty("op")
     @JsonbTypeAdapter(OpAdapter.class)
     private Op op;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("value")
     private Object value;
+
+    @JsonbTypeAdapter(OpAdapter.class)
+    @JsonbProperty("op")
+    public Op getOp() {
+        return this.op;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    @JsonbProperty("op")
+    public void setOp(Op op) {
+        this.op = op;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("value")
+    public void setValue(Object value) {
+        this.value = value;
+    }
 
     public enum Op {
 

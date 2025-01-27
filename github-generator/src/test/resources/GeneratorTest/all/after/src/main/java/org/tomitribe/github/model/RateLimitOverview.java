@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/rate-limit-overview")
+@ComponentId("rate-limit-overview")
 public class RateLimitOverview {
 
-    @JsonbProperty("rate")
     private RateLimit rate;
 
-    @JsonbProperty("resources")
     private Resources resources;
+
+    @JsonbProperty("rate")
+    public RateLimit getRate() {
+        return this.rate;
+    }
+
+    @JsonbProperty("resources")
+    public Resources getResources() {
+        return this.resources;
+    }
+
+    @JsonbProperty("rate")
+    public void setRate(RateLimit rate) {
+        this.rate = rate;
+    }
+
+    @JsonbProperty("resources")
+    public void setResources(Resources resources) {
+        this.resources = resources;
+    }
 }

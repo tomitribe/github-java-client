@@ -28,19 +28,67 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateOrganizationWebhook {
 
-    @JsonbProperty("active")
     private Boolean active;
 
-    @JsonbProperty("config")
     private Config config;
 
-    @JsonbProperty("events")
     private List<String> events;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbProperty("active")
+    public Boolean getActive() {
+        return this.active;
+    }
+
+    @JsonbProperty("config")
+    public Config getConfig() {
+        return this.config;
+    }
+
+    @JsonbProperty("events")
+    public List<String> getEvents() {
+        return this.events;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("active")
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    @JsonbProperty("config")
+    public void setConfig(Config config) {
+        this.config = config;
+    }
+
+    @JsonbProperty("events")
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

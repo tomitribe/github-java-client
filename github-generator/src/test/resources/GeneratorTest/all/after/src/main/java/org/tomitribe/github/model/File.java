@@ -25,24 +25,87 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class File {
 
-    @JsonbProperty("content")
     private String content;
 
-    @JsonbProperty("filename")
     private String filename;
 
-    @JsonbProperty("language")
     private String language;
 
-    @JsonbProperty("raw_url")
     private String rawUrl;
 
-    @JsonbProperty("size")
     private Integer size;
 
-    @JsonbProperty("truncated")
     private Boolean truncated;
 
-    @JsonbProperty("type")
     private String type;
+
+    @JsonbProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("filename")
+    public String getFilename() {
+        return this.filename;
+    }
+
+    @JsonbProperty("language")
+    public String getLanguage() {
+        return this.language;
+    }
+
+    @JsonbProperty("raw_url")
+    public String getRawUrl() {
+        return this.rawUrl;
+    }
+
+    @JsonbProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    @JsonbProperty("truncated")
+    public Boolean getTruncated() {
+        return this.truncated;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @JsonbProperty("filename")
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    @JsonbProperty("language")
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    @JsonbProperty("raw_url")
+    public void setRawUrl(String rawUrl) {
+        this.rawUrl = rawUrl;
+    }
+
+    @JsonbProperty("size")
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @JsonbProperty("truncated")
+    public void setTruncated(Boolean truncated) {
+        this.truncated = truncated;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
 }

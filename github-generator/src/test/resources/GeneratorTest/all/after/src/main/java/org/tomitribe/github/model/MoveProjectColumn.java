@@ -31,6 +31,27 @@ public class MoveProjectColumn {
     @PathParam("column_id")
     private Integer columnId;
 
-    @JsonbProperty("position")
     private String position;
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public Integer getColumnId() {
+        return this.columnId;
+    }
+
+    @JsonbProperty("position")
+    public String getPosition() {
+        return this.position;
+    }
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public void setColumnId(Integer columnId) {
+        this.columnId = columnId;
+    }
+
+    @JsonbProperty("position")
+    public void setPosition(String position) {
+        this.position = position;
+    }
 }

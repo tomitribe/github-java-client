@@ -28,25 +28,91 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateExistingAuthorization {
 
-    @JsonbProperty("add_scopes")
     private List<String> addScopes;
 
     @JsonbTransient
     @PathParam("authorization_id")
     private Integer authorizationId;
 
-    @JsonbProperty("fingerprint")
     private String fingerprint;
 
-    @JsonbProperty("note")
     private String note;
 
-    @JsonbProperty("note_url")
     private String noteUrl;
 
-    @JsonbProperty("remove_scopes")
     private List<String> removeScopes;
 
-    @JsonbProperty("scopes")
     private List<String> scopes;
+
+    @JsonbProperty("add_scopes")
+    public List<String> getAddScopes() {
+        return this.addScopes;
+    }
+
+    @JsonbTransient
+    @PathParam("authorization_id")
+    public Integer getAuthorizationId() {
+        return this.authorizationId;
+    }
+
+    @JsonbProperty("fingerprint")
+    public String getFingerprint() {
+        return this.fingerprint;
+    }
+
+    @JsonbProperty("note")
+    public String getNote() {
+        return this.note;
+    }
+
+    @JsonbProperty("note_url")
+    public String getNoteUrl() {
+        return this.noteUrl;
+    }
+
+    @JsonbProperty("remove_scopes")
+    public List<String> getRemoveScopes() {
+        return this.removeScopes;
+    }
+
+    @JsonbProperty("scopes")
+    public List<String> getScopes() {
+        return this.scopes;
+    }
+
+    @JsonbProperty("add_scopes")
+    public void setAddScopes(List<String> addScopes) {
+        this.addScopes = addScopes;
+    }
+
+    @JsonbTransient
+    @PathParam("authorization_id")
+    public void setAuthorizationId(Integer authorizationId) {
+        this.authorizationId = authorizationId;
+    }
+
+    @JsonbProperty("fingerprint")
+    public void setFingerprint(String fingerprint) {
+        this.fingerprint = fingerprint;
+    }
+
+    @JsonbProperty("note")
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    @JsonbProperty("note_url")
+    public void setNoteUrl(String noteUrl) {
+        this.noteUrl = noteUrl;
+    }
+
+    @JsonbProperty("remove_scopes")
+    public void setRemoveScopes(List<String> removeScopes) {
+        this.removeScopes = removeScopes;
+    }
+
+    @JsonbProperty("scopes")
+    public void setScopes(List<String> scopes) {
+        this.scopes = scopes;
+    }
 }

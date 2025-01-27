@@ -48,6 +48,57 @@ public class ListOrganizationRepositories {
     @JsonbTypeAdapter(TypeAdapter.class)
     private Type type;
 
+    @JsonbTypeAdapter(DirectionAdapter.class)
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTypeAdapter(TypeAdapter.class)
+    @JsonbTransient
+    @QueryParam("type")
+    public Type getType() {
+        return this.type;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("type")
+    public void setType(Type type) {
+        this.type = type;
+    }
+
     public enum Direction {
 
         ASC("asc"), DESC("desc");

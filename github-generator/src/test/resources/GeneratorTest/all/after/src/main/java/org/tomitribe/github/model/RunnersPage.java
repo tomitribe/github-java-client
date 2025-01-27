@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RunnersPage {
 
-    @JsonbProperty("runners")
     private List<Runner> runners;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("runners")
+    public List<Runner> getRunners() {
+        return this.runners;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("runners")
+    public void setRunners(List<Runner> runners) {
+        this.runners = runners;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

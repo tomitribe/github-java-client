@@ -25,30 +25,102 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/git-tag")
+@ComponentId("git-tag")
 public class GitTag {
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("object")
     private Object object;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("tag")
     private String tag;
 
-    @JsonbProperty("tagger")
     private Tagger tagger;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("verification")
     private Verification verification;
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("object")
+    public Object getObject() {
+        return this.object;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("tag")
+    public String getTag() {
+        return this.tag;
+    }
+
+    @JsonbProperty("tagger")
+    public Tagger getTagger() {
+        return this.tagger;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("verification")
+    public Verification getVerification() {
+        return this.verification;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("object")
+    public void setObject(Object object) {
+        this.object = object;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("tag")
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    @JsonbProperty("tagger")
+    public void setTagger(Tagger tagger) {
+        this.tagger = tagger;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("verification")
+    public void setVerification(Verification verification) {
+        this.verification = verification;
+    }
 }

@@ -29,4 +29,16 @@ public class GetSingleAuthorization {
     @JsonbTransient
     @PathParam("authorization_id")
     private Integer authorizationId;
+
+    @JsonbTransient
+    @PathParam("authorization_id")
+    public Integer getAuthorizationId() {
+        return this.authorizationId;
+    }
+
+    @JsonbTransient
+    @PathParam("authorization_id")
+    public void setAuthorizationId(Integer authorizationId) {
+        this.authorizationId = authorizationId;
+    }
 }

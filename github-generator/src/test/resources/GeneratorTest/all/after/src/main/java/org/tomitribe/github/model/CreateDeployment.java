@@ -28,41 +28,155 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateDeployment {
 
-    @JsonbProperty("auto_merge")
     private Boolean autoMerge;
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("environment")
     private String environment;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("payload")
     private String payload;
 
-    @JsonbProperty("production_environment")
     private Boolean productionEnvironment;
 
-    @JsonbProperty("ref")
     private String ref;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("required_contexts")
     private List<String> requiredContexts;
 
-    @JsonbProperty("task")
     private String task;
 
-    @JsonbProperty("transient_environment")
     private Boolean transientEnvironment;
+
+    @JsonbProperty("auto_merge")
+    public Boolean getAutoMerge() {
+        return this.autoMerge;
+    }
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("environment")
+    public String getEnvironment() {
+        return this.environment;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("payload")
+    public String getPayload() {
+        return this.payload;
+    }
+
+    @JsonbProperty("production_environment")
+    public Boolean getProductionEnvironment() {
+        return this.productionEnvironment;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("required_contexts")
+    public List<String> getRequiredContexts() {
+        return this.requiredContexts;
+    }
+
+    @JsonbProperty("task")
+    public String getTask() {
+        return this.task;
+    }
+
+    @JsonbProperty("transient_environment")
+    public Boolean getTransientEnvironment() {
+        return this.transientEnvironment;
+    }
+
+    @JsonbProperty("auto_merge")
+    public void setAutoMerge(Boolean autoMerge) {
+        this.autoMerge = autoMerge;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("environment")
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("payload")
+    public void setPayload(String payload) {
+        this.payload = payload;
+    }
+
+    @JsonbProperty("production_environment")
+    public void setProductionEnvironment(Boolean productionEnvironment) {
+        this.productionEnvironment = productionEnvironment;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("required_contexts")
+    public void setRequiredContexts(List<String> requiredContexts) {
+        this.requiredContexts = requiredContexts;
+    }
+
+    @JsonbProperty("task")
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    @JsonbProperty("transient_environment")
+    public void setTransientEnvironment(Boolean transientEnvironment) {
+        this.transientEnvironment = transientEnvironment;
+    }
 }

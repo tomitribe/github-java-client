@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Billable {
 
-    @JsonbProperty("MACOS")
     private MACOS mACOS;
 
-    @JsonbProperty("UBUNTU")
     private UBUNTU uBUNTU;
 
-    @JsonbProperty("WINDOWS")
     private WINDOWS wINDOWS;
+
+    @JsonbProperty("MACOS")
+    public MACOS getMACOS() {
+        return this.mACOS;
+    }
+
+    @JsonbProperty("UBUNTU")
+    public UBUNTU getUBUNTU() {
+        return this.uBUNTU;
+    }
+
+    @JsonbProperty("WINDOWS")
+    public WINDOWS getWINDOWS() {
+        return this.wINDOWS;
+    }
+
+    @JsonbProperty("MACOS")
+    public void setMACOS(MACOS mACOS) {
+        this.mACOS = mACOS;
+    }
+
+    @JsonbProperty("UBUNTU")
+    public void setUBUNTU(UBUNTU uBUNTU) {
+        this.uBUNTU = uBUNTU;
+    }
+
+    @JsonbProperty("WINDOWS")
+    public void setWINDOWS(WINDOWS wINDOWS) {
+        this.wINDOWS = wINDOWS;
+    }
 }

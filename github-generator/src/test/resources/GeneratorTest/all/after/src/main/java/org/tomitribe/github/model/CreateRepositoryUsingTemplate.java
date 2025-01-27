@@ -27,16 +27,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateRepositoryUsingTemplate {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("owner")
     private String owner;
 
     @JsonbTransient
@@ -46,4 +42,68 @@ public class CreateRepositoryUsingTemplate {
     @JsonbTransient
     @PathParam("template_repo")
     private String templateRepo;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("template_owner")
+    public String getTemplateOwner() {
+        return this.templateOwner;
+    }
+
+    @JsonbTransient
+    @PathParam("template_repo")
+    public String getTemplateRepo() {
+        return this.templateRepo;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("template_owner")
+    public void setTemplateOwner(String templateOwner) {
+        this.templateOwner = templateOwner;
+    }
+
+    @JsonbTransient
+    @PathParam("template_repo")
+    public void setTemplateRepo(String templateRepo) {
+        this.templateRepo = templateRepo;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 }

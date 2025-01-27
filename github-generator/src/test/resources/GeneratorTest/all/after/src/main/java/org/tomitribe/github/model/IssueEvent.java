@@ -27,70 +27,260 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-event")
+@ComponentId("issue-event")
 public class IssueEvent {
 
-    @JsonbProperty("actor")
     private SimpleUser actor;
 
-    @JsonbProperty("assignee")
     private SimpleUser assignee;
 
-    @JsonbProperty("assigner")
     private SimpleUser assigner;
 
-    @JsonbProperty("author_association")
     private String authorAssociation;
 
-    @JsonbProperty("commit_id")
     private String commitId;
 
-    @JsonbProperty("commit_url")
     private String commitUrl;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("dismissed_review")
     private IssueEventDismissedReview dismissedReview;
 
-    @JsonbProperty("event")
     private String event;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("issue")
     private IssueSimple issue;
 
-    @JsonbProperty("label")
     private IssueEventLabel label;
 
-    @JsonbProperty("lock_reason")
     private String lockReason;
 
-    @JsonbProperty("milestone")
     private IssueEventMilestone milestone;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("project_card")
     private IssueEventProjectCard projectCard;
 
-    @JsonbProperty("rename")
     private IssueEventRename rename;
 
-    @JsonbProperty("requested_reviewer")
     private SimpleUser requestedReviewer;
 
-    @JsonbProperty("requested_team")
     private Team requestedTeam;
 
-    @JsonbProperty("review_requester")
     private SimpleUser reviewRequester;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("actor")
+    public SimpleUser getActor() {
+        return this.actor;
+    }
+
+    @JsonbProperty("assignee")
+    public SimpleUser getAssignee() {
+        return this.assignee;
+    }
+
+    @JsonbProperty("assigner")
+    public SimpleUser getAssigner() {
+        return this.assigner;
+    }
+
+    @JsonbProperty("author_association")
+    public String getAuthorAssociation() {
+        return this.authorAssociation;
+    }
+
+    @JsonbProperty("commit_id")
+    public String getCommitId() {
+        return this.commitId;
+    }
+
+    @JsonbProperty("commit_url")
+    public String getCommitUrl() {
+        return this.commitUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("dismissed_review")
+    public IssueEventDismissedReview getDismissedReview() {
+        return this.dismissedReview;
+    }
+
+    @JsonbProperty("event")
+    public String getEvent() {
+        return this.event;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("issue")
+    public IssueSimple getIssue() {
+        return this.issue;
+    }
+
+    @JsonbProperty("label")
+    public IssueEventLabel getLabel() {
+        return this.label;
+    }
+
+    @JsonbProperty("lock_reason")
+    public String getLockReason() {
+        return this.lockReason;
+    }
+
+    @JsonbProperty("milestone")
+    public IssueEventMilestone getMilestone() {
+        return this.milestone;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("project_card")
+    public IssueEventProjectCard getProjectCard() {
+        return this.projectCard;
+    }
+
+    @JsonbProperty("rename")
+    public IssueEventRename getRename() {
+        return this.rename;
+    }
+
+    @JsonbProperty("requested_reviewer")
+    public SimpleUser getRequestedReviewer() {
+        return this.requestedReviewer;
+    }
+
+    @JsonbProperty("requested_team")
+    public Team getRequestedTeam() {
+        return this.requestedTeam;
+    }
+
+    @JsonbProperty("review_requester")
+    public SimpleUser getReviewRequester() {
+        return this.reviewRequester;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("actor")
+    public void setActor(SimpleUser actor) {
+        this.actor = actor;
+    }
+
+    @JsonbProperty("assignee")
+    public void setAssignee(SimpleUser assignee) {
+        this.assignee = assignee;
+    }
+
+    @JsonbProperty("assigner")
+    public void setAssigner(SimpleUser assigner) {
+        this.assigner = assigner;
+    }
+
+    @JsonbProperty("author_association")
+    public void setAuthorAssociation(String authorAssociation) {
+        this.authorAssociation = authorAssociation;
+    }
+
+    @JsonbProperty("commit_id")
+    public void setCommitId(String commitId) {
+        this.commitId = commitId;
+    }
+
+    @JsonbProperty("commit_url")
+    public void setCommitUrl(String commitUrl) {
+        this.commitUrl = commitUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("dismissed_review")
+    public void setDismissedReview(IssueEventDismissedReview dismissedReview) {
+        this.dismissedReview = dismissedReview;
+    }
+
+    @JsonbProperty("event")
+    public void setEvent(String event) {
+        this.event = event;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("issue")
+    public void setIssue(IssueSimple issue) {
+        this.issue = issue;
+    }
+
+    @JsonbProperty("label")
+    public void setLabel(IssueEventLabel label) {
+        this.label = label;
+    }
+
+    @JsonbProperty("lock_reason")
+    public void setLockReason(String lockReason) {
+        this.lockReason = lockReason;
+    }
+
+    @JsonbProperty("milestone")
+    public void setMilestone(IssueEventMilestone milestone) {
+        this.milestone = milestone;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("project_card")
+    public void setProjectCard(IssueEventProjectCard projectCard) {
+        this.projectCard = projectCard;
+    }
+
+    @JsonbProperty("rename")
+    public void setRename(IssueEventRename rename) {
+        this.rename = rename;
+    }
+
+    @JsonbProperty("requested_reviewer")
+    public void setRequestedReviewer(SimpleUser requestedReviewer) {
+        this.requestedReviewer = requestedReviewer;
+    }
+
+    @JsonbProperty("requested_team")
+    public void setRequestedTeam(Team requestedTeam) {
+        this.requestedTeam = requestedTeam;
+    }
+
+    @JsonbProperty("review_requester")
+    public void setReviewRequester(SimpleUser reviewRequester) {
+        this.reviewRequester = reviewRequester;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

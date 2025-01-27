@@ -27,33 +27,115 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class Annotations {
 
-    @JsonbProperty("annotation_level")
     @JsonbTypeAdapter(AnnotationLevelAdapter.class)
     private AnnotationLevel annotationLevel;
 
-    @JsonbProperty("end_column")
     private Integer endColumn;
 
-    @JsonbProperty("end_line")
     private Integer endLine;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("raw_details")
     private String rawDetails;
 
-    @JsonbProperty("start_column")
     private Integer startColumn;
 
-    @JsonbProperty("start_line")
     private Integer startLine;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbTypeAdapter(AnnotationLevelAdapter.class)
+    @JsonbProperty("annotation_level")
+    public AnnotationLevel getAnnotationLevel() {
+        return this.annotationLevel;
+    }
+
+    @JsonbProperty("end_column")
+    public Integer getEndColumn() {
+        return this.endColumn;
+    }
+
+    @JsonbProperty("end_line")
+    public Integer getEndLine() {
+        return this.endLine;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("raw_details")
+    public String getRawDetails() {
+        return this.rawDetails;
+    }
+
+    @JsonbProperty("start_column")
+    public Integer getStartColumn() {
+        return this.startColumn;
+    }
+
+    @JsonbProperty("start_line")
+    public Integer getStartLine() {
+        return this.startLine;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("annotation_level")
+    public void setAnnotationLevel(AnnotationLevel annotationLevel) {
+        this.annotationLevel = annotationLevel;
+    }
+
+    @JsonbProperty("end_column")
+    public void setEndColumn(Integer endColumn) {
+        this.endColumn = endColumn;
+    }
+
+    @JsonbProperty("end_line")
+    public void setEndLine(Integer endLine) {
+        this.endLine = endLine;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("raw_details")
+    public void setRawDetails(String rawDetails) {
+        this.rawDetails = rawDetails;
+    }
+
+    @JsonbProperty("start_column")
+    public void setStartColumn(Integer startColumn) {
+        this.startColumn = startColumn;
+    }
+
+    @JsonbProperty("start_line")
+    public void setStartLine(Integer startLine) {
+        this.startLine = startLine;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public enum AnnotationLevel {
 

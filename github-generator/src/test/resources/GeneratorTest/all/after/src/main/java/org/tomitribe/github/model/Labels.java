@@ -25,24 +25,87 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Labels {
 
-    @JsonbProperty("default")
     private Boolean _default;
 
-    @JsonbProperty("color")
     private String color;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("default")
+    public Boolean get_default() {
+        return this._default;
+    }
+
+    @JsonbProperty("color")
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("default")
+    public void set_default(Boolean _default) {
+        this._default = _default;
+    }
 }

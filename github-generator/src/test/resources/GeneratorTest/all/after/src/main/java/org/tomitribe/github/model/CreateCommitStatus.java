@@ -29,10 +29,8 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateCommitStatus {
 
-    @JsonbProperty("context")
     private String context;
 
-    @JsonbProperty("description")
     private String description;
 
     @JsonbTransient
@@ -47,12 +45,87 @@ public class CreateCommitStatus {
     @PathParam("sha")
     private String sha;
 
-    @JsonbProperty("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
-    @JsonbProperty("target_url")
     private String targetUrl;
+
+    @JsonbProperty("context")
+    public String getContext() {
+        return this.context;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbProperty("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("target_url")
+    public String getTargetUrl() {
+        return this.targetUrl;
+    }
+
+    @JsonbProperty("context")
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("target_url")
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
 
     public enum State {
 

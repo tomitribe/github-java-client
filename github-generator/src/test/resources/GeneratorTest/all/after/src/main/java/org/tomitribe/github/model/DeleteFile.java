@@ -27,16 +27,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DeleteFile {
 
-    @JsonbProperty("author")
     private Author author;
 
-    @JsonbProperty("branch")
     private String branch;
 
-    @JsonbProperty("committer")
     private Committer committer;
 
-    @JsonbProperty("message")
     private String message;
 
     @JsonbTransient
@@ -51,6 +47,91 @@ public class DeleteFile {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("sha")
     private String sha;
+
+    @JsonbProperty("author")
+    public Author getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("branch")
+    public String getBranch() {
+        return this.branch;
+    }
+
+    @JsonbProperty("committer")
+    public Committer getCommitter() {
+        return this.committer;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("branch")
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    @JsonbProperty("committer")
+    public void setCommitter(Committer committer) {
+        this.committer = committer;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
 }

@@ -37,21 +37,91 @@ public class StartImport {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("tfvc_project")
     private String tfvcProject;
 
-    @JsonbProperty("vcs")
     @JsonbTypeAdapter(VcsAdapter.class)
     private Vcs vcs;
 
-    @JsonbProperty("vcs_password")
     private String vcsPassword;
 
-    @JsonbProperty("vcs_url")
     private String vcsUrl;
 
-    @JsonbProperty("vcs_username")
     private String vcsUsername;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public String getTfvcProject() {
+        return this.tfvcProject;
+    }
+
+    @JsonbTypeAdapter(VcsAdapter.class)
+    @JsonbProperty("vcs")
+    public Vcs getVcs() {
+        return this.vcs;
+    }
+
+    @JsonbProperty("vcs_password")
+    public String getVcsPassword() {
+        return this.vcsPassword;
+    }
+
+    @JsonbProperty("vcs_url")
+    public String getVcsUrl() {
+        return this.vcsUrl;
+    }
+
+    @JsonbProperty("vcs_username")
+    public String getVcsUsername() {
+        return this.vcsUsername;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public void setTfvcProject(String tfvcProject) {
+        this.tfvcProject = tfvcProject;
+    }
+
+    @JsonbProperty("vcs")
+    public void setVcs(Vcs vcs) {
+        this.vcs = vcs;
+    }
+
+    @JsonbProperty("vcs_password")
+    public void setVcsPassword(String vcsPassword) {
+        this.vcsPassword = vcsPassword;
+    }
+
+    @JsonbProperty("vcs_url")
+    public void setVcsUrl(String vcsUrl) {
+        this.vcsUrl = vcsUrl;
+    }
+
+    @JsonbProperty("vcs_username")
+    public void setVcsUsername(String vcsUsername) {
+        this.vcsUsername = vcsUsername;
+    }
 
     public enum Vcs {
 

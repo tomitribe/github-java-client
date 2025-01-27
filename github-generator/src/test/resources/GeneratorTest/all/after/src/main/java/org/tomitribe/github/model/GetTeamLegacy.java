@@ -29,4 +29,16 @@ public class GetTeamLegacy {
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 }

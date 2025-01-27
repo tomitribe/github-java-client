@@ -28,19 +28,67 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StartOrganizationMigration {
 
-    @JsonbProperty("exclude")
     private List<String> exclude;
 
-    @JsonbProperty("exclude_attachments")
     private Boolean excludeAttachments;
 
-    @JsonbProperty("lock_repositories")
     private Boolean lockRepositories;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
 
-    @JsonbProperty("repositories")
     private List<String> repositories;
+
+    @JsonbProperty("exclude")
+    public List<String> getExclude() {
+        return this.exclude;
+    }
+
+    @JsonbProperty("exclude_attachments")
+    public Boolean getExcludeAttachments() {
+        return this.excludeAttachments;
+    }
+
+    @JsonbProperty("lock_repositories")
+    public Boolean getLockRepositories() {
+        return this.lockRepositories;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("repositories")
+    public List<String> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbProperty("exclude")
+    public void setExclude(List<String> exclude) {
+        this.exclude = exclude;
+    }
+
+    @JsonbProperty("exclude_attachments")
+    public void setExcludeAttachments(Boolean excludeAttachments) {
+        this.excludeAttachments = excludeAttachments;
+    }
+
+    @JsonbProperty("lock_repositories")
+    public void setLockRepositories(Boolean lockRepositories) {
+        this.lockRepositories = lockRepositories;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<String> repositories) {
+        this.repositories = repositories;
+    }
 }

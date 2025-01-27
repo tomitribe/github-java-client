@@ -28,13 +28,43 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateOrUpdateIdPGroupConnectionsLegacy {
 
-    @JsonbProperty("groups")
     private List<Groups> groups;
 
-    @JsonbProperty("synced_at")
     private String syncedAt;
 
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbProperty("groups")
+    public List<Groups> getGroups() {
+        return this.groups;
+    }
+
+    @JsonbProperty("synced_at")
+    public String getSyncedAt() {
+        return this.syncedAt;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbProperty("groups")
+    public void setGroups(List<Groups> groups) {
+        this.groups = groups;
+    }
+
+    @JsonbProperty("synced_at")
+    public void setSyncedAt(String syncedAt) {
+        this.syncedAt = syncedAt;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 }

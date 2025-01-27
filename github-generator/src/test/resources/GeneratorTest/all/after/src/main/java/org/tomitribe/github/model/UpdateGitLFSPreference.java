@@ -37,9 +37,43 @@ public class UpdateGitLFSPreference {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("use_lfs")
     @JsonbTypeAdapter(UseLfsAdapter.class)
     private UseLfs useLfs;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(UseLfsAdapter.class)
+    @JsonbProperty("use_lfs")
+    public UseLfs getUseLfs() {
+        return this.useLfs;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("use_lfs")
+    public void setUseLfs(UseLfs useLfs) {
+        this.useLfs = useLfs;
+    }
 
     public enum UseLfs {
 

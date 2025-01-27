@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateCheckSuite {
 
-    @JsonbProperty("head_sha")
     private String headSha;
 
     @JsonbTransient
@@ -37,4 +36,38 @@ public class CreateCheckSuite {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("head_sha")
+    public String getHeadSha() {
+        return this.headSha;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("head_sha")
+    public void setHeadSha(String headSha) {
+        this.headSha = headSha;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

@@ -29,4 +29,16 @@ public class ListRepositoriesAccessibleToUserAccessToken {
     @JsonbTransient
     @PathParam("installation_id")
     private Integer installationId;
+
+    @JsonbTransient
+    @PathParam("installation_id")
+    public Integer getInstallationId() {
+        return this.installationId;
+    }
+
+    @JsonbTransient
+    @PathParam("installation_id")
+    public void setInstallationId(Integer installationId) {
+        this.installationId = installationId;
+    }
 }

@@ -28,46 +28,164 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/code-search-result-item")
+@ComponentId("code-search-result-item")
 public class CodeSearchResultItem {
 
-    @JsonbProperty("file_size")
     private Integer fileSize;
 
-    @JsonbProperty("git_url")
     private URI gitUrl;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("language")
     private String language;
 
-    @JsonbProperty("last_modified_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date lastModifiedAt;
 
-    @JsonbProperty("line_numbers")
     private List<String> lineNumbers;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("repository")
     private MinimalRepository repository;
 
-    @JsonbProperty("score")
     private Integer score;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("text_matches")
     private List<SearchResultTextMatches> textMatches;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("file_size")
+    public Integer getFileSize() {
+        return this.fileSize;
+    }
+
+    @JsonbProperty("git_url")
+    public URI getGitUrl() {
+        return this.gitUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("language")
+    public String getLanguage() {
+        return this.language;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("last_modified_at")
+    public Date getLastModifiedAt() {
+        return this.lastModifiedAt;
+    }
+
+    @JsonbProperty("line_numbers")
+    public List<String> getLineNumbers() {
+        return this.lineNumbers;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("repository")
+    public MinimalRepository getRepository() {
+        return this.repository;
+    }
+
+    @JsonbProperty("score")
+    public Integer getScore() {
+        return this.score;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("text_matches")
+    public List<SearchResultTextMatches> getTextMatches() {
+        return this.textMatches;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("file_size")
+    public void setFileSize(Integer fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    @JsonbProperty("git_url")
+    public void setGitUrl(URI gitUrl) {
+        this.gitUrl = gitUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("language")
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    @JsonbProperty("last_modified_at")
+    public void setLastModifiedAt(Date lastModifiedAt) {
+        this.lastModifiedAt = lastModifiedAt;
+    }
+
+    @JsonbProperty("line_numbers")
+    public void setLineNumbers(List<String> lineNumbers) {
+        this.lineNumbers = lineNumbers;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("repository")
+    public void setRepository(MinimalRepository repository) {
+        this.repository = repository;
+    }
+
+    @JsonbProperty("score")
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("text_matches")
+    public void setTextMatches(List<SearchResultTextMatches> textMatches) {
+        this.textMatches = textMatches;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

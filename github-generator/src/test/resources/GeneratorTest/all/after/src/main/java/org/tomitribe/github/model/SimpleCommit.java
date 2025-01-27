@@ -26,25 +26,80 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/simple-commit")
+@ComponentId("simple-commit")
 public class SimpleCommit {
 
-    @JsonbProperty("author")
     private Author author;
 
-    @JsonbProperty("committer")
     private Committer committer;
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("timestamp")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date timestamp;
 
-    @JsonbProperty("tree_id")
     private String treeId;
+
+    @JsonbProperty("author")
+    public Author getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("committer")
+    public Committer getCommitter() {
+        return this.committer;
+    }
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("timestamp")
+    public Date getTimestamp() {
+        return this.timestamp;
+    }
+
+    @JsonbProperty("tree_id")
+    public String getTreeId() {
+        return this.treeId;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("committer")
+    public void setCommitter(Committer committer) {
+        this.committer = committer;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("timestamp")
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    @JsonbProperty("tree_id")
+    public void setTreeId(String treeId) {
+        this.treeId = treeId;
+    }
 }

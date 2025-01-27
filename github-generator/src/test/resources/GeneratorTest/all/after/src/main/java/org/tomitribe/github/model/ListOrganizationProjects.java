@@ -38,6 +38,31 @@ public class ListOrganizationProjects {
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbTransient
+    @QueryParam("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
     public enum State {
 
         OPEN("open"), CLOSED("closed"), ALL("all");

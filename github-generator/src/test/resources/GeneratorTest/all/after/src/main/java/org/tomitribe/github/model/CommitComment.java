@@ -27,50 +27,178 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/commit-comment")
+@ComponentId("commit-comment")
 public class CommitComment {
 
-    @JsonbProperty("author_association")
     private String authorAssociation;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("commit_id")
     private String commitId;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("line")
     private Integer line;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("position")
     private Integer position;
 
-    @JsonbProperty("reactions")
     private ReactionRollup reactions;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("user")
     private SimpleUser user;
+
+    @JsonbProperty("author_association")
+    public String getAuthorAssociation() {
+        return this.authorAssociation;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("commit_id")
+    public String getCommitId() {
+        return this.commitId;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("line")
+    public Integer getLine() {
+        return this.line;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("position")
+    public Integer getPosition() {
+        return this.position;
+    }
+
+    @JsonbProperty("reactions")
+    public ReactionRollup getReactions() {
+        return this.reactions;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("author_association")
+    public void setAuthorAssociation(String authorAssociation) {
+        this.authorAssociation = authorAssociation;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("commit_id")
+    public void setCommitId(String commitId) {
+        this.commitId = commitId;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("line")
+    public void setLine(Integer line) {
+        this.line = line;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("position")
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    @JsonbProperty("reactions")
+    public void setReactions(ReactionRollup reactions) {
+        this.reactions = reactions;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

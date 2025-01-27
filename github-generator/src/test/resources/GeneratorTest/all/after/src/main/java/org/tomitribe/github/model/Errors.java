@@ -25,21 +25,75 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Errors {
 
-    @JsonbProperty("code")
     private String code;
 
-    @JsonbProperty("field")
     private String field;
 
-    @JsonbProperty("index")
     private Integer index;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("resource")
     private String resource;
 
-    @JsonbProperty("value")
     private Object value;
+
+    @JsonbProperty("code")
+    public String getCode() {
+        return this.code;
+    }
+
+    @JsonbProperty("field")
+    public String getField() {
+        return this.field;
+    }
+
+    @JsonbProperty("index")
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("resource")
+    public String getResource() {
+        return this.resource;
+    }
+
+    @JsonbProperty("value")
+    public Object getValue() {
+        return this.value;
+    }
+
+    @JsonbProperty("code")
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @JsonbProperty("field")
+    public void setField(String field) {
+        this.field = field;
+    }
+
+    @JsonbProperty("index")
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("resource")
+    public void setResource(String resource) {
+        this.resource = resource;
+    }
+
+    @JsonbProperty("value")
+    public void setValue(Object value) {
+        this.value = value;
+    }
 }

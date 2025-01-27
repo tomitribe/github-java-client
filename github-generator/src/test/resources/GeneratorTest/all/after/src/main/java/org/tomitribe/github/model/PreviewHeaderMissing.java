@@ -27,9 +27,27 @@ import org.tomitribe.github.core.ComponentId;
 @ComponentId("#/components/responses/preview_header_missing")
 public class PreviewHeaderMissing {
 
-    @JsonbProperty("documentation_url")
     private String documentationUrl;
 
-    @JsonbProperty("message")
     private String message;
+
+    @JsonbProperty("documentation_url")
+    public String getDocumentationUrl() {
+        return this.documentationUrl;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("documentation_url")
+    public void setDocumentationUrl(String documentationUrl) {
+        this.documentationUrl = documentationUrl;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

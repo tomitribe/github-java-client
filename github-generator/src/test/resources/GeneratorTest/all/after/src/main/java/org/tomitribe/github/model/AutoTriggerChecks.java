@@ -25,9 +25,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AutoTriggerChecks {
 
-    @JsonbProperty("app_id")
     private Integer appId;
 
-    @JsonbProperty("setting")
     private Boolean setting;
+
+    @JsonbProperty("app_id")
+    public Integer getAppId() {
+        return this.appId;
+    }
+
+    @JsonbProperty("setting")
+    public Boolean getSetting() {
+        return this.setting;
+    }
+
+    @JsonbProperty("app_id")
+    public void setAppId(Integer appId) {
+        this.appId = appId;
+    }
+
+    @JsonbProperty("setting")
+    public void setSetting(Boolean setting) {
+        this.setting = setting;
+    }
 }

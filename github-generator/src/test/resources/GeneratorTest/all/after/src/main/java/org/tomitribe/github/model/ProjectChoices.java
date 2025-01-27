@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProjectChoices {
 
-    @JsonbProperty("human_name")
     private String humanName;
 
-    @JsonbProperty("tfvc_project")
     private String tfvcProject;
 
-    @JsonbProperty("vcs")
     private String vcs;
+
+    @JsonbProperty("human_name")
+    public String getHumanName() {
+        return this.humanName;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public String getTfvcProject() {
+        return this.tfvcProject;
+    }
+
+    @JsonbProperty("vcs")
+    public String getVcs() {
+        return this.vcs;
+    }
+
+    @JsonbProperty("human_name")
+    public void setHumanName(String humanName) {
+        this.humanName = humanName;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public void setTfvcProject(String tfvcProject) {
+        this.tfvcProject = tfvcProject;
+    }
+
+    @JsonbProperty("vcs")
+    public void setVcs(String vcs) {
+        this.vcs = vcs;
+    }
 }

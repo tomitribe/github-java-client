@@ -29,4 +29,16 @@ public class DeclineRepositoryInvitation {
     @JsonbTransient
     @PathParam("invitation_id")
     private Integer invitationId;
+
+    @JsonbTransient
+    @PathParam("invitation_id")
+    public Integer getInvitationId() {
+        return this.invitationId;
+    }
+
+    @JsonbTransient
+    @PathParam("invitation_id")
+    public void setInvitationId(Integer invitationId) {
+        this.invitationId = invitationId;
+    }
 }

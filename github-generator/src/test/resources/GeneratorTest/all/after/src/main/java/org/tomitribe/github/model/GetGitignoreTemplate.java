@@ -29,4 +29,16 @@ public class GetGitignoreTemplate {
     @JsonbTransient
     @PathParam("name")
     private String name;
+
+    @JsonbTransient
+    @PathParam("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("name")
+    public void setName(String name) {
+        this.name = name;
+    }
 }

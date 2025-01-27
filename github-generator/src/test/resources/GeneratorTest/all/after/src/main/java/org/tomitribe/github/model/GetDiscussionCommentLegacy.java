@@ -37,4 +37,40 @@ public class GetDiscussionCommentLegacy {
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbTransient
+    @PathParam("comment-number")
+    public Integer getCommentNumber() {
+        return this.commentNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public Integer getDiscussionNumber() {
+        return this.discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbTransient
+    @PathParam("comment-number")
+    public void setCommentNumber(Integer commentNumber) {
+        this.commentNumber = commentNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public void setDiscussionNumber(Integer discussionNumber) {
+        this.discussionNumber = discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 }

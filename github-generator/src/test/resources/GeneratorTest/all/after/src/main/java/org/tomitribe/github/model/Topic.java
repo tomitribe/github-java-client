@@ -25,9 +25,18 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/topic")
+@ComponentId("topic")
 public class Topic {
 
-    @JsonbProperty("names")
     private List<String> names;
+
+    @JsonbProperty("names")
+    public List<String> getNames() {
+        return this.names;
+    }
+
+    @JsonbProperty("names")
+    public void setNames(List<String> names) {
+        this.names = names;
+    }
 }

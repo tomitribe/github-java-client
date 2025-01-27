@@ -27,20 +27,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateRelease {
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("draft")
     private Boolean draft;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("prerelease")
     private Boolean prerelease;
 
     @JsonbTransient
@@ -51,9 +47,103 @@ public class UpdateRelease {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("tag_name")
     private String tagName;
 
-    @JsonbProperty("target_commitish")
     private String targetCommitish;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("draft")
+    public Boolean getDraft() {
+        return this.draft;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("prerelease")
+    public Boolean getPrerelease() {
+        return this.prerelease;
+    }
+
+    @JsonbTransient
+    @PathParam("release_id")
+    public Integer getReleaseId() {
+        return this.releaseId;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("tag_name")
+    public String getTagName() {
+        return this.tagName;
+    }
+
+    @JsonbProperty("target_commitish")
+    public String getTargetCommitish() {
+        return this.targetCommitish;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("draft")
+    public void setDraft(Boolean draft) {
+        this.draft = draft;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("prerelease")
+    public void setPrerelease(Boolean prerelease) {
+        this.prerelease = prerelease;
+    }
+
+    @JsonbTransient
+    @PathParam("release_id")
+    public void setReleaseId(Integer releaseId) {
+        this.releaseId = releaseId;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("tag_name")
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
+    }
+
+    @JsonbProperty("target_commitish")
+    public void setTargetCommitish(String targetCommitish) {
+        this.targetCommitish = targetCommitish;
+    }
 }

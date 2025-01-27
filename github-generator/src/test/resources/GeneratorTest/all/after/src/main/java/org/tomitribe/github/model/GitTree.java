@@ -26,18 +26,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/git-tree")
+@ComponentId("git-tree")
 public class GitTree {
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("tree")
     private List<Tree> tree;
 
-    @JsonbProperty("truncated")
     private Boolean truncated;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("tree")
+    public List<Tree> getTree() {
+        return this.tree;
+    }
+
+    @JsonbProperty("truncated")
+    public Boolean getTruncated() {
+        return this.truncated;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("tree")
+    public void setTree(List<Tree> tree) {
+        this.tree = tree;
+    }
+
+    @JsonbProperty("truncated")
+    public void setTruncated(Boolean truncated) {
+        this.truncated = truncated;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

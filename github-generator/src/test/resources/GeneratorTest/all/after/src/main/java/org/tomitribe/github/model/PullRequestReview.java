@@ -27,46 +27,164 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/pull-request-review")
+@ComponentId("pull-request-review")
 public class PullRequestReview {
 
-    @JsonbProperty("author_association")
     private String authorAssociation;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("body_html")
     private String bodyHtml;
 
-    @JsonbProperty("body_text")
     private String bodyText;
 
-    @JsonbProperty("commit_id")
     private String commitId;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("_links")
     private Links links;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("pull_request_url")
     private URI pullRequestUrl;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("submitted_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date submittedAt;
 
-    @JsonbProperty("user")
     private SimpleUser user;
+
+    @JsonbProperty("author_association")
+    public String getAuthorAssociation() {
+        return this.authorAssociation;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("body_html")
+    public String getBodyHtml() {
+        return this.bodyHtml;
+    }
+
+    @JsonbProperty("body_text")
+    public String getBodyText() {
+        return this.bodyText;
+    }
+
+    @JsonbProperty("commit_id")
+    public String getCommitId() {
+        return this.commitId;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("_links")
+    public Links getLinks() {
+        return this.links;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("pull_request_url")
+    public URI getPullRequestUrl() {
+        return this.pullRequestUrl;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("submitted_at")
+    public Date getSubmittedAt() {
+        return this.submittedAt;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("author_association")
+    public void setAuthorAssociation(String authorAssociation) {
+        this.authorAssociation = authorAssociation;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("body_html")
+    public void setBodyHtml(String bodyHtml) {
+        this.bodyHtml = bodyHtml;
+    }
+
+    @JsonbProperty("body_text")
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
+    }
+
+    @JsonbProperty("commit_id")
+    public void setCommitId(String commitId) {
+        this.commitId = commitId;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("_links")
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("pull_request_url")
+    public void setPullRequestUrl(URI pullRequestUrl) {
+        this.pullRequestUrl = pullRequestUrl;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("submitted_at")
+    public void setSubmittedAt(Date submittedAt) {
+        this.submittedAt = submittedAt;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

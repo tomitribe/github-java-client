@@ -29,24 +29,19 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateDeploymentStatus {
 
-    @JsonbProperty("auto_inactive")
     private Boolean autoInactive;
 
     @JsonbTransient
     @PathParam("deployment_id")
     private Integer deploymentId;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("environment")
     @JsonbTypeAdapter(EnvironmentAdapter.class)
     private Environment environment;
 
-    @JsonbProperty("environment_url")
     private String environmentUrl;
 
-    @JsonbProperty("log_url")
     private String logUrl;
 
     @JsonbTransient
@@ -57,12 +52,118 @@ public class CreateDeploymentStatus {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
-    @JsonbProperty("target_url")
     private String targetUrl;
+
+    @JsonbProperty("auto_inactive")
+    public Boolean getAutoInactive() {
+        return this.autoInactive;
+    }
+
+    @JsonbTransient
+    @PathParam("deployment_id")
+    public Integer getDeploymentId() {
+        return this.deploymentId;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbTypeAdapter(EnvironmentAdapter.class)
+    @JsonbProperty("environment")
+    public Environment getEnvironment() {
+        return this.environment;
+    }
+
+    @JsonbProperty("environment_url")
+    public String getEnvironmentUrl() {
+        return this.environmentUrl;
+    }
+
+    @JsonbProperty("log_url")
+    public String getLogUrl() {
+        return this.logUrl;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbProperty("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("target_url")
+    public String getTargetUrl() {
+        return this.targetUrl;
+    }
+
+    @JsonbProperty("auto_inactive")
+    public void setAutoInactive(Boolean autoInactive) {
+        this.autoInactive = autoInactive;
+    }
+
+    @JsonbTransient
+    @PathParam("deployment_id")
+    public void setDeploymentId(Integer deploymentId) {
+        this.deploymentId = deploymentId;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("environment")
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
+
+    @JsonbProperty("environment_url")
+    public void setEnvironmentUrl(String environmentUrl) {
+        this.environmentUrl = environmentUrl;
+    }
+
+    @JsonbProperty("log_url")
+    public void setLogUrl(String logUrl) {
+        this.logUrl = logUrl;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("target_url")
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
 
     public enum Environment {
 

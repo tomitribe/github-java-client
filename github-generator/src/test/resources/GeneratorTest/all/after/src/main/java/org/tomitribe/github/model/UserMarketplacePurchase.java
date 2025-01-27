@@ -26,33 +26,108 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/user-marketplace-purchase")
+@ComponentId("user-marketplace-purchase")
 public class UserMarketplacePurchase {
 
-    @JsonbProperty("account")
     private MarketplaceAccount account;
 
-    @JsonbProperty("billing_cycle")
     private String billingCycle;
 
-    @JsonbProperty("free_trial_ends_on")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date freeTrialEndsOn;
 
-    @JsonbProperty("next_billing_date")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date nextBillingDate;
 
-    @JsonbProperty("on_free_trial")
     private Boolean onFreeTrial;
 
-    @JsonbProperty("plan")
     private MarketplaceListingPlan plan;
 
-    @JsonbProperty("unit_count")
     private Integer unitCount;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
+
+    @JsonbProperty("account")
+    public MarketplaceAccount getAccount() {
+        return this.account;
+    }
+
+    @JsonbProperty("billing_cycle")
+    public String getBillingCycle() {
+        return this.billingCycle;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("free_trial_ends_on")
+    public Date getFreeTrialEndsOn() {
+        return this.freeTrialEndsOn;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("next_billing_date")
+    public Date getNextBillingDate() {
+        return this.nextBillingDate;
+    }
+
+    @JsonbProperty("on_free_trial")
+    public Boolean getOnFreeTrial() {
+        return this.onFreeTrial;
+    }
+
+    @JsonbProperty("plan")
+    public MarketplaceListingPlan getPlan() {
+        return this.plan;
+    }
+
+    @JsonbProperty("unit_count")
+    public Integer getUnitCount() {
+        return this.unitCount;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("account")
+    public void setAccount(MarketplaceAccount account) {
+        this.account = account;
+    }
+
+    @JsonbProperty("billing_cycle")
+    public void setBillingCycle(String billingCycle) {
+        this.billingCycle = billingCycle;
+    }
+
+    @JsonbProperty("free_trial_ends_on")
+    public void setFreeTrialEndsOn(Date freeTrialEndsOn) {
+        this.freeTrialEndsOn = freeTrialEndsOn;
+    }
+
+    @JsonbProperty("next_billing_date")
+    public void setNextBillingDate(Date nextBillingDate) {
+        this.nextBillingDate = nextBillingDate;
+    }
+
+    @JsonbProperty("on_free_trial")
+    public void setOnFreeTrial(Boolean onFreeTrial) {
+        this.onFreeTrial = onFreeTrial;
+    }
+
+    @JsonbProperty("plan")
+    public void setPlan(MarketplaceListingPlan plan) {
+        this.plan = plan;
+    }
+
+    @JsonbProperty("unit_count")
+    public void setUnitCount(Integer unitCount) {
+        this.unitCount = unitCount;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

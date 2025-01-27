@@ -25,18 +25,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class History {
 
-    @JsonbProperty("change_status")
     private ChangeStatus changeStatus;
 
-    @JsonbProperty("committed_at")
     private String committedAt;
 
-    @JsonbProperty("url")
     private String url;
 
-    @JsonbProperty("user")
     private User user;
 
-    @JsonbProperty("version")
     private String version;
+
+    @JsonbProperty("change_status")
+    public ChangeStatus getChangeStatus() {
+        return this.changeStatus;
+    }
+
+    @JsonbProperty("committed_at")
+    public String getCommittedAt() {
+        return this.committedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public User getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("version")
+    public String getVersion() {
+        return this.version;
+    }
+
+    @JsonbProperty("change_status")
+    public void setChangeStatus(ChangeStatus changeStatus) {
+        this.changeStatus = changeStatus;
+    }
+
+    @JsonbProperty("committed_at")
+    public void setCommittedAt(String committedAt) {
+        this.committedAt = committedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @JsonbProperty("version")
+    public void setVersion(String version) {
+        this.version = version;
+    }
 }

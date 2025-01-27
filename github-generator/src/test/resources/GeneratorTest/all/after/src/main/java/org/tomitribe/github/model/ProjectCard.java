@@ -27,41 +27,142 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/project-card")
+@ComponentId("project-card")
 public class ProjectCard {
 
-    @JsonbProperty("archived")
     private Boolean archived;
 
-    @JsonbProperty("column_url")
     private URI columnUrl;
 
-    @JsonbProperty("content_url")
     private URI contentUrl;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("creator")
     private SimpleUser creator;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("note")
     private String note;
 
-    @JsonbProperty("project_url")
     private URI projectUrl;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("archived")
+    public Boolean getArchived() {
+        return this.archived;
+    }
+
+    @JsonbProperty("column_url")
+    public URI getColumnUrl() {
+        return this.columnUrl;
+    }
+
+    @JsonbProperty("content_url")
+    public URI getContentUrl() {
+        return this.contentUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public SimpleUser getCreator() {
+        return this.creator;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("note")
+    public String getNote() {
+        return this.note;
+    }
+
+    @JsonbProperty("project_url")
+    public URI getProjectUrl() {
+        return this.projectUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("archived")
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
+    }
+
+    @JsonbProperty("column_url")
+    public void setColumnUrl(URI columnUrl) {
+        this.columnUrl = columnUrl;
+    }
+
+    @JsonbProperty("content_url")
+    public void setContentUrl(URI contentUrl) {
+        this.contentUrl = contentUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public void setCreator(SimpleUser creator) {
+        this.creator = creator;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("note")
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    @JsonbProperty("project_url")
+    public void setProjectUrl(URI projectUrl) {
+        this.projectUrl = projectUrl;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

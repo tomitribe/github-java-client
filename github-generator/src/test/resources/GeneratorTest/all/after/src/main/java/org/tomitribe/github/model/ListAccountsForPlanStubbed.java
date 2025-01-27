@@ -42,6 +42,43 @@ public class ListAccountsForPlanStubbed {
     @QueryParam("sort")
     private Sort sort;
 
+    @JsonbTypeAdapter(DirectionAdapter.class)
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @PathParam("plan_id")
+    public Integer getPlanId() {
+        return this.planId;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @PathParam("plan_id")
+    public void setPlanId(Integer planId) {
+        this.planId = planId;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
     public enum Direction {
 
         ASC("asc"), DESC("desc");

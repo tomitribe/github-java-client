@@ -29,50 +29,170 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/release-asset")
+@ComponentId("release-asset")
 public class ReleaseAsset {
 
-    @JsonbProperty("browser_download_url")
     private URI browserDownloadUrl;
 
-    @JsonbProperty("content_type")
     private String contentType;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("download_count")
     private Integer downloadCount;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("label")
     private String label;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("size")
     private Integer size;
 
-    @JsonbProperty("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("uploader")
     private SimpleUser uploader;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("browser_download_url")
+    public URI getBrowserDownloadUrl() {
+        return this.browserDownloadUrl;
+    }
+
+    @JsonbProperty("content_type")
+    public String getContentType() {
+        return this.contentType;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("download_count")
+    public Integer getDownloadCount() {
+        return this.downloadCount;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("label")
+    public String getLabel() {
+        return this.label;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbProperty("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("uploader")
+    public SimpleUser getUploader() {
+        return this.uploader;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("browser_download_url")
+    public void setBrowserDownloadUrl(URI browserDownloadUrl) {
+        this.browserDownloadUrl = browserDownloadUrl;
+    }
+
+    @JsonbProperty("content_type")
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("download_count")
+    public void setDownloadCount(Integer downloadCount) {
+        this.downloadCount = downloadCount;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("label")
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("size")
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @JsonbProperty("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("uploader")
+    public void setUploader(SimpleUser uploader) {
+        this.uploader = uploader;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum State {
 

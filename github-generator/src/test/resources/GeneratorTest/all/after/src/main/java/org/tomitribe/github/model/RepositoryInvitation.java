@@ -28,37 +28,120 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/repository-invitation")
+@ComponentId("repository-invitation")
 public class RepositoryInvitation {
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("invitee")
     private SimpleUser invitee;
 
-    @JsonbProperty("inviter")
     private SimpleUser inviter;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("permissions")
     @JsonbTypeAdapter(PermissionsAdapter.class)
     private Permissions permissions;
 
-    @JsonbProperty("repository")
     private MinimalRepository repository;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("invitee")
+    public SimpleUser getInvitee() {
+        return this.invitee;
+    }
+
+    @JsonbProperty("inviter")
+    public SimpleUser getInviter() {
+        return this.inviter;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbTypeAdapter(PermissionsAdapter.class)
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("repository")
+    public MinimalRepository getRepository() {
+        return this.repository;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("invitee")
+    public void setInvitee(SimpleUser invitee) {
+        this.invitee = invitee;
+    }
+
+    @JsonbProperty("inviter")
+    public void setInviter(SimpleUser inviter) {
+        this.inviter = inviter;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("repository")
+    public void setRepository(MinimalRepository repository) {
+        this.repository = repository;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public enum Permissions {
 

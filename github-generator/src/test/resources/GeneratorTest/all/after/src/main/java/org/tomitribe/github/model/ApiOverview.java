@@ -25,36 +25,126 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/api-overview")
+@ComponentId("api-overview")
 public class ApiOverview {
 
-    @JsonbProperty("api")
     private List<String> api;
 
-    @JsonbProperty("git")
     private List<String> git;
 
-    @JsonbProperty("github_services_sha")
     private String githubServicesSha;
 
-    @JsonbProperty("hooks")
     private List<String> hooks;
 
-    @JsonbProperty("importer")
     private List<String> importer;
 
-    @JsonbProperty("installed_version")
     private String installedVersion;
 
-    @JsonbProperty("pages")
     private List<String> pages;
 
-    @JsonbProperty("ssh_key_fingerprints")
     private SshKeyFingerprints sshKeyFingerprints;
 
-    @JsonbProperty("verifiable_password_authentication")
     private Boolean verifiablePasswordAuthentication;
 
-    @JsonbProperty("web")
     private List<String> web;
+
+    @JsonbProperty("api")
+    public List<String> getApi() {
+        return this.api;
+    }
+
+    @JsonbProperty("git")
+    public List<String> getGit() {
+        return this.git;
+    }
+
+    @JsonbProperty("github_services_sha")
+    public String getGithubServicesSha() {
+        return this.githubServicesSha;
+    }
+
+    @JsonbProperty("hooks")
+    public List<String> getHooks() {
+        return this.hooks;
+    }
+
+    @JsonbProperty("importer")
+    public List<String> getImporter() {
+        return this.importer;
+    }
+
+    @JsonbProperty("installed_version")
+    public String getInstalledVersion() {
+        return this.installedVersion;
+    }
+
+    @JsonbProperty("pages")
+    public List<String> getPages() {
+        return this.pages;
+    }
+
+    @JsonbProperty("ssh_key_fingerprints")
+    public SshKeyFingerprints getSshKeyFingerprints() {
+        return this.sshKeyFingerprints;
+    }
+
+    @JsonbProperty("verifiable_password_authentication")
+    public Boolean getVerifiablePasswordAuthentication() {
+        return this.verifiablePasswordAuthentication;
+    }
+
+    @JsonbProperty("web")
+    public List<String> getWeb() {
+        return this.web;
+    }
+
+    @JsonbProperty("api")
+    public void setApi(List<String> api) {
+        this.api = api;
+    }
+
+    @JsonbProperty("git")
+    public void setGit(List<String> git) {
+        this.git = git;
+    }
+
+    @JsonbProperty("github_services_sha")
+    public void setGithubServicesSha(String githubServicesSha) {
+        this.githubServicesSha = githubServicesSha;
+    }
+
+    @JsonbProperty("hooks")
+    public void setHooks(List<String> hooks) {
+        this.hooks = hooks;
+    }
+
+    @JsonbProperty("importer")
+    public void setImporter(List<String> importer) {
+        this.importer = importer;
+    }
+
+    @JsonbProperty("installed_version")
+    public void setInstalledVersion(String installedVersion) {
+        this.installedVersion = installedVersion;
+    }
+
+    @JsonbProperty("pages")
+    public void setPages(List<String> pages) {
+        this.pages = pages;
+    }
+
+    @JsonbProperty("ssh_key_fingerprints")
+    public void setSshKeyFingerprints(SshKeyFingerprints sshKeyFingerprints) {
+        this.sshKeyFingerprints = sshKeyFingerprints;
+    }
+
+    @JsonbProperty("verifiable_password_authentication")
+    public void setVerifiablePasswordAuthentication(Boolean verifiablePasswordAuthentication) {
+        this.verifiablePasswordAuthentication = verifiablePasswordAuthentication;
+    }
+
+    @JsonbProperty("web")
+    public void setWeb(List<String> web) {
+        this.web = web;
+    }
 }

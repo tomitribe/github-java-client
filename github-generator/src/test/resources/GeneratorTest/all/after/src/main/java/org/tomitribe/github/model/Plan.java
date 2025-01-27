@@ -25,21 +25,75 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Plan {
 
-    @JsonbProperty("collaborators")
     private Integer collaborators;
 
-    @JsonbProperty("filled_seats")
     private Integer filledSeats;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("private_repos")
     private Integer privateRepos;
 
-    @JsonbProperty("seats")
     private Integer seats;
 
-    @JsonbProperty("space")
     private Integer space;
+
+    @JsonbProperty("collaborators")
+    public Integer getCollaborators() {
+        return this.collaborators;
+    }
+
+    @JsonbProperty("filled_seats")
+    public Integer getFilledSeats() {
+        return this.filledSeats;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("private_repos")
+    public Integer getPrivateRepos() {
+        return this.privateRepos;
+    }
+
+    @JsonbProperty("seats")
+    public Integer getSeats() {
+        return this.seats;
+    }
+
+    @JsonbProperty("space")
+    public Integer getSpace() {
+        return this.space;
+    }
+
+    @JsonbProperty("collaborators")
+    public void setCollaborators(Integer collaborators) {
+        this.collaborators = collaborators;
+    }
+
+    @JsonbProperty("filled_seats")
+    public void setFilledSeats(Integer filledSeats) {
+        this.filledSeats = filledSeats;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("private_repos")
+    public void setPrivateRepos(Integer privateRepos) {
+        this.privateRepos = privateRepos;
+    }
+
+    @JsonbProperty("seats")
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    @JsonbProperty("space")
+    public void setSpace(Integer space) {
+        this.space = space;
+    }
 }

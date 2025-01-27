@@ -16,6 +16,8 @@ package org.tomitribe.github.client;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.GetGitignoreTemplate;
 import org.tomitribe.github.model.GitignoreTemplate;
 
@@ -23,25 +25,19 @@ public interface GitignoreClient {
 
     @GET
     @Path("/gitignore/templates")
-    @OperationId("gitignore/get-all-templates")
     @Docs("https://developer.github.com/v3/gitignore/#get-all-gitignore-templates")
     @EnabledForGithubApps
-    @Category("gitignore")
     Stream<String> getAllGitignoreTemplates();
 
     @GET
     @Path("/gitignore/templates/{name}")
-    @OperationId("gitignore/get-template")
     @Docs("https://developer.github.com/v3/gitignore/#get-a-gitignore-template")
     @EnabledForGithubApps
-    @Category("gitignore")
     GitignoreTemplate getGitignoreTemplate(final GetGitignoreTemplate getGitignoreTemplate);
 
     @GET
     @Path("/gitignore/templates/{name}")
-    @OperationId("gitignore/get-template")
     @Docs("https://developer.github.com/v3/gitignore/#get-a-gitignore-template")
     @EnabledForGithubApps
-    @Category("gitignore")
     GitignoreTemplate getGitignoreTemplate(@PathParam("name") final String name);
 }

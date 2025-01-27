@@ -26,38 +26,130 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/artifact")
+@ComponentId("artifact")
 public class Artifact {
 
-    @JsonbProperty("archive_download_url")
     private String archiveDownloadUrl;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("expired")
     private Boolean expired;
 
-    @JsonbProperty("expires_at")
     private String expiresAt;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("size_in_bytes")
     private Integer sizeInBytes;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("archive_download_url")
+    public String getArchiveDownloadUrl() {
+        return this.archiveDownloadUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("expired")
+    public Boolean getExpired() {
+        return this.expired;
+    }
+
+    @JsonbProperty("expires_at")
+    public String getExpiresAt() {
+        return this.expiresAt;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("size_in_bytes")
+    public Integer getSizeInBytes() {
+        return this.sizeInBytes;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("archive_download_url")
+    public void setArchiveDownloadUrl(String archiveDownloadUrl) {
+        this.archiveDownloadUrl = archiveDownloadUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("expired")
+    public void setExpired(Boolean expired) {
+        this.expired = expired;
+    }
+
+    @JsonbProperty("expires_at")
+    public void setExpiresAt(String expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("size_in_bytes")
+    public void setSizeInBytes(Integer sizeInBytes) {
+        this.sizeInBytes = sizeInBytes;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

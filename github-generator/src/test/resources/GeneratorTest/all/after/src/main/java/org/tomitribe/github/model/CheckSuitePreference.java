@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/check-suite-preference")
+@ComponentId("check-suite-preference")
 public class CheckSuitePreference {
 
-    @JsonbProperty("preferences")
     private Preferences preferences;
 
-    @JsonbProperty("repository")
     private Repository repository;
+
+    @JsonbProperty("preferences")
+    public Preferences getPreferences() {
+        return this.preferences;
+    }
+
+    @JsonbProperty("repository")
+    public Repository getRepository() {
+        return this.repository;
+    }
+
+    @JsonbProperty("preferences")
+    public void setPreferences(Preferences preferences) {
+        this.preferences = preferences;
+    }
+
+    @JsonbProperty("repository")
+    public void setRepository(Repository repository) {
+        this.repository = repository;
+    }
 }

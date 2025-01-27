@@ -29,4 +29,16 @@ public class ListUsers {
     @JsonbTransient
     @QueryParam("since")
     private String since;
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
 }

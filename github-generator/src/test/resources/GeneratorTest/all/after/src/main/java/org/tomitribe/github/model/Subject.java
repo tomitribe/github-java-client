@@ -25,15 +25,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Subject {
 
-    @JsonbProperty("latest_comment_url")
     private String latestCommentUrl;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("type")
     private String type;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("latest_comment_url")
+    public String getLatestCommentUrl() {
+        return this.latestCommentUrl;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("latest_comment_url")
+    public void setLatestCommentUrl(String latestCommentUrl) {
+        this.latestCommentUrl = latestCommentUrl;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

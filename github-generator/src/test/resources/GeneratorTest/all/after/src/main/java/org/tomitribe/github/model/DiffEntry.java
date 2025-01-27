@@ -25,39 +25,138 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/diff-entry")
+@ComponentId("diff-entry")
 public class DiffEntry {
 
-    @JsonbProperty("additions")
     private Integer additions;
 
-    @JsonbProperty("blob_url")
     private URI blobUrl;
 
-    @JsonbProperty("changes")
     private Integer changes;
 
-    @JsonbProperty("contents_url")
     private URI contentsUrl;
 
-    @JsonbProperty("deletions")
     private Integer deletions;
 
-    @JsonbProperty("filename")
     private String filename;
 
-    @JsonbProperty("patch")
     private String patch;
 
-    @JsonbProperty("previous_filename")
     private String previousFilename;
 
-    @JsonbProperty("raw_url")
     private URI rawUrl;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("status")
     private String status;
+
+    @JsonbProperty("additions")
+    public Integer getAdditions() {
+        return this.additions;
+    }
+
+    @JsonbProperty("blob_url")
+    public URI getBlobUrl() {
+        return this.blobUrl;
+    }
+
+    @JsonbProperty("changes")
+    public Integer getChanges() {
+        return this.changes;
+    }
+
+    @JsonbProperty("contents_url")
+    public URI getContentsUrl() {
+        return this.contentsUrl;
+    }
+
+    @JsonbProperty("deletions")
+    public Integer getDeletions() {
+        return this.deletions;
+    }
+
+    @JsonbProperty("filename")
+    public String getFilename() {
+        return this.filename;
+    }
+
+    @JsonbProperty("patch")
+    public String getPatch() {
+        return this.patch;
+    }
+
+    @JsonbProperty("previous_filename")
+    public String getPreviousFilename() {
+        return this.previousFilename;
+    }
+
+    @JsonbProperty("raw_url")
+    public URI getRawUrl() {
+        return this.rawUrl;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("additions")
+    public void setAdditions(Integer additions) {
+        this.additions = additions;
+    }
+
+    @JsonbProperty("blob_url")
+    public void setBlobUrl(URI blobUrl) {
+        this.blobUrl = blobUrl;
+    }
+
+    @JsonbProperty("changes")
+    public void setChanges(Integer changes) {
+        this.changes = changes;
+    }
+
+    @JsonbProperty("contents_url")
+    public void setContentsUrl(URI contentsUrl) {
+        this.contentsUrl = contentsUrl;
+    }
+
+    @JsonbProperty("deletions")
+    public void setDeletions(Integer deletions) {
+        this.deletions = deletions;
+    }
+
+    @JsonbProperty("filename")
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    @JsonbProperty("patch")
+    public void setPatch(String patch) {
+        this.patch = patch;
+    }
+
+    @JsonbProperty("previous_filename")
+    public void setPreviousFilename(String previousFilename) {
+        this.previousFilename = previousFilename;
+    }
+
+    @JsonbProperty("raw_url")
+    public void setRawUrl(URI rawUrl) {
+        this.rawUrl = rawUrl;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

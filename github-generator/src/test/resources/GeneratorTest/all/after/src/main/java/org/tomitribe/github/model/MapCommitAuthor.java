@@ -31,20 +31,83 @@ public class MapCommitAuthor {
     @PathParam("author_id")
     private Integer authorId;
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("remote_id")
     private String remoteId;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("author_id")
+    public Integer getAuthorId() {
+        return this.authorId;
+    }
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("remote_id")
+    public String getRemoteId() {
+        return this.remoteId;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("author_id")
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("remote_id")
+    public void setRemoteId(String remoteId) {
+        this.remoteId = remoteId;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

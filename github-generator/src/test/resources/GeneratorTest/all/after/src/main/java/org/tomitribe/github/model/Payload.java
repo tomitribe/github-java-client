@@ -26,15 +26,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Payload {
 
-    @JsonbProperty("action")
     private String action;
 
-    @JsonbProperty("comment")
     private IssueComment comment;
 
-    @JsonbProperty("issue")
     private IssueSimple issue;
 
-    @JsonbProperty("pages")
     private List<Pages> pages;
+
+    @JsonbProperty("action")
+    public String getAction() {
+        return this.action;
+    }
+
+    @JsonbProperty("comment")
+    public IssueComment getComment() {
+        return this.comment;
+    }
+
+    @JsonbProperty("issue")
+    public IssueSimple getIssue() {
+        return this.issue;
+    }
+
+    @JsonbProperty("pages")
+    public List<Pages> getPages() {
+        return this.pages;
+    }
+
+    @JsonbProperty("action")
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    @JsonbProperty("comment")
+    public void setComment(IssueComment comment) {
+        this.comment = comment;
+    }
+
+    @JsonbProperty("issue")
+    public void setIssue(IssueSimple issue) {
+        this.issue = issue;
+    }
+
+    @JsonbProperty("pages")
+    public void setPages(List<Pages> pages) {
+        this.pages = pages;
+    }
 }

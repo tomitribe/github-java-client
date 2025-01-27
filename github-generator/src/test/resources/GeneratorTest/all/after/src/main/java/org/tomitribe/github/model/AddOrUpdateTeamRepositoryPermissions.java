@@ -37,7 +37,6 @@ public class AddOrUpdateTeamRepositoryPermissions {
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("permission")
     @JsonbTypeAdapter(PermissionAdapter.class)
     private Permission permission;
 
@@ -48,6 +47,65 @@ public class AddOrUpdateTeamRepositoryPermissions {
     @JsonbTransient
     @PathParam("team_slug")
     private String teamSlug;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTypeAdapter(PermissionAdapter.class)
+    @JsonbProperty("permission")
+    public Permission getPermission() {
+        return this.permission;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
 
     public enum Permission {
 

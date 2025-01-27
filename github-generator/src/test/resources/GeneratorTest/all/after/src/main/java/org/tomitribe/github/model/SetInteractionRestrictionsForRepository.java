@@ -29,7 +29,6 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class SetInteractionRestrictionsForRepository {
 
-    @JsonbProperty("limit")
     @JsonbTypeAdapter(LimitAdapter.class)
     private Limit limit;
 
@@ -40,6 +39,41 @@ public class SetInteractionRestrictionsForRepository {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTypeAdapter(LimitAdapter.class)
+    @JsonbProperty("limit")
+    public Limit getLimit() {
+        return this.limit;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("limit")
+    public void setLimit(Limit limit) {
+        this.limit = limit;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 
     public enum Limit {
 

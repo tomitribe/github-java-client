@@ -29,4 +29,16 @@ public class ForkGist {
     @JsonbTransient
     @PathParam("gist_id")
     private String gistId;
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public String getGistId() {
+        return this.gistId;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public void setGistId(String gistId) {
+        this.gistId = gistId;
+    }
 }

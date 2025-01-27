@@ -25,24 +25,78 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-event-project-card")
+@ComponentId("issue-event-project-card")
 public class IssueEventProjectCard {
 
-    @JsonbProperty("column_name")
     private String columnName;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("previous_column_name")
     private String previousColumnName;
 
-    @JsonbProperty("project_id")
     private Integer projectId;
 
-    @JsonbProperty("project_url")
     private URI projectUrl;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("column_name")
+    public String getColumnName() {
+        return this.columnName;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("previous_column_name")
+    public String getPreviousColumnName() {
+        return this.previousColumnName;
+    }
+
+    @JsonbProperty("project_id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbProperty("project_url")
+    public URI getProjectUrl() {
+        return this.projectUrl;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("column_name")
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("previous_column_name")
+    public void setPreviousColumnName(String previousColumnName) {
+        this.previousColumnName = previousColumnName;
+    }
+
+    @JsonbProperty("project_id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
+
+    @JsonbProperty("project_url")
+    public void setProjectUrl(URI projectUrl) {
+        this.projectUrl = projectUrl;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

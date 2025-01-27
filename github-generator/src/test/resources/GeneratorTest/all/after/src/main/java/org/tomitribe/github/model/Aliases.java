@@ -25,6 +25,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Aliases {
 
-    @JsonbProperty("topic_relation")
     private TopicRelation topicRelation;
+
+    @JsonbProperty("topic_relation")
+    public TopicRelation getTopicRelation() {
+        return this.topicRelation;
+    }
+
+    @JsonbProperty("topic_relation")
+    public void setTopicRelation(TopicRelation topicRelation) {
+        this.topicRelation = topicRelation;
+    }
 }

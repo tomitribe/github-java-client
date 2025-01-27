@@ -25,27 +25,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/org-membership")
+@ComponentId("org-membership")
 public class OrgMembership {
 
-    @JsonbProperty("organization")
     private OrganizationSimple organization;
 
-    @JsonbProperty("organization_url")
     private URI organizationUrl;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("role")
     private String role;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("user")
     private SimpleUser user;
+
+    @JsonbProperty("organization")
+    public OrganizationSimple getOrganization() {
+        return this.organization;
+    }
+
+    @JsonbProperty("organization_url")
+    public URI getOrganizationUrl() {
+        return this.organizationUrl;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("role")
+    public String getRole() {
+        return this.role;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("organization")
+    public void setOrganization(OrganizationSimple organization) {
+        this.organization = organization;
+    }
+
+    @JsonbProperty("organization_url")
+    public void setOrganizationUrl(URI organizationUrl) {
+        this.organizationUrl = organizationUrl;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("role")
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

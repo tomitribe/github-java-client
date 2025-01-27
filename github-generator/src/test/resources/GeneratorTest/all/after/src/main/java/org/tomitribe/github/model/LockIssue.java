@@ -33,7 +33,6 @@ public class LockIssue {
     @PathParam("issue_number")
     private Integer issueNumber;
 
-    @JsonbProperty("lock_reason")
     @JsonbTypeAdapter(LockReasonAdapter.class)
     private LockReason lockReason;
 
@@ -44,6 +43,53 @@ public class LockIssue {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public Integer getIssueNumber() {
+        return this.issueNumber;
+    }
+
+    @JsonbTypeAdapter(LockReasonAdapter.class)
+    @JsonbProperty("lock_reason")
+    public LockReason getLockReason() {
+        return this.lockReason;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public void setIssueNumber(Integer issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    @JsonbProperty("lock_reason")
+    public void setLockReason(LockReason lockReason) {
+        this.lockReason = lockReason;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 
     public enum LockReason {
 

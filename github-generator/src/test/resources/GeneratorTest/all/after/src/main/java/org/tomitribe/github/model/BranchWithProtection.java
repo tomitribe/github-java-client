@@ -25,30 +25,102 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/branch-with-protection")
+@ComponentId("branch-with-protection")
 public class BranchWithProtection {
 
-    @JsonbProperty("protected")
     private Boolean _protected;
 
-    @JsonbProperty("commit")
     private Commit commit;
 
-    @JsonbProperty("_links")
     private Links links;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("pattern")
     private String pattern;
 
-    @JsonbProperty("protection")
     private BranchProtection protection;
 
-    @JsonbProperty("protection_url")
     private URI protectionUrl;
 
-    @JsonbProperty("required_approving_review_count")
     private Integer requiredApprovingReviewCount;
+
+    @JsonbProperty("commit")
+    public Commit getCommit() {
+        return this.commit;
+    }
+
+    @JsonbProperty("_links")
+    public Links getLinks() {
+        return this.links;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("pattern")
+    public String getPattern() {
+        return this.pattern;
+    }
+
+    @JsonbProperty("protection")
+    public BranchProtection getProtection() {
+        return this.protection;
+    }
+
+    @JsonbProperty("protection_url")
+    public URI getProtectionUrl() {
+        return this.protectionUrl;
+    }
+
+    @JsonbProperty("required_approving_review_count")
+    public Integer getRequiredApprovingReviewCount() {
+        return this.requiredApprovingReviewCount;
+    }
+
+    @JsonbProperty("protected")
+    public Boolean get_protected() {
+        return this._protected;
+    }
+
+    @JsonbProperty("commit")
+    public void setCommit(Commit commit) {
+        this.commit = commit;
+    }
+
+    @JsonbProperty("_links")
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("pattern")
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    @JsonbProperty("protection")
+    public void setProtection(BranchProtection protection) {
+        this.protection = protection;
+    }
+
+    @JsonbProperty("protection_url")
+    public void setProtectionUrl(URI protectionUrl) {
+        this.protectionUrl = protectionUrl;
+    }
+
+    @JsonbProperty("required_approving_review_count")
+    public void setRequiredApprovingReviewCount(Integer requiredApprovingReviewCount) {
+        this.requiredApprovingReviewCount = requiredApprovingReviewCount;
+    }
+
+    @JsonbProperty("protected")
+    public void set_protected(Boolean _protected) {
+        this._protected = _protected;
+    }
 }

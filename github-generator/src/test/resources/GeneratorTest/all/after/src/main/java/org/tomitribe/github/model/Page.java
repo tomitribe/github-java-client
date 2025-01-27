@@ -27,27 +27,82 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/page")
+@ComponentId("page")
 public class Page {
 
-    @JsonbProperty("cname")
     private String cname;
 
-    @JsonbProperty("custom_404")
     private Boolean custom404;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("source")
     private PagesSourceHash source;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("cname")
+    public String getCname() {
+        return this.cname;
+    }
+
+    @JsonbProperty("custom_404")
+    public Boolean getCustom404() {
+        return this.custom404;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("source")
+    public PagesSourceHash getSource() {
+        return this.source;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("cname")
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    @JsonbProperty("custom_404")
+    public void setCustom404(Boolean custom404) {
+        this.custom404 = custom404;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("source")
+    public void setSource(PagesSourceHash source) {
+        this.source = source;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum Status {
 

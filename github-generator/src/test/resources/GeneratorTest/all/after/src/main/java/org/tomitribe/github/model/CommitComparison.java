@@ -28,48 +28,166 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/commit-comparison")
+@ComponentId("commit-comparison")
 public class CommitComparison {
 
-    @JsonbProperty("ahead_by")
     private Integer aheadBy;
 
-    @JsonbProperty("base_commit")
     private Commit baseCommit;
 
-    @JsonbProperty("behind_by")
     private Integer behindBy;
 
-    @JsonbProperty("commits")
     private List<Commit> commits;
 
-    @JsonbProperty("diff_url")
     private URI diffUrl;
 
-    @JsonbProperty("files")
     private List<DiffEntry> files;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("merge_base_commit")
     private Commit mergeBaseCommit;
 
-    @JsonbProperty("patch_url")
     private URI patchUrl;
 
-    @JsonbProperty("permalink_url")
     private URI permalinkUrl;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
 
-    @JsonbProperty("total_commits")
     private Integer totalCommits;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("ahead_by")
+    public Integer getAheadBy() {
+        return this.aheadBy;
+    }
+
+    @JsonbProperty("base_commit")
+    public Commit getBaseCommit() {
+        return this.baseCommit;
+    }
+
+    @JsonbProperty("behind_by")
+    public Integer getBehindBy() {
+        return this.behindBy;
+    }
+
+    @JsonbProperty("commits")
+    public List<Commit> getCommits() {
+        return this.commits;
+    }
+
+    @JsonbProperty("diff_url")
+    public URI getDiffUrl() {
+        return this.diffUrl;
+    }
+
+    @JsonbProperty("files")
+    public List<DiffEntry> getFiles() {
+        return this.files;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("merge_base_commit")
+    public Commit getMergeBaseCommit() {
+        return this.mergeBaseCommit;
+    }
+
+    @JsonbProperty("patch_url")
+    public URI getPatchUrl() {
+        return this.patchUrl;
+    }
+
+    @JsonbProperty("permalink_url")
+    public URI getPermalinkUrl() {
+        return this.permalinkUrl;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("total_commits")
+    public Integer getTotalCommits() {
+        return this.totalCommits;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("ahead_by")
+    public void setAheadBy(Integer aheadBy) {
+        this.aheadBy = aheadBy;
+    }
+
+    @JsonbProperty("base_commit")
+    public void setBaseCommit(Commit baseCommit) {
+        this.baseCommit = baseCommit;
+    }
+
+    @JsonbProperty("behind_by")
+    public void setBehindBy(Integer behindBy) {
+        this.behindBy = behindBy;
+    }
+
+    @JsonbProperty("commits")
+    public void setCommits(List<Commit> commits) {
+        this.commits = commits;
+    }
+
+    @JsonbProperty("diff_url")
+    public void setDiffUrl(URI diffUrl) {
+        this.diffUrl = diffUrl;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(List<DiffEntry> files) {
+        this.files = files;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("merge_base_commit")
+    public void setMergeBaseCommit(Commit mergeBaseCommit) {
+        this.mergeBaseCommit = mergeBaseCommit;
+    }
+
+    @JsonbProperty("patch_url")
+    public void setPatchUrl(URI patchUrl) {
+        this.patchUrl = patchUrl;
+    }
+
+    @JsonbProperty("permalink_url")
+    public void setPermalinkUrl(URI permalinkUrl) {
+        this.permalinkUrl = permalinkUrl;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("total_commits")
+    public void setTotalCommits(Integer totalCommits) {
+        this.totalCommits = totalCommits;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum Status {
 

@@ -25,9 +25,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreatePublicSSHKeyForAuthenticatedUser {
 
-    @JsonbProperty("key")
     private String key;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

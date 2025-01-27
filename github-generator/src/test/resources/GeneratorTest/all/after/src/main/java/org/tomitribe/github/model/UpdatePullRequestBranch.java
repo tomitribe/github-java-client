@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdatePullRequestBranch {
 
-    @JsonbProperty("expected_head_sha")
     private String expectedHeadSha;
 
     @JsonbTransient
@@ -41,4 +40,50 @@ public class UpdatePullRequestBranch {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("expected_head_sha")
+    public String getExpectedHeadSha() {
+        return this.expectedHeadSha;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public Integer getPullNumber() {
+        return this.pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("expected_head_sha")
+    public void setExpectedHeadSha(String expectedHeadSha) {
+        this.expectedHeadSha = expectedHeadSha;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public void setPullNumber(Integer pullNumber) {
+        this.pullNumber = pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

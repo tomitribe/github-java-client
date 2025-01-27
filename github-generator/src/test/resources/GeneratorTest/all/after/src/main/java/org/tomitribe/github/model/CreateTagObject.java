@@ -29,10 +29,8 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateTagObject {
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("object")
     private String object;
 
     @JsonbTransient
@@ -43,15 +41,87 @@ public class CreateTagObject {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("tag")
     private String tag;
 
-    @JsonbProperty("tagger")
     private Tagger tagger;
 
-    @JsonbProperty("type")
     @JsonbTypeAdapter(TypeAdapter.class)
     private Type type;
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("object")
+    public String getObject() {
+        return this.object;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("tag")
+    public String getTag() {
+        return this.tag;
+    }
+
+    @JsonbProperty("tagger")
+    public Tagger getTagger() {
+        return this.tagger;
+    }
+
+    @JsonbTypeAdapter(TypeAdapter.class)
+    @JsonbProperty("type")
+    public Type getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("object")
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("tag")
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    @JsonbProperty("tagger")
+    public void setTagger(Tagger tagger) {
+        this.tagger = tagger;
+    }
+
+    @JsonbProperty("type")
+    public void setType(Type type) {
+        this.type = type;
+    }
 
     public enum Type {
 

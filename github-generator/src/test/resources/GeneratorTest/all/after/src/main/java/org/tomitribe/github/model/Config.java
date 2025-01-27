@@ -25,39 +25,147 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Config {
 
-    @JsonbProperty("address")
     private String address;
 
-    @JsonbProperty("content_type")
     private String contentType;
 
-    @JsonbProperty("digest")
     private String digest;
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("insecure_ssl")
     private String insecureSsl;
 
-    @JsonbProperty("password")
     private String password;
 
-    @JsonbProperty("room")
     private String room;
 
-    @JsonbProperty("secret")
     private String secret;
 
-    @JsonbProperty("subdomain")
     private String subdomain;
 
-    @JsonbProperty("token")
     private String token;
 
-    @JsonbProperty("url")
     private String url;
 
-    @JsonbProperty("username")
     private String username;
+
+    @JsonbProperty("address")
+    public String getAddress() {
+        return this.address;
+    }
+
+    @JsonbProperty("content_type")
+    public String getContentType() {
+        return this.contentType;
+    }
+
+    @JsonbProperty("digest")
+    public String getDigest() {
+        return this.digest;
+    }
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("insecure_ssl")
+    public String getInsecureSsl() {
+        return this.insecureSsl;
+    }
+
+    @JsonbProperty("password")
+    public String getPassword() {
+        return this.password;
+    }
+
+    @JsonbProperty("room")
+    public String getRoom() {
+        return this.room;
+    }
+
+    @JsonbProperty("secret")
+    public String getSecret() {
+        return this.secret;
+    }
+
+    @JsonbProperty("subdomain")
+    public String getSubdomain() {
+        return this.subdomain;
+    }
+
+    @JsonbProperty("token")
+    public String getToken() {
+        return this.token;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbProperty("address")
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @JsonbProperty("content_type")
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
+
+    @JsonbProperty("digest")
+    public void setDigest(String digest) {
+        this.digest = digest;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("insecure_ssl")
+    public void setInsecureSsl(String insecureSsl) {
+        this.insecureSsl = insecureSsl;
+    }
+
+    @JsonbProperty("password")
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @JsonbProperty("room")
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    @JsonbProperty("secret")
+    public void setSecret(String secret) {
+        this.secret = secret;
+    }
+
+    @JsonbProperty("subdomain")
+    public void setSubdomain(String subdomain) {
+        this.subdomain = subdomain;
+    }
+
+    @JsonbProperty("token")
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

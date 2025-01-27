@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-event-label")
+@ComponentId("issue-event-label")
 public class IssueEventLabel {
 
-    @JsonbProperty("color")
     private String color;
 
-    @JsonbProperty("name")
     private String name;
+
+    @JsonbProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("color")
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
 }

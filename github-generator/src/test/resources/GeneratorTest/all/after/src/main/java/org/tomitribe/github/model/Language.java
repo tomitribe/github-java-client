@@ -23,6 +23,6 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/language")
+@ComponentId("language")
 public class Language {
 }

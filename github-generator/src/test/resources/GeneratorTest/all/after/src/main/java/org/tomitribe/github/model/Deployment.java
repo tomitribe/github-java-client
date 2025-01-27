@@ -27,62 +27,226 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/deployment")
+@ComponentId("deployment")
 public class Deployment {
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("creator")
     private SimpleUser creator;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("environment")
     private String environment;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("original_environment")
     private String originalEnvironment;
 
-    @JsonbProperty("payload")
     private Payload payload;
 
-    @JsonbProperty("performed_via_github_app")
     private Integration performedViaGithubApp;
 
-    @JsonbProperty("production_environment")
     private Boolean productionEnvironment;
 
-    @JsonbProperty("ref")
     private String ref;
 
-    @JsonbProperty("repository_url")
     private URI repositoryUrl;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("statuses_url")
     private URI statusesUrl;
 
-    @JsonbProperty("task")
     private String task;
 
-    @JsonbProperty("transient_environment")
     private Boolean transientEnvironment;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public SimpleUser getCreator() {
+        return this.creator;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("environment")
+    public String getEnvironment() {
+        return this.environment;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("original_environment")
+    public String getOriginalEnvironment() {
+        return this.originalEnvironment;
+    }
+
+    @JsonbProperty("payload")
+    public Payload getPayload() {
+        return this.payload;
+    }
+
+    @JsonbProperty("performed_via_github_app")
+    public Integration getPerformedViaGithubApp() {
+        return this.performedViaGithubApp;
+    }
+
+    @JsonbProperty("production_environment")
+    public Boolean getProductionEnvironment() {
+        return this.productionEnvironment;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbProperty("repository_url")
+    public URI getRepositoryUrl() {
+        return this.repositoryUrl;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("statuses_url")
+    public URI getStatusesUrl() {
+        return this.statusesUrl;
+    }
+
+    @JsonbProperty("task")
+    public String getTask() {
+        return this.task;
+    }
+
+    @JsonbProperty("transient_environment")
+    public Boolean getTransientEnvironment() {
+        return this.transientEnvironment;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public void setCreator(SimpleUser creator) {
+        this.creator = creator;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("environment")
+    public void setEnvironment(String environment) {
+        this.environment = environment;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("original_environment")
+    public void setOriginalEnvironment(String originalEnvironment) {
+        this.originalEnvironment = originalEnvironment;
+    }
+
+    @JsonbProperty("payload")
+    public void setPayload(Payload payload) {
+        this.payload = payload;
+    }
+
+    @JsonbProperty("performed_via_github_app")
+    public void setPerformedViaGithubApp(Integration performedViaGithubApp) {
+        this.performedViaGithubApp = performedViaGithubApp;
+    }
+
+    @JsonbProperty("production_environment")
+    public void setProductionEnvironment(Boolean productionEnvironment) {
+        this.productionEnvironment = productionEnvironment;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbProperty("repository_url")
+    public void setRepositoryUrl(URI repositoryUrl) {
+        this.repositoryUrl = repositoryUrl;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("statuses_url")
+    public void setStatusesUrl(URI statusesUrl) {
+        this.statusesUrl = statusesUrl;
+    }
+
+    @JsonbProperty("task")
+    public void setTask(String task) {
+        this.task = task;
+    }
+
+    @JsonbProperty("transient_environment")
+    public void setTransientEnvironment(Boolean transientEnvironment) {
+        this.transientEnvironment = transientEnvironment;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

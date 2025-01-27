@@ -25,21 +25,66 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/scim-user-list")
+@ComponentId("scim-user-list")
 public class ScimUserList {
 
-    @JsonbProperty("itemsPerPage")
     private Integer itemsPerPage;
 
-    @JsonbProperty("Resources")
     private List<ScimUser> resources;
 
-    @JsonbProperty("schemas")
     private List<String> schemas;
 
-    @JsonbProperty("startIndex")
     private Integer startIndex;
 
-    @JsonbProperty("totalResults")
     private Integer totalResults;
+
+    @JsonbProperty("itemsPerPage")
+    public Integer getItemsPerPage() {
+        return this.itemsPerPage;
+    }
+
+    @JsonbProperty("Resources")
+    public List<ScimUser> getResources() {
+        return this.resources;
+    }
+
+    @JsonbProperty("schemas")
+    public List<String> getSchemas() {
+        return this.schemas;
+    }
+
+    @JsonbProperty("startIndex")
+    public Integer getStartIndex() {
+        return this.startIndex;
+    }
+
+    @JsonbProperty("totalResults")
+    public Integer getTotalResults() {
+        return this.totalResults;
+    }
+
+    @JsonbProperty("itemsPerPage")
+    public void setItemsPerPage(Integer itemsPerPage) {
+        this.itemsPerPage = itemsPerPage;
+    }
+
+    @JsonbProperty("Resources")
+    public void setResources(List<ScimUser> resources) {
+        this.resources = resources;
+    }
+
+    @JsonbProperty("schemas")
+    public void setSchemas(List<String> schemas) {
+        this.schemas = schemas;
+    }
+
+    @JsonbProperty("startIndex")
+    public void setStartIndex(Integer startIndex) {
+        this.startIndex = startIndex;
+    }
+
+    @JsonbProperty("totalResults")
+    public void setTotalResults(Integer totalResults) {
+        this.totalResults = totalResults;
+    }
 }

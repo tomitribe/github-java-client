@@ -26,13 +26,32 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/starred-repository")
+@ComponentId("starred-repository")
 public class StarredRepository {
 
-    @JsonbProperty("repo")
     private Repository repo;
 
-    @JsonbProperty("starred_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date starredAt;
+
+    @JsonbProperty("repo")
+    public Repository getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("starred_at")
+    public Date getStarredAt() {
+        return this.starredAt;
+    }
+
+    @JsonbProperty("repo")
+    public void setRepo(Repository repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("starred_at")
+    public void setStarredAt(Date starredAt) {
+        this.starredAt = starredAt;
+    }
 }

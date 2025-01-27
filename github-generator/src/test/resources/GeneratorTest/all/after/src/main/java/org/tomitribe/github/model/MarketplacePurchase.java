@@ -24,51 +24,186 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/marketplace-purchase")
+@ComponentId("marketplace-purchase")
 public class MarketplacePurchase {
 
-    @JsonbProperty("billing_cycle")
     private String billingCycle;
 
-    @JsonbProperty("free_trial_ends_on")
     private String freeTrialEndsOn;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("is_installed")
     private Boolean isInstalled;
 
-    @JsonbProperty("login")
     private String login;
 
-    @JsonbProperty("marketplace_pending_change")
     private MarketplacePendingChange marketplacePendingChange;
 
-    @JsonbProperty("marketplace_purchase")
     private MarketplacePurchase marketplacePurchase;
 
-    @JsonbProperty("next_billing_date")
     private String nextBillingDate;
 
-    @JsonbProperty("on_free_trial")
     private Boolean onFreeTrial;
 
-    @JsonbProperty("organization_billing_email")
     private String organizationBillingEmail;
 
-    @JsonbProperty("plan")
     private MarketplaceListingPlan plan;
 
-    @JsonbProperty("type")
     private String type;
 
-    @JsonbProperty("unit_count")
     private Integer unitCount;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("billing_cycle")
+    public String getBillingCycle() {
+        return this.billingCycle;
+    }
+
+    @JsonbProperty("free_trial_ends_on")
+    public String getFreeTrialEndsOn() {
+        return this.freeTrialEndsOn;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("is_installed")
+    public Boolean getIsInstalled() {
+        return this.isInstalled;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
+    @JsonbProperty("marketplace_pending_change")
+    public MarketplacePendingChange getMarketplacePendingChange() {
+        return this.marketplacePendingChange;
+    }
+
+    @JsonbProperty("marketplace_purchase")
+    public MarketplacePurchase getMarketplacePurchase() {
+        return this.marketplacePurchase;
+    }
+
+    @JsonbProperty("next_billing_date")
+    public String getNextBillingDate() {
+        return this.nextBillingDate;
+    }
+
+    @JsonbProperty("on_free_trial")
+    public Boolean getOnFreeTrial() {
+        return this.onFreeTrial;
+    }
+
+    @JsonbProperty("organization_billing_email")
+    public String getOrganizationBillingEmail() {
+        return this.organizationBillingEmail;
+    }
+
+    @JsonbProperty("plan")
+    public MarketplaceListingPlan getPlan() {
+        return this.plan;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("unit_count")
+    public Integer getUnitCount() {
+        return this.unitCount;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("billing_cycle")
+    public void setBillingCycle(String billingCycle) {
+        this.billingCycle = billingCycle;
+    }
+
+    @JsonbProperty("free_trial_ends_on")
+    public void setFreeTrialEndsOn(String freeTrialEndsOn) {
+        this.freeTrialEndsOn = freeTrialEndsOn;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("is_installed")
+    public void setIsInstalled(Boolean isInstalled) {
+        this.isInstalled = isInstalled;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("marketplace_pending_change")
+    public void setMarketplacePendingChange(MarketplacePendingChange marketplacePendingChange) {
+        this.marketplacePendingChange = marketplacePendingChange;
+    }
+
+    @JsonbProperty("marketplace_purchase")
+    public void setMarketplacePurchase(MarketplacePurchase marketplacePurchase) {
+        this.marketplacePurchase = marketplacePurchase;
+    }
+
+    @JsonbProperty("next_billing_date")
+    public void setNextBillingDate(String nextBillingDate) {
+        this.nextBillingDate = nextBillingDate;
+    }
+
+    @JsonbProperty("on_free_trial")
+    public void setOnFreeTrial(Boolean onFreeTrial) {
+        this.onFreeTrial = onFreeTrial;
+    }
+
+    @JsonbProperty("organization_billing_email")
+    public void setOrganizationBillingEmail(String organizationBillingEmail) {
+        this.organizationBillingEmail = organizationBillingEmail;
+    }
+
+    @JsonbProperty("plan")
+    public void setPlan(MarketplaceListingPlan plan) {
+        this.plan = plan;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("unit_count")
+    public void setUnitCount(Integer unitCount) {
+        this.unitCount = unitCount;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

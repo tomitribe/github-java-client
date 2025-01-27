@@ -35,15 +35,75 @@ public class UpdateImport {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("tfvc_project")
     private String tfvcProject;
 
-    @JsonbProperty("vcs")
     private String vcs;
 
-    @JsonbProperty("vcs_password")
     private String vcsPassword;
 
-    @JsonbProperty("vcs_username")
     private String vcsUsername;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public String getTfvcProject() {
+        return this.tfvcProject;
+    }
+
+    @JsonbProperty("vcs")
+    public String getVcs() {
+        return this.vcs;
+    }
+
+    @JsonbProperty("vcs_password")
+    public String getVcsPassword() {
+        return this.vcsPassword;
+    }
+
+    @JsonbProperty("vcs_username")
+    public String getVcsUsername() {
+        return this.vcsUsername;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("tfvc_project")
+    public void setTfvcProject(String tfvcProject) {
+        this.tfvcProject = tfvcProject;
+    }
+
+    @JsonbProperty("vcs")
+    public void setVcs(String vcs) {
+        this.vcs = vcs;
+    }
+
+    @JsonbProperty("vcs_password")
+    public void setVcsPassword(String vcsPassword) {
+        this.vcsPassword = vcsPassword;
+    }
+
+    @JsonbProperty("vcs_username")
+    public void setVcsUsername(String vcsUsername) {
+        this.vcsUsername = vcsUsername;
+    }
 }

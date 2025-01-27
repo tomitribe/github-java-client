@@ -25,24 +25,87 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Comments {
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("line")
     private Integer line;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("position")
     private Integer position;
 
-    @JsonbProperty("side")
     private String side;
 
-    @JsonbProperty("start_line")
     private Integer startLine;
 
-    @JsonbProperty("start_side")
     private String startSide;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("line")
+    public Integer getLine() {
+        return this.line;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("position")
+    public Integer getPosition() {
+        return this.position;
+    }
+
+    @JsonbProperty("side")
+    public String getSide() {
+        return this.side;
+    }
+
+    @JsonbProperty("start_line")
+    public Integer getStartLine() {
+        return this.startLine;
+    }
+
+    @JsonbProperty("start_side")
+    public String getStartSide() {
+        return this.startSide;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("line")
+    public void setLine(Integer line) {
+        this.line = line;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("position")
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    @JsonbProperty("side")
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    @JsonbProperty("start_line")
+    public void setStartLine(Integer startLine) {
+        this.startLine = startLine;
+    }
+
+    @JsonbProperty("start_side")
+    public void setStartSide(String startSide) {
+        this.startSide = startSide;
+    }
 }

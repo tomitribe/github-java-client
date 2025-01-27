@@ -27,57 +27,219 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Links {
 
-    @JsonbProperty("comments")
     private Link comments;
 
-    @JsonbProperty("commits")
     private Link commits;
 
-    @JsonbProperty("current_user")
     private LinkWithType currentUser;
 
-    @JsonbProperty("current_user_actor")
     private LinkWithType currentUserActor;
 
-    @JsonbProperty("current_user_organization")
     private LinkWithType currentUserOrganization;
 
-    @JsonbProperty("current_user_organizations")
     private List<LinkWithType> currentUserOrganizations;
 
-    @JsonbProperty("current_user_public")
     private LinkWithType currentUserPublic;
 
-    @JsonbProperty("git")
     private URI git;
 
-    @JsonbProperty("html")
     private Link html;
 
-    @JsonbProperty("issue")
     private Link issue;
 
-    @JsonbProperty("pull_request")
     private Link pullRequest;
 
-    @JsonbProperty("review_comment")
     private Link reviewComment;
 
-    @JsonbProperty("review_comments")
     private Link reviewComments;
 
-    @JsonbProperty("security_advisories")
     private LinkWithType securityAdvisories;
 
-    @JsonbProperty("self")
     private Link self;
 
-    @JsonbProperty("statuses")
     private Link statuses;
 
-    @JsonbProperty("timeline")
     private LinkWithType timeline;
 
-    @JsonbProperty("user")
     private LinkWithType user;
+
+    @JsonbProperty("comments")
+    public Link getComments() {
+        return this.comments;
+    }
+
+    @JsonbProperty("commits")
+    public Link getCommits() {
+        return this.commits;
+    }
+
+    @JsonbProperty("current_user")
+    public LinkWithType getCurrentUser() {
+        return this.currentUser;
+    }
+
+    @JsonbProperty("current_user_actor")
+    public LinkWithType getCurrentUserActor() {
+        return this.currentUserActor;
+    }
+
+    @JsonbProperty("current_user_organization")
+    public LinkWithType getCurrentUserOrganization() {
+        return this.currentUserOrganization;
+    }
+
+    @JsonbProperty("current_user_organizations")
+    public List<LinkWithType> getCurrentUserOrganizations() {
+        return this.currentUserOrganizations;
+    }
+
+    @JsonbProperty("current_user_public")
+    public LinkWithType getCurrentUserPublic() {
+        return this.currentUserPublic;
+    }
+
+    @JsonbProperty("git")
+    public URI getGit() {
+        return this.git;
+    }
+
+    @JsonbProperty("html")
+    public String getHtml() {
+        return this.html;
+    }
+
+    @JsonbProperty("issue")
+    public Link getIssue() {
+        return this.issue;
+    }
+
+    @JsonbProperty("pull_request")
+    public PullRequest getPullRequest() {
+        return this.pullRequest;
+    }
+
+    @JsonbProperty("review_comment")
+    public Link getReviewComment() {
+        return this.reviewComment;
+    }
+
+    @JsonbProperty("review_comments")
+    public Link getReviewComments() {
+        return this.reviewComments;
+    }
+
+    @JsonbProperty("security_advisories")
+    public LinkWithType getSecurityAdvisories() {
+        return this.securityAdvisories;
+    }
+
+    @JsonbProperty("self")
+    public URI getSelf() {
+        return this.self;
+    }
+
+    @JsonbProperty("statuses")
+    public Link getStatuses() {
+        return this.statuses;
+    }
+
+    @JsonbProperty("timeline")
+    public LinkWithType getTimeline() {
+        return this.timeline;
+    }
+
+    @JsonbProperty("user")
+    public LinkWithType getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("comments")
+    public void setComments(Link comments) {
+        this.comments = comments;
+    }
+
+    @JsonbProperty("commits")
+    public void setCommits(Link commits) {
+        this.commits = commits;
+    }
+
+    @JsonbProperty("current_user")
+    public void setCurrentUser(LinkWithType currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    @JsonbProperty("current_user_actor")
+    public void setCurrentUserActor(LinkWithType currentUserActor) {
+        this.currentUserActor = currentUserActor;
+    }
+
+    @JsonbProperty("current_user_organization")
+    public void setCurrentUserOrganization(LinkWithType currentUserOrganization) {
+        this.currentUserOrganization = currentUserOrganization;
+    }
+
+    @JsonbProperty("current_user_organizations")
+    public void setCurrentUserOrganizations(List<LinkWithType> currentUserOrganizations) {
+        this.currentUserOrganizations = currentUserOrganizations;
+    }
+
+    @JsonbProperty("current_user_public")
+    public void setCurrentUserPublic(LinkWithType currentUserPublic) {
+        this.currentUserPublic = currentUserPublic;
+    }
+
+    @JsonbProperty("git")
+    public void setGit(URI git) {
+        this.git = git;
+    }
+
+    @JsonbProperty("html")
+    public void setHtml(String html) {
+        this.html = html;
+    }
+
+    @JsonbProperty("issue")
+    public void setIssue(Link issue) {
+        this.issue = issue;
+    }
+
+    @JsonbProperty("pull_request")
+    public void setPullRequest(PullRequest pullRequest) {
+        this.pullRequest = pullRequest;
+    }
+
+    @JsonbProperty("review_comment")
+    public void setReviewComment(Link reviewComment) {
+        this.reviewComment = reviewComment;
+    }
+
+    @JsonbProperty("review_comments")
+    public void setReviewComments(Link reviewComments) {
+        this.reviewComments = reviewComments;
+    }
+
+    @JsonbProperty("security_advisories")
+    public void setSecurityAdvisories(LinkWithType securityAdvisories) {
+        this.securityAdvisories = securityAdvisories;
+    }
+
+    @JsonbProperty("self")
+    public void setSelf(URI self) {
+        this.self = self;
+    }
+
+    @JsonbProperty("statuses")
+    public void setStatuses(Link statuses) {
+        this.statuses = statuses;
+    }
+
+    @JsonbProperty("timeline")
+    public void setTimeline(LinkWithType timeline) {
+        this.timeline = timeline;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(LinkWithType user) {
+        this.user = user;
+    }
 }

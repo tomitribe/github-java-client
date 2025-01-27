@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/runner-application")
+@ComponentId("runner-application")
 public class RunnerApplication {
 
-    @JsonbProperty("architecture")
     private String architecture;
 
-    @JsonbProperty("download_url")
     private String downloadUrl;
 
-    @JsonbProperty("filename")
     private String filename;
 
-    @JsonbProperty("os")
     private String os;
+
+    @JsonbProperty("architecture")
+    public String getArchitecture() {
+        return this.architecture;
+    }
+
+    @JsonbProperty("download_url")
+    public String getDownloadUrl() {
+        return this.downloadUrl;
+    }
+
+    @JsonbProperty("filename")
+    public String getFilename() {
+        return this.filename;
+    }
+
+    @JsonbProperty("os")
+    public String getOs() {
+        return this.os;
+    }
+
+    @JsonbProperty("architecture")
+    public void setArchitecture(String architecture) {
+        this.architecture = architecture;
+    }
+
+    @JsonbProperty("download_url")
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
+    }
+
+    @JsonbProperty("filename")
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    @JsonbProperty("os")
+    public void setOs(String os) {
+        this.os = os;
+    }
 }

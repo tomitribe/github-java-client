@@ -27,12 +27,31 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class SetPrimaryEmailVisibilityForAuthenticatedUser {
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("visibility")
     @JsonbTypeAdapter(VisibilityAdapter.class)
     private Visibility visibility;
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbTypeAdapter(VisibilityAdapter.class)
+    @JsonbProperty("visibility")
+    public Visibility getVisibility() {
+        return this.visibility;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("visibility")
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
 
     public enum Visibility {
 

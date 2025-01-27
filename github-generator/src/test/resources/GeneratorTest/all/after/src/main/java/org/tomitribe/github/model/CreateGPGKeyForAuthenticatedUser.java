@@ -25,6 +25,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateGPGKeyForAuthenticatedUser {
 
-    @JsonbProperty("armored_public_key")
     private String armoredPublicKey;
+
+    @JsonbProperty("armored_public_key")
+    public String getArmoredPublicKey() {
+        return this.armoredPublicKey;
+    }
+
+    @JsonbProperty("armored_public_key")
+    public void setArmoredPublicKey(String armoredPublicKey) {
+        this.armoredPublicKey = armoredPublicKey;
+    }
 }

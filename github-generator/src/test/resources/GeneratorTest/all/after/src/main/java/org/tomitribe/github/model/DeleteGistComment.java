@@ -33,4 +33,28 @@ public class DeleteGistComment {
     @JsonbTransient
     @PathParam("gist_id")
     private String gistId;
+
+    @JsonbTransient
+    @PathParam("comment_id")
+    public Integer getCommentId() {
+        return this.commentId;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public String getGistId() {
+        return this.gistId;
+    }
+
+    @JsonbTransient
+    @PathParam("comment_id")
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
+    }
+
+    @JsonbTransient
+    @PathParam("gist_id")
+    public void setGistId(String gistId) {
+        this.gistId = gistId;
+    }
 }

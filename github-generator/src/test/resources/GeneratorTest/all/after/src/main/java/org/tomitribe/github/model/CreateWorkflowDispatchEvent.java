@@ -28,14 +28,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateWorkflowDispatchEvent {
 
-    @JsonbProperty("inputs")
     private Map<String, String> inputs;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("ref")
     private String ref;
 
     @JsonbTransient
@@ -45,4 +43,60 @@ public class CreateWorkflowDispatchEvent {
     @JsonbTransient
     @PathParam("workflow-id")
     private Integer workflowId;
+
+    @JsonbProperty("inputs")
+    public Map<String, String> getInputs() {
+        return this.inputs;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("workflow-id")
+    public Integer getWorkflowId() {
+        return this.workflowId;
+    }
+
+    @JsonbProperty("inputs")
+    public void setInputs(Map<String, String> inputs) {
+        this.inputs = inputs;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("workflow-id")
+    public void setWorkflowId(Integer workflowId) {
+        this.workflowId = workflowId;
+    }
 }

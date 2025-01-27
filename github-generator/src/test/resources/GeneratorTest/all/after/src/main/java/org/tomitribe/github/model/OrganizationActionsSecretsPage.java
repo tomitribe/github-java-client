@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrganizationActionsSecretsPage {
 
-    @JsonbProperty("secrets")
     private List<OrganizationActionsSecret> secrets;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("secrets")
+    public List<OrganizationActionsSecret> getSecrets() {
+        return this.secrets;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("secrets")
+    public void setSecrets(List<OrganizationActionsSecret> secrets) {
+        this.secrets = secrets;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

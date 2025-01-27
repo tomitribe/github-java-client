@@ -38,6 +38,31 @@ public class ListTeamMembersLegacy {
     @PathParam("team-id")
     private Integer teamId;
 
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbTransient
+    @QueryParam("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbTransient
+    @QueryParam("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
+
     public enum Role {
 
         MEMBER("member"), MAINTAINER("maintainer"), ALL("all");

@@ -33,7 +33,6 @@ public class AddOrUpdateTeamMembershipForUser {
     @PathParam("org")
     private String org;
 
-    @JsonbProperty("role")
     @JsonbTypeAdapter(RoleAdapter.class)
     private Role role;
 
@@ -44,6 +43,53 @@ public class AddOrUpdateTeamMembershipForUser {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbProperty("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public String getTeamSlug() {
+        return this.teamSlug;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbProperty("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @JsonbTransient
+    @PathParam("team_slug")
+    public void setTeamSlug(String teamSlug) {
+        this.teamSlug = teamSlug;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public enum Role {
 

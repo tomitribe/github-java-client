@@ -25,9 +25,18 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/hovercard")
+@ComponentId("hovercard")
 public class Hovercard {
 
-    @JsonbProperty("contexts")
     private List<Contexts> contexts;
+
+    @JsonbProperty("contexts")
+    public List<Contexts> getContexts() {
+        return this.contexts;
+    }
+
+    @JsonbProperty("contexts")
+    public void setContexts(List<Contexts> contexts) {
+        this.contexts = contexts;
+    }
 }

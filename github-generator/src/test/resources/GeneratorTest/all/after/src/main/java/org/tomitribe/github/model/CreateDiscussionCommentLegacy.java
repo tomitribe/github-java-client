@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateDiscussionCommentLegacy {
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
@@ -37,4 +36,38 @@ public class CreateDiscussionCommentLegacy {
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public Integer getDiscussionNumber() {
+        return this.discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public void setDiscussionNumber(Integer discussionNumber) {
+        this.discussionNumber = discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 }

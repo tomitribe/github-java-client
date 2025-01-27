@@ -26,22 +26,68 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/community-profile")
+@ComponentId("community-profile")
 public class CommunityProfile {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("documentation")
     private String documentation;
 
-    @JsonbProperty("files")
     private Files files;
 
-    @JsonbProperty("health_percentage")
     private Integer healthPercentage;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("documentation")
+    public String getDocumentation() {
+        return this.documentation;
+    }
+
+    @JsonbProperty("files")
+    public Files getFiles() {
+        return this.files;
+    }
+
+    @JsonbProperty("health_percentage")
+    public Integer getHealthPercentage() {
+        return this.healthPercentage;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("documentation")
+    public void setDocumentation(String documentation) {
+        this.documentation = documentation;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(Files files) {
+        this.files = files;
+    }
+
+    @JsonbProperty("health_percentage")
+    public void setHealthPercentage(Integer healthPercentage) {
+        this.healthPercentage = healthPercentage;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 }

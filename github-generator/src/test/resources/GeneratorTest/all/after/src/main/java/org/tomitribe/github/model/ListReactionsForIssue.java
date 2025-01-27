@@ -46,6 +46,55 @@ public class ListReactionsForIssue {
     @PathParam("repo")
     private String repo;
 
+    @JsonbTypeAdapter(ContentAdapter.class)
+    @JsonbTransient
+    @QueryParam("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public Integer getIssueNumber() {
+        return this.issueNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("content")
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public void setIssueNumber(Integer issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
     public enum Content {
 
         PLUS_ONE("+1"),

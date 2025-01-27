@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RemoveAssigneesFromIssue {
 
-    @JsonbProperty("assignees")
     private List<String> assignees;
 
     @JsonbTransient
@@ -42,4 +41,50 @@ public class RemoveAssigneesFromIssue {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("assignees")
+    public List<String> getAssignees() {
+        return this.assignees;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public Integer getIssueNumber() {
+        return this.issueNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("assignees")
+    public void setAssignees(List<String> assignees) {
+        this.assignees = assignees;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public void setIssueNumber(Integer issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

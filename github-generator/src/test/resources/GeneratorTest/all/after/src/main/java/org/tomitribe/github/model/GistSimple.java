@@ -25,60 +25,222 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/gist-simple")
+@ComponentId("gist-simple")
 public class GistSimple {
 
-    @JsonbProperty("public")
     private Boolean _public;
 
-    @JsonbProperty("comments")
     private Integer comments;
 
-    @JsonbProperty("comments_url")
     private String commentsUrl;
 
-    @JsonbProperty("commits_url")
     private String commitsUrl;
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("files")
     private Map<String, File> files;
 
-    @JsonbProperty("forks_url")
     private String forksUrl;
 
-    @JsonbProperty("git_pull_url")
     private String gitPullUrl;
 
-    @JsonbProperty("git_push_url")
     private String gitPushUrl;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("owner")
     private SimpleUser owner;
 
-    @JsonbProperty("truncated")
     private Boolean truncated;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
 
-    @JsonbProperty("url")
     private String url;
 
-    @JsonbProperty("user")
     private String user;
+
+    @JsonbProperty("comments")
+    public Integer getComments() {
+        return this.comments;
+    }
+
+    @JsonbProperty("comments_url")
+    public String getCommentsUrl() {
+        return this.commentsUrl;
+    }
+
+    @JsonbProperty("commits_url")
+    public String getCommitsUrl() {
+        return this.commitsUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("files")
+    public Map<String, File> getFiles() {
+        return this.files;
+    }
+
+    @JsonbProperty("forks_url")
+    public String getForksUrl() {
+        return this.forksUrl;
+    }
+
+    @JsonbProperty("git_pull_url")
+    public String getGitPullUrl() {
+        return this.gitPullUrl;
+    }
+
+    @JsonbProperty("git_push_url")
+    public String getGitPushUrl() {
+        return this.gitPushUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public SimpleUser getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("truncated")
+    public Boolean getTruncated() {
+        return this.truncated;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public String getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("public")
+    public Boolean get_public() {
+        return this._public;
+    }
+
+    @JsonbProperty("comments")
+    public void setComments(Integer comments) {
+        this.comments = comments;
+    }
+
+    @JsonbProperty("comments_url")
+    public void setCommentsUrl(String commentsUrl) {
+        this.commentsUrl = commentsUrl;
+    }
+
+    @JsonbProperty("commits_url")
+    public void setCommitsUrl(String commitsUrl) {
+        this.commitsUrl = commitsUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(Map<String,File> files) {
+        this.files = files;
+    }
+
+    @JsonbProperty("forks_url")
+    public void setForksUrl(String forksUrl) {
+        this.forksUrl = forksUrl;
+    }
+
+    @JsonbProperty("git_pull_url")
+    public void setGitPullUrl(String gitPullUrl) {
+        this.gitPullUrl = gitPullUrl;
+    }
+
+    @JsonbProperty("git_push_url")
+    public void setGitPushUrl(String gitPushUrl) {
+        this.gitPushUrl = gitPushUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public void setOwner(SimpleUser owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("truncated")
+    public void setTruncated(Boolean truncated) {
+        this.truncated = truncated;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    @JsonbProperty("public")
+    public void set_public(Boolean _public) {
+        this._public = _public;
+    }
 }

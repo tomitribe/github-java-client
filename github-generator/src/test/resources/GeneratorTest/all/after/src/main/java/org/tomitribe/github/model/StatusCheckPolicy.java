@@ -26,18 +26,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/status-check-policy")
+@ComponentId("status-check-policy")
 public class StatusCheckPolicy {
 
-    @JsonbProperty("contexts")
     private List<String> contexts;
 
-    @JsonbProperty("contexts_url")
     private URI contextsUrl;
 
-    @JsonbProperty("strict")
     private Boolean strict;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("contexts")
+    public List<String> getContexts() {
+        return this.contexts;
+    }
+
+    @JsonbProperty("contexts_url")
+    public URI getContextsUrl() {
+        return this.contextsUrl;
+    }
+
+    @JsonbProperty("strict")
+    public Boolean getStrict() {
+        return this.strict;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("contexts")
+    public void setContexts(List<String> contexts) {
+        this.contexts = contexts;
+    }
+
+    @JsonbProperty("contexts_url")
+    public void setContextsUrl(URI contextsUrl) {
+        this.contextsUrl = contextsUrl;
+    }
+
+    @JsonbProperty("strict")
+    public void setStrict(Boolean strict) {
+        this.strict = strict;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

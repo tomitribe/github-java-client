@@ -27,10 +27,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DismissReviewForPullRequest {
 
-    @JsonbProperty("event")
     private String event;
 
-    @JsonbProperty("message")
     private String message;
 
     @JsonbTransient
@@ -48,4 +46,72 @@ public class DismissReviewForPullRequest {
     @JsonbTransient
     @PathParam("review_id")
     private Integer reviewId;
+
+    @JsonbProperty("event")
+    public String getEvent() {
+        return this.event;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public Integer getPullNumber() {
+        return this.pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("review_id")
+    public Integer getReviewId() {
+        return this.reviewId;
+    }
+
+    @JsonbProperty("event")
+    public void setEvent(String event) {
+        this.event = event;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public void setPullNumber(Integer pullNumber) {
+        this.pullNumber = pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("review_id")
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
 }

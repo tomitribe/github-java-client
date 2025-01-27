@@ -29,4 +29,16 @@ public class DeleteReactionLegacy {
     @JsonbTransient
     @PathParam("reaction-id")
     private Integer reactionId;
+
+    @JsonbTransient
+    @PathParam("reaction-id")
+    public Integer getReactionId() {
+        return this.reactionId;
+    }
+
+    @JsonbTransient
+    @PathParam("reaction-id")
+    public void setReactionId(Integer reactionId) {
+        this.reactionId = reactionId;
+    }
 }

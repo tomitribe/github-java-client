@@ -46,6 +46,55 @@ public class ListJobsForWorkflowRun {
     @PathParam("run-id")
     private Integer runId;
 
+    @JsonbTypeAdapter(FilterAdapter.class)
+    @JsonbTransient
+    @QueryParam("filter")
+    public Filter getFilter() {
+        return this.filter;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("run-id")
+    public Integer getRunId() {
+        return this.runId;
+    }
+
+    @JsonbTransient
+    @QueryParam("filter")
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("run-id")
+    public void setRunId(Integer runId) {
+        this.runId = runId;
+    }
+
     public enum Filter {
 
         LATEST("latest"), ALL("all");

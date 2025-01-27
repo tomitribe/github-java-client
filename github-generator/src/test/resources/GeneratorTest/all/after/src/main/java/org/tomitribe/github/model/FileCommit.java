@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/file-commit")
+@ComponentId("file-commit")
 public class FileCommit {
 
-    @JsonbProperty("commit")
     private Commit commit;
 
-    @JsonbProperty("content")
     private Content content;
+
+    @JsonbProperty("commit")
+    public Commit getCommit() {
+        return this.commit;
+    }
+
+    @JsonbProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("commit")
+    public void setCommit(Commit commit) {
+        this.commit = commit;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(Content content) {
+        this.content = content;
+    }
 }

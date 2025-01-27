@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/workflow-run-usage")
+@ComponentId("workflow-run-usage")
 public class WorkflowRunUsage {
 
-    @JsonbProperty("billable")
     private Billable billable;
 
-    @JsonbProperty("run_duration_ms")
     private Integer runDurationMs;
+
+    @JsonbProperty("billable")
+    public Billable getBillable() {
+        return this.billable;
+    }
+
+    @JsonbProperty("run_duration_ms")
+    public Integer getRunDurationMs() {
+        return this.runDurationMs;
+    }
+
+    @JsonbProperty("billable")
+    public void setBillable(Billable billable) {
+        this.billable = billable;
+    }
+
+    @JsonbProperty("run_duration_ms")
+    public void setRunDurationMs(Integer runDurationMs) {
+        this.runDurationMs = runDurationMs;
+    }
 }

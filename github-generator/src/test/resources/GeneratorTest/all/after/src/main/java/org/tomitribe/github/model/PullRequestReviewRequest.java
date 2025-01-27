@@ -25,12 +25,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/pull-request-review-request")
+@ComponentId("pull-request-review-request")
 public class PullRequestReviewRequest {
 
-    @JsonbProperty("teams")
     private List<Teams> teams;
 
-    @JsonbProperty("users")
     private List<Users> users;
+
+    @JsonbProperty("teams")
+    public List<Teams> getTeams() {
+        return this.teams;
+    }
+
+    @JsonbProperty("users")
+    public List<Users> getUsers() {
+        return this.users;
+    }
+
+    @JsonbProperty("teams")
+    public void setTeams(List<Teams> teams) {
+        this.teams = teams;
+    }
+
+    @JsonbProperty("users")
+    public void setUsers(List<Users> users) {
+        this.users = users;
+    }
 }

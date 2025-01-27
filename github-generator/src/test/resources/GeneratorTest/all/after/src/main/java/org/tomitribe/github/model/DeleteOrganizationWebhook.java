@@ -33,4 +33,28 @@ public class DeleteOrganizationWebhook {
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbTransient
+    @PathParam("hook-id")
+    public Integer getHookId() {
+        return this.hookId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("hook-id")
+    public void setHookId(Integer hookId) {
+        this.hookId = hookId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

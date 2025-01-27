@@ -27,41 +27,142 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/simple-commit-status")
+@ComponentId("simple-commit-status")
 public class SimpleCommitStatus {
 
-    @JsonbProperty("avatar_url")
     private URI avatarUrl;
 
-    @JsonbProperty("context")
     private String context;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("required")
     private Boolean required;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("target_url")
     private URI targetUrl;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("avatar_url")
+    public URI getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    @JsonbProperty("context")
+    public String getContext() {
+        return this.context;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("required")
+    public Boolean getRequired() {
+        return this.required;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("target_url")
+    public URI getTargetUrl() {
+        return this.targetUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("avatar_url")
+    public void setAvatarUrl(URI avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @JsonbProperty("context")
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("required")
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("target_url")
+    public void setTargetUrl(URI targetUrl) {
+        this.targetUrl = targetUrl;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

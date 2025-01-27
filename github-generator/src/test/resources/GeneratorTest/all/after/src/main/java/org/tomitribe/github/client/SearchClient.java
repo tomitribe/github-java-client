@@ -15,6 +15,10 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Paged;
+import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.model.CodeSearchResultItem;
 import org.tomitribe.github.model.CodeSearchResultItemsPage;
 import org.tomitribe.github.model.CommitSearchResultItem;
@@ -41,67 +45,53 @@ public interface SearchClient {
 
     @GET
     @Path("/search/code")
-    @OperationId("search/code")
     @Docs("https://developer.github.com/v3/search/#search-code")
     @EnabledForGithubApps
-    @Category("search")
     @Paged(CodeSearchResultItemsPage.class)
     Stream<CodeSearchResultItem> searchCode(final SearchCode searchCode);
 
     @GET
     @Path("/search/commits")
-    @OperationId("search/commits")
     @Docs("https://developer.github.com/v3/search/#search-commits")
     @EnabledForGithubApps
     @Preview("cloak")
-    @Category("search")
     @Paged(CommitSearchResultItemsPage.class)
     Stream<CommitSearchResultItem> searchCommits(final SearchCommits searchCommits);
 
     @GET
     @Path("/search/issues")
-    @OperationId("search/issues-and-pull-requests")
     @Docs("https://developer.github.com/v3/search/#search-issues-and-pull-requests")
     @EnabledForGithubApps
-    @Category("search")
     @Paged(IssueSearchResultItemsPage.class)
     Stream<IssueSearchResultItem> searchIssuesAndPullRequests(final SearchIssuesAndPullRequests searchIssuesAndPullRequests);
 
     @GET
     @Path("/search/labels")
-    @OperationId("search/labels")
     @Docs("https://developer.github.com/v3/search/#search-labels")
     @EnabledForGithubApps
-    @Category("search")
     @Paged(LabelSearchResultItemsPage.class)
     Stream<LabelSearchResultItem> searchLabels(final SearchLabels searchLabels);
 
     @GET
     @Path("/search/repositories")
-    @OperationId("search/repos")
     @Docs("https://developer.github.com/v3/search/#search-repositories")
     @EnabledForGithubApps
     @Preview("mercy")
-    @Category("search")
     @Paged(RepoSearchResultItemsPage.class)
     Stream<RepoSearchResultItem> searchRepositories(final SearchRepositories searchRepositories);
 
     @GET
     @Path("/search/topics")
-    @OperationId("search/topics")
     @Docs("https://developer.github.com/v3/search/#search-topics")
     @EnabledForGithubApps
     @Preview("mercy")
-    @Category("search")
     @Paged(TopicSearchResultItemsPage.class)
     Stream<TopicSearchResultItem> searchTopics(final SearchTopics searchTopics);
 
     @GET
     @Path("/search/users")
-    @OperationId("search/users")
     @Docs("https://developer.github.com/v3/search/#search-users")
     @EnabledForGithubApps
-    @Category("search")
     @Paged(UserSearchResultItemsPage.class)
     Stream<UserSearchResultItem> searchUsers(final SearchUsers searchUsers);
 }

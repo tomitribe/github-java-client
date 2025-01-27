@@ -29,26 +29,74 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/organization-actions-secret")
+@ComponentId("organization-actions-secret")
 public class OrganizationActionsSecret {
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("selected_repositories_url")
     private URI selectedRepositoriesUrl;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("visibility")
     @JsonbTypeAdapter(VisibilityAdapter.class)
     private Visibility visibility;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("selected_repositories_url")
+    public URI getSelectedRepositoriesUrl() {
+        return this.selectedRepositoriesUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbTypeAdapter(VisibilityAdapter.class)
+    @JsonbProperty("visibility")
+    public Visibility getVisibility() {
+        return this.visibility;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("selected_repositories_url")
+    public void setSelectedRepositoriesUrl(URI selectedRepositoriesUrl) {
+        this.selectedRepositoriesUrl = selectedRepositoriesUrl;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("visibility")
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
 
     public enum Visibility {
 

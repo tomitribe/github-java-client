@@ -29,7 +29,6 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateReactionForTeamDiscussionLegacy {
 
-    @JsonbProperty("content")
     @JsonbTypeAdapter(ContentAdapter.class)
     private Content content;
 
@@ -40,6 +39,41 @@ public class CreateReactionForTeamDiscussionLegacy {
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
+
+    @JsonbTypeAdapter(ContentAdapter.class)
+    @JsonbProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public Integer getDiscussionNumber() {
+        return this.discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    @JsonbTransient
+    @PathParam("discussion-number")
+    public void setDiscussionNumber(Integer discussionNumber) {
+        this.discussionNumber = discussionNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
 
     public enum Content {
 

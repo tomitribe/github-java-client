@@ -25,18 +25,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Resources {
 
-    @JsonbProperty("core")
     private RateLimit core;
 
-    @JsonbProperty("graphql")
     private RateLimit graphql;
 
-    @JsonbProperty("integration_manifest")
     private RateLimit integrationManifest;
 
-    @JsonbProperty("search")
     private RateLimit search;
 
-    @JsonbProperty("source_import")
     private RateLimit sourceImport;
+
+    @JsonbProperty("core")
+    public RateLimit getCore() {
+        return this.core;
+    }
+
+    @JsonbProperty("graphql")
+    public RateLimit getGraphql() {
+        return this.graphql;
+    }
+
+    @JsonbProperty("integration_manifest")
+    public RateLimit getIntegrationManifest() {
+        return this.integrationManifest;
+    }
+
+    @JsonbProperty("search")
+    public RateLimit getSearch() {
+        return this.search;
+    }
+
+    @JsonbProperty("source_import")
+    public RateLimit getSourceImport() {
+        return this.sourceImport;
+    }
+
+    @JsonbProperty("core")
+    public void setCore(RateLimit core) {
+        this.core = core;
+    }
+
+    @JsonbProperty("graphql")
+    public void setGraphql(RateLimit graphql) {
+        this.graphql = graphql;
+    }
+
+    @JsonbProperty("integration_manifest")
+    public void setIntegrationManifest(RateLimit integrationManifest) {
+        this.integrationManifest = integrationManifest;
+    }
+
+    @JsonbProperty("search")
+    public void setSearch(RateLimit search) {
+        this.search = search;
+    }
+
+    @JsonbProperty("source_import")
+    public void setSourceImport(RateLimit sourceImport) {
+        this.sourceImport = sourceImport;
+    }
 }

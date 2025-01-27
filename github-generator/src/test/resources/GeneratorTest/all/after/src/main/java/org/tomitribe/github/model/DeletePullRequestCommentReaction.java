@@ -41,4 +41,52 @@ public class DeletePullRequestCommentReaction {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("comment_id")
+    public Integer getCommentId() {
+        return this.commentId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("reaction-id")
+    public Integer getReactionId() {
+        return this.reactionId;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("comment_id")
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("reaction-id")
+    public void setReactionId(Integer reactionId) {
+        this.reactionId = reactionId;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

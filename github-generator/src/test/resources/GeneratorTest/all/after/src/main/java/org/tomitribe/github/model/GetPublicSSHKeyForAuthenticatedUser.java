@@ -29,4 +29,16 @@ public class GetPublicSSHKeyForAuthenticatedUser {
     @JsonbTransient
     @PathParam("key_id")
     private Integer keyId;
+
+    @JsonbTransient
+    @PathParam("key_id")
+    public Integer getKeyId() {
+        return this.keyId;
+    }
+
+    @JsonbTransient
+    @PathParam("key_id")
+    public void setKeyId(Integer keyId) {
+        this.keyId = keyId;
+    }
 }

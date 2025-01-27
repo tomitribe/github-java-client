@@ -37,4 +37,40 @@ public class GetRepositorySecret {
     @JsonbTransient
     @PathParam("secret_name")
     private String secretName;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public String getSecretName() {
+        return this.secretName;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public void setSecretName(String secretName) {
+        this.secretName = secretName;
+    }
 }

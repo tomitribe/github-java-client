@@ -27,63 +27,228 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/team-discussion")
+@ComponentId("team-discussion")
 public class TeamDiscussion {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("author")
     private SimpleUser author;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("body_html")
     private String bodyHtml;
 
-    @JsonbProperty("body_version")
     private String bodyVersion;
 
-    @JsonbProperty("comments_count")
     private Integer commentsCount;
 
-    @JsonbProperty("comments_url")
     private URI commentsUrl;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("last_edited_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date lastEditedAt;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("pinned")
     private Boolean pinned;
 
-    @JsonbProperty("reactions")
     private ReactionRollup reactions;
 
-    @JsonbProperty("team_url")
     private URI teamUrl;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("author")
+    public SimpleUser getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("body_html")
+    public String getBodyHtml() {
+        return this.bodyHtml;
+    }
+
+    @JsonbProperty("body_version")
+    public String getBodyVersion() {
+        return this.bodyVersion;
+    }
+
+    @JsonbProperty("comments_count")
+    public Integer getCommentsCount() {
+        return this.commentsCount;
+    }
+
+    @JsonbProperty("comments_url")
+    public URI getCommentsUrl() {
+        return this.commentsUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("last_edited_at")
+    public Date getLastEditedAt() {
+        return this.lastEditedAt;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbProperty("pinned")
+    public Boolean getPinned() {
+        return this.pinned;
+    }
+
+    @JsonbProperty("reactions")
+    public ReactionRollup getReactions() {
+        return this.reactions;
+    }
+
+    @JsonbProperty("team_url")
+    public URI getTeamUrl() {
+        return this.teamUrl;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(SimpleUser author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("body_html")
+    public void setBodyHtml(String bodyHtml) {
+        this.bodyHtml = bodyHtml;
+    }
+
+    @JsonbProperty("body_version")
+    public void setBodyVersion(String bodyVersion) {
+        this.bodyVersion = bodyVersion;
+    }
+
+    @JsonbProperty("comments_count")
+    public void setCommentsCount(Integer commentsCount) {
+        this.commentsCount = commentsCount;
+    }
+
+    @JsonbProperty("comments_url")
+    public void setCommentsUrl(URI commentsUrl) {
+        this.commentsUrl = commentsUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("last_edited_at")
+    public void setLastEditedAt(Date lastEditedAt) {
+        this.lastEditedAt = lastEditedAt;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("pinned")
+    public void setPinned(Boolean pinned) {
+        this.pinned = pinned;
+    }
+
+    @JsonbProperty("reactions")
+    public void setReactions(ReactionRollup reactions) {
+        this.reactions = reactions;
+    }
+
+    @JsonbProperty("team_url")
+    public void setTeamUrl(URI teamUrl) {
+        this.teamUrl = teamUrl;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 }

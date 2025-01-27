@@ -27,20 +27,71 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateDeployKey {
 
-    @JsonbProperty("key")
     private String key;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("read_only")
     private Boolean readOnly;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("read_only")
+    public Boolean getReadOnly() {
+        return this.readOnly;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("read_only")
+    public void setReadOnly(Boolean readOnly) {
+        this.readOnly = readOnly;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

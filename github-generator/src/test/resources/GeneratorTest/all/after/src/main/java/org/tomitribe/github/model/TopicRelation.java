@@ -25,15 +25,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TopicRelation {
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("relation_type")
     private String relationType;
 
-    @JsonbProperty("topic_id")
     private Integer topicId;
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("relation_type")
+    public String getRelationType() {
+        return this.relationType;
+    }
+
+    @JsonbProperty("topic_id")
+    public Integer getTopicId() {
+        return this.topicId;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("relation_type")
+    public void setRelationType(String relationType) {
+        this.relationType = relationType;
+    }
+
+    @JsonbProperty("topic_id")
+    public void setTopicId(Integer topicId) {
+        this.topicId = topicId;
+    }
 }

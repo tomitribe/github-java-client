@@ -25,15 +25,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/view-traffic")
+@ComponentId("view-traffic")
 public class ViewTraffic {
 
-    @JsonbProperty("count")
     private Integer count;
 
-    @JsonbProperty("uniques")
     private Integer uniques;
 
-    @JsonbProperty("views")
     private List<Traffic> views;
+
+    @JsonbProperty("count")
+    public Integer getCount() {
+        return this.count;
+    }
+
+    @JsonbProperty("uniques")
+    public Integer getUniques() {
+        return this.uniques;
+    }
+
+    @JsonbProperty("views")
+    public List<Traffic> getViews() {
+        return this.views;
+    }
+
+    @JsonbProperty("count")
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    @JsonbProperty("uniques")
+    public void setUniques(Integer uniques) {
+        this.uniques = uniques;
+    }
+
+    @JsonbProperty("views")
+    public void setViews(List<Traffic> views) {
+        this.views = views;
+    }
 }

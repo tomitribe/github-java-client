@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Actions {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("identifier")
     private String identifier;
 
-    @JsonbProperty("label")
     private String label;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("identifier")
+    public String getIdentifier() {
+        return this.identifier;
+    }
+
+    @JsonbProperty("label")
+    public String getLabel() {
+        return this.label;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("identifier")
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+
+    @JsonbProperty("label")
+    public void setLabel(String label) {
+        this.label = label;
+    }
 }

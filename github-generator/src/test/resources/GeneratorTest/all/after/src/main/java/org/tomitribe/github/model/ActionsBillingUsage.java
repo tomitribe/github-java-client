@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/actions-billing-usage")
+@ComponentId("actions-billing-usage")
 public class ActionsBillingUsage {
 
-    @JsonbProperty("included_minutes")
     private Integer includedMinutes;
 
-    @JsonbProperty("minutes_used_breakdown")
     private MinutesUsedBreakdown minutesUsedBreakdown;
 
-    @JsonbProperty("total_minutes_used")
     private Integer totalMinutesUsed;
 
-    @JsonbProperty("total_paid_minutes_used")
     private Integer totalPaidMinutesUsed;
+
+    @JsonbProperty("included_minutes")
+    public Integer getIncludedMinutes() {
+        return this.includedMinutes;
+    }
+
+    @JsonbProperty("minutes_used_breakdown")
+    public MinutesUsedBreakdown getMinutesUsedBreakdown() {
+        return this.minutesUsedBreakdown;
+    }
+
+    @JsonbProperty("total_minutes_used")
+    public Integer getTotalMinutesUsed() {
+        return this.totalMinutesUsed;
+    }
+
+    @JsonbProperty("total_paid_minutes_used")
+    public Integer getTotalPaidMinutesUsed() {
+        return this.totalPaidMinutesUsed;
+    }
+
+    @JsonbProperty("included_minutes")
+    public void setIncludedMinutes(Integer includedMinutes) {
+        this.includedMinutes = includedMinutes;
+    }
+
+    @JsonbProperty("minutes_used_breakdown")
+    public void setMinutesUsedBreakdown(MinutesUsedBreakdown minutesUsedBreakdown) {
+        this.minutesUsedBreakdown = minutesUsedBreakdown;
+    }
+
+    @JsonbProperty("total_minutes_used")
+    public void setTotalMinutesUsed(Integer totalMinutesUsed) {
+        this.totalMinutesUsed = totalMinutesUsed;
+    }
+
+    @JsonbProperty("total_paid_minutes_used")
+    public void setTotalPaidMinutesUsed(Integer totalPaidMinutesUsed) {
+        this.totalPaidMinutesUsed = totalPaidMinutesUsed;
+    }
 }

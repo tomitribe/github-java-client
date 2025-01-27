@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SetRepositorySubscription {
 
-    @JsonbProperty("ignored")
     private Boolean ignored;
 
     @JsonbTransient
@@ -38,6 +37,49 @@ public class SetRepositorySubscription {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("subscribed")
     private Boolean subscribed;
+
+    @JsonbProperty("ignored")
+    public Boolean getIgnored() {
+        return this.ignored;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("subscribed")
+    public Boolean getSubscribed() {
+        return this.subscribed;
+    }
+
+    @JsonbProperty("ignored")
+    public void setIgnored(Boolean ignored) {
+        this.ignored = ignored;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("subscribed")
+    public void setSubscribed(Boolean subscribed) {
+        this.subscribed = subscribed;
+    }
 }

@@ -25,18 +25,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Forks {
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("id")
     private String id;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
 
-    @JsonbProperty("url")
     private String url;
 
-    @JsonbProperty("user")
     private User user;
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("id")
+    public String getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public User getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

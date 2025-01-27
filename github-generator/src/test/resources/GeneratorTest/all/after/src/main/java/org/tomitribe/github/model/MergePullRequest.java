@@ -29,13 +29,10 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class MergePullRequest {
 
-    @JsonbProperty("commit_message")
     private String commitMessage;
 
-    @JsonbProperty("commit_title")
     private String commitTitle;
 
-    @JsonbProperty("merge_method")
     @JsonbTypeAdapter(MergeMethodAdapter.class)
     private MergeMethod mergeMethod;
 
@@ -51,8 +48,84 @@ public class MergePullRequest {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("sha")
     private String sha;
+
+    @JsonbProperty("commit_message")
+    public String getCommitMessage() {
+        return this.commitMessage;
+    }
+
+    @JsonbProperty("commit_title")
+    public String getCommitTitle() {
+        return this.commitTitle;
+    }
+
+    @JsonbTypeAdapter(MergeMethodAdapter.class)
+    @JsonbProperty("merge_method")
+    public MergeMethod getMergeMethod() {
+        return this.mergeMethod;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public Integer getPullNumber() {
+        return this.pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("commit_message")
+    public void setCommitMessage(String commitMessage) {
+        this.commitMessage = commitMessage;
+    }
+
+    @JsonbProperty("commit_title")
+    public void setCommitTitle(String commitTitle) {
+        this.commitTitle = commitTitle;
+    }
+
+    @JsonbProperty("merge_method")
+    public void setMergeMethod(MergeMethod mergeMethod) {
+        this.mergeMethod = mergeMethod;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public void setPullNumber(Integer pullNumber) {
+        this.pullNumber = pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
 
     public enum MergeMethod {
 

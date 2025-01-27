@@ -43,6 +43,44 @@ public class ListOrganizationMembers {
     @JsonbTypeAdapter(RoleAdapter.class)
     private Role role;
 
+    @JsonbTypeAdapter(FilterAdapter.class)
+    @JsonbTransient
+    @QueryParam("filter")
+    public Filter getFilter() {
+        return this.filter;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbTransient
+    @QueryParam("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbTransient
+    @QueryParam("filter")
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @QueryParam("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public enum Filter {
 
         _2FA_DISABLED("2fa_disabled"), ALL("all");

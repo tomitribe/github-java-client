@@ -29,10 +29,8 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateMilestone {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("due_on")
     private String dueOn;
 
     @JsonbTransient
@@ -47,12 +45,87 @@ public class UpdateMilestone {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("due_on")
+    public String getDueOn() {
+        return this.dueOn;
+    }
+
+    @JsonbTransient
+    @PathParam("milestone_number")
+    public Integer getMilestoneNumber() {
+        return this.milestoneNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbProperty("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("due_on")
+    public void setDueOn(String dueOn) {
+        this.dueOn = dueOn;
+    }
+
+    @JsonbTransient
+    @PathParam("milestone_number")
+    public void setMilestoneNumber(Integer milestoneNumber) {
+        this.milestoneNumber = milestoneNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("state")
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public enum State {
 

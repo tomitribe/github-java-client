@@ -29,4 +29,16 @@ public class DeleteProjectColumn {
     @JsonbTransient
     @PathParam("column_id")
     private Integer columnId;
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public Integer getColumnId() {
+        return this.columnId;
+    }
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public void setColumnId(Integer columnId) {
+        this.columnId = columnId;
+    }
 }

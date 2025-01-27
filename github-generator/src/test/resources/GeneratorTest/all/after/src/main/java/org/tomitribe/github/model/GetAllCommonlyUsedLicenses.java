@@ -29,4 +29,16 @@ public class GetAllCommonlyUsedLicenses {
     @JsonbTransient
     @QueryParam("featured")
     private Boolean featured;
+
+    @JsonbTransient
+    @QueryParam("featured")
+    public Boolean getFeatured() {
+        return this.featured;
+    }
+
+    @JsonbTransient
+    @QueryParam("featured")
+    public void setFeatured(Boolean featured) {
+        this.featured = featured;
+    }
 }

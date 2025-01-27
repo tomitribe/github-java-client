@@ -25,18 +25,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Head {
 
-    @JsonbProperty("label")
     private String label;
 
-    @JsonbProperty("ref")
     private String ref;
 
-    @JsonbProperty("repo")
     private Repo repo;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("user")
     private User user;
+
+    @JsonbProperty("label")
+    public String getLabel() {
+        return this.label;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbProperty("repo")
+    public Repo getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("label")
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbProperty("repo")
+    public void setRepo(Repo repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

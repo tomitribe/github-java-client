@@ -54,6 +54,79 @@ public class ListCheckRunsInCheckSuite {
     @QueryParam("status")
     private Status status;
 
+    @JsonbTransient
+    @QueryParam("check_name")
+    public String getCheckName() {
+        return this.checkName;
+    }
+
+    @JsonbTransient
+    @PathParam("check_suite_id")
+    public Integer getCheckSuiteId() {
+        return this.checkSuiteId;
+    }
+
+    @JsonbTypeAdapter(FilterAdapter.class)
+    @JsonbTransient
+    @QueryParam("filter")
+    public Filter getFilter() {
+        return this.filter;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbTransient
+    @QueryParam("check_name")
+    public void setCheckName(String checkName) {
+        this.checkName = checkName;
+    }
+
+    @JsonbTransient
+    @PathParam("check_suite_id")
+    public void setCheckSuiteId(Integer checkSuiteId) {
+        this.checkSuiteId = checkSuiteId;
+    }
+
+    @JsonbTransient
+    @QueryParam("filter")
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public enum Filter {
 
         LATEST("latest"), ALL("all");

@@ -24,54 +24,198 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/team-project")
+@ComponentId("team-project")
 public class TeamProject {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("columns_url")
     private String columnsUrl;
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("creator")
     private SimpleUser creator;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("organization_permission")
     private String organizationPermission;
 
-    @JsonbProperty("owner_url")
     private String ownerUrl;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("columns_url")
+    public String getColumnsUrl() {
+        return this.columnsUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public SimpleUser getCreator() {
+        return this.creator;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbProperty("organization_permission")
+    public String getOrganizationPermission() {
+        return this.organizationPermission;
+    }
+
+    @JsonbProperty("owner_url")
+    public String getOwnerUrl() {
+        return this.ownerUrl;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("columns_url")
+    public void setColumnsUrl(String columnsUrl) {
+        this.columnsUrl = columnsUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public void setCreator(SimpleUser creator) {
+        this.creator = creator;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("organization_permission")
+    public void setOrganizationPermission(String organizationPermission) {
+        this.organizationPermission = organizationPermission;
+    }
+
+    @JsonbProperty("owner_url")
+    public void setOwnerUrl(String ownerUrl) {
+        this.ownerUrl = ownerUrl;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 }

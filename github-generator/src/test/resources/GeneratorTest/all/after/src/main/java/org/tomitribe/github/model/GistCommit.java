@@ -27,22 +27,68 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/gist-commit")
+@ComponentId("gist-commit")
 public class GistCommit {
 
-    @JsonbProperty("change_status")
     private ChangeStatus changeStatus;
 
-    @JsonbProperty("committed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date committedAt;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("user")
     private SimpleUser user;
 
-    @JsonbProperty("version")
     private String version;
+
+    @JsonbProperty("change_status")
+    public ChangeStatus getChangeStatus() {
+        return this.changeStatus;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("committed_at")
+    public Date getCommittedAt() {
+        return this.committedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("version")
+    public String getVersion() {
+        return this.version;
+    }
+
+    @JsonbProperty("change_status")
+    public void setChangeStatus(ChangeStatus changeStatus) {
+        this.changeStatus = changeStatus;
+    }
+
+    @JsonbProperty("committed_at")
+    public void setCommittedAt(Date committedAt) {
+        this.committedAt = committedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
+
+    @JsonbProperty("version")
+    public void setVersion(String version) {
+        this.version = version;
+    }
 }

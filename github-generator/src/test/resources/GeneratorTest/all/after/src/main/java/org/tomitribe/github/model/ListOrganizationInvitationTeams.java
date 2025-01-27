@@ -33,4 +33,28 @@ public class ListOrganizationInvitationTeams {
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbTransient
+    @PathParam("invitation_id")
+    public Integer getInvitationId() {
+        return this.invitationId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("invitation_id")
+    public void setInvitationId(Integer invitationId) {
+        this.invitationId = invitationId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

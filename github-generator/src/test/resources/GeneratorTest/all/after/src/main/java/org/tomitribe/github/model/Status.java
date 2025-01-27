@@ -24,39 +24,138 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/status")
+@ComponentId("status")
 public class Status {
 
-    @JsonbProperty("avatar_url")
     private String avatarUrl;
 
-    @JsonbProperty("context")
     private String context;
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("creator")
     private SimpleUser creator;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("target_url")
     private String targetUrl;
 
-    @JsonbProperty("updated_at")
     private String updatedAt;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("avatar_url")
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    @JsonbProperty("context")
+    public String getContext() {
+        return this.context;
+    }
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public SimpleUser getCreator() {
+        return this.creator;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("target_url")
+    public String getTargetUrl() {
+        return this.targetUrl;
+    }
+
+    @JsonbProperty("updated_at")
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("avatar_url")
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @JsonbProperty("context")
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("creator")
+    public void setCreator(SimpleUser creator) {
+        this.creator = creator;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("target_url")
+    public void setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

@@ -41,4 +41,52 @@ public class ListNotificationsForAuthenticatedUser {
     @JsonbTransient
     @QueryParam("since")
     private String since;
+
+    @JsonbTransient
+    @QueryParam("all")
+    public Boolean getAll() {
+        return this.all;
+    }
+
+    @JsonbTransient
+    @QueryParam("before")
+    public String getBefore() {
+        return this.before;
+    }
+
+    @JsonbTransient
+    @QueryParam("participating")
+    public Boolean getParticipating() {
+        return this.participating;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @QueryParam("all")
+    public void setAll(Boolean all) {
+        this.all = all;
+    }
+
+    @JsonbTransient
+    @QueryParam("before")
+    public void setBefore(String before) {
+        this.before = before;
+    }
+
+    @JsonbTransient
+    @QueryParam("participating")
+    public void setParticipating(Boolean participating) {
+        this.participating = participating;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
 }

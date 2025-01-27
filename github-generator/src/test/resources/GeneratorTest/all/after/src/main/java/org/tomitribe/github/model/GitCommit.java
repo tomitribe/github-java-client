@@ -26,36 +26,126 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/git-commit")
+@ComponentId("git-commit")
 public class GitCommit {
 
-    @JsonbProperty("author")
     private Author author;
 
-    @JsonbProperty("committer")
     private Committer committer;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("parents")
     private List<Parents> parents;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("tree")
     private Tree tree;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("verification")
     private Verification verification;
+
+    @JsonbProperty("author")
+    public Author getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("committer")
+    public Committer getCommitter() {
+        return this.committer;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("parents")
+    public List<Parents> getParents() {
+        return this.parents;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("tree")
+    public Tree getTree() {
+        return this.tree;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("verification")
+    public Verification getVerification() {
+        return this.verification;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("committer")
+    public void setCommitter(Committer committer) {
+        this.committer = committer;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("parents")
+    public void setParents(List<Parents> parents) {
+        this.parents = parents;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("tree")
+    public void setTree(Tree tree) {
+        this.tree = tree;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("verification")
+    public void setVerification(Verification verification) {
+        this.verification = verification;
+    }
 }

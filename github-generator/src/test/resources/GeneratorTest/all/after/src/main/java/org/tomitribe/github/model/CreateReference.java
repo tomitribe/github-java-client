@@ -27,20 +27,71 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateReference {
 
-    @JsonbProperty("key")
     private String key;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("ref")
     private String ref;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("sha")
     private String sha;
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
 }

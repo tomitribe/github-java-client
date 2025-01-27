@@ -28,18 +28,55 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class StartUserMigration {
 
-    @JsonbProperty("exclude")
     @JsonbTypeAdapter(ExcludeAdapter.class)
     private List<Exclude> exclude;
 
-    @JsonbProperty("exclude_attachments")
     private Boolean excludeAttachments;
 
-    @JsonbProperty("lock_repositories")
     private Boolean lockRepositories;
 
-    @JsonbProperty("repositories")
     private List<String> repositories;
+
+    @JsonbTypeAdapter(ExcludeAdapter.class)
+    @JsonbProperty("exclude")
+    public List<Exclude> getExclude() {
+        return this.exclude;
+    }
+
+    @JsonbProperty("exclude_attachments")
+    public Boolean getExcludeAttachments() {
+        return this.excludeAttachments;
+    }
+
+    @JsonbProperty("lock_repositories")
+    public Boolean getLockRepositories() {
+        return this.lockRepositories;
+    }
+
+    @JsonbProperty("repositories")
+    public List<String> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbProperty("exclude")
+    public void setExclude(List<Exclude> exclude) {
+        this.exclude = exclude;
+    }
+
+    @JsonbProperty("exclude_attachments")
+    public void setExcludeAttachments(Boolean excludeAttachments) {
+        this.excludeAttachments = excludeAttachments;
+    }
+
+    @JsonbProperty("lock_repositories")
+    public void setLockRepositories(Boolean lockRepositories) {
+        this.lockRepositories = lockRepositories;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<String> repositories) {
+        this.repositories = repositories;
+    }
 
     public enum Exclude {
 

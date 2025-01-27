@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/porter-large-file")
+@ComponentId("porter-large-file")
 public class PorterLargeFile {
 
-    @JsonbProperty("oid")
     private String oid;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("ref_name")
     private String refName;
 
-    @JsonbProperty("size")
     private Integer size;
+
+    @JsonbProperty("oid")
+    public String getOid() {
+        return this.oid;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("ref_name")
+    public String getRefName() {
+        return this.refName;
+    }
+
+    @JsonbProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    @JsonbProperty("oid")
+    public void setOid(String oid) {
+        this.oid = oid;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("ref_name")
+    public void setRefName(String refName) {
+        this.refName = refName;
+    }
+
+    @JsonbProperty("size")
+    public void setSize(Integer size) {
+        this.size = size;
+    }
 }

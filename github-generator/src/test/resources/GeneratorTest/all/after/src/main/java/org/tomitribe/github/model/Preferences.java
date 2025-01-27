@@ -26,6 +26,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Preferences {
 
-    @JsonbProperty("auto_trigger_checks")
     private List<AutoTriggerChecks> autoTriggerChecks;
+
+    @JsonbProperty("auto_trigger_checks")
+    public List<AutoTriggerChecks> getAutoTriggerChecks() {
+        return this.autoTriggerChecks;
+    }
+
+    @JsonbProperty("auto_trigger_checks")
+    public void setAutoTriggerChecks(List<AutoTriggerChecks> autoTriggerChecks) {
+        this.autoTriggerChecks = autoTriggerChecks;
+    }
 }

@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/pages-source-hash")
+@ComponentId("pages-source-hash")
 public class PagesSourceHash {
 
-    @JsonbProperty("branch")
     private String branch;
 
-    @JsonbProperty("path")
     private String path;
+
+    @JsonbProperty("branch")
+    public String getBranch() {
+        return this.branch;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("branch")
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
 }

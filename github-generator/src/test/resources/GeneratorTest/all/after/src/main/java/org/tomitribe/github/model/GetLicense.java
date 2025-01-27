@@ -29,4 +29,16 @@ public class GetLicense {
     @JsonbTransient
     @PathParam("license")
     private String license;
+
+    @JsonbTransient
+    @PathParam("license")
+    public String getLicense() {
+        return this.license;
+    }
+
+    @JsonbTransient
+    @PathParam("license")
+    public void setLicense(String license) {
+        this.license = license;
+    }
 }

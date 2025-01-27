@@ -29,46 +29,32 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateRepository {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("allow_merge_commit")
     private Boolean allowMergeCommit;
 
-    @JsonbProperty("allow_rebase_merge")
     private Boolean allowRebaseMerge;
 
-    @JsonbProperty("allow_squash_merge")
     private Boolean allowSquashMerge;
 
-    @JsonbProperty("archived")
     private Boolean archived;
 
-    @JsonbProperty("default_branch")
     private String defaultBranch;
 
-    @JsonbProperty("delete_branch_on_merge")
     private Boolean deleteBranchOnMerge;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("has_issues")
     private Boolean hasIssues;
 
-    @JsonbProperty("has_projects")
     private Boolean hasProjects;
 
-    @JsonbProperty("has_wiki")
     private Boolean hasWiki;
 
-    @JsonbProperty("homepage")
     private String homepage;
 
-    @JsonbProperty("is_template")
     private Boolean isTemplate;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
@@ -79,9 +65,183 @@ public class UpdateRepository {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("visibility")
     @JsonbTypeAdapter(VisibilityAdapter.class)
     private Visibility visibility;
+
+    @JsonbProperty("allow_merge_commit")
+    public Boolean getAllowMergeCommit() {
+        return this.allowMergeCommit;
+    }
+
+    @JsonbProperty("allow_rebase_merge")
+    public Boolean getAllowRebaseMerge() {
+        return this.allowRebaseMerge;
+    }
+
+    @JsonbProperty("allow_squash_merge")
+    public Boolean getAllowSquashMerge() {
+        return this.allowSquashMerge;
+    }
+
+    @JsonbProperty("archived")
+    public Boolean getArchived() {
+        return this.archived;
+    }
+
+    @JsonbProperty("default_branch")
+    public String getDefaultBranch() {
+        return this.defaultBranch;
+    }
+
+    @JsonbProperty("delete_branch_on_merge")
+    public Boolean getDeleteBranchOnMerge() {
+        return this.deleteBranchOnMerge;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("has_issues")
+    public Boolean getHasIssues() {
+        return this.hasIssues;
+    }
+
+    @JsonbProperty("has_projects")
+    public Boolean getHasProjects() {
+        return this.hasProjects;
+    }
+
+    @JsonbProperty("has_wiki")
+    public Boolean getHasWiki() {
+        return this.hasWiki;
+    }
+
+    @JsonbProperty("homepage")
+    public String getHomepage() {
+        return this.homepage;
+    }
+
+    @JsonbProperty("is_template")
+    public Boolean getIsTemplate() {
+        return this.isTemplate;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTypeAdapter(VisibilityAdapter.class)
+    @JsonbProperty("visibility")
+    public Visibility getVisibility() {
+        return this.visibility;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("allow_merge_commit")
+    public void setAllowMergeCommit(Boolean allowMergeCommit) {
+        this.allowMergeCommit = allowMergeCommit;
+    }
+
+    @JsonbProperty("allow_rebase_merge")
+    public void setAllowRebaseMerge(Boolean allowRebaseMerge) {
+        this.allowRebaseMerge = allowRebaseMerge;
+    }
+
+    @JsonbProperty("allow_squash_merge")
+    public void setAllowSquashMerge(Boolean allowSquashMerge) {
+        this.allowSquashMerge = allowSquashMerge;
+    }
+
+    @JsonbProperty("archived")
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
+    }
+
+    @JsonbProperty("default_branch")
+    public void setDefaultBranch(String defaultBranch) {
+        this.defaultBranch = defaultBranch;
+    }
+
+    @JsonbProperty("delete_branch_on_merge")
+    public void setDeleteBranchOnMerge(Boolean deleteBranchOnMerge) {
+        this.deleteBranchOnMerge = deleteBranchOnMerge;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("has_issues")
+    public void setHasIssues(Boolean hasIssues) {
+        this.hasIssues = hasIssues;
+    }
+
+    @JsonbProperty("has_projects")
+    public void setHasProjects(Boolean hasProjects) {
+        this.hasProjects = hasProjects;
+    }
+
+    @JsonbProperty("has_wiki")
+    public void setHasWiki(Boolean hasWiki) {
+        this.hasWiki = hasWiki;
+    }
+
+    @JsonbProperty("homepage")
+    public void setHomepage(String homepage) {
+        this.homepage = homepage;
+    }
+
+    @JsonbProperty("is_template")
+    public void setIsTemplate(Boolean isTemplate) {
+        this.isTemplate = isTemplate;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("visibility")
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 
     public enum Visibility {
 

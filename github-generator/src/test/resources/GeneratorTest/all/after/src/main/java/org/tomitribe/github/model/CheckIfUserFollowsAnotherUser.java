@@ -33,4 +33,28 @@ public class CheckIfUserFollowsAnotherUser {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTransient
+    @PathParam("target_user")
+    public String getTargetUser() {
+        return this.targetUser;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbTransient
+    @PathParam("target_user")
+    public void setTargetUser(String targetUser) {
+        this.targetUser = targetUser;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

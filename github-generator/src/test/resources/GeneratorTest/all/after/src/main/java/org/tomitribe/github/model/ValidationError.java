@@ -25,15 +25,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/validation-error")
+@ComponentId("validation-error")
 public class ValidationError {
 
-    @JsonbProperty("documentation_url")
     private String documentationUrl;
 
-    @JsonbProperty("errors")
     private List<Errors> errors;
 
-    @JsonbProperty("message")
     private String message;
+
+    @JsonbProperty("documentation_url")
+    public String getDocumentationUrl() {
+        return this.documentationUrl;
+    }
+
+    @JsonbProperty("errors")
+    public List<Errors> getErrors() {
+        return this.errors;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("documentation_url")
+    public void setDocumentationUrl(String documentationUrl) {
+        this.documentationUrl = documentationUrl;
+    }
+
+    @JsonbProperty("errors")
+    public void setErrors(List<Errors> errors) {
+        this.errors = errors;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

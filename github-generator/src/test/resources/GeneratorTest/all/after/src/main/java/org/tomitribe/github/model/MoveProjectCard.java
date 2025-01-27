@@ -31,9 +31,39 @@ public class MoveProjectCard {
     @PathParam("card_id")
     private Integer cardId;
 
-    @JsonbProperty("column_id")
     private Integer columnId;
 
-    @JsonbProperty("position")
     private String position;
+
+    @JsonbTransient
+    @PathParam("card_id")
+    public Integer getCardId() {
+        return this.cardId;
+    }
+
+    @JsonbProperty("column_id")
+    public Integer getColumnId() {
+        return this.columnId;
+    }
+
+    @JsonbProperty("position")
+    public String getPosition() {
+        return this.position;
+    }
+
+    @JsonbTransient
+    @PathParam("card_id")
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
+    }
+
+    @JsonbProperty("column_id")
+    public void setColumnId(Integer columnId) {
+        this.columnId = columnId;
+    }
+
+    @JsonbProperty("position")
+    public void setPosition(String position) {
+        this.position = position;
+    }
 }

@@ -35,4 +35,28 @@ public class GetUserMigrationStatus {
     @JsonbTransient
     @PathParam("migration_id")
     private Integer migrationId;
+
+    @JsonbTransient
+    @QueryParam("exclude")
+    public List<String> getExclude() {
+        return this.exclude;
+    }
+
+    @JsonbTransient
+    @PathParam("migration_id")
+    public Integer getMigrationId() {
+        return this.migrationId;
+    }
+
+    @JsonbTransient
+    @QueryParam("exclude")
+    public void setExclude(List<String> exclude) {
+        this.exclude = exclude;
+    }
+
+    @JsonbTransient
+    @PathParam("migration_id")
+    public void setMigrationId(Integer migrationId) {
+        this.migrationId = migrationId;
+    }
 }

@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/pull-request-merge-result")
+@ComponentId("pull-request-merge-result")
 public class PullRequestMergeResult {
 
-    @JsonbProperty("merged")
     private Boolean merged;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("sha")
     private String sha;
+
+    @JsonbProperty("merged")
+    public Boolean getMerged() {
+        return this.merged;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("merged")
+    public void setMerged(Boolean merged) {
+        this.merged = merged;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
 }

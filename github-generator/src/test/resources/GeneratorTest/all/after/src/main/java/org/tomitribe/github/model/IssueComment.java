@@ -27,50 +27,178 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-comment")
+@ComponentId("issue-comment")
 public class IssueComment {
 
-    @JsonbProperty("author_association")
     private String authorAssociation;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("body_html")
     private String bodyHtml;
 
-    @JsonbProperty("body_text")
     private String bodyText;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("issue_url")
     private URI issueUrl;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("performed_via_github_app")
     private Integration performedViaGithubApp;
 
-    @JsonbProperty("reactions")
     private ReactionRollup reactions;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("user")
     private SimpleUser user;
+
+    @JsonbProperty("author_association")
+    public String getAuthorAssociation() {
+        return this.authorAssociation;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("body_html")
+    public String getBodyHtml() {
+        return this.bodyHtml;
+    }
+
+    @JsonbProperty("body_text")
+    public String getBodyText() {
+        return this.bodyText;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("issue_url")
+    public URI getIssueUrl() {
+        return this.issueUrl;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("performed_via_github_app")
+    public Integration getPerformedViaGithubApp() {
+        return this.performedViaGithubApp;
+    }
+
+    @JsonbProperty("reactions")
+    public ReactionRollup getReactions() {
+        return this.reactions;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("author_association")
+    public void setAuthorAssociation(String authorAssociation) {
+        this.authorAssociation = authorAssociation;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("body_html")
+    public void setBodyHtml(String bodyHtml) {
+        this.bodyHtml = bodyHtml;
+    }
+
+    @JsonbProperty("body_text")
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("issue_url")
+    public void setIssueUrl(URI issueUrl) {
+        this.issueUrl = issueUrl;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("performed_via_github_app")
+    public void setPerformedViaGithubApp(Integration performedViaGithubApp) {
+        this.performedViaGithubApp = performedViaGithubApp;
+    }
+
+    @JsonbProperty("reactions")
+    public void setReactions(ReactionRollup reactions) {
+        this.reactions = reactions;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

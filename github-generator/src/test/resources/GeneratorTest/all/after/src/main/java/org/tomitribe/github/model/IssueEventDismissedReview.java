@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-event-dismissed-review")
+@ComponentId("issue-event-dismissed-review")
 public class IssueEventDismissedReview {
 
-    @JsonbProperty("dismissal_commit_id")
     private String dismissalCommitId;
 
-    @JsonbProperty("dismissal_message")
     private String dismissalMessage;
 
-    @JsonbProperty("review_id")
     private Integer reviewId;
 
-    @JsonbProperty("state")
     private String state;
+
+    @JsonbProperty("dismissal_commit_id")
+    public String getDismissalCommitId() {
+        return this.dismissalCommitId;
+    }
+
+    @JsonbProperty("dismissal_message")
+    public String getDismissalMessage() {
+        return this.dismissalMessage;
+    }
+
+    @JsonbProperty("review_id")
+    public Integer getReviewId() {
+        return this.reviewId;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("dismissal_commit_id")
+    public void setDismissalCommitId(String dismissalCommitId) {
+        this.dismissalCommitId = dismissalCommitId;
+    }
+
+    @JsonbProperty("dismissal_message")
+    public void setDismissalMessage(String dismissalMessage) {
+        this.dismissalMessage = dismissalMessage;
+    }
+
+    @JsonbProperty("review_id")
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
 }

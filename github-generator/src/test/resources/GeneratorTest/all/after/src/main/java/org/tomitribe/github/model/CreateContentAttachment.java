@@ -27,13 +27,43 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateContentAttachment {
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
     @PathParam("content_reference_id")
     private Integer contentReferenceId;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("content_reference_id")
+    public Integer getContentReferenceId() {
+        return this.contentReferenceId;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("content_reference_id")
+    public void setContentReferenceId(Integer contentReferenceId) {
+        this.contentReferenceId = contentReferenceId;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

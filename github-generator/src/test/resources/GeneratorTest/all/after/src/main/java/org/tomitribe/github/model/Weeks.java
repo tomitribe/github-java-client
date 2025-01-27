@@ -25,15 +25,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Weeks {
 
-    @JsonbProperty("a")
     private Integer a;
 
-    @JsonbProperty("c")
     private Integer c;
 
-    @JsonbProperty("d")
     private Integer d;
 
-    @JsonbProperty("w")
     private String w;
+
+    @JsonbProperty("a")
+    public Integer getA() {
+        return this.a;
+    }
+
+    @JsonbProperty("c")
+    public Integer getC() {
+        return this.c;
+    }
+
+    @JsonbProperty("d")
+    public Integer getD() {
+        return this.d;
+    }
+
+    @JsonbProperty("w")
+    public String getW() {
+        return this.w;
+    }
+
+    @JsonbProperty("a")
+    public void setA(Integer a) {
+        this.a = a;
+    }
+
+    @JsonbProperty("c")
+    public void setC(Integer c) {
+        this.c = c;
+    }
+
+    @JsonbProperty("d")
+    public void setD(Integer d) {
+        this.d = d;
+    }
+
+    @JsonbProperty("w")
+    public void setW(String w) {
+        this.w = w;
+    }
 }

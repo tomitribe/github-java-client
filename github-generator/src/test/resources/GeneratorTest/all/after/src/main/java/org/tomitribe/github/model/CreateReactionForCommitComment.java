@@ -33,7 +33,6 @@ public class CreateReactionForCommitComment {
     @PathParam("comment_id")
     private Integer commentId;
 
-    @JsonbProperty("content")
     @JsonbTypeAdapter(ContentAdapter.class)
     private Content content;
 
@@ -44,6 +43,53 @@ public class CreateReactionForCommitComment {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("comment_id")
+    public Integer getCommentId() {
+        return this.commentId;
+    }
+
+    @JsonbTypeAdapter(ContentAdapter.class)
+    @JsonbProperty("content")
+    public Content getContent() {
+        return this.content;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("comment_id")
+    public void setCommentId(Integer commentId) {
+        this.commentId = commentId;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 
     public enum Content {
 

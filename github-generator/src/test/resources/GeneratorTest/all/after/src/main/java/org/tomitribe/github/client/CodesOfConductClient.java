@@ -16,6 +16,9 @@ package org.tomitribe.github.client;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.model.CodeOfConduct;
 import org.tomitribe.github.model.GetCodeOfConduct;
 import org.tomitribe.github.model.GetCodeOfConductForRepository;
@@ -24,46 +27,36 @@ public interface CodesOfConductClient {
 
     @GET
     @Path("/codes_of_conduct")
-    @OperationId("codes-of-conduct/get-all-codes-of-conduct")
     @Docs("https://developer.github.com/v3/codes_of_conduct/#get-all-codes-of-conduct")
     @EnabledForGithubApps
     @Preview("scarlet-witch")
-    @Category("codes-of-conduct")
     Stream<CodeOfConduct> getAllCodesOfConduct();
 
     @GET
     @Path("/codes_of_conduct/{key}")
-    @OperationId("codes-of-conduct/get-conduct-code")
     @Docs("https://developer.github.com/v3/codes_of_conduct/#get-a-code-of-conduct")
     @EnabledForGithubApps
     @Preview("scarlet-witch")
-    @Category("codes-of-conduct")
     CodeOfConduct getCodeOfConduct(final GetCodeOfConduct getCodeOfConduct);
 
     @GET
     @Path("/codes_of_conduct/{key}")
-    @OperationId("codes-of-conduct/get-conduct-code")
     @Docs("https://developer.github.com/v3/codes_of_conduct/#get-a-code-of-conduct")
     @EnabledForGithubApps
     @Preview("scarlet-witch")
-    @Category("codes-of-conduct")
     CodeOfConduct getCodeOfConduct(@PathParam("key") final String key);
 
     @GET
     @Path("/repos/{owner}/{repo}/community/code_of_conduct")
-    @OperationId("codes-of-conduct/get-for-repo")
     @Docs("https://developer.github.com/v3/codes_of_conduct/#get-the-code-of-conduct-for-a-repository")
     @EnabledForGithubApps
     @Preview("scarlet-witch")
-    @Category("codes-of-conduct")
     CodeOfConduct getCodeOfConductForRepository(final GetCodeOfConductForRepository getCodeOfConductForRepository);
 
     @GET
     @Path("/repos/{owner}/{repo}/community/code_of_conduct")
-    @OperationId("codes-of-conduct/get-for-repo")
     @Docs("https://developer.github.com/v3/codes_of_conduct/#get-the-code-of-conduct-for-a-repository")
     @EnabledForGithubApps
     @Preview("scarlet-witch")
-    @Category("codes-of-conduct")
     CodeOfConduct getCodeOfConductForRepository(@PathParam("owner") final String owner, @PathParam("repo") final String repo);
 }

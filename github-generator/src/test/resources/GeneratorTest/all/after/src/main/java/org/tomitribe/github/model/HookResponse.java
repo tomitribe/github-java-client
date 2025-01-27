@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/hook-response")
+@ComponentId("hook-response")
 public class HookResponse {
 
-    @JsonbProperty("code")
     private Integer code;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("status")
     private String status;
+
+    @JsonbProperty("code")
+    public Integer getCode() {
+        return this.code;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("code")
+    public void setCode(Integer code) {
+        this.code = code;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

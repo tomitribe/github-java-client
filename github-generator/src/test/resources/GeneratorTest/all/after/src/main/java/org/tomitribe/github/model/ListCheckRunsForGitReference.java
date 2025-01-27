@@ -54,6 +54,79 @@ public class ListCheckRunsForGitReference {
     @QueryParam("status")
     private Status status;
 
+    @JsonbTransient
+    @QueryParam("check_name")
+    public String getCheckName() {
+        return this.checkName;
+    }
+
+    @JsonbTypeAdapter(FilterAdapter.class)
+    @JsonbTransient
+    @QueryParam("filter")
+    public Filter getFilter() {
+        return this.filter;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbTransient
+    @QueryParam("check_name")
+    public void setCheckName(String checkName) {
+        this.checkName = checkName;
+    }
+
+    @JsonbTransient
+    @QueryParam("filter")
+    public void setFilter(Filter filter) {
+        this.filter = filter;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public enum Filter {
 
         LATEST("latest"), ALL("all");

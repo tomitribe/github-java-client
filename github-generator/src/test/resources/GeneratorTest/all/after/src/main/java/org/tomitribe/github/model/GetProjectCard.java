@@ -29,4 +29,16 @@ public class GetProjectCard {
     @JsonbTransient
     @PathParam("card_id")
     private Integer cardId;
+
+    @JsonbTransient
+    @PathParam("card_id")
+    public Integer getCardId() {
+        return this.cardId;
+    }
+
+    @JsonbTransient
+    @PathParam("card_id")
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
+    }
 }

@@ -26,12 +26,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateGist {
 
-    @JsonbProperty("public")
     private Object _public;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("files")
     private Map<String, File> files;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("files")
+    public Map<String, File> getFiles() {
+        return this.files;
+    }
+
+    @JsonbProperty("public")
+    public Object get_public() {
+        return this._public;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(Map<String, File> files) {
+        this.files = files;
+    }
+
+    @JsonbProperty("public")
+    public void set_public(Object _public) {
+        this._public = _public;
+    }
 }

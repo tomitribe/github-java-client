@@ -24,15 +24,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/packages-billing-usage")
+@ComponentId("packages-billing-usage")
 public class PackagesBillingUsage {
 
-    @JsonbProperty("included_gigabytes_bandwidth")
     private Integer includedGigabytesBandwidth;
 
-    @JsonbProperty("total_gigabytes_bandwidth_used")
     private Integer totalGigabytesBandwidthUsed;
 
-    @JsonbProperty("total_paid_gigabytes_bandwidth_used")
     private Integer totalPaidGigabytesBandwidthUsed;
+
+    @JsonbProperty("included_gigabytes_bandwidth")
+    public Integer getIncludedGigabytesBandwidth() {
+        return this.includedGigabytesBandwidth;
+    }
+
+    @JsonbProperty("total_gigabytes_bandwidth_used")
+    public Integer getTotalGigabytesBandwidthUsed() {
+        return this.totalGigabytesBandwidthUsed;
+    }
+
+    @JsonbProperty("total_paid_gigabytes_bandwidth_used")
+    public Integer getTotalPaidGigabytesBandwidthUsed() {
+        return this.totalPaidGigabytesBandwidthUsed;
+    }
+
+    @JsonbProperty("included_gigabytes_bandwidth")
+    public void setIncludedGigabytesBandwidth(Integer includedGigabytesBandwidth) {
+        this.includedGigabytesBandwidth = includedGigabytesBandwidth;
+    }
+
+    @JsonbProperty("total_gigabytes_bandwidth_used")
+    public void setTotalGigabytesBandwidthUsed(Integer totalGigabytesBandwidthUsed) {
+        this.totalGigabytesBandwidthUsed = totalGigabytesBandwidthUsed;
+    }
+
+    @JsonbProperty("total_paid_gigabytes_bandwidth_used")
+    public void setTotalPaidGigabytesBandwidthUsed(Integer totalPaidGigabytesBandwidthUsed) {
+        this.totalPaidGigabytesBandwidthUsed = totalPaidGigabytesBandwidthUsed;
+    }
 }

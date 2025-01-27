@@ -42,4 +42,52 @@ public class GetTree {
     @JsonbTransient
     @PathParam("tree_sha")
     private String treeSha;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("recursive")
+    public String getRecursive() {
+        return this.recursive;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("tree_sha")
+    public String getTreeSha() {
+        return this.treeSha;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("recursive")
+    public void setRecursive(String recursive) {
+        this.recursive = recursive;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("tree_sha")
+    public void setTreeSha(String treeSha) {
+        this.treeSha = treeSha;
+    }
 }

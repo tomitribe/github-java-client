@@ -27,16 +27,55 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateDiscussionLegacy {
 
-    @JsonbProperty("private")
     private Boolean _private;
 
-    @JsonbProperty("body")
     private String body;
 
     @JsonbTransient
     @PathParam("team-id")
     private Integer teamId;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("private")
+    public Boolean get_private() {
+        return this._private;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("private")
+    public void set_private(Boolean _private) {
+        this._private = _private;
+    }
 }

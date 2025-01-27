@@ -28,68 +28,250 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/release")
+@ComponentId("release")
 public class Release {
 
-    @JsonbProperty("assets")
     private List<ReleaseAsset> assets;
 
-    @JsonbProperty("assets_url")
     private URI assetsUrl;
 
-    @JsonbProperty("author")
     private SimpleUser author;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("body_html")
     private String bodyHtml;
 
-    @JsonbProperty("body_text")
     private String bodyText;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("draft")
     private Boolean draft;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("prerelease")
     private Boolean prerelease;
 
-    @JsonbProperty("published_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date publishedAt;
 
-    @JsonbProperty("tag_name")
     private String tagName;
 
-    @JsonbProperty("tarball_url")
     private URI tarballUrl;
 
-    @JsonbProperty("target_commitish")
     private String targetCommitish;
 
-    @JsonbProperty("upload_url")
     private String uploadUrl;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("zipball_url")
     private URI zipballUrl;
+
+    @JsonbProperty("assets")
+    public List<ReleaseAsset> getAssets() {
+        return this.assets;
+    }
+
+    @JsonbProperty("assets_url")
+    public URI getAssetsUrl() {
+        return this.assetsUrl;
+    }
+
+    @JsonbProperty("author")
+    public SimpleUser getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("body_html")
+    public String getBodyHtml() {
+        return this.bodyHtml;
+    }
+
+    @JsonbProperty("body_text")
+    public String getBodyText() {
+        return this.bodyText;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("draft")
+    public Boolean getDraft() {
+        return this.draft;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("prerelease")
+    public Boolean getPrerelease() {
+        return this.prerelease;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("published_at")
+    public Date getPublishedAt() {
+        return this.publishedAt;
+    }
+
+    @JsonbProperty("tag_name")
+    public String getTagName() {
+        return this.tagName;
+    }
+
+    @JsonbProperty("tarball_url")
+    public URI getTarballUrl() {
+        return this.tarballUrl;
+    }
+
+    @JsonbProperty("target_commitish")
+    public String getTargetCommitish() {
+        return this.targetCommitish;
+    }
+
+    @JsonbProperty("upload_url")
+    public String getUploadUrl() {
+        return this.uploadUrl;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("zipball_url")
+    public URI getZipballUrl() {
+        return this.zipballUrl;
+    }
+
+    @JsonbProperty("assets")
+    public void setAssets(List<ReleaseAsset> assets) {
+        this.assets = assets;
+    }
+
+    @JsonbProperty("assets_url")
+    public void setAssetsUrl(URI assetsUrl) {
+        this.assetsUrl = assetsUrl;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(SimpleUser author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("body_html")
+    public void setBodyHtml(String bodyHtml) {
+        this.bodyHtml = bodyHtml;
+    }
+
+    @JsonbProperty("body_text")
+    public void setBodyText(String bodyText) {
+        this.bodyText = bodyText;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("draft")
+    public void setDraft(Boolean draft) {
+        this.draft = draft;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("prerelease")
+    public void setPrerelease(Boolean prerelease) {
+        this.prerelease = prerelease;
+    }
+
+    @JsonbProperty("published_at")
+    public void setPublishedAt(Date publishedAt) {
+        this.publishedAt = publishedAt;
+    }
+
+    @JsonbProperty("tag_name")
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
+    }
+
+    @JsonbProperty("tarball_url")
+    public void setTarballUrl(URI tarballUrl) {
+        this.tarballUrl = tarballUrl;
+    }
+
+    @JsonbProperty("target_commitish")
+    public void setTargetCommitish(String targetCommitish) {
+        this.targetCommitish = targetCommitish;
+    }
+
+    @JsonbProperty("upload_url")
+    public void setUploadUrl(String uploadUrl) {
+        this.uploadUrl = uploadUrl;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("zipball_url")
+    public void setZipballUrl(URI zipballUrl) {
+        this.zipballUrl = zipballUrl;
+    }
 }

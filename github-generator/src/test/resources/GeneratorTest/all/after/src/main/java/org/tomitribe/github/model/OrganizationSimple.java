@@ -25,42 +25,150 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/organization-simple")
+@ComponentId("organization-simple")
 public class OrganizationSimple {
 
-    @JsonbProperty("avatar_url")
     private String avatarUrl;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("events_url")
     private URI eventsUrl;
 
-    @JsonbProperty("hooks_url")
     private String hooksUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("issues_url")
     private String issuesUrl;
 
-    @JsonbProperty("login")
     private String login;
 
-    @JsonbProperty("members_url")
     private String membersUrl;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("public_members_url")
     private String publicMembersUrl;
 
-    @JsonbProperty("repos_url")
     private URI reposUrl;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("avatar_url")
+    public String getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("events_url")
+    public URI getEventsUrl() {
+        return this.eventsUrl;
+    }
+
+    @JsonbProperty("hooks_url")
+    public String getHooksUrl() {
+        return this.hooksUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("issues_url")
+    public String getIssuesUrl() {
+        return this.issuesUrl;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
+    @JsonbProperty("members_url")
+    public String getMembersUrl() {
+        return this.membersUrl;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("public_members_url")
+    public String getPublicMembersUrl() {
+        return this.publicMembersUrl;
+    }
+
+    @JsonbProperty("repos_url")
+    public URI getReposUrl() {
+        return this.reposUrl;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("avatar_url")
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("events_url")
+    public void setEventsUrl(URI eventsUrl) {
+        this.eventsUrl = eventsUrl;
+    }
+
+    @JsonbProperty("hooks_url")
+    public void setHooksUrl(String hooksUrl) {
+        this.hooksUrl = hooksUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("issues_url")
+    public void setIssuesUrl(String issuesUrl) {
+        this.issuesUrl = issuesUrl;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("members_url")
+    public void setMembersUrl(String membersUrl) {
+        this.membersUrl = membersUrl;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("public_members_url")
+    public void setPublicMembersUrl(String publicMembersUrl) {
+        this.publicMembersUrl = publicMembersUrl;
+    }
+
+    @JsonbProperty("repos_url")
+    public void setReposUrl(URI reposUrl) {
+        this.reposUrl = reposUrl;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

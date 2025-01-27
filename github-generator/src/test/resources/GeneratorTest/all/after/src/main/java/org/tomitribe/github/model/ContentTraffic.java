@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/content-traffic")
+@ComponentId("content-traffic")
 public class ContentTraffic {
 
-    @JsonbProperty("count")
     private Integer count;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("uniques")
     private Integer uniques;
+
+    @JsonbProperty("count")
+    public Integer getCount() {
+        return this.count;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("uniques")
+    public Integer getUniques() {
+        return this.uniques;
+    }
+
+    @JsonbProperty("count")
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("uniques")
+    public void setUniques(Integer uniques) {
+        this.uniques = uniques;
+    }
 }

@@ -25,24 +25,78 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/actor")
+@ComponentId("actor")
 public class Actor {
 
-    @JsonbProperty("avatar_url")
     private URI avatarUrl;
 
-    @JsonbProperty("display_login")
     private String displayLogin;
 
-    @JsonbProperty("gravatar_id")
     private String gravatarId;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("login")
     private String login;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("avatar_url")
+    public URI getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    @JsonbProperty("display_login")
+    public String getDisplayLogin() {
+        return this.displayLogin;
+    }
+
+    @JsonbProperty("gravatar_id")
+    public String getGravatarId() {
+        return this.gravatarId;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("avatar_url")
+    public void setAvatarUrl(URI avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @JsonbProperty("display_login")
+    public void setDisplayLogin(String displayLogin) {
+        this.displayLogin = displayLogin;
+    }
+
+    @JsonbProperty("gravatar_id")
+    public void setGravatarId(String gravatarId) {
+        this.gravatarId = gravatarId;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

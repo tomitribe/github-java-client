@@ -29,4 +29,16 @@ public class DeleteUserMigrationArchive {
     @JsonbTransient
     @PathParam("migration_id")
     private Integer migrationId;
+
+    @JsonbTransient
+    @PathParam("migration_id")
+    public Integer getMigrationId() {
+        return this.migrationId;
+    }
+
+    @JsonbTransient
+    @PathParam("migration_id")
+    public void setMigrationId(Integer migrationId) {
+        this.migrationId = migrationId;
+    }
 }

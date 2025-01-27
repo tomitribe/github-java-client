@@ -29,59 +29,217 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class UpdateOrganization {
 
-    @JsonbProperty("billing_email")
     private String billingEmail;
 
-    @JsonbProperty("blog")
     private String blog;
 
-    @JsonbProperty("company")
     private String company;
 
-    @JsonbProperty("default_repository_permission")
     @JsonbTypeAdapter(DefaultRepositoryPermissionAdapter.class)
     private DefaultRepositoryPermission defaultRepositoryPermission;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("has_organization_projects")
     private Boolean hasOrganizationProjects;
 
-    @JsonbProperty("has_repository_projects")
     private Boolean hasRepositoryProjects;
 
-    @JsonbProperty("location")
     private String location;
 
-    @JsonbProperty("members_allowed_repository_creation_type")
     @JsonbTypeAdapter(MembersAllowedRepositoryCreationTypeAdapter.class)
     private MembersAllowedRepositoryCreationType membersAllowedRepositoryCreationType;
 
-    @JsonbProperty("members_can_create_internal_repositories")
     private Boolean membersCanCreateInternalRepositories;
 
-    @JsonbProperty("members_can_create_private_repositories")
     private Boolean membersCanCreatePrivateRepositories;
 
-    @JsonbProperty("members_can_create_public_repositories")
     private Boolean membersCanCreatePublicRepositories;
 
-    @JsonbProperty("members_can_create_repositories")
     private Boolean membersCanCreateRepositories;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
 
-    @JsonbProperty("twitter_username")
     private String twitterUsername;
+
+    @JsonbProperty("billing_email")
+    public String getBillingEmail() {
+        return this.billingEmail;
+    }
+
+    @JsonbProperty("blog")
+    public String getBlog() {
+        return this.blog;
+    }
+
+    @JsonbProperty("company")
+    public String getCompany() {
+        return this.company;
+    }
+
+    @JsonbTypeAdapter(DefaultRepositoryPermissionAdapter.class)
+    @JsonbProperty("default_repository_permission")
+    public DefaultRepositoryPermission getDefaultRepositoryPermission() {
+        return this.defaultRepositoryPermission;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("has_organization_projects")
+    public Boolean getHasOrganizationProjects() {
+        return this.hasOrganizationProjects;
+    }
+
+    @JsonbProperty("has_repository_projects")
+    public Boolean getHasRepositoryProjects() {
+        return this.hasRepositoryProjects;
+    }
+
+    @JsonbProperty("location")
+    public String getLocation() {
+        return this.location;
+    }
+
+    @JsonbTypeAdapter(MembersAllowedRepositoryCreationTypeAdapter.class)
+    @JsonbProperty("members_allowed_repository_creation_type")
+    public MembersAllowedRepositoryCreationType getMembersAllowedRepositoryCreationType() {
+        return this.membersAllowedRepositoryCreationType;
+    }
+
+    @JsonbProperty("members_can_create_internal_repositories")
+    public Boolean getMembersCanCreateInternalRepositories() {
+        return this.membersCanCreateInternalRepositories;
+    }
+
+    @JsonbProperty("members_can_create_private_repositories")
+    public Boolean getMembersCanCreatePrivateRepositories() {
+        return this.membersCanCreatePrivateRepositories;
+    }
+
+    @JsonbProperty("members_can_create_public_repositories")
+    public Boolean getMembersCanCreatePublicRepositories() {
+        return this.membersCanCreatePublicRepositories;
+    }
+
+    @JsonbProperty("members_can_create_repositories")
+    public Boolean getMembersCanCreateRepositories() {
+        return this.membersCanCreateRepositories;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("twitter_username")
+    public String getTwitterUsername() {
+        return this.twitterUsername;
+    }
+
+    @JsonbProperty("billing_email")
+    public void setBillingEmail(String billingEmail) {
+        this.billingEmail = billingEmail;
+    }
+
+    @JsonbProperty("blog")
+    public void setBlog(String blog) {
+        this.blog = blog;
+    }
+
+    @JsonbProperty("company")
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    @JsonbProperty("default_repository_permission")
+    public void setDefaultRepositoryPermission(DefaultRepositoryPermission defaultRepositoryPermission) {
+        this.defaultRepositoryPermission = defaultRepositoryPermission;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("has_organization_projects")
+    public void setHasOrganizationProjects(Boolean hasOrganizationProjects) {
+        this.hasOrganizationProjects = hasOrganizationProjects;
+    }
+
+    @JsonbProperty("has_repository_projects")
+    public void setHasRepositoryProjects(Boolean hasRepositoryProjects) {
+        this.hasRepositoryProjects = hasRepositoryProjects;
+    }
+
+    @JsonbProperty("location")
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @JsonbProperty("members_allowed_repository_creation_type")
+    public void setMembersAllowedRepositoryCreationType(MembersAllowedRepositoryCreationType membersAllowedRepositoryCreationType) {
+        this.membersAllowedRepositoryCreationType = membersAllowedRepositoryCreationType;
+    }
+
+    @JsonbProperty("members_can_create_internal_repositories")
+    public void setMembersCanCreateInternalRepositories(Boolean membersCanCreateInternalRepositories) {
+        this.membersCanCreateInternalRepositories = membersCanCreateInternalRepositories;
+    }
+
+    @JsonbProperty("members_can_create_private_repositories")
+    public void setMembersCanCreatePrivateRepositories(Boolean membersCanCreatePrivateRepositories) {
+        this.membersCanCreatePrivateRepositories = membersCanCreatePrivateRepositories;
+    }
+
+    @JsonbProperty("members_can_create_public_repositories")
+    public void setMembersCanCreatePublicRepositories(Boolean membersCanCreatePublicRepositories) {
+        this.membersCanCreatePublicRepositories = membersCanCreatePublicRepositories;
+    }
+
+    @JsonbProperty("members_can_create_repositories")
+    public void setMembersCanCreateRepositories(Boolean membersCanCreateRepositories) {
+        this.membersCanCreateRepositories = membersCanCreateRepositories;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbProperty("twitter_username")
+    public void setTwitterUsername(String twitterUsername) {
+        this.twitterUsername = twitterUsername;
+    }
 
     public enum DefaultRepositoryPermission {
 

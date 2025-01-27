@@ -25,12 +25,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/participation-stats")
+@ComponentId("participation-stats")
 public class ParticipationStats {
 
-    @JsonbProperty("all")
     private List<Integer> all;
 
-    @JsonbProperty("owner")
     private List<Integer> owner;
+
+    @JsonbProperty("all")
+    public List<Integer> getAll() {
+        return this.all;
+    }
+
+    @JsonbProperty("owner")
+    public List<Integer> getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("all")
+    public void setAll(List<Integer> all) {
+        this.all = all;
+    }
+
+    @JsonbProperty("owner")
+    public void setOwner(List<Integer> owner) {
+        this.owner = owner;
+    }
 }

@@ -25,15 +25,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/clone-traffic")
+@ComponentId("clone-traffic")
 public class CloneTraffic {
 
-    @JsonbProperty("clones")
     private List<Traffic> clones;
 
-    @JsonbProperty("count")
     private Integer count;
 
-    @JsonbProperty("uniques")
     private Integer uniques;
+
+    @JsonbProperty("clones")
+    public List<Traffic> getClones() {
+        return this.clones;
+    }
+
+    @JsonbProperty("count")
+    public Integer getCount() {
+        return this.count;
+    }
+
+    @JsonbProperty("uniques")
+    public Integer getUniques() {
+        return this.uniques;
+    }
+
+    @JsonbProperty("clones")
+    public void setClones(List<Traffic> clones) {
+        this.clones = clones;
+    }
+
+    @JsonbProperty("count")
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
+    @JsonbProperty("uniques")
+    public void setUniques(Integer uniques) {
+        this.uniques = uniques;
+    }
 }

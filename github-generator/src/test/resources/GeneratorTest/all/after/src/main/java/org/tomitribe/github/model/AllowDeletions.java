@@ -25,6 +25,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AllowDeletions {
 
-    @JsonbProperty("enabled")
     private Boolean enabled;
+
+    @JsonbProperty("enabled")
+    public Boolean getEnabled() {
+        return this.enabled;
+    }
+
+    @JsonbProperty("enabled")
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 }

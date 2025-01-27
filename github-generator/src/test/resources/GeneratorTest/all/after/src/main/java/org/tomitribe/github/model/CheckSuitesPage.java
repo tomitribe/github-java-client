@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CheckSuitesPage {
 
-    @JsonbProperty("check_suites")
     private List<CheckSuite> checkSuites;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("check_suites")
+    public List<CheckSuite> getCheckSuites() {
+        return this.checkSuites;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("check_suites")
+    public void setCheckSuites(List<CheckSuite> checkSuites) {
+        this.checkSuites = checkSuites;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

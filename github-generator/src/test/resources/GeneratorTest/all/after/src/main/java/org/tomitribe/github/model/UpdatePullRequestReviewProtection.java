@@ -31,10 +31,8 @@ public class UpdatePullRequestReviewProtection {
     @PathParam("branch")
     private String branch;
 
-    @JsonbProperty("dismiss_stale_reviews")
     private Boolean dismissStaleReviews;
 
-    @JsonbProperty("dismissal_restrictions")
     private DismissalRestrictions dismissalRestrictions;
 
     @JsonbTransient
@@ -45,9 +43,83 @@ public class UpdatePullRequestReviewProtection {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("require_code_owner_reviews")
     private Boolean requireCodeOwnerReviews;
 
-    @JsonbProperty("required_approving_review_count")
     private Integer requiredApprovingReviewCount;
+
+    @JsonbTransient
+    @PathParam("branch")
+    public String getBranch() {
+        return this.branch;
+    }
+
+    @JsonbProperty("dismiss_stale_reviews")
+    public Boolean getDismissStaleReviews() {
+        return this.dismissStaleReviews;
+    }
+
+    @JsonbProperty("dismissal_restrictions")
+    public DismissalRestrictions getDismissalRestrictions() {
+        return this.dismissalRestrictions;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("require_code_owner_reviews")
+    public Boolean getRequireCodeOwnerReviews() {
+        return this.requireCodeOwnerReviews;
+    }
+
+    @JsonbProperty("required_approving_review_count")
+    public Integer getRequiredApprovingReviewCount() {
+        return this.requiredApprovingReviewCount;
+    }
+
+    @JsonbTransient
+    @PathParam("branch")
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    @JsonbProperty("dismiss_stale_reviews")
+    public void setDismissStaleReviews(Boolean dismissStaleReviews) {
+        this.dismissStaleReviews = dismissStaleReviews;
+    }
+
+    @JsonbProperty("dismissal_restrictions")
+    public void setDismissalRestrictions(DismissalRestrictions dismissalRestrictions) {
+        this.dismissalRestrictions = dismissalRestrictions;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("require_code_owner_reviews")
+    public void setRequireCodeOwnerReviews(Boolean requireCodeOwnerReviews) {
+        this.requireCodeOwnerReviews = requireCodeOwnerReviews;
+    }
+
+    @JsonbProperty("required_approving_review_count")
+    public void setRequiredApprovingReviewCount(Integer requiredApprovingReviewCount) {
+        this.requiredApprovingReviewCount = requiredApprovingReviewCount;
+    }
 }

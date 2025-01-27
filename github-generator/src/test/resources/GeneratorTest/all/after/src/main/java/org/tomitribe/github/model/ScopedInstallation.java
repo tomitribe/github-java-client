@@ -27,24 +27,70 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/scoped-installation")
+@ComponentId("scoped-installation")
 public class ScopedInstallation {
 
-    @JsonbProperty("account")
     private SimpleUser account;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("repositories_url")
     private URI repositoriesUrl;
 
-    @JsonbProperty("repository_selection")
     @JsonbTypeAdapter(RepositorySelectionAdapter.class)
     private RepositorySelection repositorySelection;
 
-    @JsonbProperty("single_file_name")
     private String singleFileName;
+
+    @JsonbProperty("account")
+    public SimpleUser getAccount() {
+        return this.account;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("repositories_url")
+    public URI getRepositoriesUrl() {
+        return this.repositoriesUrl;
+    }
+
+    @JsonbTypeAdapter(RepositorySelectionAdapter.class)
+    @JsonbProperty("repository_selection")
+    public RepositorySelection getRepositorySelection() {
+        return this.repositorySelection;
+    }
+
+    @JsonbProperty("single_file_name")
+    public String getSingleFileName() {
+        return this.singleFileName;
+    }
+
+    @JsonbProperty("account")
+    public void setAccount(SimpleUser account) {
+        this.account = account;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("repositories_url")
+    public void setRepositoriesUrl(URI repositoriesUrl) {
+        this.repositoriesUrl = repositoriesUrl;
+    }
+
+    @JsonbProperty("repository_selection")
+    public void setRepositorySelection(RepositorySelection repositorySelection) {
+        this.repositorySelection = repositorySelection;
+    }
+
+    @JsonbProperty("single_file_name")
+    public void setSingleFileName(String singleFileName) {
+        this.singleFileName = singleFileName;
+    }
 
     public enum RepositorySelection {
 

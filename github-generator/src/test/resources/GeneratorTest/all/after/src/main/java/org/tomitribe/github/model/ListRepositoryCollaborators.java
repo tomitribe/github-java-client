@@ -42,6 +42,43 @@ public class ListRepositoryCollaborators {
     @PathParam("repo")
     private String repo;
 
+    @JsonbTypeAdapter(AffiliationAdapter.class)
+    @JsonbTransient
+    @QueryParam("affiliation")
+    public Affiliation getAffiliation() {
+        return this.affiliation;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("affiliation")
+    public void setAffiliation(Affiliation affiliation) {
+        this.affiliation = affiliation;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
     public enum Affiliation {
 
         OUTSIDE("outside"), DIRECT("direct"), ALL("all");

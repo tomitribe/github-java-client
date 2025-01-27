@@ -29,65 +29,230 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/team-full")
+@ComponentId("team-full")
 public class TeamFull {
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("ldap_dn")
     private String ldapDn;
 
-    @JsonbProperty("members_count")
     private Integer membersCount;
 
-    @JsonbProperty("members_url")
     private String membersUrl;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("organization")
     private Organization organization;
 
-    @JsonbProperty("parent")
     private TeamSimple parent;
 
-    @JsonbProperty("permission")
     private String permission;
 
-    @JsonbProperty("privacy")
     @JsonbTypeAdapter(PrivacyAdapter.class)
     private Privacy privacy;
 
-    @JsonbProperty("repos_count")
     private Integer reposCount;
 
-    @JsonbProperty("repositories_url")
     private URI repositoriesUrl;
 
-    @JsonbProperty("slug")
     private String slug;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("ldap_dn")
+    public String getLdapDn() {
+        return this.ldapDn;
+    }
+
+    @JsonbProperty("members_count")
+    public Integer getMembersCount() {
+        return this.membersCount;
+    }
+
+    @JsonbProperty("members_url")
+    public String getMembersUrl() {
+        return this.membersUrl;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("organization")
+    public Organization getOrganization() {
+        return this.organization;
+    }
+
+    @JsonbProperty("parent")
+    public TeamSimple getParent() {
+        return this.parent;
+    }
+
+    @JsonbProperty("permission")
+    public String getPermission() {
+        return this.permission;
+    }
+
+    @JsonbTypeAdapter(PrivacyAdapter.class)
+    @JsonbProperty("privacy")
+    public Privacy getPrivacy() {
+        return this.privacy;
+    }
+
+    @JsonbProperty("repos_count")
+    public Integer getReposCount() {
+        return this.reposCount;
+    }
+
+    @JsonbProperty("repositories_url")
+    public URI getRepositoriesUrl() {
+        return this.repositoriesUrl;
+    }
+
+    @JsonbProperty("slug")
+    public String getSlug() {
+        return this.slug;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("ldap_dn")
+    public void setLdapDn(String ldapDn) {
+        this.ldapDn = ldapDn;
+    }
+
+    @JsonbProperty("members_count")
+    public void setMembersCount(Integer membersCount) {
+        this.membersCount = membersCount;
+    }
+
+    @JsonbProperty("members_url")
+    public void setMembersUrl(String membersUrl) {
+        this.membersUrl = membersUrl;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("organization")
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
+    }
+
+    @JsonbProperty("parent")
+    public void setParent(TeamSimple parent) {
+        this.parent = parent;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
+    @JsonbProperty("privacy")
+    public void setPrivacy(Privacy privacy) {
+        this.privacy = privacy;
+    }
+
+    @JsonbProperty("repos_count")
+    public void setReposCount(Integer reposCount) {
+        this.reposCount = reposCount;
+    }
+
+    @JsonbProperty("repositories_url")
+    public void setRepositoriesUrl(URI repositoriesUrl) {
+        this.repositoriesUrl = repositoriesUrl;
+    }
+
+    @JsonbProperty("slug")
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum Privacy {
 

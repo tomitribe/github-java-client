@@ -25,15 +25,42 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/contributor-activity")
+@ComponentId("contributor-activity")
 public class ContributorActivity {
 
-    @JsonbProperty("author")
     private SimpleUser author;
 
-    @JsonbProperty("total")
     private Integer total;
 
-    @JsonbProperty("weeks")
     private List<Weeks> weeks;
+
+    @JsonbProperty("author")
+    public SimpleUser getAuthor() {
+        return this.author;
+    }
+
+    @JsonbProperty("total")
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    @JsonbProperty("weeks")
+    public List<Weeks> getWeeks() {
+        return this.weeks;
+    }
+
+    @JsonbProperty("author")
+    public void setAuthor(SimpleUser author) {
+        this.author = author;
+    }
+
+    @JsonbProperty("total")
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    @JsonbProperty("weeks")
+    public void setWeeks(List<Weeks> weeks) {
+        this.weeks = weeks;
+    }
 }

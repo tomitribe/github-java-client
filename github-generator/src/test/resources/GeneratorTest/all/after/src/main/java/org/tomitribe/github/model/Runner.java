@@ -24,18 +24,54 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/runner")
+@ComponentId("runner")
 public class Runner {
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("os")
     private String os;
 
-    @JsonbProperty("status")
     private String status;
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("os")
+    public String getOs() {
+        return this.os;
+    }
+
+    @JsonbProperty("status")
+    public String getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("os")
+    public void setOs(String os) {
+        this.os = os;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

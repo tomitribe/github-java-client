@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateRepositoryPreferencesForCheckSuites {
 
-    @JsonbProperty("auto_trigger_checks")
     private List<AutoTriggerChecks> autoTriggerChecks;
 
     @JsonbTransient
@@ -38,4 +37,38 @@ public class UpdateRepositoryPreferencesForCheckSuites {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("auto_trigger_checks")
+    public List<AutoTriggerChecks> getAutoTriggerChecks() {
+        return this.autoTriggerChecks;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("auto_trigger_checks")
+    public void setAutoTriggerChecks(List<AutoTriggerChecks> autoTriggerChecks) {
+        this.autoTriggerChecks = autoTriggerChecks;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

@@ -25,27 +25,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/marketplace-account")
+@ComponentId("marketplace-account")
 public class MarketplaceAccount {
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("login")
     private String login;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("organization_billing_email")
     private String organizationBillingEmail;
 
-    @JsonbProperty("type")
     private String type;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("organization_billing_email")
+    public String getOrganizationBillingEmail() {
+        return this.organizationBillingEmail;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("organization_billing_email")
+    public void setOrganizationBillingEmail(String organizationBillingEmail) {
+        this.organizationBillingEmail = organizationBillingEmail;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

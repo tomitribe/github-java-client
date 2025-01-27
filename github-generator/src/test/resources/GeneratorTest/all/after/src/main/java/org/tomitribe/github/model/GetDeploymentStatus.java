@@ -41,4 +41,52 @@ public class GetDeploymentStatus {
     @JsonbTransient
     @PathParam("status_id")
     private Integer statusId;
+
+    @JsonbTransient
+    @PathParam("deployment_id")
+    public Integer getDeploymentId() {
+        return this.deploymentId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("status_id")
+    public Integer getStatusId() {
+        return this.statusId;
+    }
+
+    @JsonbTransient
+    @PathParam("deployment_id")
+    public void setDeploymentId(Integer deploymentId) {
+        this.deploymentId = deploymentId;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("status_id")
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
+    }
 }

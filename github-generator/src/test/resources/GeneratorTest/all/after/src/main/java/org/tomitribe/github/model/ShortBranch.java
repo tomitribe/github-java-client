@@ -25,21 +25,66 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/short-branch")
+@ComponentId("short-branch")
 public class ShortBranch {
 
-    @JsonbProperty("protected")
     private Boolean _protected;
 
-    @JsonbProperty("commit")
     private Commit commit;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("protection")
     private BranchProtection protection;
 
-    @JsonbProperty("protection_url")
     private URI protectionUrl;
+
+    @JsonbProperty("commit")
+    public Commit getCommit() {
+        return this.commit;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("protection")
+    public BranchProtection getProtection() {
+        return this.protection;
+    }
+
+    @JsonbProperty("protection_url")
+    public URI getProtectionUrl() {
+        return this.protectionUrl;
+    }
+
+    @JsonbProperty("protected")
+    public Boolean get_protected() {
+        return this._protected;
+    }
+
+    @JsonbProperty("commit")
+    public void setCommit(Commit commit) {
+        this.commit = commit;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("protection")
+    public void setProtection(BranchProtection protection) {
+        this.protection = protection;
+    }
+
+    @JsonbProperty("protection_url")
+    public void setProtectionUrl(URI protectionUrl) {
+        this.protectionUrl = protectionUrl;
+    }
+
+    @JsonbProperty("protected")
+    public void set_protected(Boolean _protected) {
+        this._protected = _protected;
+    }
 }

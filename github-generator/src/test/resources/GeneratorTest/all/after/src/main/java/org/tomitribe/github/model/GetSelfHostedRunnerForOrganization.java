@@ -33,4 +33,28 @@ public class GetSelfHostedRunnerForOrganization {
     @JsonbTransient
     @PathParam("runner_id")
     private Integer runnerId;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("runner_id")
+    public Integer getRunnerId() {
+        return this.runnerId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("runner_id")
+    public void setRunnerId(Integer runnerId) {
+        this.runnerId = runnerId;
+    }
 }

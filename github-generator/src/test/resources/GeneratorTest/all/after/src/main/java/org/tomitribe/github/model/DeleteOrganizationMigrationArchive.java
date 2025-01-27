@@ -33,4 +33,28 @@ public class DeleteOrganizationMigrationArchive {
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbTransient
+    @PathParam("migration_id")
+    public Integer getMigrationId() {
+        return this.migrationId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("migration_id")
+    public void setMigrationId(Integer migrationId) {
+        this.migrationId = migrationId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

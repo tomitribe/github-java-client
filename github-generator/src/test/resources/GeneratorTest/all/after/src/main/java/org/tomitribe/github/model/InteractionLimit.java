@@ -28,19 +28,48 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/interaction-limit")
+@ComponentId("interaction-limit")
 public class InteractionLimit {
 
-    @JsonbProperty("expires_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date expiresAt;
 
-    @JsonbProperty("limit")
     @JsonbTypeAdapter(LimitAdapter.class)
     private Limit limit;
 
-    @JsonbProperty("origin")
     private String origin;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("expires_at")
+    public Date getExpiresAt() {
+        return this.expiresAt;
+    }
+
+    @JsonbTypeAdapter(LimitAdapter.class)
+    @JsonbProperty("limit")
+    public Limit getLimit() {
+        return this.limit;
+    }
+
+    @JsonbProperty("origin")
+    public String getOrigin() {
+        return this.origin;
+    }
+
+    @JsonbProperty("expires_at")
+    public void setExpiresAt(Date expiresAt) {
+        this.expiresAt = expiresAt;
+    }
+
+    @JsonbProperty("limit")
+    public void setLimit(Limit limit) {
+        this.limit = limit;
+    }
+
+    @JsonbProperty("origin")
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
 
     public enum Limit {
 

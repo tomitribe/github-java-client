@@ -29,4 +29,16 @@ public class DeleteGPGKeyForAuthenticatedUser {
     @JsonbTransient
     @PathParam("gpg_key_id")
     private Integer gpgKeyId;
+
+    @JsonbTransient
+    @PathParam("gpg_key_id")
+    public Integer getGpgKeyId() {
+        return this.gpgKeyId;
+    }
+
+    @JsonbTransient
+    @PathParam("gpg_key_id")
+    public void setGpgKeyId(Integer gpgKeyId) {
+        this.gpgKeyId = gpgKeyId;
+    }
 }

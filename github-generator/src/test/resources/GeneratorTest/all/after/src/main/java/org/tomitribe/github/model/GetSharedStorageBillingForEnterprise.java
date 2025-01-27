@@ -29,4 +29,16 @@ public class GetSharedStorageBillingForEnterprise {
     @JsonbTransient
     @PathParam("enterprise-id")
     private String enterpriseId;
+
+    @JsonbTransient
+    @PathParam("enterprise-id")
+    public String getEnterpriseId() {
+        return this.enterpriseId;
+    }
+
+    @JsonbTransient
+    @PathParam("enterprise-id")
+    public void setEnterpriseId(String enterpriseId) {
+        this.enterpriseId = enterpriseId;
+    }
 }

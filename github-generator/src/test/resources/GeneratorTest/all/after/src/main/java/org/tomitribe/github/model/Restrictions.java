@@ -26,12 +26,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Restrictions {
 
-    @JsonbProperty("apps")
     private List<String> apps;
 
-    @JsonbProperty("teams")
     private List<String> teams;
 
-    @JsonbProperty("users")
     private List<String> users;
+
+    @JsonbProperty("apps")
+    public List<String> getApps() {
+        return this.apps;
+    }
+
+    @JsonbProperty("teams")
+    public List<String> getTeams() {
+        return this.teams;
+    }
+
+    @JsonbProperty("users")
+    public List<String> getUsers() {
+        return this.users;
+    }
+
+    @JsonbProperty("apps")
+    public void setApps(List<String> apps) {
+        this.apps = apps;
+    }
+
+    @JsonbProperty("teams")
+    public void setTeams(List<String> teams) {
+        this.teams = teams;
+    }
+
+    @JsonbProperty("users")
+    public void setUsers(List<String> users) {
+        this.users = users;
+    }
 }

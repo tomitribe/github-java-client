@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ChangeStatus {
 
-    @JsonbProperty("additions")
     private Integer additions;
 
-    @JsonbProperty("deletions")
     private Integer deletions;
 
-    @JsonbProperty("total")
     private Integer total;
+
+    @JsonbProperty("additions")
+    public Integer getAdditions() {
+        return this.additions;
+    }
+
+    @JsonbProperty("deletions")
+    public Integer getDeletions() {
+        return this.deletions;
+    }
+
+    @JsonbProperty("total")
+    public Integer getTotal() {
+        return this.total;
+    }
+
+    @JsonbProperty("additions")
+    public void setAdditions(Integer additions) {
+        this.additions = additions;
+    }
+
+    @JsonbProperty("deletions")
+    public void setDeletions(Integer deletions) {
+        this.deletions = deletions;
+    }
+
+    @JsonbProperty("total")
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 }

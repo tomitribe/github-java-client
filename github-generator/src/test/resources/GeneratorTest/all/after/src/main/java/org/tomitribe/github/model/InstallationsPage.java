@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InstallationsPage {
 
-    @JsonbProperty("installations")
     private List<Installation> installations;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
+
+    @JsonbProperty("installations")
+    public List<Installation> getInstallations() {
+        return this.installations;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("installations")
+    public void setInstallations(List<Installation> installations) {
+        this.installations = installations;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
 }

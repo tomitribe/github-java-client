@@ -60,6 +60,94 @@ public class ListRepositoriesForAuthenticatedUser {
     @JsonbTypeAdapter(VisibilityAdapter.class)
     private Visibility visibility;
 
+    @JsonbTransient
+    @QueryParam("affiliation")
+    public String getAffiliation() {
+        return this.affiliation;
+    }
+
+    @JsonbTransient
+    @QueryParam("before")
+    public String getBefore() {
+        return this.before;
+    }
+
+    @JsonbTypeAdapter(DirectionAdapter.class)
+    @JsonbTransient
+    @QueryParam("direction")
+    public Direction getDirection() {
+        return this.direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTypeAdapter(TypeAdapter.class)
+    @JsonbTransient
+    @QueryParam("type")
+    public Type getType() {
+        return this.type;
+    }
+
+    @JsonbTypeAdapter(VisibilityAdapter.class)
+    @JsonbTransient
+    @QueryParam("visibility")
+    public Visibility getVisibility() {
+        return this.visibility;
+    }
+
+    @JsonbTransient
+    @QueryParam("affiliation")
+    public void setAffiliation(String affiliation) {
+        this.affiliation = affiliation;
+    }
+
+    @JsonbTransient
+    @QueryParam("before")
+    public void setBefore(String before) {
+        this.before = before;
+    }
+
+    @JsonbTransient
+    @QueryParam("direction")
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("type")
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    @JsonbTransient
+    @QueryParam("visibility")
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
+
     public enum Direction {
 
         ASC("asc"), DESC("desc");

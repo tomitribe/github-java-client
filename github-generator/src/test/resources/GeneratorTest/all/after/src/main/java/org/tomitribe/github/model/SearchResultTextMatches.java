@@ -26,18 +26,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SearchResultTextMatches {
 
-    @JsonbProperty("fragment")
     private String fragment;
 
-    @JsonbProperty("matches")
     private List<Matches> matches;
 
-    @JsonbProperty("object_type")
     private String objectType;
 
-    @JsonbProperty("object_url")
     private String objectUrl;
 
-    @JsonbProperty("property")
     private String property;
+
+    @JsonbProperty("fragment")
+    public String getFragment() {
+        return this.fragment;
+    }
+
+    @JsonbProperty("matches")
+    public List<Matches> getMatches() {
+        return this.matches;
+    }
+
+    @JsonbProperty("object_type")
+    public String getObjectType() {
+        return this.objectType;
+    }
+
+    @JsonbProperty("object_url")
+    public String getObjectUrl() {
+        return this.objectUrl;
+    }
+
+    @JsonbProperty("property")
+    public String getProperty() {
+        return this.property;
+    }
+
+    @JsonbProperty("fragment")
+    public void setFragment(String fragment) {
+        this.fragment = fragment;
+    }
+
+    @JsonbProperty("matches")
+    public void setMatches(List<Matches> matches) {
+        this.matches = matches;
+    }
+
+    @JsonbProperty("object_type")
+    public void setObjectType(String objectType) {
+        this.objectType = objectType;
+    }
+
+    @JsonbProperty("object_url")
+    public void setObjectUrl(String objectUrl) {
+        this.objectUrl = objectUrl;
+    }
+
+    @JsonbProperty("property")
+    public void setProperty(String property) {
+        this.property = property;
+    }
 }

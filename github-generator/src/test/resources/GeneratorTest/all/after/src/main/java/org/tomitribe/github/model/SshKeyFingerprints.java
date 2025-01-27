@@ -25,15 +25,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SshKeyFingerprints {
 
-    @JsonbProperty("MD5_DSA")
     private String mD5DSA;
 
-    @JsonbProperty("MD5_RSA")
     private String mD5RSA;
 
-    @JsonbProperty("SHA256_DSA")
     private String sHA256DSA;
 
-    @JsonbProperty("SHA256_RSA")
     private String sHA256RSA;
+
+    @JsonbProperty("MD5_DSA")
+    public String getMD5DSA() {
+        return this.mD5DSA;
+    }
+
+    @JsonbProperty("MD5_RSA")
+    public String getMD5RSA() {
+        return this.mD5RSA;
+    }
+
+    @JsonbProperty("SHA256_DSA")
+    public String getSHA256DSA() {
+        return this.sHA256DSA;
+    }
+
+    @JsonbProperty("SHA256_RSA")
+    public String getSHA256RSA() {
+        return this.sHA256RSA;
+    }
+
+    @JsonbProperty("MD5_DSA")
+    public void setMD5DSA(String mD5DSA) {
+        this.mD5DSA = mD5DSA;
+    }
+
+    @JsonbProperty("MD5_RSA")
+    public void setMD5RSA(String mD5RSA) {
+        this.mD5RSA = mD5RSA;
+    }
+
+    @JsonbProperty("SHA256_DSA")
+    public void setSHA256DSA(String sHA256DSA) {
+        this.sHA256DSA = sHA256DSA;
+    }
+
+    @JsonbProperty("SHA256_RSA")
+    public void setSHA256RSA(String sHA256RSA) {
+        this.sHA256RSA = sHA256RSA;
+    }
 }

@@ -26,45 +26,162 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/marketplace-listing-plan")
+@ComponentId("marketplace-listing-plan")
 public class MarketplaceListingPlan {
 
-    @JsonbProperty("accounts_url")
     private URI accountsUrl;
 
-    @JsonbProperty("bullets")
     private List<String> bullets;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("has_free_trial")
     private Boolean hasFreeTrial;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("monthly_price_in_cents")
     private Integer monthlyPriceInCents;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("price_model")
     private String priceModel;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("unit_name")
     private String unitName;
 
-    @JsonbProperty("url")
     private URI url;
 
-    @JsonbProperty("yearly_price_in_cents")
     private Integer yearlyPriceInCents;
+
+    @JsonbProperty("accounts_url")
+    public URI getAccountsUrl() {
+        return this.accountsUrl;
+    }
+
+    @JsonbProperty("bullets")
+    public List<String> getBullets() {
+        return this.bullets;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("has_free_trial")
+    public Boolean getHasFreeTrial() {
+        return this.hasFreeTrial;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("monthly_price_in_cents")
+    public Integer getMonthlyPriceInCents() {
+        return this.monthlyPriceInCents;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbProperty("price_model")
+    public String getPriceModel() {
+        return this.priceModel;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("unit_name")
+    public String getUnitName() {
+        return this.unitName;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("yearly_price_in_cents")
+    public Integer getYearlyPriceInCents() {
+        return this.yearlyPriceInCents;
+    }
+
+    @JsonbProperty("accounts_url")
+    public void setAccountsUrl(URI accountsUrl) {
+        this.accountsUrl = accountsUrl;
+    }
+
+    @JsonbProperty("bullets")
+    public void setBullets(List<String> bullets) {
+        this.bullets = bullets;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("has_free_trial")
+    public void setHasFreeTrial(Boolean hasFreeTrial) {
+        this.hasFreeTrial = hasFreeTrial;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("monthly_price_in_cents")
+    public void setMonthlyPriceInCents(Integer monthlyPriceInCents) {
+        this.monthlyPriceInCents = monthlyPriceInCents;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("price_model")
+    public void setPriceModel(String priceModel) {
+        this.priceModel = priceModel;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("unit_name")
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("yearly_price_in_cents")
+    public void setYearlyPriceInCents(Integer yearlyPriceInCents) {
+        this.yearlyPriceInCents = yearlyPriceInCents;
+    }
 }

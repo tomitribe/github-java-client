@@ -54,4 +54,88 @@ public class ListCommits {
     @JsonbTransient
     @QueryParam("until")
     private String until;
+
+    @JsonbTransient
+    @QueryParam("author")
+    public String getAuthor() {
+        return this.author;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @QueryParam("until")
+    public String getUntil() {
+        return this.until;
+    }
+
+    @JsonbTransient
+    @QueryParam("author")
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @QueryParam("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @QueryParam("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
+
+    @JsonbTransient
+    @QueryParam("until")
+    public void setUntil(String until) {
+        this.until = until;
+    }
 }

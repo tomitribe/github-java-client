@@ -45,6 +45,55 @@ public class SearchLabels {
     @JsonbTypeAdapter(SortAdapter.class)
     private Sort sort;
 
+    @JsonbTransient
+    @QueryParam("order")
+    public Order getOrder() {
+        return this.order;
+    }
+
+    @JsonbTransient
+    @QueryParam("q")
+    public String getQ() {
+        return this.q;
+    }
+
+    @JsonbTransient
+    @QueryParam("repository_id")
+    public Integer getRepositoryId() {
+        return this.repositoryId;
+    }
+
+    @JsonbTypeAdapter(SortAdapter.class)
+    @JsonbTransient
+    @QueryParam("sort")
+    public Sort getSort() {
+        return this.sort;
+    }
+
+    @JsonbTransient
+    @QueryParam("order")
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    @JsonbTransient
+    @QueryParam("q")
+    public void setQ(String q) {
+        this.q = q;
+    }
+
+    @JsonbTransient
+    @QueryParam("repository_id")
+    public void setRepositoryId(Integer repositoryId) {
+        this.repositoryId = repositoryId;
+    }
+
+    @JsonbTransient
+    @QueryParam("sort")
+    public void setSort(Sort sort) {
+        this.sort = sort;
+    }
+
     public enum Sort {
 
         CREATED("created"), UPDATED("updated");

@@ -29,7 +29,6 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class AddOrUpdateTeamMembershipForUserLegacy {
 
-    @JsonbProperty("role")
     @JsonbTypeAdapter(RoleAdapter.class)
     private Role role;
 
@@ -40,6 +39,41 @@ public class AddOrUpdateTeamMembershipForUserLegacy {
     @JsonbTransient
     @PathParam("username")
     private String username;
+
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbProperty("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public Integer getTeamId() {
+        return this.teamId;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public String getUsername() {
+        return this.username;
+    }
+
+    @JsonbProperty("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @JsonbTransient
+    @PathParam("team-id")
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
+
+    @JsonbTransient
+    @PathParam("username")
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public enum Role {
 

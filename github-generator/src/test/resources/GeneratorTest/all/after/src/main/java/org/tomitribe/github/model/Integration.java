@@ -29,59 +29,214 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/integration")
+@ComponentId("integration")
 public class Integration {
 
-    @JsonbProperty("client_id")
     private String clientId;
 
-    @JsonbProperty("client_secret")
     private String clientSecret;
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("events")
     private List<String> events;
 
-    @JsonbProperty("external_url")
     private URI externalUrl;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("installations_count")
     private Integer installationsCount;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("owner")
     private SimpleUser owner;
 
-    @JsonbProperty("pem")
     private String pem;
 
-    @JsonbProperty("permissions")
     private Map<String, String> permissions;
 
-    @JsonbProperty("slug")
     private String slug;
 
-    @JsonbProperty("updated_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date updatedAt;
 
-    @JsonbProperty("webhook_secret")
     private String webhookSecret;
+
+    @JsonbProperty("client_id")
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    @JsonbProperty("client_secret")
+    public String getClientSecret() {
+        return this.clientSecret;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("events")
+    public List<String> getEvents() {
+        return this.events;
+    }
+
+    @JsonbProperty("external_url")
+    public URI getExternalUrl() {
+        return this.externalUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("installations_count")
+    public Integer getInstallationsCount() {
+        return this.installationsCount;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public SimpleUser getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("pem")
+    public String getPem() {
+        return this.pem;
+    }
+
+    @JsonbProperty("permissions")
+    public Map<String, String> getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("slug")
+    public String getSlug() {
+        return this.slug;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("updated_at")
+    public Date getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("webhook_secret")
+    public String getWebhookSecret() {
+        return this.webhookSecret;
+    }
+
+    @JsonbProperty("client_id")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    @JsonbProperty("client_secret")
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("events")
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    @JsonbProperty("external_url")
+    public void setExternalUrl(URI externalUrl) {
+        this.externalUrl = externalUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("installations_count")
+    public void setInstallationsCount(Integer installationsCount) {
+        this.installationsCount = installationsCount;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("owner")
+    public void setOwner(SimpleUser owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("pem")
+    public void setPem(String pem) {
+        this.pem = pem;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Map<String, String> permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("slug")
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("webhook_secret")
+    public void setWebhookSecret(String webhookSecret) {
+        this.webhookSecret = webhookSecret;
+    }
 }

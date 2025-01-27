@@ -32,7 +32,6 @@ public class SetLabelsForIssue {
     @PathParam("issue_number")
     private Integer issueNumber;
 
-    @JsonbProperty("labels")
     private List<String> labels;
 
     @JsonbTransient
@@ -42,4 +41,50 @@ public class SetLabelsForIssue {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public Integer getIssueNumber() {
+        return this.issueNumber;
+    }
+
+    @JsonbProperty("labels")
+    public List<String> getLabels() {
+        return this.labels;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("issue_number")
+    public void setIssueNumber(Integer issueNumber) {
+        this.issueNumber = issueNumber;
+    }
+
+    @JsonbProperty("labels")
+    public void setLabels(List<String> labels) {
+        this.labels = labels;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

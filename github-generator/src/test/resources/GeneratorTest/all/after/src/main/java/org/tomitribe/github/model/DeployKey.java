@@ -24,27 +24,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/deploy-key")
+@ComponentId("deploy-key")
 public class DeployKey {
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("key")
     private String key;
 
-    @JsonbProperty("read_only")
     private Boolean readOnly;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("url")
     private String url;
 
-    @JsonbProperty("verified")
     private Boolean verified;
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbProperty("read_only")
+    public Boolean getReadOnly() {
+        return this.readOnly;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("verified")
+    public Boolean getVerified() {
+        return this.verified;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @JsonbProperty("read_only")
+    public void setReadOnly(Boolean readOnly) {
+        this.readOnly = readOnly;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("verified")
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
 }

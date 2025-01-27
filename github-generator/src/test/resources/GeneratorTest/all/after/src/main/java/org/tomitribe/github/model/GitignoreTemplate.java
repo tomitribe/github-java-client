@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/gitignore-template")
+@ComponentId("gitignore-template")
 public class GitignoreTemplate {
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("source")
     private String source;
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("source")
+    public String getSource() {
+        return this.source;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("source")
+    public void setSource(String source) {
+        this.source = source;
+    }
 }

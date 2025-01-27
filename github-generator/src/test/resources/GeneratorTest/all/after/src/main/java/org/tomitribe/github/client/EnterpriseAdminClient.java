@@ -15,6 +15,8 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.GithubCloudOnly;
 import org.tomitribe.github.model.ActionsBillingUsage;
 import org.tomitribe.github.model.CombinedBillingUsage;
 import org.tomitribe.github.model.GetGitHubActionsBillingForEnterprise;
@@ -26,55 +28,37 @@ public interface EnterpriseAdminClient {
 
     @GET
     @Path("/enterprises/{enterprise_id}/settings/billing/actions")
-    @OperationId("billing/get-github-actions-billing-ghe")
     @Docs("https://developer.github.com/v3/billing/#get-github-actions-billing-for-an-enterprise")
     @GithubCloudOnly
-    @Category("enterprise-admin")
-    @Subcategory("billing")
     ActionsBillingUsage getGitHubActionsBillingForEnterprise(final GetGitHubActionsBillingForEnterprise getGitHubActionsBillingForEnterprise);
 
     @GET
     @Path("/enterprises/{enterprise_id}/settings/billing/actions")
-    @OperationId("billing/get-github-actions-billing-ghe")
     @Docs("https://developer.github.com/v3/billing/#get-github-actions-billing-for-an-enterprise")
     @GithubCloudOnly
-    @Category("enterprise-admin")
-    @Subcategory("billing")
     ActionsBillingUsage getGitHubActionsBillingForEnterprise(@PathParam("enterprise-id") final String enterpriseId);
 
     @GET
     @Path("/enterprises/{enterprise_id}/settings/billing/packages")
-    @OperationId("billing/get-github-packages-billing-ghe")
     @Docs("https://developer.github.com/v3/billing/#get-github-packages-billing-for-an-enterprise")
     @GithubCloudOnly
-    @Category("enterprise-admin")
-    @Subcategory("billing")
     PackagesBillingUsage getGitHubPackagesBillingForEnterprise(final GetGitHubPackagesBillingForEnterprise getGitHubPackagesBillingForEnterprise);
 
     @GET
     @Path("/enterprises/{enterprise_id}/settings/billing/packages")
-    @OperationId("billing/get-github-packages-billing-ghe")
     @Docs("https://developer.github.com/v3/billing/#get-github-packages-billing-for-an-enterprise")
     @GithubCloudOnly
-    @Category("enterprise-admin")
-    @Subcategory("billing")
     PackagesBillingUsage getGitHubPackagesBillingForEnterprise(@PathParam("enterprise-id") final String enterpriseId);
 
     @GET
     @Path("/enterprises/{enterprise_id}/settings/billing/shared-storage")
-    @OperationId("billing/get-shared-storage-billing-ghe")
     @Docs("https://developer.github.com/v3/billing/#get-shared-storage-billing-for-an-enterprise")
     @GithubCloudOnly
-    @Category("enterprise-admin")
-    @Subcategory("billing")
     CombinedBillingUsage getSharedStorageBillingForEnterprise(final GetSharedStorageBillingForEnterprise getSharedStorageBillingForEnterprise);
 
     @GET
     @Path("/enterprises/{enterprise_id}/settings/billing/shared-storage")
-    @OperationId("billing/get-shared-storage-billing-ghe")
     @Docs("https://developer.github.com/v3/billing/#get-shared-storage-billing-for-an-enterprise")
     @GithubCloudOnly
-    @Category("enterprise-admin")
-    @Subcategory("billing")
     CombinedBillingUsage getSharedStorageBillingForEnterprise(@PathParam("enterprise-id") final String enterpriseId);
 }

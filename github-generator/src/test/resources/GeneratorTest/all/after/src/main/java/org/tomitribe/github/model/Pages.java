@@ -25,21 +25,75 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Pages {
 
-    @JsonbProperty("action")
     private String action;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("page_name")
     private String pageName;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("summary")
     private String summary;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("action")
+    public String getAction() {
+        return this.action;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("page_name")
+    public String getPageName() {
+        return this.pageName;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("summary")
+    public String getSummary() {
+        return this.summary;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("action")
+    public void setAction(String action) {
+        this.action = action;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("page_name")
+    public void setPageName(String pageName) {
+        this.pageName = pageName;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("summary")
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

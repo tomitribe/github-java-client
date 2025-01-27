@@ -28,12 +28,39 @@ import org.tomitribe.github.core.DateAdapter;
 public class Committer {
 
     @JsonbTypeAdapter(DateAdapter.class)
-    @JsonbProperty("date")
     private String date;
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("name")
     private String name;
+
+    @JsonbProperty("date")
+    public String getDate() {
+        return this.date;
+    }
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("date")
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
 }

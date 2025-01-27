@@ -29,26 +29,83 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class Steps {
 
-    @JsonbProperty("completed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date completedAt;
 
-    @JsonbProperty("conclusion")
     private String conclusion;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("number")
     private Integer number;
 
-    @JsonbProperty("started_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date startedAt;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("completed_at")
+    public Date getCompletedAt() {
+        return this.completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public String getConclusion() {
+        return this.conclusion;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("number")
+    public Integer getNumber() {
+        return this.number;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("started_at")
+    public Date getStartedAt() {
+        return this.startedAt;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("completed_at")
+    public void setCompletedAt(Date completedAt) {
+        this.completedAt = completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public void setConclusion(String conclusion) {
+        this.conclusion = conclusion;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("number")
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    @JsonbProperty("started_at")
+    public void setStartedAt(Date startedAt) {
+        this.startedAt = startedAt;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public enum Status {
 

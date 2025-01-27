@@ -25,21 +25,66 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/protected-branch-pull-request-review")
+@ComponentId("protected-branch-pull-request-review")
 public class ProtectedBranchPullRequestReview {
 
-    @JsonbProperty("dismiss_stale_reviews")
     private Boolean dismissStaleReviews;
 
-    @JsonbProperty("dismissal_restrictions")
     private DismissalRestrictions dismissalRestrictions;
 
-    @JsonbProperty("require_code_owner_reviews")
     private Boolean requireCodeOwnerReviews;
 
-    @JsonbProperty("required_approving_review_count")
     private Integer requiredApprovingReviewCount;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("dismiss_stale_reviews")
+    public Boolean getDismissStaleReviews() {
+        return this.dismissStaleReviews;
+    }
+
+    @JsonbProperty("dismissal_restrictions")
+    public DismissalRestrictions getDismissalRestrictions() {
+        return this.dismissalRestrictions;
+    }
+
+    @JsonbProperty("require_code_owner_reviews")
+    public Boolean getRequireCodeOwnerReviews() {
+        return this.requireCodeOwnerReviews;
+    }
+
+    @JsonbProperty("required_approving_review_count")
+    public Integer getRequiredApprovingReviewCount() {
+        return this.requiredApprovingReviewCount;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("dismiss_stale_reviews")
+    public void setDismissStaleReviews(Boolean dismissStaleReviews) {
+        this.dismissStaleReviews = dismissStaleReviews;
+    }
+
+    @JsonbProperty("dismissal_restrictions")
+    public void setDismissalRestrictions(DismissalRestrictions dismissalRestrictions) {
+        this.dismissalRestrictions = dismissalRestrictions;
+    }
+
+    @JsonbProperty("require_code_owner_reviews")
+    public void setRequireCodeOwnerReviews(Boolean requireCodeOwnerReviews) {
+        this.requireCodeOwnerReviews = requireCodeOwnerReviews;
+    }
+
+    @JsonbProperty("required_approving_review_count")
+    public void setRequiredApprovingReviewCount(Integer requiredApprovingReviewCount) {
+        this.requiredApprovingReviewCount = requiredApprovingReviewCount;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

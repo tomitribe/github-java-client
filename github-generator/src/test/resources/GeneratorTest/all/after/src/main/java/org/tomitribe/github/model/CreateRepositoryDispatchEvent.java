@@ -28,10 +28,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateRepositoryDispatchEvent {
 
-    @JsonbProperty("client_payload")
     private Map<String, Object> clientPayload;
 
-    @JsonbProperty("event_type")
     private String eventType;
 
     @JsonbTransient
@@ -41,4 +39,48 @@ public class CreateRepositoryDispatchEvent {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("client_payload")
+    public Map<String, Object> getClientPayload() {
+        return this.clientPayload;
+    }
+
+    @JsonbProperty("event_type")
+    public String getEventType() {
+        return this.eventType;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("client_payload")
+    public void setClientPayload(Map<String, Object> clientPayload) {
+        this.clientPayload = clientPayload;
+    }
+
+    @JsonbProperty("event_type")
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

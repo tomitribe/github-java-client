@@ -27,17 +27,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateLabel {
 
-    @JsonbProperty("color")
     private String color;
 
-    @JsonbProperty("description")
     private String description;
 
     @JsonbTransient
     @PathParam("name")
     private String name;
 
-    @JsonbProperty("new_name")
     private String newName;
 
     @JsonbTransient
@@ -47,4 +44,70 @@ public class UpdateLabel {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("color")
+    public String getColor() {
+        return this.color;
+    }
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbTransient
+    @PathParam("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("new_name")
+    public String getNewName() {
+        return this.newName;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("color")
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbTransient
+    @PathParam("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("new_name")
+    public void setNewName(String newName) {
+        this.newName = newName;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

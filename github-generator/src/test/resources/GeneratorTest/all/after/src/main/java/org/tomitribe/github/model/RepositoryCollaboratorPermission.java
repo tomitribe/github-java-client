@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/repository-collaborator-permission")
+@ComponentId("repository-collaborator-permission")
 public class RepositoryCollaboratorPermission {
 
-    @JsonbProperty("permission")
     private String permission;
 
-    @JsonbProperty("user")
     private SimpleUser user;
+
+    @JsonbProperty("permission")
+    public String getPermission() {
+        return this.permission;
+    }
+
+    @JsonbProperty("user")
+    public SimpleUser getUser() {
+        return this.user;
+    }
+
+    @JsonbProperty("permission")
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
+    @JsonbProperty("user")
+    public void setUser(SimpleUser user) {
+        this.user = user;
+    }
 }

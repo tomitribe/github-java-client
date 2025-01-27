@@ -36,6 +36,39 @@ public class SetSelectedRepositoriesForOrganizationSecret {
     @PathParam("secret_name")
     private String secretName;
 
-    @JsonbProperty("selected_repository_ids")
     private List<Integer> selectedRepositoryIds;
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public String getSecretName() {
+        return this.secretName;
+    }
+
+    @JsonbProperty("selected_repository_ids")
+    public List<Integer> getSelectedRepositoryIds() {
+        return this.selectedRepositoryIds;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public void setSecretName(String secretName) {
+        this.secretName = secretName;
+    }
+
+    @JsonbProperty("selected_repository_ids")
+    public void setSelectedRepositoryIds(List<Integer> selectedRepositoryIds) {
+        this.selectedRepositoryIds = selectedRepositoryIds;
+    }
 }

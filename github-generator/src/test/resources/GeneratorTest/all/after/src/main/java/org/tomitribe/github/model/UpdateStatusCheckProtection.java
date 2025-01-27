@@ -32,7 +32,6 @@ public class UpdateStatusCheckProtection {
     @PathParam("branch")
     private String branch;
 
-    @JsonbProperty("contexts")
     private List<String> contexts;
 
     @JsonbTransient
@@ -43,6 +42,61 @@ public class UpdateStatusCheckProtection {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("strict")
     private Boolean strict;
+
+    @JsonbTransient
+    @PathParam("branch")
+    public String getBranch() {
+        return this.branch;
+    }
+
+    @JsonbProperty("contexts")
+    public List<String> getContexts() {
+        return this.contexts;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("strict")
+    public Boolean getStrict() {
+        return this.strict;
+    }
+
+    @JsonbTransient
+    @PathParam("branch")
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    @JsonbProperty("contexts")
+    public void setContexts(List<String> contexts) {
+        this.contexts = contexts;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("strict")
+    public void setStrict(Boolean strict) {
+        this.strict = strict;
+    }
 }

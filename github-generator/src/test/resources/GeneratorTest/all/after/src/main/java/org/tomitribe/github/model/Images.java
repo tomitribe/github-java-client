@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Images {
 
-    @JsonbProperty("alt")
     private String alt;
 
-    @JsonbProperty("caption")
     private String caption;
 
-    @JsonbProperty("image_url")
     private String imageUrl;
+
+    @JsonbProperty("alt")
+    public String getAlt() {
+        return this.alt;
+    }
+
+    @JsonbProperty("caption")
+    public String getCaption() {
+        return this.caption;
+    }
+
+    @JsonbProperty("image_url")
+    public String getImageUrl() {
+        return this.imageUrl;
+    }
+
+    @JsonbProperty("alt")
+    public void setAlt(String alt) {
+        this.alt = alt;
+    }
+
+    @JsonbProperty("caption")
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    @JsonbProperty("image_url")
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 }

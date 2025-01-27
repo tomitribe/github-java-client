@@ -31,6 +31,27 @@ public class UpdateExistingProjectColumn {
     @PathParam("column_id")
     private Integer columnId;
 
-    @JsonbProperty("name")
     private String name;
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public Integer getColumnId() {
+        return this.columnId;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("column_id")
+    public void setColumnId(Integer columnId) {
+        this.columnId = columnId;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
 }

@@ -27,18 +27,46 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/team-membership")
+@ComponentId("team-membership")
 public class TeamMembership {
 
-    @JsonbProperty("role")
     @JsonbTypeAdapter(RoleAdapter.class)
     private Role role;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbProperty("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum Role {
 

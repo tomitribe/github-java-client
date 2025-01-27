@@ -27,12 +27,39 @@ import org.tomitribe.github.core.ComponentId;
 @ComponentId("#/components/responses/service_unavailable")
 public class ServiceUnavailable {
 
-    @JsonbProperty("code")
     private String code;
 
-    @JsonbProperty("documentation_url")
     private String documentationUrl;
 
-    @JsonbProperty("message")
     private String message;
+
+    @JsonbProperty("code")
+    public String getCode() {
+        return this.code;
+    }
+
+    @JsonbProperty("documentation_url")
+    public String getDocumentationUrl() {
+        return this.documentationUrl;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("code")
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    @JsonbProperty("documentation_url")
+    public void setDocumentationUrl(String documentationUrl) {
+        this.documentationUrl = documentationUrl;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

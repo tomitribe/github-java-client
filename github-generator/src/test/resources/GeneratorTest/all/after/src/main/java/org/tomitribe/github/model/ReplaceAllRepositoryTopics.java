@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReplaceAllRepositoryTopics {
 
-    @JsonbProperty("names")
     private List<String> names;
 
     @JsonbTransient
@@ -38,4 +37,38 @@ public class ReplaceAllRepositoryTopics {
     @JsonbTransient
     @PathParam("repo")
     private String repo;
+
+    @JsonbProperty("names")
+    public List<String> getNames() {
+        return this.names;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("names")
+    public void setNames(List<String> names) {
+        this.names = names;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
 }

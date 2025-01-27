@@ -27,13 +27,43 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateExistingProjectCard {
 
-    @JsonbProperty("archived")
     private Boolean archived;
 
     @JsonbTransient
     @PathParam("card_id")
     private Integer cardId;
 
-    @JsonbProperty("note")
     private String note;
+
+    @JsonbProperty("archived")
+    public Boolean getArchived() {
+        return this.archived;
+    }
+
+    @JsonbTransient
+    @PathParam("card_id")
+    public Integer getCardId() {
+        return this.cardId;
+    }
+
+    @JsonbProperty("note")
+    public String getNote() {
+        return this.note;
+    }
+
+    @JsonbProperty("archived")
+    public void setArchived(Boolean archived) {
+        this.archived = archived;
+    }
+
+    @JsonbTransient
+    @PathParam("card_id")
+    public void setCardId(Integer cardId) {
+        this.cardId = cardId;
+    }
+
+    @JsonbProperty("note")
+    public void setNote(String note) {
+        this.note = note;
+    }
 }

@@ -30,10 +30,8 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateOrUpdateOrganizationSecret {
 
-    @JsonbProperty("encrypted_value")
     private String encryptedValue;
 
-    @JsonbProperty("key_id")
     private String keyId;
 
     @JsonbTransient
@@ -44,12 +42,75 @@ public class CreateOrUpdateOrganizationSecret {
     @PathParam("secret_name")
     private String secretName;
 
-    @JsonbProperty("selected_repository_ids")
     private List<String> selectedRepositoryIds;
 
-    @JsonbProperty("visibility")
     @JsonbTypeAdapter(VisibilityAdapter.class)
     private Visibility visibility;
+
+    @JsonbProperty("encrypted_value")
+    public String getEncryptedValue() {
+        return this.encryptedValue;
+    }
+
+    @JsonbProperty("key_id")
+    public String getKeyId() {
+        return this.keyId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public String getSecretName() {
+        return this.secretName;
+    }
+
+    @JsonbProperty("selected_repository_ids")
+    public List<String> getSelectedRepositoryIds() {
+        return this.selectedRepositoryIds;
+    }
+
+    @JsonbTypeAdapter(VisibilityAdapter.class)
+    @JsonbProperty("visibility")
+    public Visibility getVisibility() {
+        return this.visibility;
+    }
+
+    @JsonbProperty("encrypted_value")
+    public void setEncryptedValue(String encryptedValue) {
+        this.encryptedValue = encryptedValue;
+    }
+
+    @JsonbProperty("key_id")
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbTransient
+    @PathParam("secret_name")
+    public void setSecretName(String secretName) {
+        this.secretName = secretName;
+    }
+
+    @JsonbProperty("selected_repository_ids")
+    public void setSelectedRepositoryIds(List<String> selectedRepositoryIds) {
+        this.selectedRepositoryIds = selectedRepositoryIds;
+    }
+
+    @JsonbProperty("visibility")
+    public void setVisibility(Visibility visibility) {
+        this.visibility = visibility;
+    }
 
     public enum Visibility {
 

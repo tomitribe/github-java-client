@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Block {
 
-    @JsonbProperty("created_at")
     private String createdAt;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("reason")
     private String reason;
+
+    @JsonbProperty("created_at")
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("reason")
+    public String getReason() {
+        return this.reason;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("reason")
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
 }

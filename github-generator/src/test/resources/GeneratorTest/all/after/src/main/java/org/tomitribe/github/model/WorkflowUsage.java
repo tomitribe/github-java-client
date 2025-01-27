@@ -24,9 +24,18 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/workflow-usage")
+@ComponentId("workflow-usage")
 public class WorkflowUsage {
 
-    @JsonbProperty("billable")
     private Billable billable;
+
+    @JsonbProperty("billable")
+    public Billable getBillable() {
+        return this.billable;
+    }
+
+    @JsonbProperty("billable")
+    public void setBillable(Billable billable) {
+        this.billable = billable;
+    }
 }

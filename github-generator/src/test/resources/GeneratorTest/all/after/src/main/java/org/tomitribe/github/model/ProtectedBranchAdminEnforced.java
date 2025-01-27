@@ -25,12 +25,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/protected-branch-admin-enforced")
+@ComponentId("protected-branch-admin-enforced")
 public class ProtectedBranchAdminEnforced {
 
-    @JsonbProperty("enabled")
     private Boolean enabled;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("enabled")
+    public Boolean getEnabled() {
+        return this.enabled;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("enabled")
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

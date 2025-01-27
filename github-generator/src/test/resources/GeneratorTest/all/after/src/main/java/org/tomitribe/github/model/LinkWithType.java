@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/link-with-type")
+@ComponentId("link-with-type")
 public class LinkWithType {
 
-    @JsonbProperty("href")
     private String href;
 
-    @JsonbProperty("type")
     private String type;
+
+    @JsonbProperty("href")
+    public String getHref() {
+        return this.href;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("href")
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
 }

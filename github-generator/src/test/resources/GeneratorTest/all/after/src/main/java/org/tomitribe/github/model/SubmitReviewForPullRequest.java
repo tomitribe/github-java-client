@@ -29,10 +29,8 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class SubmitReviewForPullRequest {
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("event")
     @JsonbTypeAdapter(EventAdapter.class)
     private Event event;
 
@@ -51,6 +49,75 @@ public class SubmitReviewForPullRequest {
     @JsonbTransient
     @PathParam("review_id")
     private Integer reviewId;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbTypeAdapter(EventAdapter.class)
+    @JsonbProperty("event")
+    public Event getEvent() {
+        return this.event;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public Integer getPullNumber() {
+        return this.pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("review_id")
+    public Integer getReviewId() {
+        return this.reviewId;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("event")
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("pull-number")
+    public void setPullNumber(Integer pullNumber) {
+        this.pullNumber = pullNumber;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("review_id")
+    public void setReviewId(Integer reviewId) {
+        this.reviewId = reviewId;
+    }
 
     public enum Event {
 

@@ -24,12 +24,30 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/issue-event-rename")
+@ComponentId("issue-event-rename")
 public class IssueEventRename {
 
-    @JsonbProperty("from")
     private String from;
 
-    @JsonbProperty("to")
     private String to;
+
+    @JsonbProperty("from")
+    public String getFrom() {
+        return this.from;
+    }
+
+    @JsonbProperty("to")
+    public String getTo() {
+        return this.to;
+    }
+
+    @JsonbProperty("from")
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    @JsonbProperty("to")
+    public void setTo(String to) {
+        this.to = to;
+    }
 }

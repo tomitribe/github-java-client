@@ -25,24 +25,78 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/scim-error")
+@ComponentId("scim-error")
 public class ScimError {
 
-    @JsonbProperty("detail")
     private String detail;
 
-    @JsonbProperty("documentation_url")
     private String documentationUrl;
 
-    @JsonbProperty("message")
     private String message;
 
-    @JsonbProperty("schemas")
     private List<String> schemas;
 
-    @JsonbProperty("scimType")
     private String scimType;
 
-    @JsonbProperty("status")
     private Integer status;
+
+    @JsonbProperty("detail")
+    public String getDetail() {
+        return this.detail;
+    }
+
+    @JsonbProperty("documentation_url")
+    public String getDocumentationUrl() {
+        return this.documentationUrl;
+    }
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("schemas")
+    public List<String> getSchemas() {
+        return this.schemas;
+    }
+
+    @JsonbProperty("scimType")
+    public String getScimType() {
+        return this.scimType;
+    }
+
+    @JsonbProperty("status")
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("detail")
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    @JsonbProperty("documentation_url")
+    public void setDocumentationUrl(String documentationUrl) {
+        this.documentationUrl = documentationUrl;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    @JsonbProperty("schemas")
+    public void setSchemas(List<String> schemas) {
+        this.schemas = schemas;
+    }
+
+    @JsonbProperty("scimType")
+    public void setScimType(String scimType) {
+        this.scimType = scimType;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 }

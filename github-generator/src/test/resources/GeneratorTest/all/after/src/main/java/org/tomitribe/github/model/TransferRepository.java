@@ -28,7 +28,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TransferRepository {
 
-    @JsonbProperty("new_owner")
     private String newOwner;
 
     @JsonbTransient
@@ -39,6 +38,49 @@ public class TransferRepository {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("team_ids")
     private List<Integer> teamIds;
+
+    @JsonbProperty("new_owner")
+    public String getNewOwner() {
+        return this.newOwner;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("team_ids")
+    public List<Integer> getTeamIds() {
+        return this.teamIds;
+    }
+
+    @JsonbProperty("new_owner")
+    public void setNewOwner(String newOwner) {
+        this.newOwner = newOwner;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("team_ids")
+    public void setTeamIds(List<Integer> teamIds) {
+        this.teamIds = teamIds;
+    }
 }

@@ -28,28 +28,91 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class Tree {
 
-    @JsonbProperty("content")
     private String content;
 
-    @JsonbProperty("mode")
     @JsonbTypeAdapter(ModeAdapter.class)
     private Mode mode;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("size")
     private Integer size;
 
-    @JsonbProperty("type")
     @JsonbTypeAdapter(TypeAdapter.class)
     private Type type;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("mode")
+    public String getMode() {
+        return this.mode;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @JsonbProperty("mode")
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("size")
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 
     public enum Mode {
 

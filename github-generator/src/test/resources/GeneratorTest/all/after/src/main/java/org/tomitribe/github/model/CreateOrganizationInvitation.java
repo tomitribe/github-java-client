@@ -30,22 +30,71 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class CreateOrganizationInvitation {
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("invitee_id")
     private Integer inviteeId;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
 
-    @JsonbProperty("role")
     @JsonbTypeAdapter(RoleAdapter.class)
     private Role role;
 
-    @JsonbProperty("team_ids")
     private List<Integer> teamIds;
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("invitee_id")
+    public Integer getInviteeId() {
+        return this.inviteeId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbTypeAdapter(RoleAdapter.class)
+    @JsonbProperty("role")
+    public Role getRole() {
+        return this.role;
+    }
+
+    @JsonbProperty("team_ids")
+    public List<Integer> getTeamIds() {
+        return this.teamIds;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("invitee_id")
+    public void setInviteeId(Integer inviteeId) {
+        this.inviteeId = inviteeId;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
+
+    @JsonbProperty("role")
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @JsonbProperty("team_ids")
+    public void setTeamIds(List<Integer> teamIds) {
+        this.teamIds = teamIds;
+    }
 
     public enum Role {
 

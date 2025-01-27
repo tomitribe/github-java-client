@@ -26,31 +26,104 @@ import org.tomitribe.github.core.DateAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/key")
+@ComponentId("key")
 public class Key {
 
-    @JsonbProperty("created_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date createdAt;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("key")
     private String key;
 
-    @JsonbProperty("key_id")
     private String keyId;
 
-    @JsonbProperty("read_only")
     private Boolean readOnly;
 
-    @JsonbProperty("title")
     private String title;
 
-    @JsonbProperty("url")
     private String url;
 
-    @JsonbProperty("verified")
     private Boolean verified;
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("created_at")
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("key")
+    public String getKey() {
+        return this.key;
+    }
+
+    @JsonbProperty("key_id")
+    public String getKeyId() {
+        return this.keyId;
+    }
+
+    @JsonbProperty("read_only")
+    public Boolean getReadOnly() {
+        return this.readOnly;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("verified")
+    public Boolean getVerified() {
+        return this.verified;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("key")
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    @JsonbProperty("key_id")
+    public void setKeyId(String keyId) {
+        this.keyId = keyId;
+    }
+
+    @JsonbProperty("read_only")
+    public void setReadOnly(Boolean readOnly) {
+        this.readOnly = readOnly;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @JsonbProperty("verified")
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
 }

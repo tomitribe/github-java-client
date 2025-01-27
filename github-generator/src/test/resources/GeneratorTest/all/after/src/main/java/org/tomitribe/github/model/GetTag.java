@@ -37,4 +37,40 @@ public class GetTag {
     @JsonbTransient
     @PathParam("tag_sha")
     private String tagSha;
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbTransient
+    @PathParam("tag_sha")
+    public String getTagSha() {
+        return this.tagSha;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbTransient
+    @PathParam("tag_sha")
+    public void setTagSha(String tagSha) {
+        this.tagSha = tagSha;
+    }
 }

@@ -25,33 +25,114 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/protected-branch")
+@ComponentId("protected-branch")
 public class ProtectedBranch {
 
-    @JsonbProperty("allow_deletions")
     private AllowDeletions allowDeletions;
 
-    @JsonbProperty("allow_force_pushes")
     private AllowForcePushes allowForcePushes;
 
-    @JsonbProperty("enforce_admins")
     private EnforceAdmins enforceAdmins;
 
-    @JsonbProperty("required_linear_history")
     private RequiredLinearHistory requiredLinearHistory;
 
-    @JsonbProperty("required_pull_request_reviews")
     private RequiredPullRequestReviews requiredPullRequestReviews;
 
-    @JsonbProperty("required_signatures")
     private RequiredSignatures requiredSignatures;
 
-    @JsonbProperty("required_status_checks")
     private StatusCheckPolicy requiredStatusChecks;
 
-    @JsonbProperty("restrictions")
     private BranchRestrictionPolicy restrictions;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("allow_deletions")
+    public AllowDeletions getAllowDeletions() {
+        return this.allowDeletions;
+    }
+
+    @JsonbProperty("allow_force_pushes")
+    public AllowForcePushes getAllowForcePushes() {
+        return this.allowForcePushes;
+    }
+
+    @JsonbProperty("enforce_admins")
+    public EnforceAdmins getEnforceAdmins() {
+        return this.enforceAdmins;
+    }
+
+    @JsonbProperty("required_linear_history")
+    public RequiredLinearHistory getRequiredLinearHistory() {
+        return this.requiredLinearHistory;
+    }
+
+    @JsonbProperty("required_pull_request_reviews")
+    public RequiredPullRequestReviews getRequiredPullRequestReviews() {
+        return this.requiredPullRequestReviews;
+    }
+
+    @JsonbProperty("required_signatures")
+    public RequiredSignatures getRequiredSignatures() {
+        return this.requiredSignatures;
+    }
+
+    @JsonbProperty("required_status_checks")
+    public StatusCheckPolicy getRequiredStatusChecks() {
+        return this.requiredStatusChecks;
+    }
+
+    @JsonbProperty("restrictions")
+    public BranchRestrictionPolicy getRestrictions() {
+        return this.restrictions;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("allow_deletions")
+    public void setAllowDeletions(AllowDeletions allowDeletions) {
+        this.allowDeletions = allowDeletions;
+    }
+
+    @JsonbProperty("allow_force_pushes")
+    public void setAllowForcePushes(AllowForcePushes allowForcePushes) {
+        this.allowForcePushes = allowForcePushes;
+    }
+
+    @JsonbProperty("enforce_admins")
+    public void setEnforceAdmins(EnforceAdmins enforceAdmins) {
+        this.enforceAdmins = enforceAdmins;
+    }
+
+    @JsonbProperty("required_linear_history")
+    public void setRequiredLinearHistory(RequiredLinearHistory requiredLinearHistory) {
+        this.requiredLinearHistory = requiredLinearHistory;
+    }
+
+    @JsonbProperty("required_pull_request_reviews")
+    public void setRequiredPullRequestReviews(RequiredPullRequestReviews requiredPullRequestReviews) {
+        this.requiredPullRequestReviews = requiredPullRequestReviews;
+    }
+
+    @JsonbProperty("required_signatures")
+    public void setRequiredSignatures(RequiredSignatures requiredSignatures) {
+        this.requiredSignatures = requiredSignatures;
+    }
+
+    @JsonbProperty("required_status_checks")
+    public void setRequiredStatusChecks(StatusCheckPolicy requiredStatusChecks) {
+        this.requiredStatusChecks = requiredStatusChecks;
+    }
+
+    @JsonbProperty("restrictions")
+    public void setRestrictions(BranchRestrictionPolicy restrictions) {
+        this.restrictions = restrictions;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

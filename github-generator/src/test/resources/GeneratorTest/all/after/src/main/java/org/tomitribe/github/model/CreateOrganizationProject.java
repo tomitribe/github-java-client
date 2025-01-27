@@ -27,13 +27,43 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateOrganizationProject {
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("org")
     private String org;
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public String getOrg() {
+        return this.org;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("org")
+    public void setOrg(String org) {
+        this.org = org;
+    }
 }

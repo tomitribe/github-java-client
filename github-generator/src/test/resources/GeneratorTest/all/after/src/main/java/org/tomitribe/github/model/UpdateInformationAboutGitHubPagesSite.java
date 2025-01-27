@@ -27,7 +27,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateInformationAboutGitHubPagesSite {
 
-    @JsonbProperty("cname")
     private String cname;
 
     @JsonbTransient
@@ -38,6 +37,49 @@ public class UpdateInformationAboutGitHubPagesSite {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("source")
     private Object source;
+
+    @JsonbProperty("cname")
+    public String getCname() {
+        return this.cname;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("source")
+    public Object getSource() {
+        return this.source;
+    }
+
+    @JsonbProperty("cname")
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("source")
+    public void setSource(Object source) {
+        this.source = source;
+    }
 }

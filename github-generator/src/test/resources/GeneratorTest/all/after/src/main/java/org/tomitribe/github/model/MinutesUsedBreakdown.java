@@ -25,12 +25,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MinutesUsedBreakdown {
 
-    @JsonbProperty("MACOS")
     private Integer mACOS;
 
-    @JsonbProperty("UBUNTU")
     private Integer uBUNTU;
 
-    @JsonbProperty("WINDOWS")
     private Integer wINDOWS;
+
+    @JsonbProperty("MACOS")
+    public Integer getMACOS() {
+        return this.mACOS;
+    }
+
+    @JsonbProperty("UBUNTU")
+    public Integer getUBUNTU() {
+        return this.uBUNTU;
+    }
+
+    @JsonbProperty("WINDOWS")
+    public Integer getWINDOWS() {
+        return this.wINDOWS;
+    }
+
+    @JsonbProperty("MACOS")
+    public void setMACOS(Integer mACOS) {
+        this.mACOS = mACOS;
+    }
+
+    @JsonbProperty("UBUNTU")
+    public void setUBUNTU(Integer uBUNTU) {
+        this.uBUNTU = uBUNTU;
+    }
+
+    @JsonbProperty("WINDOWS")
+    public void setWINDOWS(Integer wINDOWS) {
+        this.wINDOWS = wINDOWS;
+    }
 }

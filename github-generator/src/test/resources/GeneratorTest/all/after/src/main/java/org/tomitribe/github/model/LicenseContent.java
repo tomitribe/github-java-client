@@ -25,45 +25,162 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/license-content")
+@ComponentId("license-content")
 public class LicenseContent {
 
-    @JsonbProperty("content")
     private String content;
 
-    @JsonbProperty("download_url")
     private URI downloadUrl;
 
-    @JsonbProperty("encoding")
     private String encoding;
 
-    @JsonbProperty("git_url")
     private URI gitUrl;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("license")
     private LicenseSimple license;
 
-    @JsonbProperty("_links")
     private Links links;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("path")
     private String path;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("size")
     private Integer size;
 
-    @JsonbProperty("type")
     private String type;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("download_url")
+    public URI getDownloadUrl() {
+        return this.downloadUrl;
+    }
+
+    @JsonbProperty("encoding")
+    public String getEncoding() {
+        return this.encoding;
+    }
+
+    @JsonbProperty("git_url")
+    public URI getGitUrl() {
+        return this.gitUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("license")
+    public LicenseSimple getLicense() {
+        return this.license;
+    }
+
+    @JsonbProperty("_links")
+    public Links getLinks() {
+        return this.links;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("path")
+    public String getPath() {
+        return this.path;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("size")
+    public Integer getSize() {
+        return this.size;
+    }
+
+    @JsonbProperty("type")
+    public String getType() {
+        return this.type;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    @JsonbProperty("download_url")
+    public void setDownloadUrl(URI downloadUrl) {
+        this.downloadUrl = downloadUrl;
+    }
+
+    @JsonbProperty("encoding")
+    public void setEncoding(String encoding) {
+        this.encoding = encoding;
+    }
+
+    @JsonbProperty("git_url")
+    public void setGitUrl(URI gitUrl) {
+        this.gitUrl = gitUrl;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("license")
+    public void setLicense(LicenseSimple license) {
+        this.license = license;
+    }
+
+    @JsonbProperty("_links")
+    public void setLinks(Links links) {
+        this.links = links;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("path")
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("size")
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    @JsonbProperty("type")
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

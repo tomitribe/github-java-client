@@ -25,6 +25,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Error {
 
-    @JsonbProperty("message")
     private String message;
+
+    @JsonbProperty("message")
+    public String getMessage() {
+        return this.message;
+    }
+
+    @JsonbProperty("message")
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

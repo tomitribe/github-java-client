@@ -25,15 +25,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Emails {
 
-    @JsonbProperty("email")
     private String email;
 
-    @JsonbProperty("primary")
     private Boolean primary;
 
-    @JsonbProperty("value")
     private String value;
 
-    @JsonbProperty("verified")
     private Boolean verified;
+
+    @JsonbProperty("email")
+    public String getEmail() {
+        return this.email;
+    }
+
+    @JsonbProperty("primary")
+    public Boolean getPrimary() {
+        return this.primary;
+    }
+
+    @JsonbProperty("value")
+    public String getValue() {
+        return this.value;
+    }
+
+    @JsonbProperty("verified")
+    public Boolean getVerified() {
+        return this.verified;
+    }
+
+    @JsonbProperty("email")
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @JsonbProperty("primary")
+    public void setPrimary(Boolean primary) {
+        this.primary = primary;
+    }
+
+    @JsonbProperty("value")
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @JsonbProperty("verified")
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
+    }
 }

@@ -33,4 +33,28 @@ public class CheckAuthorization {
     @JsonbTransient
     @PathParam("client-id")
     private String clientId;
+
+    @JsonbTransient
+    @PathParam("access-token")
+    public String getAccessToken() {
+        return this.accessToken;
+    }
+
+    @JsonbTransient
+    @PathParam("client-id")
+    public String getClientId() {
+        return this.clientId;
+    }
+
+    @JsonbTransient
+    @PathParam("access-token")
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
+    @JsonbTransient
+    @PathParam("client-id")
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 }

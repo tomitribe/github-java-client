@@ -24,9 +24,18 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/link")
+@ComponentId("link")
 public class Link {
 
-    @JsonbProperty("href")
     private String href;
+
+    @JsonbProperty("href")
+    public String getHref() {
+        return this.href;
+    }
+
+    @JsonbProperty("href")
+    public void setHref(String href) {
+        this.href = href;
+    }
 }

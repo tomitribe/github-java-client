@@ -33,4 +33,28 @@ public class ListPublicRepositories {
     @JsonbTransient
     @QueryParam("visibility")
     private String visibility;
+
+    @JsonbTransient
+    @QueryParam("since")
+    public String getSince() {
+        return this.since;
+    }
+
+    @JsonbTransient
+    @QueryParam("visibility")
+    public String getVisibility() {
+        return this.visibility;
+    }
+
+    @JsonbTransient
+    @QueryParam("since")
+    public void setSince(String since) {
+        this.since = since;
+    }
+
+    @JsonbTransient
+    @QueryParam("visibility")
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
+    }
 }

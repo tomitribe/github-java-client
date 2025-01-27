@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class WorkflowRunsPage {
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
 
-    @JsonbProperty("workflow_runs")
     private List<WorkflowRun> workflowRuns;
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("workflow_runs")
+    public List<WorkflowRun> getWorkflowRuns() {
+        return this.workflowRuns;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    @JsonbProperty("workflow_runs")
+    public void setWorkflowRuns(List<WorkflowRun> workflowRuns) {
+        this.workflowRuns = workflowRuns;
+    }
 }

@@ -27,10 +27,31 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateProjectColumn {
 
-    @JsonbProperty("name")
     private String name;
 
     @JsonbTransient
     @PathParam("project-id")
     private Integer projectId;
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public Integer getProjectId() {
+        return this.projectId;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbTransient
+    @PathParam("project-id")
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
+    }
 }

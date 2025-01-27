@@ -26,27 +26,90 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/combined-commit-status")
+@ComponentId("combined-commit-status")
 public class CombinedCommitStatus {
 
-    @JsonbProperty("commit_url")
     private URI commitUrl;
 
-    @JsonbProperty("repository")
     private MinimalRepository repository;
 
-    @JsonbProperty("sha")
     private String sha;
 
-    @JsonbProperty("state")
     private String state;
 
-    @JsonbProperty("statuses")
     private List<SimpleCommitStatus> statuses;
 
-    @JsonbProperty("total_count")
     private Integer totalCount;
 
-    @JsonbProperty("url")
     private URI url;
+
+    @JsonbProperty("commit_url")
+    public URI getCommitUrl() {
+        return this.commitUrl;
+    }
+
+    @JsonbProperty("repository")
+    public MinimalRepository getRepository() {
+        return this.repository;
+    }
+
+    @JsonbProperty("sha")
+    public String getSha() {
+        return this.sha;
+    }
+
+    @JsonbProperty("state")
+    public String getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("statuses")
+    public List<SimpleCommitStatus> getStatuses() {
+        return this.statuses;
+    }
+
+    @JsonbProperty("total_count")
+    public Integer getTotalCount() {
+        return this.totalCount;
+    }
+
+    @JsonbProperty("url")
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("commit_url")
+    public void setCommitUrl(URI commitUrl) {
+        this.commitUrl = commitUrl;
+    }
+
+    @JsonbProperty("repository")
+    public void setRepository(MinimalRepository repository) {
+        this.repository = repository;
+    }
+
+    @JsonbProperty("sha")
+    public void setSha(String sha) {
+        this.sha = sha;
+    }
+
+    @JsonbProperty("state")
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    @JsonbProperty("statuses")
+    public void setStatuses(List<SimpleCommitStatus> statuses) {
+        this.statuses = statuses;
+    }
+
+    @JsonbProperty("total_count")
+    public void setTotalCount(Integer totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

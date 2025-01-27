@@ -29,53 +29,182 @@ import org.tomitribe.github.core.EnumAdapter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/job")
+@ComponentId("job")
 public class Job {
 
-    @JsonbProperty("check_run_url")
     private String checkRunUrl;
 
-    @JsonbProperty("completed_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date completedAt;
 
-    @JsonbProperty("conclusion")
     private String conclusion;
 
-    @JsonbProperty("head_sha")
     private String headSha;
 
-    @JsonbProperty("html_url")
     private String htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("name")
     private String name;
 
-    @JsonbProperty("node_id")
     private String nodeId;
 
-    @JsonbProperty("run_id")
     private Integer runId;
 
-    @JsonbProperty("run_url")
     private String runUrl;
 
-    @JsonbProperty("started_at")
     @JsonbTypeAdapter(DateAdapter.class)
     private Date startedAt;
 
-    @JsonbProperty("status")
     @JsonbTypeAdapter(StatusAdapter.class)
     private Status status;
 
-    @JsonbProperty("steps")
     private List<Steps> steps;
 
-    @JsonbProperty("url")
     private String url;
+
+    @JsonbProperty("check_run_url")
+    public String getCheckRunUrl() {
+        return this.checkRunUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("completed_at")
+    public Date getCompletedAt() {
+        return this.completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public String getConclusion() {
+        return this.conclusion;
+    }
+
+    @JsonbProperty("head_sha")
+    public String getHeadSha() {
+        return this.headSha;
+    }
+
+    @JsonbProperty("html_url")
+    public String getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("name")
+    public String getName() {
+        return this.name;
+    }
+
+    @JsonbProperty("node_id")
+    public String getNodeId() {
+        return this.nodeId;
+    }
+
+    @JsonbProperty("run_id")
+    public Integer getRunId() {
+        return this.runId;
+    }
+
+    @JsonbProperty("run_url")
+    public String getRunUrl() {
+        return this.runUrl;
+    }
+
+    @JsonbTypeAdapter(DateAdapter.class)
+    @JsonbProperty("started_at")
+    public Date getStartedAt() {
+        return this.startedAt;
+    }
+
+    @JsonbTypeAdapter(StatusAdapter.class)
+    @JsonbProperty("status")
+    public Status getStatus() {
+        return this.status;
+    }
+
+    @JsonbProperty("steps")
+    public List<Steps> getSteps() {
+        return this.steps;
+    }
+
+    @JsonbProperty("url")
+    public String getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("check_run_url")
+    public void setCheckRunUrl(String checkRunUrl) {
+        this.checkRunUrl = checkRunUrl;
+    }
+
+    @JsonbProperty("completed_at")
+    public void setCompletedAt(Date completedAt) {
+        this.completedAt = completedAt;
+    }
+
+    @JsonbProperty("conclusion")
+    public void setConclusion(String conclusion) {
+        this.conclusion = conclusion;
+    }
+
+    @JsonbProperty("head_sha")
+    public void setHeadSha(String headSha) {
+        this.headSha = headSha;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("name")
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @JsonbProperty("node_id")
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    @JsonbProperty("run_id")
+    public void setRunId(Integer runId) {
+        this.runId = runId;
+    }
+
+    @JsonbProperty("run_url")
+    public void setRunUrl(String runUrl) {
+        this.runUrl = runUrl;
+    }
+
+    @JsonbProperty("started_at")
+    public void setStartedAt(Date startedAt) {
+        this.startedAt = startedAt;
+    }
+
+    @JsonbProperty("status")
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @JsonbProperty("steps")
+    public void setSteps(List<Steps> steps) {
+        this.steps = steps;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public enum Status {
 

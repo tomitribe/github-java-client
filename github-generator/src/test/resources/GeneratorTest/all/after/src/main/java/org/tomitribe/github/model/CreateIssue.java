@@ -28,19 +28,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateIssue {
 
-    @JsonbProperty("assignee")
     private String assignee;
 
-    @JsonbProperty("assignees")
     private List<String> assignees;
 
-    @JsonbProperty("body")
     private String body;
 
-    @JsonbProperty("labels")
     private List<Object> labels;
 
-    @JsonbProperty("milestone")
     private Integer milestone;
 
     @JsonbTransient
@@ -51,6 +46,89 @@ public class CreateIssue {
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("title")
     private String title;
+
+    @JsonbProperty("assignee")
+    public String getAssignee() {
+        return this.assignee;
+    }
+
+    @JsonbProperty("assignees")
+    public List<String> getAssignees() {
+        return this.assignees;
+    }
+
+    @JsonbProperty("body")
+    public String getBody() {
+        return this.body;
+    }
+
+    @JsonbProperty("labels")
+    public List<Object> getLabels() {
+        return this.labels;
+    }
+
+    @JsonbProperty("milestone")
+    public Integer getMilestone() {
+        return this.milestone;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("title")
+    public String getTitle() {
+        return this.title;
+    }
+
+    @JsonbProperty("assignee")
+    public void setAssignee(String assignee) {
+        this.assignee = assignee;
+    }
+
+    @JsonbProperty("assignees")
+    public void setAssignees(List<String> assignees) {
+        this.assignees = assignees;
+    }
+
+    @JsonbProperty("body")
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @JsonbProperty("labels")
+    public void setLabels(List<Object> labels) {
+        this.labels = labels;
+    }
+
+    @JsonbProperty("milestone")
+    public void setMilestone(Integer milestone) {
+        this.milestone = milestone;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("title")
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }
