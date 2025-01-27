@@ -135,6 +135,8 @@ public class Scenarios {
                         Function.identity()             // Value mapper: uses the ExampleReference object itself
                 ));
 
+        if (openApi.getComponents() == null) return;
+        if (openApi.getComponents().getExamples() == null) return;
         final Map<String, Example> examples = openApi.getComponents().getExamples();
 
         for (final Map.Entry<String, ? extends Class<?>> entry : components.entrySet()) {

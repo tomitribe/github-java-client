@@ -111,6 +111,7 @@ public class ComponentIndex {
     }
 
     private Map<String, Object> indexExamples(final ModelGenerator modelGenerator, final OpenApi openApi) {
+        if (openApi.getComponents() == null) return Collections.EMPTY_MAP;
         if (openApi.getComponents().getExamples() == null) return Collections.EMPTY_MAP;
 
         final Map<String, Object> map = new HashMap<>();
@@ -124,6 +125,7 @@ public class ComponentIndex {
     }
 
     private Map<String, Field> indexParameters(final ModelGenerator modelGenerator, final OpenApi openApi) {
+        if (openApi.getComponents() == null) return Collections.EMPTY_MAP;
         if (openApi.getComponents().getParameters() == null) return Collections.EMPTY_MAP;
 
         final Map<String, Field> map = new HashMap<>();
@@ -144,6 +146,7 @@ public class ComponentIndex {
     }
 
     private Map<String, Clazz> indexResponses(final ModelGenerator modelGenerator, final OpenApi openApi) {
+        if (openApi.getComponents() == null) return Collections.EMPTY_MAP;
         if (openApi.getComponents().getResponses() == null) return Collections.EMPTY_MAP;
 
         final Map<String, Clazz> map = new HashMap<>();
@@ -170,6 +173,7 @@ public class ComponentIndex {
     }
 
     private Map<String, Clazz> indexSchemas(final ModelGenerator modelGenerator, final OpenApi openApi) {
+        if (openApi.getComponents() == null) return Collections.EMPTY_MAP;
         if (openApi.getComponents().getSchemas() == null) return Collections.EMPTY_MAP;
 
         final Map<String, Clazz> map = new HashMap<>();

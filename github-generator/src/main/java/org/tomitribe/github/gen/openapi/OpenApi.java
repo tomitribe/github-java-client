@@ -122,9 +122,11 @@ public class OpenApi {
                 });
 
         // Tell every Schema in componets what its name is in the map
-        final Map<String, Schema> schemas = openApi.getComponents().getSchemas();
-        for (final Map.Entry<String, Schema> entry : schemas.entrySet()) {
-            entry.getValue().setName(entry.getKey());
+        if (openApi.getComponents() != null) {
+            final Map<String, Schema> schemas = openApi.getComponents().getSchemas();
+            for (final Map.Entry<String, Schema> entry : schemas.entrySet()) {
+                entry.getValue().setName(entry.getKey());
+            }
         }
 
         return openApi;
