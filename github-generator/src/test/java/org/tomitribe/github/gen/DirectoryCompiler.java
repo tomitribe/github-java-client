@@ -1,38 +1,32 @@
 package org.tomitribe.github.gen;
 
-import javax.tools.*;
+import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
+import javax.tools.StandardJavaFileManager;
+import javax.tools.StandardLocation;
+import javax.tools.ToolProvider;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
-import java.util.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DirectoryCompiler {
 
-    public static void main(String[] args) throws Exception {
-        // Directory containing .java files
-        File sourceDirectory = new File("src/main/java"); // Update with your source directory
-
-        // Output directory for compiled classes
-        File outputDirectory = new File("target/classes");
-
-        // Compile the directory
-        compileDirectory(sourceDirectory, outputDirectory);
-    }
-
-    public static void compileDirectory(File sourceDir, File outputDir) throws IOException {
+    public static void compileDirectory(final File sourceDir, final File outputDir) throws IOException {
         if (!sourceDir.isDirectory()) {
             throw new IllegalArgumentException("Source directory is not valid: " + sourceDir.getAbsolutePath());
         }
-        if (!outputDir.exists()) {
-            if (!outputDir.mkdirs()) {
-                throw new IOException("Failed to create output directory: " + outputDir.getAbsolutePath());
-            }
+
+        if (!outputDir.exists() && !outputDir.mkdirs()) {
+            throw new IOException("Failed to create output directory: " + outputDir.getAbsolutePath());
         }
 
         // Get the Java compiler
-        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+        final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         if (compiler == null) {
             throw new IllegalStateException("No Java compiler available. Are you running this in a JDK?");
         }
@@ -55,38 +49,39 @@ public class DirectoryCompiler {
         javaFiles.forEach(file -> System.out.println("Compiling: " + file.getAbsolutePath()));
 
         // Set up the file manager
-        StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
+        try (final StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null)) {
+            // Set the output directory for compiled classes
+            fileManager.setLocation(StandardLocation.CLASS_OUTPUT, List.of(outputDir));
 
-        // Set the output directory for compiled classes
-        fileManager.setLocation(StandardLocation.CLASS_OUTPUT, List.of(outputDir));
+            // Prepare the classpath
+            final String currentClasspath = System.getProperty("java.class.path");
+            final String classpath = currentClasspath + File.pathSeparator + outputDir.getAbsolutePath();
 
-        // Prepare the classpath
-        String currentClasspath = System.getProperty("java.class.path");
-        String classpath = currentClasspath + File.pathSeparator + outputDir.getAbsolutePath();
+            // Add required compiler options
+            final List<String> options = new ArrayList<>(List.of(
+                    "-classpath", classpath,
+                    "--add-exports", "jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED",
+                    "--add-exports", "jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED"
+            ));
 
-        // Pass the classpath as an option to the compiler
-        List<String> options = List.of("-classpath", classpath);
+            // Convert files to JavaFileObjects
+            final Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromFiles(javaFiles);
 
-        // Convert files to JavaFileObjects
-        Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromFiles(javaFiles);
+            // Compile the files
+            final JavaCompiler.CompilationTask task = compiler.getTask(
+                    null, // Writer (e.g., System.err)
+                    fileManager, // FileManager
+                    null, // DiagnosticListener
+                    options, // Options
+                    null, // Annotation processing
+                    compilationUnits // Files to compile
+            );
 
-        // Compile the files
-        JavaCompiler.CompilationTask task = compiler.getTask(
-                null, // Writer (e.g., System.err)
-                fileManager, // FileManager
-                null, // DiagnosticListener
-                options, // Options
-                null, // Annotation processing
-                compilationUnits // Files to compile
-        );
+            if (!task.call()) {
+                throw new IllegalStateException("Compilation failed. Check your source files.");
+            }
 
-        if (!task.call()) {
-            throw new IllegalStateException("Compilation failed. Check your source files.");
+            System.out.println("Compilation completed. Classes saved to: " + outputDir.getAbsolutePath());
         }
-
-        System.out.println("Compilation completed. Classes saved to: " + outputDir.getAbsolutePath());
-
-        // Close the file manager
-        fileManager.close();
     }
 }

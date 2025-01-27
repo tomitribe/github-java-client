@@ -25,7 +25,7 @@ import org.tomitribe.github.core.ComponentId;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/api-overview")
+@ComponentId("api-overview")
 public class ApiOverview {
 
     @JsonbProperty("api")

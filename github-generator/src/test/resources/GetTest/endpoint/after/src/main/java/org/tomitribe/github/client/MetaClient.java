@@ -15,15 +15,15 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.ApiOverview;
 
 public interface MetaClient {
 
     @GET
     @Path("/meta")
-    @OperationId("meta/get")
     @Docs("https://developer.github.com/v3/meta/#get-github-meta-information")
     @EnabledForGithubApps
-    @Category("meta")
     ApiOverview getGitHubMetaInformation();
 }

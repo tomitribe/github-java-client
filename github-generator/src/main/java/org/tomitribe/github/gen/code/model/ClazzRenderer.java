@@ -109,8 +109,7 @@ public class ClazzRenderer {
         clazz.getComponentIds().stream()
                 .sorted()
                 .distinct()
-                .map(s -> String.format("@ComponentId(\"%s\")", s))
-                .forEach(definition::addRepeatableAnnotation);
+                .forEach(definition::addComponentId);
 
         // Add any enums or inner classes
         addInnerClasses(clazz, definition);

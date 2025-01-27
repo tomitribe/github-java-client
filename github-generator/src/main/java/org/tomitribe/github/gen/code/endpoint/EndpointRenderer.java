@@ -22,16 +22,23 @@ import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.expr.SingleMemberAnnotationExpr;
 import com.github.javaparser.ast.expr.StringLiteralExpr;
-import org.tomitribe.github.core.Category;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HEAD;
+import jakarta.ws.rs.OPTIONS;
+import jakarta.ws.rs.PATCH;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
 import org.tomitribe.github.core.DeprecationDate;
 import org.tomitribe.github.core.Docs;
 import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.core.GithubCloudOnly;
-import org.tomitribe.github.core.OperationId;
 import org.tomitribe.github.core.Paged;
 import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.core.RemovalDate;
-import org.tomitribe.github.core.Subcategory;
 import org.tomitribe.github.gen.ClassDefinition;
 import org.tomitribe.github.gen.Package;
 import org.tomitribe.github.gen.Project;
@@ -44,19 +51,10 @@ import org.tomitribe.github.gen.code.model.VoidClazz;
 import org.tomitribe.util.IO;
 import org.tomitribe.util.Strings;
 
-import jakarta.ws.rs.DELETE;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.HEAD;
-import jakarta.ws.rs.OPTIONS;
-import jakarta.ws.rs.PATCH;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.PUT;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.QueryParam;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -145,12 +143,8 @@ public class EndpointRenderer {
             final Annotations annotations = new Annotations(methodDeclaration, definition);
 
             // Add @GET, @PUT, @POST
-            annotations.add("@%s", method.getMethod().toUpperCase());
+            annotations.add(getMethodAnnotation(method.getMethod()));
             annotations.add(Path.class, method.getPath());
-
-            if (method.getOperationId() != null) {
-                annotations.add(OperationId.class, method.getOperationId());
-            }
 
             if (method.getDocs() != null) {
                 annotations.add(Docs.class, method.getDocs());
@@ -176,19 +170,10 @@ public class EndpointRenderer {
                 annotations.addRepeatable(Preview.class, preview);
             }
 
-            if (method.getCategory() != null) {
-                annotations.add(Category.class, method.getCategory());
-            }
-
-            if (method.getSubcategory() != null) {
-                annotations.add(Subcategory.class, method.getSubcategory());
-            }
-
             if (method.getResponse().isPaged()) {
                 if (method.getResponse() instanceof ArrayClazz) {
                     final ArrayClazz arrayClazz = (ArrayClazz) method.getResponse();
-                    annotations.add("@%s(%s[].class)", Paged.class.getSimpleName(),
-                            arrayClazz.getOf().getName().getSimpleName());
+                    annotations.add(Paged.class, "(%s[].class)", arrayClazz.getOf().getName().getSimpleName());
                 } else {
                     annotations.add(Paged.class, method.getResponse().getName());
                 }
@@ -221,6 +206,27 @@ public class EndpointRenderer {
         }
 
         aPackage.write(className + ".java", definition.clean().toString());
+    }
+
+    private Class<?> getMethodAnnotation(final String method) {
+        switch (method.toUpperCase()) {
+            case "PUT":
+                return PUT.class;
+            case "POST":
+                return POST.class;
+            case "GET":
+                return GET.class;
+            case "OPTIONS":
+                return OPTIONS.class;
+            case "DELETE":
+                return DELETE.class;
+            case "HEAD":
+                return HEAD.class;
+            case "PATCH":
+                return PATCH.class;
+            default:
+                throw new UnsupportedOperationException("Unknown http method: " + method.toUpperCase());
+        }
     }
 
     private Parameter asParameter(final Field field) {
@@ -374,35 +380,41 @@ public class EndpointRenderer {
             this.definition = definition;
         }
 
-        public Annotations add(final String format, final Object... details) {
+        private Annotations add(final Class<? extends Annotation> annotationClass, final String format, final Object... details) {
+            definition.addImport(annotationClass);
             final String annotation = String.format(format, details);
-            definition.addAnnotation(methodDeclaration, annotation);
+            definition.addAnnotation(methodDeclaration, "@" + annotationClass.getSimpleName() + annotation);
             return this;
         }
 
-        public Annotations add(final Class<?> annotation, final String value) {
-            return add("@%s(\"%s\")", annotation.getSimpleName(), value);
+        public Annotations add(final Class<? extends Annotation> annotation, final String value) {
+            definition.addImport(annotation);
+            return add(annotation, "(\"%s\")", value);
         }
 
-        public Annotations add(final Class<?> annotation, final Name value) {
-            return add("@%s(%s.class)", annotation.getSimpleName(), value.getSimpleName());
+        public Annotations add(final Class<? extends Annotation> annotation, final Name value) {
+            return add(annotation, "(%s.class)", value.getSimpleName());
         }
 
         public Annotations add(final Class<?> annotation) {
-            return add("@%s", annotation.getSimpleName());
+            definition.addImport(annotation);
+            definition.addAnnotation(methodDeclaration, "@" + annotation.getSimpleName());
+            return this;
         }
 
-        public Annotations addRepeatable(final String format, final Object... details) {
+        private Annotations addRepeatable(final String format, final Object... details) {
             final String annotation = String.format(format, details);
             definition.addRepeatableAnnotation(methodDeclaration, annotation);
             return this;
         }
 
         public Annotations addRepeatable(final Class<?> annotation, final String value) {
+            definition.addImport(annotation);
             return addRepeatable("@%s(\"%s\")", annotation.getSimpleName(), value);
         }
 
         public Annotations addRepeatable(final Class<?> annotation) {
+            definition.addImport(annotation);
             return addRepeatable("@%s", annotation.getSimpleName());
         }
 

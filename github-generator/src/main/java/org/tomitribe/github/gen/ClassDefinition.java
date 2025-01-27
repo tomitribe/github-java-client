@@ -33,6 +33,7 @@ import com.github.javaparser.ast.expr.AnnotationExpr;
 import com.github.javaparser.ast.nodeTypes.NodeWithAnnotations;
 import com.github.javaparser.ast.nodeTypes.NodeWithSimpleName;
 import lombok.Data;
+import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.gen.code.model.Name;
 import org.tomitribe.util.IO;
 
@@ -78,6 +79,9 @@ public class ClassDefinition {
                 .findAny();
     }
 
+    public void addImport(final Class<?> clazz) {
+        addImport(clazz.getName());
+    }
 
     public void addImport(final Name className) {
         addImport(className.toString());
@@ -104,6 +108,13 @@ public class ClassDefinition {
 
     public void addRepeatableAnnotation(final String annotationSource) {
         addRepeatableAnnotation(this.clazz, annotationSource);
+    }
+
+    public void addComponentId(final String componentPath) {
+        addImport(ComponentId.class);
+        final String prefix = "#/components/schemas/";
+        final String name = componentPath.replace(prefix, "");
+        addRepeatableAnnotation(this.clazz, String.format("@%s(\"%s\")", ComponentId.class.getSimpleName(), name));
     }
 
     public void addAnnotation(final NodeWithAnnotations<?> node, final String annotationSource) {

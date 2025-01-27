@@ -14,6 +14,11 @@
 package org.tomitribe.github.gen;
 
 import org.junit.Test;
+import org.tomitribe.github.core.ComponentId;
+import org.tomitribe.github.core.JsonAsserts;
+import org.tomitribe.github.core.JsonbInstances;
+import org.tomitribe.github.gen.openapi.Example;
+import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.util.Files;
 
 import java.io.File;
@@ -24,6 +29,8 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -34,7 +41,6 @@ public class Scenarios {
     private Scenarios() {
 
     }
-
 
 
     /**
@@ -88,8 +94,9 @@ public class Scenarios {
 
         final Project actual = Project.from(Files.tmpdir());
 
+        final OpenApi openApi = scenario.getOpenApi();
         Generator.builder()
-                .openApi(scenario.getOpenApi())
+                .openApi(openApi)
                 .project(actual)
                 .generateClient(true)
                 .generateModel(true)
@@ -118,9 +125,30 @@ public class Scenarios {
                 })
                 .collect(Collectors.toList());
 
-        for (final Class<?> aClass : classList) {
-            System.out.println(aClass);
+        final Map<String, ? extends Class<?>> components = classList.stream()
+                .filter(aClass -> aClass.isAnnotationPresent(ComponentId.class))
+                .collect(Collectors.toMap(
+                        aClass -> {
+                            final ComponentId componentId = aClass.getAnnotation(ComponentId.class);
+                            return componentId.value();
+                        }, // Key mapper: uses the value from getComponent
+                        Function.identity()             // Value mapper: uses the ExampleReference object itself
+                ));
+
+        final Map<String, Example> examples = openApi.getComponents().getExamples();
+
+        for (final Map.Entry<String, ? extends Class<?>> entry : components.entrySet()) {
+            final Example example = examples.get(entry.getKey());
+            if (example == null) continue;
+
+            final Class<?> component = entry.getValue();
+
+            final String json = JsonbInstances.get().toJson(example.getValue());
+            JsonAsserts.assertJsonb(json, component);
+
         }
+        System.out.println(examples);
+
     }
 
     public static ClassLoader createChildClassLoader(final File directory) {
