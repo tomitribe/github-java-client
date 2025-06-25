@@ -1,0 +1,37 @@
+# Generation from OpenAPI
+
+Java source code is generated from OpenAPI definitions.  This process starts by separately reading the OpenAPI definition itself
+
+
+[source,java]
+----
+import org.tomitribe.github.gen.openapi.OpenApi;
+
+final OpenApi openApi = OpenApi.parse(IO.slurp(openapiJson()));
+----
+
+Next, we create a Generator that will create actual source files on disk that can be compiled
+
+[source,java]
+----
+import org.tomitribe.github.gen.Generator;
+
+Generator.builder()
+        .openApi(openApi)
+        .project(actual)
+        .generateClient(true)
+        .generateModel(true)
+        .clientPackage("org.tomitribe.github.client")
+        .modelPackage("org.tomitribe.github.model")
+        .build()
+        .generate();
+---
+
+Via the `EndpointGenerator` we first transalte the `OpenAPI` definition into an intermediary representation (`Endpoint` and `Clazz`) which
+more closely describes a Java code model.  `Endpoint` should be thought of as an inteface that has several methods (`EndpointMethod`),
+each of which corresponds to an HTTP method (GET, PUT, POST, DELETE, etc) and has a corresponding request and response `Clazz` definition.
+
+The `Endpoint` and `Clazz` definitions are finally turned into Java source code via `EndpointRenderer` and `ClazzRenderer` where
+they can be used as needed; compiled, checked into version control, etc.
+
+
