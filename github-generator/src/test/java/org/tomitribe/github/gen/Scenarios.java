@@ -69,7 +69,7 @@ public class Scenarios {
 
             DirectoryCompiler.compileDirectory(actual.src().main().java().get(), classes.get());
 
-            final ClassLoader loader = createChildClassLoader(classes.get());
+            final ClassLoader loader = createClassLoader(classes.get());
 
             classList = toClassNames(classes.files(), classes.get())
                     .map(s -> {
@@ -123,11 +123,9 @@ public class Scenarios {
     }
 
     /**
-     *
-     * @param directory
-     * @return
+     * Create a classloader that can load from the specified directory
      */
-    private static ClassLoader createChildClassLoader(final File directory) {
+    private static ClassLoader createClassLoader(final File directory) {
         if (directory == null || !directory.isDirectory()) {
             throw new IllegalArgumentException("Provided file must be a valid directory.");
         }
