@@ -17,6 +17,8 @@
 package org.tomitribe.github.gen.openapi;
 
 
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,8 +26,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.tomitribe.github.core.JsonMarshalling;
 
-import jakarta.json.bind.annotation.JsonbProperty;
-import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
@@ -122,7 +122,7 @@ public class OpenApi {
                 });
 
         // Tell every Schema in componets what its name is in the map
-        if (openApi.getComponents() != null) {
+        if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null) {
             final Map<String, Schema> schemas = openApi.getComponents().getSchemas();
             for (final Map.Entry<String, Schema> entry : schemas.entrySet()) {
                 entry.getValue().setName(entry.getKey());

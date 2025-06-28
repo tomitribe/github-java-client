@@ -109,4 +109,7 @@ public class Schema {
     @JsonbProperty("readOnly")
     private Boolean readOnly;
 
+    public String getRef() {
+        return ref;
+    }
 }
