@@ -331,6 +331,20 @@ public class EndpointRenderer {
             imports.add(Stream.class);
         }
 
+        method.getRequest().getFields().stream()
+                .filter(field -> field.getIn().equals(Field.In.PATH))
+                .findAny()
+                .ifPresent(field -> {
+                    imports.add(PathParam.class);
+                });
+
+        method.getRequest().getFields().stream()
+                .filter(field -> field.getIn().equals(Field.In.QUERY))
+                .findAny()
+                .ifPresent(field -> {
+                    imports.add(QueryParam.class);
+                });
+
         if (method.getResponse().isPaged()) {
             if (method.getResponse() instanceof ArrayClazz) {
                 final ArrayClazz arrayClazz = (ArrayClazz) method.getResponse();
