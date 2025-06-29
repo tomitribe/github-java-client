@@ -1,0 +1,57 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "OneOf String-Boolean Example",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/gists": {
+      "post": {
+        "summary": "Create a gist",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Gist"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Gist created"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Gist": {
+        "type": "object",
+        "properties": {
+          "secret": {
+            "oneOf": [
+              {
+                "description": "Flag indicating whether the gist is secret",
+                "example": true,
+                "type": "boolean",
+                "default": false
+              },
+              {
+                "type": "string",
+                "example": "true",
+                "default": "false",
+                "enum": [
+                  "true",
+                  "false"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -18,6 +18,7 @@ package org.tomitribe.github.gen.code.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.tomitribe.github.gen.code.BooleanString;
 
 import java.util.Date;
 
@@ -36,6 +37,7 @@ public class Name {
     public static final Name URI = name(java.net.URI.class);
     public static final Name DATE = name(Date.class);
     public static final Name BOOLEAN = name(Boolean.class);
+    public static final Name STRING_BOOLEAN = name(BooleanString.class);
     public static final Name INTEGER = name(Integer.class);
     public static final Name LONG = name(Long.class);
 

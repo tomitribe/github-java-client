@@ -46,6 +46,7 @@ import org.apache.commons.lang3.text.WordUtils;
 import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
 import org.tomitribe.github.core.EnumAdapter;
+import org.tomitribe.github.core.StringBooleanAdapter;
 import org.tomitribe.github.gen.ClassDefinition;
 import org.tomitribe.github.gen.Package;
 import org.tomitribe.github.gen.Project;
@@ -68,6 +69,8 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static org.tomitribe.github.gen.code.model.Name.BOOLEAN;
+import static org.tomitribe.github.gen.code.model.Name.STRING_BOOLEAN;
 import static org.tomitribe.github.gen.code.model.Name.DATE;
 import static org.tomitribe.github.gen.code.model.Name.OBJECT;
 
@@ -152,34 +155,35 @@ public class ClazzRenderer {
 
         final Map<String, FieldDeclaration> fields = definition.mapFields();
         for (final Field field : clazz.getFields()) {
-
             final FieldDeclaration fieldDeclaration;
+            final Name type = field.getType().equals(STRING_BOOLEAN) ? BOOLEAN : field.getType();
+
             if (fields.containsKey(field.getName())) {
                 fieldDeclaration = fields.get(field.getName());
             } else {
-                fieldDeclaration = definition.getClazz().addField(field.getType().getSimpleName(), field.getName(), Modifier.Keyword.PRIVATE);
+                fieldDeclaration = definition.getClazz().addField(type.getSimpleName(), field.getName(), Modifier.Keyword.PRIVATE);
             }
 
             final VariableDeclarator variable = fieldDeclaration.getVariable(0);
             if (field.isCollection()) {
 
-                variable.setType(String.format("List<%s>", field.getType().getSimpleName()));
+                variable.setType(String.format("List<%s>", type.getSimpleName()));
 
             } else if (field.isMap()) {
 
-                variable.setType(String.format("Map<String, %s>", field.getType().getSimpleName()));
+                variable.setType(String.format("Map<String, %s>", type.getSimpleName()));
 
             } else {
-                if (OBJECT.equals(field.getType())) {
+                if (OBJECT.equals(type)) {
                     /*
                      * If Clazz says the type is Object and the source already has a type,
                      * just use what ever type the source has and do not override it
                      */
                     if (variable.getType() == null) {
-                        variable.setType(field.getType().getSimpleName());
+                        variable.setType(type.getSimpleName());
                     }
                 } else {
-                    variable.setType(field.getType().getSimpleName());
+                    variable.setType(type.getSimpleName());
                 }
             }
 
@@ -213,17 +217,28 @@ public class ClazzRenderer {
                     throw new UnsupportedOperationException(field.getIn().name());
             }
 
-            if (enums.contains(field.getType().getSimpleName())) {
-                definition.addAnnotation(fieldDeclaration, String.format("@JsonbTypeAdapter(%sAdapter.class)", field.getType()));
+            /*
+             * TODO: Does not work for Enums declared externally
+             */
+            if (enums.contains(type.getSimpleName())) {
+                definition.addAnnotation(fieldDeclaration, String.format("@JsonbTypeAdapter(%sAdapter.class)", type));
                 definition.addImport(JsonbTypeAdapter.class);
             }
 
-            if (DATE.equals(field.getType())) {
-                definition.addAnnotation(fieldDeclaration, "@JsonbTypeAdapter(DateAdapter.class)");
-                definition.addImport(DateAdapter.class);
-                definition.addImport(JsonbTypeAdapter.class);
+            if (DATE.equals(type)) {
+                addAdapter(definition, fieldDeclaration, DateAdapter.class);
+            }
+
+            if (field.getType().equals(STRING_BOOLEAN)) {
+                addAdapter(definition, fieldDeclaration, StringBooleanAdapter.class);
             }
         }
+    }
+
+    private static void addAdapter(final ClassDefinition definition, final FieldDeclaration fieldDeclaration, final Class<?> adapterClass) {
+        definition.addAnnotation(fieldDeclaration, String.format("@JsonbTypeAdapter(%s.class)", adapterClass.getSimpleName()));
+        definition.addImport(adapterClass);
+        definition.addImport(JsonbTypeAdapter.class);
     }
 
     public void addAccessors(final Clazz clazz, final ClassDefinition definition) {

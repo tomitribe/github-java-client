@@ -18,6 +18,7 @@ package org.tomitribe.github.gen;
 
 import lombok.Data;
 import org.tomitribe.github.core.JsonMarshalling;
+import org.tomitribe.github.gen.code.BooleanString;
 import org.tomitribe.github.gen.code.model.ArrayClazz;
 import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.ClazzReference;
@@ -211,6 +212,10 @@ public class ModelGenerator {
         }
 
         if (value.getOneOf() != null) {
+            if (isBooleanString(value.getOneOf())) {
+                return Field.field(name, name(BooleanString.class)).build();
+            }
+
             return Field.field(name, name(Object.class)).build();
         }
 
@@ -219,6 +224,22 @@ public class ModelGenerator {
         }
 
         throw new UnsupportedOperationException("Unknown type: " + value);
+    }
+
+    private boolean isBooleanString(final List<Schema> oneOf) {
+        if (oneOf == null) return false;
+        if (oneOf.size() != 2) return false;
+
+        final boolean hasBoolean = oneOf.stream().map(Schema::getType).anyMatch("boolean"::equals);
+
+        final boolean hasTrueFalseString = oneOf.stream()
+                .filter(schema -> schema.getType().equals("string"))
+                .filter(schema -> schema.getEnumValues() != null)
+                .filter(schema -> schema.getEnumValues().size() == 2)
+                .filter(schema -> schema.getEnumValues().contains("true"))
+                .anyMatch(schema -> schema.getEnumValues().contains("false"));
+
+        return hasBoolean && hasTrueFalseString;
     }
 
     private boolean additionalProperties(final String type, final Schema schema) {
