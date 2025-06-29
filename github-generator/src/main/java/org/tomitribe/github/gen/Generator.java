@@ -84,6 +84,7 @@ public class Generator {
             classes.stream()
                     .map(this::replaceArrays)
                     .filter(clazz -> !(clazz instanceof VoidClazz))
+                    .distinct()
                     .forEach(renderer::render);
         }
 

@@ -16,10 +16,13 @@
  */
 package org.tomitribe.github.gen.code.model;
 
+import jakarta.json.bind.annotation.JsonbTransient;
+import lombok.AccessLevel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
-import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -38,6 +41,10 @@ public class Clazz {
     @EqualsAndHashCode.Exclude
     private String title;
     private Clazz parent;
+    @Getter(AccessLevel.NONE)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private List<Clazz> children = new ArrayList<>();
     @EqualsAndHashCode.Exclude
     private final Set<String> componentIds = new HashSet<>();
     @JsonbTransient
@@ -53,8 +60,23 @@ public class Clazz {
         this.id = id != null ? id : Id.next();
         this.name = name;
         this.title = title;
-        this.parent = parent;
         this.id.owner = this;
+        setParent(parent);
+    }
+
+    public Clazz getParent() {
+        return parent;
+    }
+
+    public void setParent(final Clazz parent) {
+        if (parent != null) {
+            this.parent = parent;
+            parent.children.add(this);
+        }
+    }
+
+    public boolean hasChildren() {
+        return children != null && !children.isEmpty();
     }
 
     public Clazz addComponentId(final String componentId) {

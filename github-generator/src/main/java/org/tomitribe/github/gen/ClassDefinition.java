@@ -97,6 +97,25 @@ public class ClassDefinition {
         }
     }
 
+    public void addParent(final String className) {
+        // Handle simple names like "BaseEntity" and fully qualified like "com.example.BaseEntity"
+        final String simpleName = className.contains(".")
+                ? className.substring(className.lastIndexOf('.') + 1)
+                : className;
+
+        // Avoid adding multiple extends
+        if (clazz.getExtendedTypes().isNonEmpty()) {
+            throw new IllegalStateException("Class already extends a parent: " + clazz.getExtendedTypes());
+        }
+
+        clazz.addExtendedType(simpleName);
+
+        // Add import if it's a fully qualified name
+        if (className.contains(".")) {
+            addImport(className);
+        }
+    }
+
     public Map<String, FieldDeclaration> mapFields() {
         final Function<FieldDeclaration, String> getName = field -> field.getVariable(0).getNameAsString();
         return clazz.getFields().stream().collect(Collectors.toMap(getName, Function.identity()));

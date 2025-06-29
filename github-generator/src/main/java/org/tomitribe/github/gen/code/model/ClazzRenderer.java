@@ -41,6 +41,7 @@ import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
+import lombok.EqualsAndHashCode;
 import org.apache.commons.lang3.text.WordUtils;
 import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
@@ -122,6 +123,17 @@ public class ClazzRenderer {
                 .distinct()
                 .forEach(definition::addComponentId);
 
+        if (clazz.getParent() != null) {
+            final Name name = clazz.getParent().getName();
+            definition.addParent(name.toString());
+            definition.addAnnotation(definition.getClazz(), "@EqualsAndHashCode(callSuper = false)");
+            definition.addImport(EqualsAndHashCode.class);
+        }
+
+        if (clazz.getParent() != null || clazz.hasChildren()) {
+            updateToSuperBuilder(definition);
+        }
+
         // Add any enums or inner classes
         addInnerClasses(clazz, definition);
 
@@ -179,16 +191,22 @@ public class ClazzRenderer {
                 case PATH: {
                     definition.addAnnotation(fieldDeclaration, "@JsonbTransient");
                     definition.addAnnotation(fieldDeclaration, String.format("@PathParam(\"%s\")", field.getJsonName()));
+                    definition.addImport(JsonbTransient.class);
+                    definition.addImport(PathParam.class);
                     break;
                 }
                 case QUERY: {
                     definition.addAnnotation(fieldDeclaration, "@JsonbTransient");
                     definition.addAnnotation(fieldDeclaration, String.format("@QueryParam(\"%s\")", field.getJsonName()));
+                    definition.addImport(JsonbTransient.class);
+                    definition.addImport(QueryParam.class);
                     break;
                 }
                 case HEADER: {
                     definition.addAnnotation(fieldDeclaration, "@JsonbTransient");
                     definition.addAnnotation(fieldDeclaration, String.format("@HeaderParam(\"%s\")", field.getJsonName()));
+                    definition.addImport(JsonbTransient.class);
+                    definition.addImport(HeaderParam.class);
                     break;
                 }
                 default:
@@ -197,10 +215,13 @@ public class ClazzRenderer {
 
             if (enums.contains(field.getType().getSimpleName())) {
                 definition.addAnnotation(fieldDeclaration, String.format("@JsonbTypeAdapter(%sAdapter.class)", field.getType()));
+                definition.addImport(JsonbTypeAdapter.class);
             }
 
             if (DATE.equals(field.getType())) {
                 definition.addAnnotation(fieldDeclaration, "@JsonbTypeAdapter(DateAdapter.class)");
+                definition.addImport(DateAdapter.class);
+                definition.addImport(JsonbTypeAdapter.class);
             }
         }
     }
@@ -370,6 +391,19 @@ public class ClazzRenderer {
             throw new UncheckedIOException(e);
         }
         return content;
+    }
+
+    public void updateToSuperBuilder(final ClassDefinition definition) {
+        definition.getClazz().getAnnotations().removeIf(annotation ->
+                annotation.getNameAsString().equals("Builder")
+        );
+
+        definition.getUnit().getImports().removeIf(importDecl ->
+                importDecl.getNameAsString().equals("lombok.Builder")
+        );
+
+        definition.addImport(lombok.experimental.SuperBuilder.class);
+        definition.addAnnotation("@SuperBuilder");
     }
 
     private Stream<String> imports(final Clazz clazz) {

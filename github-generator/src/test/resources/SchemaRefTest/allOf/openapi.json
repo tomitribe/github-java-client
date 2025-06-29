@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "allOf with Schema Reference",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create a user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "User created, no content returned"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BaseEntity": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "createdAt"
+        ]
+      },
+      "User": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseEntity"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              }
+            },
+            "required": [
+              "name",
+              "email"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
