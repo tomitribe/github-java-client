@@ -14,26 +14,18 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github.gen;
+package org.tomitribe.github.model;
 
 import org.junit.Test;
 
-public class SchemaRefTest {
+import java.io.IOException;
+
+import static org.tomitribe.github.app.events.PayloadAsserts.assertPayload;
+
+public class OrderTest {
 
     @Test
-    public void requestBody() throws Exception {
-        Scenarios.assertScenario();
+    public void parse() throws IOException {
+        assertPayload(Order.class);
     }
-
-    @Test
-    public void responseBody() throws Exception {
-        Scenarios.assertScenario();
-    }
-
-    @Test
-    public void schema() throws Exception {
-        Scenarios.assertScenario();
-    }
-
-
 }

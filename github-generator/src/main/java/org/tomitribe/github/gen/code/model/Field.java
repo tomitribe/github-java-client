@@ -16,13 +16,11 @@
  */
 package org.tomitribe.github.gen.code.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.tomitribe.github.gen.util.Words;
 
 @Data
-@AllArgsConstructor
 @Builder(builderClassName = "Builder", toBuilder = true)
 public class Field {
     private String name;
@@ -33,6 +31,16 @@ public class Field {
     private boolean collection;
     private boolean map;
     private String reference;
+
+    public Field(String name, String jsonName, Name type, In in, boolean collection, boolean map, String reference) {
+        this.name = name;
+        this.jsonName = jsonName;
+        this.type = type;
+        this.in = in;
+        this.collection = collection;
+        this.map = map;
+        this.reference = reference;
+    }
 
     public enum In {
         PATH,

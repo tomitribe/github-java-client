@@ -29,6 +29,7 @@ import org.tomitribe.github.gen.openapi.Response;
 import org.tomitribe.github.gen.openapi.Schema;
 import org.tomitribe.github.gen.util.Words;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,6 +45,7 @@ public class ComponentIndex {
     private final Map<String, Clazz> schemas;
     private final Map<String, Clazz> responses;
     private final Map<String, Field> parameters;
+    private final Map<String, Clazz> parameterClasses;
     private final Map<String, Object> examples;
 
     public ComponentIndex(final ModelGenerator modelGenerator, final OpenApi openApi) {
@@ -53,6 +55,7 @@ public class ComponentIndex {
         this.schemas = indexSchemas(modelGenerator, openApi);
         this.responses = indexResponses(modelGenerator, openApi);
         this.parameters = indexParameters(modelGenerator, openApi);
+        this.parameterClasses = indexParametersClasses(modelGenerator, openApi);
         this.examples = indexExamples(modelGenerator, openApi);
     }
 
@@ -184,8 +187,21 @@ public class ComponentIndex {
             clazz.addComponentId(componentId);
             map.put(componentId, clazz);
         }
+
         return map;
     }
+
+    private Map<String, Clazz> indexParametersClasses(final ModelGenerator modelGenerator, final OpenApi openApi) {
+        if (openApi.getComponents() == null) return Collections.EMPTY_MAP;
+        if (openApi.getComponents().getParameters() == null) return Collections.EMPTY_MAP;
+
+        for (final Parameter parameter : openApi.getComponents().getParameters().values()) {
+
+        }
+
+        return null;
+    }
+
 
     private String getSchemaId(final Schema schema) {
         return "#/components/schemas/" + schema.getName();

@@ -57,8 +57,14 @@ public class Generator {
     class Generate {
 
         private final EndpointGenerator endpointGenerator = new EndpointGenerator();
-        private final List<Endpoint> endpointList = endpointGenerator.build(openApi);
-        private final EndpointRenderer renderer = new EndpointRenderer(project, clientPackage, modelPackage);
+        private final List<Endpoint> endpointList;
+        private final EndpointRenderer renderer;
+
+        Generate() {
+            this.endpointList = endpointGenerator.build(openApi);
+            this.renderer = new EndpointRenderer(project, clientPackage, modelPackage);
+        }
+
 
         public void client() {
             for (final Endpoint endpoint : endpointList) {
