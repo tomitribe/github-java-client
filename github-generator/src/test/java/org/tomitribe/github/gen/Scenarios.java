@@ -13,7 +13,6 @@
  */
 package org.tomitribe.github.gen;
 
-import org.junit.Test;
 import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.JsonAsserts;
 import org.tomitribe.github.core.JsonbInstances;
@@ -27,7 +26,6 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -43,7 +41,7 @@ public class Scenarios {
 
     public static void assertScenario() throws IOException {
 //        regenerateScenario();
-        final Method test = getTestCaller();
+        final Method test = Scenario.getTestCaller();
         assertScenario(Scenario.get(test.getName(), test.getDeclaringClass()));
     }
 
@@ -170,7 +168,7 @@ public class Scenarios {
     }
 
     public static void regenerateScenario() throws IOException {
-        final Method test = getTestCaller();
+        final Method test = Scenario.getTestCaller();
         final Scenario scenario = Scenario.source(test.getName(), test.getDeclaringClass());
         final Project expected = scenario.after();
 
@@ -182,40 +180,4 @@ public class Scenarios {
     }
 
 
-    /**
-     * Reports the caller method as a {@link java.lang.reflect.Method}.
-     * Only returns a method if it belongs to a class ending with "Test"
-     * and is annotated with {@link org.junit.Test}.
-     *
-     * @return the {@link java.lang.reflect.Method} of the test case being invoked
-     * @throws IllegalStateException if no matching test case is found in the call stack
-     */
-    private static Method getTestCaller() {
-        final StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
-        for (final StackTraceElement element : stackTrace) {
-            try {
-                final Class<?> clazz = Class.forName(element.getClassName());
-
-                // Skip classes that don't end with "Test"
-                if (!clazz.getSimpleName().endsWith("Test")) {
-                    continue;
-                }
-
-                final Method method = Arrays.stream(clazz.getDeclaredMethods())
-                        .filter(m -> m.getName().equals(element.getMethodName()))
-                        .filter(m -> m.isAnnotationPresent(Test.class))
-                        .findFirst()
-                        .orElse(null);
-
-                if (method != null) {
-                    return method;
-                }
-            } catch (final ClassNotFoundException ignored) {
-                // Continue to the next element
-            }
-        }
-
-        throw new IllegalStateException("No JUnit test case found in the call stack.");
-    }
 }

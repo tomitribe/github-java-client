@@ -18,6 +18,7 @@ package org.tomitribe.github.gen.openapi;
 
 
 import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbPropertyOrder;
 import jakarta.json.bind.annotation.JsonbTransient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,6 +40,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@JsonbPropertyOrder({"openapi", "info", "tags", "servers", "externalDocs", "paths", "components"})
 public class OpenApi {
     @JsonbProperty("openapi")
     private String openapi;
