@@ -16,6 +16,7 @@ package org.tomitribe.github.gen;
 import org.junit.Test;
 import org.tomitribe.github.core.JsonAsserts;
 import org.tomitribe.github.gen.openapi.OpenApi;
+import org.tomitribe.github.gen.openapi.normalize.Normalizer;
 import org.tomitribe.util.IO;
 
 import java.io.File;
@@ -23,11 +24,20 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
 
-public class NormalizeOpenApiTest {
+public class NormalizerTest {
 
 
     @Test
     public void parameterRefs() throws Exception {
+        assertScenario();
+    }
+
+    @Test
+    public void graduateParameterEnums() throws Exception {
+        assertScenario();
+    }
+
+    private void assertScenario() throws IOException {
         final Method test = Scenario.getTestCaller();
         final Scenario scenario = Scenario.get(test.getName(), test.getDeclaringClass());
         final File beforeJson = scenario.file("before.json");
@@ -35,10 +45,9 @@ public class NormalizeOpenApiTest {
 
         final OpenApi openApi = getOpenApi(beforeJson);
 
-        final OpenApi afterOpenApi = NormalizeOpenApi.normalize(openApi);
+        final OpenApi afterOpenApi = Normalizer.normalize(openApi);
 
         JsonAsserts.assertJsonb(IO.slurp(afterJson), afterOpenApi);
-
     }
 
     OpenApi getOpenApi(final File file) {

@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.tomitribe.github.gen;
+package org.tomitribe.github.gen.openapi.normalize;
 
 import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.github.gen.openapi.Parameter;
@@ -27,13 +27,13 @@ import java.util.stream.Collectors;
  *
  * Par
  */
-public class NormalizeOpenApi {
+public class Normalizer {
 
     public static OpenApi normalize(final OpenApi openApi) {
 
         return Function.<OpenApi>identity()
-                .andThen(NormalizeOpenApi::inlineParameterRefs)
-                .andThen(NormalizeOpenApi::pruneComponents)
+                .andThen(Normalizer::inlineParameterRefs)
+                .andThen(new PruneComponents())
                 .apply(openApi);
     }
 
