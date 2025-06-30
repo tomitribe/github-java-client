@@ -14,7 +14,6 @@
 package org.tomitribe.github.gen.openapi.normalize;
 
 import lombok.Data;
-import org.jetbrains.annotations.NotNull;
 import org.tomitribe.github.gen.openapi.Components;
 import org.tomitribe.github.gen.openapi.Method;
 import org.tomitribe.github.gen.openapi.OpenApi;
@@ -77,20 +76,12 @@ public class GraduateEnumsFromParameters implements Function<OpenApi, OpenApi> {
         return openApi;
     }
 
-    private @NotNull Map<String, @NotNull Enum> getEnums(final OpenApi openApi) {
-        if (openApi.getComponents() == null) return new HashMap<>();
-        if (openApi.getComponents().getSchemas() == null) return new HashMap<>();
-        return openApi.getComponents().getSchemas().values().stream()
-                .filter(this::isEnum)
-                .map(Enum::from)
-                .collect(Collectors.toMap(Enum::getName, Function.identity()));
-    }
-
     private boolean isEnum(final Parameter parameter) {
         return isEnum(parameter.getSchema());
     }
 
     private boolean isEnum(final Schema schema) {
+        if (!"string".equals(schema.getType())) return false;
         return schema.getEnumValues() != null && !schema.getEnumValues().isEmpty();
     }
 

@@ -179,7 +179,10 @@ public class EndpointRenderer {
                 }
             }
 
-            methodDeclaration.setBody(null);
+            methodDeclaration.setBody(new com.github.javaparser.ast.stmt.BlockStmt()
+                    .addStatement("throw new UnsupportedOperationException();"));
+            methodDeclaration.setDefault(true);
+//            methodDeclaration.setBody(null);
             definition.getClazz().addMember(methodDeclaration);
 
             /*
@@ -193,7 +196,9 @@ public class EndpointRenderer {
                 overloaded.setType(methodDeclaration.getType());
                 overloaded.setAnnotations(methodDeclaration.getAnnotations());
                 overloaded.setName(methodDeclaration.getName());
-                overloaded.setBody(null);
+                overloaded.setBody(new com.github.javaparser.ast.stmt.BlockStmt()
+                        .addStatement("throw new UnsupportedOperationException();"));
+                overloaded.setDefault(true);
 
                 method.getRequest().getFields().stream()
                         .filter(field -> field.getIn().equals(Field.In.PATH))

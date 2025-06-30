@@ -170,7 +170,13 @@ public class Scenarios {
     public static void regenerateScenario() throws IOException {
         final Method test = Scenario.getTestCaller();
         final Scenario scenario = Scenario.source(test.getName(), test.getDeclaringClass());
+
+        scenario.mkdirs();
+        if (!scenario.openapiJson().exists()) {
+            scenario.openapiJson().createNewFile();
+        }
         final Project expected = scenario.after();
+        expected.mkdirs();
 
         // Delete the old files
         Files.remove(expected.src().get());
