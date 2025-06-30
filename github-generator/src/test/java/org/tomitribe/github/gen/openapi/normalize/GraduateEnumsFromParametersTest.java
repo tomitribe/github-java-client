@@ -13,25 +13,14 @@
  */
 package org.tomitribe.github.gen.openapi.normalize;
 
-import org.tomitribe.github.gen.openapi.OpenApi;
+import org.junit.Test;
 
-import java.util.function.Function;
+public class GraduateEnumsFromParametersTest {
 
-/**
- * Our final data structure that is generated into Java code is a List of Endpoint and a List Clazz
- * Our goal is to flatten the OpenApi structure to that format as much as possible.
- *
- * Par
- */
-public class Normalizer {
-
-    public static OpenApi normalize(final OpenApi openApi) {
-
-        return Function.<OpenApi>identity()
-                .andThen(new InlineParameterRefs())
-                .andThen(new GraduateEnumsFromParameters())
-                .andThen(new PruneComponents())
-                .apply(openApi);
+    @Test
+    public void test() throws Exception {
+        Normalizations.assertScenario(new GraduateEnumsFromParameters());
     }
+
 
 }

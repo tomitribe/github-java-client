@@ -21,6 +21,6 @@ public class InlineParameterRefsTest {
 
     @Test
     public void test() {
-        assertScenario();
+        assertScenario(new InlineParameterRefs());
     }
 }

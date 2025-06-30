@@ -22,12 +22,12 @@ public class NormalizerTest {
 
     @Test
     public void parameterRefs() {
-        assertScenario();
+        assertScenario(Normalizer::normalize);
     }
 
     @Test
     public void graduateParameterEnums() {
-        assertScenario();
+        assertScenario(Normalizer::normalize);
     }
 
 }

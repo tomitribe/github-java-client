@@ -23,9 +23,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
+import java.util.function.Function;
 
 public class Normalizations {
-    public static void assertScenario() {
+    public static void assertScenario(final Function<OpenApi, OpenApi> normalizer) {
         final Method test = Scenario.getTestCaller();
 
         { // setup the directory and template files for convenience
@@ -47,7 +48,7 @@ public class Normalizations {
 
         final OpenApi openApi = getOpenApi(beforeJson);
 
-        final OpenApi afterOpenApi = Normalizer.normalize(openApi);
+        final OpenApi afterOpenApi = normalizer.apply(openApi);
 
         try {
             JsonAsserts.assertJsonb(IO.slurp(afterJson), afterOpenApi);
