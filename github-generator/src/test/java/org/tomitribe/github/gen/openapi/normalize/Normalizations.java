@@ -11,34 +11,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.tomitribe.github.gen;
+package org.tomitribe.github.gen.openapi.normalize;
 
-import org.junit.Test;
 import org.tomitribe.github.core.JsonAsserts;
+import org.tomitribe.github.gen.Scenario;
 import org.tomitribe.github.gen.openapi.OpenApi;
-import org.tomitribe.github.gen.openapi.normalize.Normalizer;
 import org.tomitribe.util.IO;
+import org.tomitribe.util.dir.Dir;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
 
-public class NormalizerTest {
-
-
-    @Test
-    public void parameterRefs() throws Exception {
-        assertScenario();
-    }
-
-    @Test
-    public void graduateParameterEnums() throws Exception {
-        assertScenario();
-    }
-
-    private void assertScenario() throws IOException {
+public class Normalizations {
+    public static void assertScenario() {
         final Method test = Scenario.getTestCaller();
+
+        { // setup the directory and template files for convenience
+            try {
+                final Dir dir = Scenario.dir(test.getName(), test.getDeclaringClass());
+                dir.mkdirs();
+                final File before = dir.file("before.json");
+                if (!before.exists()) before.createNewFile();
+                final File after = dir.file("after.json");
+                if (!after.exists()) after.createNewFile();
+            } catch (final IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
         final Scenario scenario = Scenario.get(test.getName(), test.getDeclaringClass());
         final File beforeJson = scenario.file("before.json");
         final File afterJson = scenario.file("after.json");
@@ -47,10 +49,14 @@ public class NormalizerTest {
 
         final OpenApi afterOpenApi = Normalizer.normalize(openApi);
 
-        JsonAsserts.assertJsonb(IO.slurp(afterJson), afterOpenApi);
+        try {
+            JsonAsserts.assertJsonb(IO.slurp(afterJson), afterOpenApi);
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    OpenApi getOpenApi(final File file) {
+    protected static OpenApi getOpenApi(final File file) {
         try {
             return OpenApi.parse(IO.slurp(file));
         } catch (IOException e) {

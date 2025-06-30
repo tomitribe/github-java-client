@@ -81,11 +81,7 @@ public interface Scenario extends org.tomitribe.util.dir.Dir {
     Project after();
 
     static Scenario get(final String testName, final Class<?> clazz) {
-        final File testClasses = JarLocation.jarLocation(clazz);
-        final File target = testClasses.getParentFile();
-        final File module = target.getParentFile();
-        final Project project = Project.from(module);
-        final org.tomitribe.util.dir.Dir source = project.src().test().resources().dir(clazz.getSimpleName()).dir(testName);
+        final Dir source = dir(testName, clazz);
         final File tmpdir = Files.tmpdir();
 
         try {
@@ -95,6 +91,14 @@ public interface Scenario extends org.tomitribe.util.dir.Dir {
         }
 
         return org.tomitribe.util.dir.Dir.of(Scenario.class, tmpdir);
+    }
+
+    static Dir dir(final String testName, final Class<?> clazz) {
+        final File testClasses = JarLocation.jarLocation(clazz);
+        final File target = testClasses.getParentFile();
+        final File module = target.getParentFile();
+        final Project project = Project.from(module);
+        return project.src().test().resources().dir(clazz.getSimpleName()).dir(testName);
     }
 
     static Scenario source(final String testName, final Class<?> clazz) {
