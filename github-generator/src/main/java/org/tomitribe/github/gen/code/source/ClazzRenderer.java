@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github.gen.code.model;
+package org.tomitribe.github.gen.code.source;
 
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.EnumConstantDeclaration;
@@ -47,6 +47,10 @@ import org.tomitribe.github.core.StringBooleanAdapter;
 import org.tomitribe.github.gen.ClassDefinition;
 import org.tomitribe.github.gen.Package;
 import org.tomitribe.github.gen.Project;
+import org.tomitribe.github.gen.code.model.Clazz;
+import org.tomitribe.github.gen.code.model.EnumClazz;
+import org.tomitribe.github.gen.code.model.Field;
+import org.tomitribe.github.gen.code.model.Name;
 import org.tomitribe.util.IO;
 import org.tomitribe.util.Strings;
 

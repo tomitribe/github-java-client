@@ -28,6 +28,7 @@ public class Normalizer {
     public static OpenApi normalize(final OpenApi openApi) {
 
         return Function.<OpenApi>identity()
+                .andThen(new AddSummary())
                 .andThen(new InlineParameterRefs())
                 .andThen(new GraduateEnumsFromParameters())
                 .andThen(new PruneComponents())

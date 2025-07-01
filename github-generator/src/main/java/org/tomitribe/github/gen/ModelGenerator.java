@@ -94,6 +94,12 @@ public class ModelGenerator {
             return ArrayClazz.of(item);
         }
 
+        if ("string".equals(schema.getType()) && schema.getEnumValues() != null && !schema.getEnumValues().isEmpty()) {
+            final EnumClazz enumClazz = EnumClazz.of(packageName + "." + getTypeName(schema.getName()), schema.getEnumValues());
+            classes.add(enumClazz);
+            return enumClazz;
+        }
+
         if ("string".equals(schema.getType())) {
             return Clazz.of(String.class);
         }

@@ -14,7 +14,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package org.tomitribe.github.gen.code.endpoint;
+package org.tomitribe.github.gen.code.source;
 
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.NodeList;
@@ -42,9 +42,10 @@ import org.tomitribe.github.core.RemovalDate;
 import org.tomitribe.github.gen.ClassDefinition;
 import org.tomitribe.github.gen.Package;
 import org.tomitribe.github.gen.Project;
+import org.tomitribe.github.gen.code.endpoint.Endpoint;
+import org.tomitribe.github.gen.code.endpoint.EndpointMethod;
 import org.tomitribe.github.gen.code.model.ArrayClazz;
 import org.tomitribe.github.gen.code.model.Clazz;
-import org.tomitribe.github.gen.code.model.ClazzRenderer;
 import org.tomitribe.github.gen.code.model.Field;
 import org.tomitribe.github.gen.code.model.Name;
 import org.tomitribe.github.gen.code.model.VoidClazz;

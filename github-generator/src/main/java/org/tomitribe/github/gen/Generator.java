@@ -19,11 +19,12 @@ package org.tomitribe.github.gen;
 import lombok.Builder;
 import lombok.Data;
 import org.tomitribe.github.gen.code.endpoint.Endpoint;
-import org.tomitribe.github.gen.code.endpoint.EndpointRenderer;
+import org.tomitribe.github.gen.code.source.EndpointRenderer;
 import org.tomitribe.github.gen.code.model.ArrayClazz;
 import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.VoidClazz;
 import org.tomitribe.github.gen.openapi.OpenApi;
+import org.tomitribe.github.gen.openapi.normalize.Normalizer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -61,7 +62,8 @@ public class Generator {
         private final EndpointRenderer renderer;
 
         Generate() {
-            this.endpointList = endpointGenerator.build(openApi);
+            final OpenApi normalized = Normalizer.normalize(openApi);
+            this.endpointList = endpointGenerator.build(normalized);
             this.renderer = new EndpointRenderer(project, clientPackage, modelPackage);
         }
 
