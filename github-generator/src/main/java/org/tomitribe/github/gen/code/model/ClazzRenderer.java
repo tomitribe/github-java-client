@@ -517,29 +517,4 @@ public class ClazzRenderer {
         aPackage.write(name + "Test.java", new String(out.toByteArray()));
     }
 
-    private static String formatComment(final String s) {
-        final List<String> lines = Stream.of(s.split("\n"))
-                .flatMap(s1 -> Stream.of(WordUtils.wrap(s1, 100).split("\n")))
-                .map(s2 -> "\n * " + s2)
-                .collect(Collectors.toList());
-
-        return Join.join("", lines) + "\n";
-    }
-
-    private static String toProperty(final Field field) {
-        final String name = field.getName();
-        if (name.startsWith("_")) {
-            return Strings.ucfirst(name.substring(1));
-        }
-        return Strings.ucfirst(name);
-    }
-
-    public static class UnmodifiableNodeList<N extends Node> extends NodeList<N> {
-        @Override
-        public void sort(final Comparator<? super N> comparator) {
-            super.sort(comparator);
-        }
-
-
-    }
 }
