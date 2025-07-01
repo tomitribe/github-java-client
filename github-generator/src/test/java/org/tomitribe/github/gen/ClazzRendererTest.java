@@ -154,14 +154,14 @@ public class ClazzRendererTest {
         final ClazzRenderer renderer = new ClazzRenderer(actual, "org.tomitribe.github.model");
         renderer.render(clazz);
 
-        final Project expected = Project.from(resources.file("enums"));
+        final Project expected = Project.from(resources.file("innerEnums"));
 
         ProjectAsserts.assertProject(expected, actual);
     }
 
 
     @Test
-    public void updateEnums() throws IOException {
+    public void updateInnerEnums() throws IOException {
 
         final Clazz clazz = Clazz.builder()
                 .name("PullRequest")
@@ -179,12 +179,12 @@ public class ClazzRendererTest {
 
         final Project actual = Project.from(Files.tmpdir());
 
-        IO.copyDirectory(resources.file("updateEnums/before"), actual.get());
+        IO.copyDirectory(resources.file("updateInnerEnums/before"), actual.get());
 
         final ClazzRenderer renderer = new ClazzRenderer(actual, "org.tomitribe.github.model");
         renderer.render(clazz);
 
-        final Project expected = Project.from(resources.file("updateEnums/after"));
+        final Project expected = Project.from(resources.file("updateInnerEnums/after"));
 
         ProjectAsserts.assertProject(expected, actual);
     }
