@@ -11,33 +11,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package the_package;
+package $PACKAGE_NAME$;
 
 import org.tomitribe.github.core.EnumAdapter;
 
-public class ModelEnum {
+public class $SIMPLE_CLASS_NAME$ {
+    ;
+    private final String name;
 
-    public enum Orange {
-        ;
-        private final String name;
-
-        Orange(final String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        @Override
-        public String toString() {
-            return name;
-        }
+    $SIMPLE_CLASS_NAME$(final String name) {
+        this.name = name;
     }
 
-    public static class OrangeAdapter extends EnumAdapter<Orange> {
-        public OrangeAdapter() {
-            super(Orange.class);
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public static class Adapter extends EnumAdapter<$SIMPLE_CLASS_NAME$> {
+        public Adapter() {
+            super($SIMPLE_CLASS_NAME$.class);
         }
     }
 }

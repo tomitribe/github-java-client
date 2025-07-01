@@ -40,7 +40,7 @@ public class Scenarios {
     }
 
     public static void assertScenario() throws IOException {
-//        regenerateScenario();
+        regenerateScenario();
         final Method test = Scenario.getTestCaller();
         assertScenario(Scenario.get(test.getName(), test.getDeclaringClass()));
     }

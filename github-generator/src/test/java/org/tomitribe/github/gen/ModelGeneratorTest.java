@@ -22,7 +22,7 @@ import org.tomitribe.github.core.JsonMarshalling;
 import org.tomitribe.github.core.Resources;
 import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.ClazzReference;
-import org.tomitribe.github.gen.code.model.ClazzRenderer;
+import org.tomitribe.github.gen.code.source.ClazzRenderer;
 import org.tomitribe.github.gen.openapi.Schema;
 import org.tomitribe.util.Files;
 import org.tomitribe.util.IO;

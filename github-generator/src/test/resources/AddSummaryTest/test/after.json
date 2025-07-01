@@ -1,0 +1,34 @@
+{
+  "info":{
+    "title":"queryEnumParameterInline",
+    "version":"1.0.0"
+  },
+  "openapi":"3.0.0",
+  "paths":{
+    "/example":{
+      "get":{
+        "parameters":[
+          {
+            "in":"query",
+            "name":"status",
+            "required":true,
+            "schema":{
+              "enum":[
+                "active",
+                "inactive",
+                "pending"
+              ],
+              "type":"string"
+            }
+          }
+        ],
+        "responses":{
+          "204":{
+            "description":"No content"
+          }
+        },
+        "summary":"Get Example"
+      }
+    }
+  }
+}

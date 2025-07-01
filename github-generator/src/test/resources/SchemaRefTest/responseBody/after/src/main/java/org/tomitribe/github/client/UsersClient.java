@@ -23,9 +23,13 @@ public interface UsersClient {
 
     @GET
     @Path("/users/{id}")
-    User getUserByID(final GetUserByID getUserByID);
+    default User getUserByID(final GetUserByID getUserByID) {
+        throw new UnsupportedOperationException();
+    }
 
     @GET
     @Path("/users/{id}")
-    User getUserByID(@PathParam("id") final String id);
+    default User getUserByID(@PathParam("id") final String id) {
+        throw new UnsupportedOperationException();
+    }
 }

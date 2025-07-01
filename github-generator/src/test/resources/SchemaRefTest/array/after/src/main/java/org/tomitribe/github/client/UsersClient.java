@@ -22,5 +22,7 @@ public interface UsersClient {
 
     @GET
     @Path("/users")
-    Stream<User> listAllUsers();
+    default Stream<User> listAllUsers() {
+        throw new UnsupportedOperationException();
+    }
 }

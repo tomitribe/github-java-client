@@ -21,5 +21,7 @@ public interface OrdersClient {
 
     @POST
     @Path("/orders")
-    void createOrder(final Order order);
+    default void createOrder(final Order order) {
+        throw new UnsupportedOperationException();
+    }
 }

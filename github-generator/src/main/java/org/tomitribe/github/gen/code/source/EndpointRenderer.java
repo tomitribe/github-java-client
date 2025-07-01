@@ -70,11 +70,17 @@ public class EndpointRenderer {
     private final Project project;
     private final String packageName;
     private final ClazzRenderer clazzRenderer;
+    private final Template template;
 
     public EndpointRenderer(final Project project, final String clientPackage, final String modelPackage) {
         this.project = project;
         this.packageName = clientPackage;
         this.clazzRenderer = new ClazzRenderer(project, modelPackage);
+        this.template = Template.builder()
+                .templateName("Endpoint")
+                .packageName(packageName)
+                .build();
+
     }
 
     public void render(final Clazz clazz) {
@@ -82,23 +88,10 @@ public class EndpointRenderer {
     }
 
     public void render(final Endpoint endpoint) {
-        final String className = endpoint.getClassName();
+        final String simpleClassName = endpoint.getClassName();
         final Package aPackage = project.src().main().java().packageName(packageName);
-        final File sourceFile = aPackage.file(className + ".java");
 
-        final String content;
-        if (sourceFile.exists()) {
-            try {
-                content = IO.slurp(sourceFile);
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-        } else {
-            content = classTemplate(className);
-        }
-
-        final ClassDefinition definition = ClassDefinition.parse(content);
-        if (definition.getClazz() == null) throw new IllegalStateException("Parsed clazz is null");
+        final ClassDefinition definition = template.define(simpleClassName);
 
         endpoint.getMethods()
                 .stream()
@@ -211,7 +204,7 @@ public class EndpointRenderer {
             }
         }
 
-        aPackage.write(className + ".java", definition.clean().toString());
+        aPackage.write(simpleClassName + ".java", definition.clean().toString());
     }
 
     private Class<?> getMethodAnnotation(final String method) {
@@ -446,22 +439,6 @@ public class EndpointRenderer {
         parameter.setName(name);
         parameter.setModifiers(new NodeList<>(Modifier.finalModifier()));
         return parameter;
-    }
-
-    private String classTemplate(final String className) {
-        return readTemplate("Endpoint").replace("the_package", packageName)
-                .replace("Endpoint", className);
-    }
-
-    private String readTemplate(final String templateName) {
-        final ClassLoader loader = this.getClass().getClassLoader();
-        final String content;
-        try {
-            content = IO.slurp(loader.getResource("gen/templates/" + templateName + ".java"));
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-        return content;
     }
 
 }

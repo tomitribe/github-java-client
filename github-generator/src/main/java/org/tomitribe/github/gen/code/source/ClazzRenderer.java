@@ -54,7 +54,6 @@ import org.tomitribe.github.gen.code.model.Name;
 import org.tomitribe.util.IO;
 import org.tomitribe.util.Strings;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.ArrayList;
@@ -68,9 +67,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.tomitribe.github.gen.code.model.Name.BOOLEAN;
-import static org.tomitribe.github.gen.code.model.Name.STRING_BOOLEAN;
 import static org.tomitribe.github.gen.code.model.Name.DATE;
 import static org.tomitribe.github.gen.code.model.Name.OBJECT;
+import static org.tomitribe.github.gen.code.model.Name.STRING_BOOLEAN;
 
 public class ClazzRenderer {
 
@@ -78,10 +77,15 @@ public class ClazzRenderer {
 
     private final Project project;
     private final String packageName;
+    private final Template template;
 
     public ClazzRenderer(final Project project, final String packageName) {
         this.project = project;
         this.packageName = packageName;
+        this.template = Template.builder()
+                .templateName("Model")
+                .packageName(packageName)
+                .build();
     }
 
     public void render(final Clazz clazz) {
@@ -91,28 +95,10 @@ public class ClazzRenderer {
         }
         final String className = clazz.getName().getSimpleName();
         final Package aPackage = project.src().main().java().packageName(packageName);
-        final File sourceFile = aPackage.file(className + ".java");
 
         LOGGER.info(String.format("Generating class '%s'", clazz.getName()));
 
-        final String content;
-        if (sourceFile.exists()) {
-            try {
-                content = IO.slurp(sourceFile);
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-        } else {
-            content = classTemplate(className);
-        }
-
-        final ClassDefinition definition;
-        try {
-            definition = ClassDefinition.parse(content);
-        } catch (Exception e) {
-            throw new IllegalStateException(e);
-        }
-        if (definition.getClazz() == null) throw new IllegalStateException("Parsed clazz is null");
+        final ClassDefinition definition = template.define(className);
 
         imports(clazz)
                 .sorted()
@@ -345,7 +331,11 @@ public class ClazzRenderer {
             if (innerClass instanceof EnumClazz) {
                 final EnumClazz enumClazz = (EnumClazz) innerClass;
 
-                final ClassDefinition template = ClassDefinition.parse(enumTemplate(enumClazz.getName().getSimpleName()));
+                final ClassDefinition template = org.tomitribe.github.gen.code.source.Template.builder()
+                        .packageName(packageName)
+                        .templateName("InnerEnum")
+                        .build()
+                        .define(enumClazz.getName().getSimpleName());
 
                 { // Add the enum declaration
                     final Optional<EnumDeclaration> existing = definition.selectEnum(enumClazz.getName().getSimpleName());
@@ -381,27 +371,6 @@ public class ClazzRenderer {
                 }
             }
         }
-    }
-
-    private String classTemplate(final String className) {
-        return readTemplate("Model").replace("the_package", packageName)
-                .replace("Model", className);
-    }
-
-    private String enumTemplate(final String className) {
-        return readTemplate("ModelEnum").replace("the_package", packageName)
-                .replace("Orange", className);
-    }
-
-    private String readTemplate(final String templateName) {
-        final ClassLoader loader = this.getClass().getClassLoader();
-        final String content;
-        try {
-            content = IO.slurp(loader.getResource("gen/templates/" + templateName + ".java"));
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-        return content;
     }
 
     public void updateToSuperBuilder(final ClassDefinition definition) {

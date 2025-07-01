@@ -11,9 +11,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package the_package;
+package $PACKAGE_NAME$;
 
-public interface Endpoint {
+public interface $SIMPLE_CLASS_NAME$ {
 
 
 }

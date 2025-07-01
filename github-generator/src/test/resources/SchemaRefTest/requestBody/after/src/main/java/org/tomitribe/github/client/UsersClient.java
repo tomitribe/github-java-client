@@ -21,5 +21,7 @@ public interface UsersClient {
 
     @POST
     @Path("/users")
-    void createUser(final User user);
+    default void createUser(final User user) {
+        throw new UnsupportedOperationException();
+    }
 }

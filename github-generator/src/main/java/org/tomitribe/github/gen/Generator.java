@@ -23,6 +23,7 @@ import org.tomitribe.github.gen.code.source.EndpointRenderer;
 import org.tomitribe.github.gen.code.model.ArrayClazz;
 import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.VoidClazz;
+import org.tomitribe.github.gen.code.source.Renderer;
 import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.github.gen.openapi.normalize.Normalizer;
 
@@ -59,12 +60,16 @@ public class Generator {
 
         private final EndpointGenerator endpointGenerator = new EndpointGenerator();
         private final List<Endpoint> endpointList;
-        private final EndpointRenderer renderer;
+        private final Renderer renderer;
 
         Generate() {
             final OpenApi normalized = Normalizer.normalize(openApi);
             this.endpointList = endpointGenerator.build(normalized);
-            this.renderer = new EndpointRenderer(project, clientPackage, modelPackage);
+            this.renderer = Renderer.builder()
+                    .clientPackage(clientPackage)
+                    .modelPackage(modelPackage)
+                    .project(project)
+                    .build();
         }
 
 
