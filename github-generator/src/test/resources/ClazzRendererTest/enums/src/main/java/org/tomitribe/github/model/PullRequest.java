@@ -23,40 +23,114 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.EnumAdapter;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ComponentId("#/components/schemas/pull-request")
-@ComponentId("#/components/schemas/pull-request-minimal")
+@ComponentId("pull-request")
+@ComponentId("pull-request-minimal")
 public class PullRequest {
 
-    @JsonbProperty("labels")
     private List<String> labels;
 
     @JsonbTransient
     @PathParam("owner")
     private String owner;
 
-    @JsonbProperty("pull_request_number")
     private Integer pullRequestNumber;
 
-    @JsonbProperty("pull_request_url")
     private String pullRequestUrl;
 
     @JsonbTransient
     @PathParam("repo")
     private String repo;
 
-    @JsonbProperty("repository_url")
     private String repositoryUrl;
 
     @JsonbTransient
     @QueryParam("state")
     @JsonbTypeAdapter(StateAdapter.class)
     private State state;
+
+    @JsonbProperty("labels")
+    public List<String> getLabels() {
+        return this.labels;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public String getOwner() {
+        return this.owner;
+    }
+
+    @JsonbProperty("pull_request_number")
+    public Integer getPullRequestNumber() {
+        return this.pullRequestNumber;
+    }
+
+    @JsonbProperty("pull_request_url")
+    public String getPullRequestUrl() {
+        return this.pullRequestUrl;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public String getRepo() {
+        return this.repo;
+    }
+
+    @JsonbProperty("repository_url")
+    public String getRepositoryUrl() {
+        return this.repositoryUrl;
+    }
+
+    @JsonbTypeAdapter(StateAdapter.class)
+    @JsonbTransient
+    @QueryParam("state")
+    public State getState() {
+        return this.state;
+    }
+
+    @JsonbProperty("labels")
+    public void setLabels(List<String> labels) {
+        this.labels = labels;
+    }
+
+    @JsonbTransient
+    @PathParam("owner")
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    @JsonbProperty("pull_request_number")
+    public void setPullRequestNumber(Integer pullRequestNumber) {
+        this.pullRequestNumber = pullRequestNumber;
+    }
+
+    @JsonbProperty("pull_request_url")
+    public void setPullRequestUrl(String pullRequestUrl) {
+        this.pullRequestUrl = pullRequestUrl;
+    }
+
+    @JsonbTransient
+    @PathParam("repo")
+    public void setRepo(String repo) {
+        this.repo = repo;
+    }
+
+    @JsonbProperty("repository_url")
+    public void setRepositoryUrl(String repositoryUrl) {
+        this.repositoryUrl = repositoryUrl;
+    }
+
+    @JsonbTransient
+    @QueryParam("state")
+    public void setState(State state) {
+        this.state = state;
+    }
 
     public enum State {
 
