@@ -17,8 +17,6 @@
 package org.tomitribe.github.gen.code.model;
 
 import com.github.javaparser.ast.Modifier;
-import com.github.javaparser.ast.Node;
-import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.body.EnumConstantDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
@@ -42,7 +40,6 @@ import jakarta.ws.rs.HeaderParam;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.QueryParam;
 import lombok.EqualsAndHashCode;
-import org.apache.commons.lang3.text.WordUtils;
 import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
 import org.tomitribe.github.core.EnumAdapter;
@@ -51,15 +48,12 @@ import org.tomitribe.github.gen.ClassDefinition;
 import org.tomitribe.github.gen.Package;
 import org.tomitribe.github.gen.Project;
 import org.tomitribe.util.IO;
-import org.tomitribe.util.Join;
-import org.tomitribe.util.PrintString;
 import org.tomitribe.util.Strings;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -144,8 +138,6 @@ public class ClazzRenderer {
         addAccessors(clazz, definition);
 
         aPackage.write(className + ".java", definition.clean().toString());
-
-        renderTestCase(clazz);
     }
 
     public void addFields(final Clazz clazz, final ClassDefinition definition) {
@@ -476,45 +468,6 @@ public class ClazzRenderer {
         }
 
         return imports.stream();
-    }
-
-    private void renderTestCase(final Clazz clazz) {
-        final PrintString out = new PrintString();
-        final String name = clazz.getName().getSimpleName();
-        out.printf("/*\n" +
-                " * Licensed to the Apache Software Foundation (ASF) under one or more\n" +
-                " * contributor license agreements.  See the NOTICE file distributed with\n" +
-                " * this work for additional information regarding copyright ownership.\n" +
-                " * The ASF licenses this file to You under the Apache License, Version 2.0\n" +
-                " * (the \"License\"); you may not use this file except in compliance with\n" +
-                " * the License.  You may obtain a copy of the License at\n" +
-                " *\n" +
-                " *     http://www.apache.org/licenses/LICENSE-2.0\n" +
-                " *\n" +
-                " *  Unless required by applicable law or agreed to in writing, software\n" +
-                " *  distributed under the License is distributed on an \"AS IS\" BASIS,\n" +
-                " *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n" +
-                " *  See the License for the specific language governing permissions and\n" +
-                " *  limitations under the License.\n" +
-                " */\n" +
-                "package " + packageName + ";\n" +
-                "\n" +
-                "import org.junit.Test;\n" +
-                "\n" +
-                "import java.io.IOException;\n" +
-                "\n" +
-                "import static org.tomitribe.github.app.events.PayloadAsserts.assertPayload;\n" +
-                "\n" +
-                "public class %sTest {\n" +
-                "\n" +
-                "    @Test\n" +
-                "    public void parse() throws IOException {\n" +
-                "        assertPayload(%s.class);\n" +
-                "    }\n" +
-                "}\n", name, name);
-
-        final Package aPackage = project.src().test().java().packageName(packageName);
-        aPackage.write(name + "Test.java", new String(out.toByteArray()));
     }
 
 }
