@@ -181,7 +181,7 @@ public class EndpointRenderer {
              * Let's generate an overloaded version of the method that has
              * each path parameter individually.
              */
-            if (canOverload(method)) {
+            if (false && canOverload(method)) {
                 final MethodDeclaration overloaded = new MethodDeclaration();
                 overloaded.setType(methodDeclaration.getType());
                 overloaded.setAnnotations(methodDeclaration.getAnnotations());

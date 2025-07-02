@@ -22,6 +22,7 @@ public class PruneComponents implements Function<OpenApi, OpenApi> {
 
     @Override
     public OpenApi apply(final OpenApi openApi) {
+        if (openApi.getComponents() == null) return openApi;
         if (isEmpty(openApi.getComponents().getExamples())) openApi.getComponents().setExamples(null);
         if (isEmpty(openApi.getComponents().getHeaders())) openApi.getComponents().setHeaders(null);
         if (isEmpty(openApi.getComponents().getParameters())) openApi.getComponents().setParameters(null);
