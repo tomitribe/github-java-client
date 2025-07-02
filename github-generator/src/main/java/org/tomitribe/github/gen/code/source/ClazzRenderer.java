@@ -51,11 +51,8 @@ import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.EnumClazz;
 import org.tomitribe.github.gen.code.model.Field;
 import org.tomitribe.github.gen.code.model.Name;
-import org.tomitribe.util.IO;
 import org.tomitribe.util.Strings;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -98,7 +95,7 @@ public class ClazzRenderer {
 
         LOGGER.info(String.format("Generating class '%s'", clazz.getName()));
 
-        final ClassDefinition definition = template.define(className);
+        final ClassDefinition definition = template.parseClass(className);
 
         imports(clazz)
                 .sorted()
@@ -335,7 +332,7 @@ public class ClazzRenderer {
                         .packageName(packageName)
                         .templateName("InnerEnum")
                         .build()
-                        .define(enumClazz.getName().getSimpleName());
+                        .parseClass(enumClazz.getName().getSimpleName());
 
                 { // Add the enum declaration
                     final Optional<EnumDeclaration> existing = definition.selectEnum(enumClazz.getName().getSimpleName());

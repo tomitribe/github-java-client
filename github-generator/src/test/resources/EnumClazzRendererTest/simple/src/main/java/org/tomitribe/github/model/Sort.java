@@ -11,16 +11,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package $PACKAGE_NAME$;
+package org.tomitribe.github.model;
 
 import jakarta.json.bind.annotation.JsonbTypeAdapter;
+import org.tomitribe.github.core.EnumAdapter;
 
-@JsonbTypeAdapter($SIMPLE_CLASS_NAME$.Adapter.class)
-public enum $SIMPLE_CLASS_NAME$ {
-    REMOVE("remove");
+@JsonbTypeAdapter(Sort.Adapter.class)
+public enum Sort {
+
+    ASC("asc"), DESC("desc");
+
     private final String name;
 
-    $SIMPLE_CLASS_NAME$(final String name) {
+    Sort(final String name) {
         this.name = name;
     }
 
@@ -33,9 +36,10 @@ public enum $SIMPLE_CLASS_NAME$ {
         return name;
     }
 
-    public static class Adapter extends EnumAdapter<$SIMPLE_CLASS_NAME$> {
+    public static class Adapter extends EnumAdapter<Sort> {
+
         public Adapter() {
-            super($SIMPLE_CLASS_NAME$.class);
+            super(Sort.class);
         }
     }
 }

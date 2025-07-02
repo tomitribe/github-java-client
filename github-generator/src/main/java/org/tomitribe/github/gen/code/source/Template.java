@@ -15,6 +15,7 @@ package org.tomitribe.github.gen.code.source;
 
 import lombok.Builder;
 import org.tomitribe.github.gen.ClassDefinition;
+import org.tomitribe.github.gen.EnumDefinition;
 import org.tomitribe.util.IO;
 
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class Template {
         this.packageName = packageName;
     }
 
-    public ClassDefinition define(final String simpleClassName) {
+    public ClassDefinition parseClass(final String simpleClassName) {
         final String content = classTemplate(simpleClassName);
         final ClassDefinition definition;
         try {
@@ -42,6 +43,17 @@ public class Template {
         }
         if (definition.getClazz() == null) throw new IllegalStateException("Parsed clazz is null");
         return definition;
+    }
+
+    public EnumDefinition parseEnum(final String simpleClassName) {
+        final String content = classTemplate(simpleClassName);
+        try {
+            final EnumDefinition definition = EnumDefinition.parse(content);
+            if (definition.getClazz() == null) throw new IllegalStateException("Parsed clazz is null");
+            return definition;
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        }
     }
 
     private String readTemplate(final String templateName) {

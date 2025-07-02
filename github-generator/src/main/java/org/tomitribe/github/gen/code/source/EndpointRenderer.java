@@ -49,12 +49,8 @@ import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.Field;
 import org.tomitribe.github.gen.code.model.Name;
 import org.tomitribe.github.gen.code.model.VoidClazz;
-import org.tomitribe.util.IO;
 import org.tomitribe.util.Strings;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -91,7 +87,7 @@ public class EndpointRenderer {
         final String simpleClassName = endpoint.getClassName();
         final Package aPackage = project.src().main().java().packageName(packageName);
 
-        final ClassDefinition definition = template.define(simpleClassName);
+        final ClassDefinition definition = template.parseClass(simpleClassName);
 
         endpoint.getMethods()
                 .stream()
