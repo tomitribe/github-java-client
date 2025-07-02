@@ -1,0 +1,41 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Query Enum Parameter Referenced",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/resources": {
+      "get": {
+        "summary": "Get Resources By Status",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/Status"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Status": {
+        "type": "string",
+        "enum": [
+          "active",
+          "inactive",
+          "pending"
+        ]
+      }
+    }
+  }
+}
