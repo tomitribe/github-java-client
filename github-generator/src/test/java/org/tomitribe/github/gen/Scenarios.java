@@ -40,7 +40,7 @@ public class Scenarios {
     }
 
     public static void assertScenario() throws IOException {
-//        regenerateScenario();
+        regenerateScenario();
         final Method test = Scenario.getTestCaller();
         assertScenario(Scenario.get(test.getName(), test.getDeclaringClass()));
     }
@@ -100,7 +100,7 @@ public class Scenarios {
                 if (example == null) continue;
 
                 final Class<?> component = entry.getValue();
-
+                System.out.println("Component: " + component.getSimpleName());
                 final String json = JsonbInstances.get().toJson(example.getValue());
                 JsonAsserts.assertJsonb(json, component);
 

@@ -25,6 +25,9 @@ import java.util.function.Function;
  */
 public class Normalizer {
 
+    private Normalizer() {
+    }
+
     public static OpenApi normalize(final OpenApi openApi) {
 
         return Function.<OpenApi>identity()

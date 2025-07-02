@@ -43,6 +43,7 @@ import lombok.EqualsAndHashCode;
 import org.tomitribe.github.core.ComponentId;
 import org.tomitribe.github.core.DateAdapter;
 import org.tomitribe.github.core.EnumAdapter;
+import org.tomitribe.github.core.InstantAdapter;
 import org.tomitribe.github.core.StringBooleanAdapter;
 import org.tomitribe.github.gen.ClassDefinition;
 import org.tomitribe.github.gen.Package;
@@ -65,6 +66,7 @@ import java.util.stream.Stream;
 
 import static org.tomitribe.github.gen.code.model.Name.BOOLEAN;
 import static org.tomitribe.github.gen.code.model.Name.DATE;
+import static org.tomitribe.github.gen.code.model.Name.INSTANT;
 import static org.tomitribe.github.gen.code.model.Name.OBJECT;
 import static org.tomitribe.github.gen.code.model.Name.STRING_BOOLEAN;
 
@@ -206,6 +208,10 @@ public class ClazzRenderer {
 
             if (DATE.equals(type)) {
                 addAdapter(definition, fieldDeclaration, DateAdapter.class);
+            }
+
+            if (INSTANT.equals(type)) {
+                addAdapter(definition, fieldDeclaration, InstantAdapter.class);
             }
 
             if (field.getType().equals(STRING_BOOLEAN)) {
@@ -410,6 +416,10 @@ public class ClazzRenderer {
 
             if (DATE.equals(field.getType())) {
                 imports.add(DateAdapter.class.getName());
+            }
+
+            if (INSTANT.equals(field.getType())) {
+                imports.add(InstantAdapter.class.getName());
             }
 
             switch (field.getIn()) {

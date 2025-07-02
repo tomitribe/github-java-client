@@ -44,7 +44,6 @@ public class ComponentIndex {
     private final Map<String, Clazz> schemas;
     private final Map<String, Clazz> responses;
     private final Map<String, Field> parameters;
-    private final Map<String, Clazz> parameterClasses;
     private final Map<String, Object> examples;
 
     public ComponentIndex(final ModelGenerator modelGenerator, final OpenApi openApi) {
@@ -54,7 +53,6 @@ public class ComponentIndex {
         this.schemas = indexSchemas(modelGenerator, openApi);
         this.responses = indexResponses(modelGenerator, openApi);
         this.parameters = indexParameters(modelGenerator, openApi);
-        this.parameterClasses = indexParametersClasses(modelGenerator, openApi);
         this.examples = indexExamples(modelGenerator, openApi);
     }
 
@@ -188,17 +186,6 @@ public class ComponentIndex {
         }
 
         return map;
-    }
-
-    private Map<String, Clazz> indexParametersClasses(final ModelGenerator modelGenerator, final OpenApi openApi) {
-        if (openApi.getComponents() == null) return Collections.EMPTY_MAP;
-        if (openApi.getComponents().getParameters() == null) return Collections.EMPTY_MAP;
-
-        for (final Parameter parameter : openApi.getComponents().getParameters().values()) {
-
-        }
-
-        return null;
     }
 
 

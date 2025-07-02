@@ -20,6 +20,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.tomitribe.github.gen.code.BooleanString;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -36,6 +38,7 @@ public class Name {
     public static final Name STRING = name(String.class);
     public static final Name URI = name(java.net.URI.class);
     public static final Name DATE = name(Date.class);
+    public static final Name INSTANT = name(Instant.class);
     public static final Name BOOLEAN = name(Boolean.class);
     public static final Name STRING_BOOLEAN = name(BooleanString.class);
     public static final Name INTEGER = name(Integer.class);

@@ -32,6 +32,7 @@ public class InlineParameterRefs implements Function<OpenApi, OpenApi> {
         final Map<String, Parameter> parametersIndex = openApi.getComponents().getParameters();
 
         final Function<Parameter, Parameter> resolve = parameter -> {
+            if (parameter.getRef() == null) return parameter;
             final String name = parameter.getRef().replaceAll(".*/", "");
             return parametersIndex.getOrDefault(name, parameter);
         };

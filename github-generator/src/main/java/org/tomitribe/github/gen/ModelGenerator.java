@@ -29,6 +29,7 @@ import org.tomitribe.github.gen.openapi.Schema;
 import org.tomitribe.github.gen.util.Words;
 
 import java.net.URI;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -157,7 +158,7 @@ public class ModelGenerator {
         }
 
         if ("string".equals(type) && "date-time".equals(value.getFormat())) {
-            return Field.field(name, name(Date.class)).build();
+            return Field.field(name, name(Instant.class)).build();
         }
 
         if ("string".equals(type)) {
