@@ -42,7 +42,7 @@
     <module>github-core</module>
     <module>github-client-deprecated</module>
     <module>github-generator</module>
-    <module>github-generator-plugin</module>
+    <module>github-generator-exec</module>
   </modules>
 
   <properties>
