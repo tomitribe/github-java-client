@@ -34,7 +34,7 @@ public class Normalizer {
                 .andThen(new AddSummary())
                 .andThen(new InlineParameterRefs())
                 .andThen(new GraduateEnumsFromParameters())
-                .andThen(new PruneComponents())
+                .andThen(new PruneEmptyComponents())
                 .apply(openApi);
     }
 

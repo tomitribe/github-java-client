@@ -18,7 +18,7 @@ import org.tomitribe.github.gen.openapi.OpenApi;
 import java.util.Map;
 import java.util.function.Function;
 
-public class PruneComponents implements Function<OpenApi, OpenApi> {
+public class PruneEmptyComponents implements Function<OpenApi, OpenApi> {
 
     @Override
     public OpenApi apply(final OpenApi openApi) {

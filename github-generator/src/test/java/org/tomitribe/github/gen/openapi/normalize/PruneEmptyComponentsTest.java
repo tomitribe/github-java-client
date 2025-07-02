@@ -26,7 +26,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-public class PruneComponentsTest {
+public class PruneEmptyComponentsTest {
 
     @Test
     public void testPrunesEmptyComponents() {
@@ -40,7 +40,7 @@ public class PruneComponentsTest {
         final OpenApi openApi = new OpenApi();
         openApi.setComponents(components);
 
-        final OpenApi result = new PruneComponents().apply(openApi);
+        final OpenApi result = new PruneEmptyComponents().apply(openApi);
 
         assertNull(result.getComponents());
     }
@@ -53,7 +53,7 @@ public class PruneComponentsTest {
         final OpenApi openApi = new OpenApi();
         openApi.setComponents(components);
 
-        final OpenApi result = new PruneComponents().apply(openApi);
+        final OpenApi result = new PruneEmptyComponents().apply(openApi);
 
         assertNotNull(result.getComponents());
         assertNotNull(result.getComponents().getSchemas());
@@ -69,7 +69,7 @@ public class PruneComponentsTest {
         final OpenApi openApi = new OpenApi();
         openApi.setComponents(components);
 
-        final OpenApi result = new PruneComponents().apply(openApi);
+        final OpenApi result = new PruneEmptyComponents().apply(openApi);
 
         assertNotNull(result.getComponents());
         assertNull(result.getComponents().getExamples());

@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Filter Paths Test",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/admin/config": {
+      "get": {
+        "summary": "Admin config",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
