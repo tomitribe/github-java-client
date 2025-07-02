@@ -1,32 +1,33 @@
 {
-  "openapi": "3.0.0",
+  "components": {
+  },
   "info": {
     "title": "Example API",
     "version": "1.0.0"
   },
+  "openapi": "3.0.0",
   "paths": {
     "/gists": {
       "get": {
-        "summary": "List gists",
         "parameters": [
           {
-            "name": "per_page",
-            "in": "query",
             "description": "Number of results per page",
+            "in": "query",
+            "name": "per_page",
             "required": false,
             "schema": {
-              "type": "integer",
-              "default": 30
+              "default": 30,
+              "type": "integer"
             }
           },
           {
-            "name": "page",
-            "in": "query",
             "description": "Page number of the results to fetch",
+            "in": "query",
+            "name": "page",
             "required": false,
             "schema": {
-              "type": "integer",
-              "default": 1
+              "default": 1,
+              "type": "integer"
             }
           }
         ],
@@ -34,7 +35,8 @@
           "204": {
             "description": "No content"
           }
-        }
+        },
+        "summary": "List gists"
       }
     }
   }
