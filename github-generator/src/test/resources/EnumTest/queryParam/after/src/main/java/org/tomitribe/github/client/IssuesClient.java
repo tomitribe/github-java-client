@@ -15,6 +15,7 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
 import org.tomitribe.github.core.Docs;
 import org.tomitribe.github.model.ListIssuesAssignedToAuthenticatedUser;
 
@@ -23,5 +24,7 @@ public interface IssuesClient {
     @GET
     @Path("/issues")
     @Docs("https://developer.github.com/v3/issues/#list-issues-assigned-to-the-authenticated-user")
-    void listIssuesAssignedToAuthenticatedUser(final ListIssuesAssignedToAuthenticatedUser listIssuesAssignedToAuthenticatedUser);
+    default void listIssuesAssignedToAuthenticatedUser(final ListIssuesAssignedToAuthenticatedUser listIssuesAssignedToAuthenticatedUser) {
+        throw new UnsupportedOperationException();
+    }
 }

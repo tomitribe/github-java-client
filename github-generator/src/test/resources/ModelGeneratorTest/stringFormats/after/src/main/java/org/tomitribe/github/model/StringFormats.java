@@ -14,13 +14,14 @@
 package org.tomitribe.github.model;
 
 import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import java.net.URI;
-import java.util.Date;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.tomitribe.github.core.DateAdapter;
+import org.tomitribe.github.core.InstantAdapter;
 
 @Data
 @Builder
@@ -28,29 +29,101 @@ import org.tomitribe.github.core.DateAdapter;
 @NoArgsConstructor
 public class StringFormats {
 
-    @JsonbProperty("avatar_url")
     private URI avatarUrl;
 
-    @JsonbProperty("created_at")
-    @JsonbTypeAdapter(DateAdapter.class)
-    private Date createdAt;
+    @JsonbTypeAdapter(InstantAdapter.class)
+    private Instant createdAt;
 
-    @JsonbProperty("display_login")
     private String displayLogin;
 
-    @JsonbProperty("gravatar_id")
     private String gravatarId;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("login")
     private String login;
 
+    @JsonbTypeAdapter(InstantAdapter.class)
+    private Instant updatedAt;
+
+    private URI url;
+
+    @JsonbProperty("avatar_url")
+    public URI getAvatarUrl() {
+        return this.avatarUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public Instant getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("display_login")
+    public String getDisplayLogin() {
+        return this.displayLogin;
+    }
+
+    @JsonbProperty("gravatar_id")
+    public String getGravatarId() {
+        return this.gravatarId;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("login")
+    public String getLogin() {
+        return this.login;
+    }
+
     @JsonbProperty("updated_at")
-    @JsonbTypeAdapter(DateAdapter.class)
-    private Date updatedAt;
+    public Instant getUpdatedAt() {
+        return this.updatedAt;
+    }
 
     @JsonbProperty("url")
-    private URI url;
+    public URI getUrl() {
+        return this.url;
+    }
+
+    @JsonbProperty("avatar_url")
+    public void setAvatarUrl(URI avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("display_login")
+    public void setDisplayLogin(String displayLogin) {
+        this.displayLogin = displayLogin;
+    }
+
+    @JsonbProperty("gravatar_id")
+    public void setGravatarId(String gravatarId) {
+        this.gravatarId = gravatarId;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("login")
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @JsonbProperty("url")
+    public void setUrl(URI url) {
+        this.url = url;
+    }
 }

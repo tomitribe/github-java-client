@@ -88,8 +88,8 @@
         "map":false,
         "name":"createdAt",
         "type":{
-          "packageName":"java.util",
-          "simpleName":"Date"
+          "packageName":"java.time",
+          "simpleName":"Instant"
         }
       },
       {
@@ -99,8 +99,8 @@
         "map":false,
         "name":"updatedAt",
         "type":{
-          "packageName":"java.util",
-          "simpleName":"Date"
+          "packageName":"java.time",
+          "simpleName":"Instant"
         }
       },
       {

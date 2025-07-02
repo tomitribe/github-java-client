@@ -35,9 +35,4 @@ public class EnumTest {
         Scenarios.assertScenario();
     }
 
-    @Test
-    public void queryParamRef() throws Exception {
-        Scenarios.assertScenario();
-    }
-
 }

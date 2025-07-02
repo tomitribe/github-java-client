@@ -26,9 +26,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AdditionalProperties {
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("files")
     private Map<String, Object> files;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("files")
+    public Map<String, Object> getFiles() {
+        return this.files;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(Map<String,Object> files) {
+        this.files = files;
+    }
 }

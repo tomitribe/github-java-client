@@ -25,18 +25,63 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Permissions {
 
-    @JsonbProperty("contents")
     private String contents;
 
-    @JsonbProperty("def_not_a_repo")
     private String defNotRepo;
 
-    @JsonbProperty("deployments")
     private String deployments;
 
-    @JsonbProperty("issues")
     private String issues;
 
-    @JsonbProperty("single_file")
     private String singleFile;
+
+    @JsonbProperty("contents")
+    public String getContents() {
+        return this.contents;
+    }
+
+    @JsonbProperty("def_not_a_repo")
+    public String getDefNotRepo() {
+        return this.defNotRepo;
+    }
+
+    @JsonbProperty("deployments")
+    public String getDeployments() {
+        return this.deployments;
+    }
+
+    @JsonbProperty("issues")
+    public String getIssues() {
+        return this.issues;
+    }
+
+    @JsonbProperty("single_file")
+    public String getSingleFile() {
+        return this.singleFile;
+    }
+
+    @JsonbProperty("contents")
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    @JsonbProperty("def_not_a_repo")
+    public void setDefNotRepo(String defNotRepo) {
+        this.defNotRepo = defNotRepo;
+    }
+
+    @JsonbProperty("deployments")
+    public void setDeployments(String deployments) {
+        this.deployments = deployments;
+    }
+
+    @JsonbProperty("issues")
+    public void setIssues(String issues) {
+        this.issues = issues;
+    }
+
+    @JsonbProperty("single_file")
+    public void setSingleFile(String singleFile) {
+        this.singleFile = singleFile;
+    }
 }

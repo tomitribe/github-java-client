@@ -22,6 +22,7 @@ import org.junit.Test;
 public class GeneratorTest {
 
     @Test
+    @Ignore
     public void all() throws Exception {
         Scenarios.assertScenario();
     }

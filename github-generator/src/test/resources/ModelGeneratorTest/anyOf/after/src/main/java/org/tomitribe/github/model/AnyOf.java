@@ -16,14 +16,14 @@ package org.tomitribe.github.model;
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import java.net.URI;
-import java.util.Date;
+import java.time.Instant;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.tomitribe.github.core.DateAdapter;
 import org.tomitribe.github.core.EnumAdapter;
+import org.tomitribe.github.core.InstantAdapter;
 
 @Data
 @Builder
@@ -31,60 +31,214 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class AnyOf {
 
-    @JsonbProperty("access_tokens_url")
     private URI accessTokensUrl;
 
-    @JsonbProperty("account")
     private Object account;
 
-    @JsonbProperty("app_id")
     private Integer appId;
 
-    @JsonbProperty("app_slug")
     private String appSlug;
 
-    @JsonbProperty("contact_email")
     private String contactEmail;
 
-    @JsonbProperty("created_at")
-    @JsonbTypeAdapter(DateAdapter.class)
-    private Date createdAt;
+    @JsonbTypeAdapter(InstantAdapter.class)
+    private Instant createdAt;
 
-    @JsonbProperty("events")
     private List<String> events;
 
-    @JsonbProperty("html_url")
     private URI htmlUrl;
 
-    @JsonbProperty("id")
     private Integer id;
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("repositories_url")
     private URI repositoriesUrl;
 
-    @JsonbProperty("repository_selection")
     @JsonbTypeAdapter(RepositorySelectionAdapter.class)
     private RepositorySelection repositorySelection;
 
-    @JsonbProperty("single_file_name")
     private String singleFileName;
 
-    @JsonbProperty("suspended_at")
-    @JsonbTypeAdapter(DateAdapter.class)
-    private Date suspendedAt;
+    @JsonbTypeAdapter(InstantAdapter.class)
+    private Instant suspendedAt;
 
-    @JsonbProperty("target_id")
     private Integer targetId;
 
-    @JsonbProperty("target_type")
     private String targetType;
 
+    @JsonbTypeAdapter(InstantAdapter.class)
+    private Instant updatedAt;
+
+    @JsonbProperty("access_tokens_url")
+    public URI getAccessTokensUrl() {
+        return this.accessTokensUrl;
+    }
+
+    @JsonbProperty("account")
+    public Object getAccount() {
+        return this.account;
+    }
+
+    @JsonbProperty("app_id")
+    public Integer getAppId() {
+        return this.appId;
+    }
+
+    @JsonbProperty("app_slug")
+    public String getAppSlug() {
+        return this.appSlug;
+    }
+
+    @JsonbProperty("contact_email")
+    public String getContactEmail() {
+        return this.contactEmail;
+    }
+
+    @JsonbProperty("created_at")
+    public Instant getCreatedAt() {
+        return this.createdAt;
+    }
+
+    @JsonbProperty("events")
+    public List<String> getEvents() {
+        return this.events;
+    }
+
+    @JsonbProperty("html_url")
+    public URI getHtmlUrl() {
+        return this.htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public Integer getId() {
+        return this.id;
+    }
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("repositories_url")
+    public URI getRepositoriesUrl() {
+        return this.repositoriesUrl;
+    }
+
+    @JsonbTypeAdapter(RepositorySelectionAdapter.class)
+    @JsonbProperty("repository_selection")
+    public RepositorySelection getRepositorySelection() {
+        return this.repositorySelection;
+    }
+
+    @JsonbProperty("single_file_name")
+    public String getSingleFileName() {
+        return this.singleFileName;
+    }
+
+    @JsonbProperty("suspended_at")
+    public Instant getSuspendedAt() {
+        return this.suspendedAt;
+    }
+
+    @JsonbProperty("target_id")
+    public Integer getTargetId() {
+        return this.targetId;
+    }
+
+    @JsonbProperty("target_type")
+    public String getTargetType() {
+        return this.targetType;
+    }
+
     @JsonbProperty("updated_at")
-    @JsonbTypeAdapter(DateAdapter.class)
-    private Date updatedAt;
+    public Instant getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    @JsonbProperty("access_tokens_url")
+    public void setAccessTokensUrl(URI accessTokensUrl) {
+        this.accessTokensUrl = accessTokensUrl;
+    }
+
+    @JsonbProperty("account")
+    public void setAccount(Object account) {
+        this.account = account;
+    }
+
+    @JsonbProperty("app_id")
+    public void setAppId(Integer appId) {
+        this.appId = appId;
+    }
+
+    @JsonbProperty("app_slug")
+    public void setAppSlug(String appSlug) {
+        this.appSlug = appSlug;
+    }
+
+    @JsonbProperty("contact_email")
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    @JsonbProperty("created_at")
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @JsonbProperty("events")
+    public void setEvents(List<String> events) {
+        this.events = events;
+    }
+
+    @JsonbProperty("html_url")
+    public void setHtmlUrl(URI htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    @JsonbProperty("id")
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("repositories_url")
+    public void setRepositoriesUrl(URI repositoriesUrl) {
+        this.repositoriesUrl = repositoriesUrl;
+    }
+
+    @JsonbProperty("repository_selection")
+    public void setRepositorySelection(RepositorySelection repositorySelection) {
+        this.repositorySelection = repositorySelection;
+    }
+
+    @JsonbProperty("single_file_name")
+    public void setSingleFileName(String singleFileName) {
+        this.singleFileName = singleFileName;
+    }
+
+    @JsonbProperty("suspended_at")
+    public void setSuspendedAt(Instant suspendedAt) {
+        this.suspendedAt = suspendedAt;
+    }
+
+    @JsonbProperty("target_id")
+    public void setTargetId(Integer targetId) {
+        this.targetId = targetId;
+    }
+
+    @JsonbProperty("target_type")
+    public void setTargetType(String targetType) {
+        this.targetType = targetType;
+    }
+
+    @JsonbProperty("updated_at")
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public enum RepositorySelection {
 

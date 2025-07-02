@@ -26,12 +26,39 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Arrays {
 
-    @JsonbProperty("permissions")
     private Permissions permissions;
 
-    @JsonbProperty("repositories")
     private List<String> repositories;
 
-    @JsonbProperty("repository_ids")
     private List<Integer> repositoryIds;
+
+    @JsonbProperty("permissions")
+    public Permissions getPermissions() {
+        return this.permissions;
+    }
+
+    @JsonbProperty("repositories")
+    public List<String> getRepositories() {
+        return this.repositories;
+    }
+
+    @JsonbProperty("repository_ids")
+    public List<Integer> getRepositoryIds() {
+        return this.repositoryIds;
+    }
+
+    @JsonbProperty("permissions")
+    public void setPermissions(Permissions permissions) {
+        this.permissions = permissions;
+    }
+
+    @JsonbProperty("repositories")
+    public void setRepositories(List<String> repositories) {
+        this.repositories = repositories;
+    }
+
+    @JsonbProperty("repository_ids")
+    public void setRepositoryIds(List<Integer> repositoryIds) {
+        this.repositoryIds = repositoryIds;
+    }
 }

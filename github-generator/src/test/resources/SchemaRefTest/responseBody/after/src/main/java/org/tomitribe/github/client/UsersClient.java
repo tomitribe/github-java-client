@@ -26,10 +26,4 @@ public interface UsersClient {
     default User getUserByID(final GetUserByID getUserByID) {
         throw new UnsupportedOperationException();
     }
-
-    @GET
-    @Path("/users/{id}")
-    default User getUserByID(@PathParam("id") final String id) {
-        throw new UnsupportedOperationException();
-    }
 }

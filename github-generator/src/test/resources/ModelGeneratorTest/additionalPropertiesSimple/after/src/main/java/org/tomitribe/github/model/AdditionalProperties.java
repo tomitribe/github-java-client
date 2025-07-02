@@ -26,15 +26,51 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AdditionalProperties {
 
-    @JsonbProperty("flags")
     private Map<String, Boolean> flags;
 
-    @JsonbProperty("inputs")
     private Map<String, String> inputs;
 
-    @JsonbProperty("language")
     private Map<String, Long> language;
 
-    @JsonbProperty("ref")
     private String ref;
+
+    @JsonbProperty("flags")
+    public Map<String, Boolean> getFlags() {
+        return this.flags;
+    }
+
+    @JsonbProperty("inputs")
+    public Map<String, String> getInputs() {
+        return this.inputs;
+    }
+
+    @JsonbProperty("language")
+    public Map<String, Long> getLanguage() {
+        return this.language;
+    }
+
+    @JsonbProperty("ref")
+    public String getRef() {
+        return this.ref;
+    }
+
+    @JsonbProperty("flags")
+    public void setFlags(Map<String,Boolean> flags) {
+        this.flags = flags;
+    }
+
+    @JsonbProperty("inputs")
+    public void setInputs(Map<String,String> inputs) {
+        this.inputs = inputs;
+    }
+
+    @JsonbProperty("language")
+    public void setLanguage(Map<String,Long> language) {
+        this.language = language;
+    }
+
+    @JsonbProperty("ref")
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
 }

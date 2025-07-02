@@ -21,5 +21,7 @@ public interface GistsClient {
 
     @POST
     @Path("/gists")
-    void createGist(final Gist gist);
+    default void createGist(final Gist gist) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -25,5 +25,7 @@ public interface MetaClient {
     @Path("/meta")
     @Docs("https://developer.github.com/v3/meta/#get-github-meta-information")
     @EnabledForGithubApps
-    ApiOverview getGitHubMetaInformation();
+    default ApiOverview getGitHubMetaInformation() {
+        throw new UnsupportedOperationException();
+    }
 }

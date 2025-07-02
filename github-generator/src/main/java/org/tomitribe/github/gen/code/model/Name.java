@@ -21,7 +21,6 @@ import lombok.Data;
 import org.tomitribe.github.gen.code.BooleanString;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**

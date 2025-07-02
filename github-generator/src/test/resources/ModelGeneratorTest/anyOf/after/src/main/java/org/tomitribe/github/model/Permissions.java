@@ -25,27 +25,99 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Permissions {
 
-    @JsonbProperty("checks")
     private String checks;
 
-    @JsonbProperty("contents")
     private String contents;
 
-    @JsonbProperty("deployments")
     private String deployments;
 
-    @JsonbProperty("issues")
     private String issues;
 
-    @JsonbProperty("metadata")
     private String metadata;
 
-    @JsonbProperty("organization_administration")
     private String organizationAdministration;
 
-    @JsonbProperty("pull_requests")
     private String pullRequests;
 
-    @JsonbProperty("statuses")
     private String statuses;
+
+    @JsonbProperty("checks")
+    public String getChecks() {
+        return this.checks;
+    }
+
+    @JsonbProperty("contents")
+    public String getContents() {
+        return this.contents;
+    }
+
+    @JsonbProperty("deployments")
+    public String getDeployments() {
+        return this.deployments;
+    }
+
+    @JsonbProperty("issues")
+    public String getIssues() {
+        return this.issues;
+    }
+
+    @JsonbProperty("metadata")
+    public String getMetadata() {
+        return this.metadata;
+    }
+
+    @JsonbProperty("organization_administration")
+    public String getOrganizationAdministration() {
+        return this.organizationAdministration;
+    }
+
+    @JsonbProperty("pull_requests")
+    public String getPullRequests() {
+        return this.pullRequests;
+    }
+
+    @JsonbProperty("statuses")
+    public String getStatuses() {
+        return this.statuses;
+    }
+
+    @JsonbProperty("checks")
+    public void setChecks(String checks) {
+        this.checks = checks;
+    }
+
+    @JsonbProperty("contents")
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    @JsonbProperty("deployments")
+    public void setDeployments(String deployments) {
+        this.deployments = deployments;
+    }
+
+    @JsonbProperty("issues")
+    public void setIssues(String issues) {
+        this.issues = issues;
+    }
+
+    @JsonbProperty("metadata")
+    public void setMetadata(String metadata) {
+        this.metadata = metadata;
+    }
+
+    @JsonbProperty("organization_administration")
+    public void setOrganizationAdministration(String organizationAdministration) {
+        this.organizationAdministration = organizationAdministration;
+    }
+
+    @JsonbProperty("pull_requests")
+    public void setPullRequests(String pullRequests) {
+        this.pullRequests = pullRequests;
+    }
+
+    @JsonbProperty("statuses")
+    public void setStatuses(String statuses) {
+        this.statuses = statuses;
+    }
 }

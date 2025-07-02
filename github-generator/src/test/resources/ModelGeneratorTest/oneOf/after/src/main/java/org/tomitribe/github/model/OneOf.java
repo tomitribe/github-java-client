@@ -14,10 +14,13 @@
 package org.tomitribe.github.model;
 
 import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.tomitribe.github.core.StringBooleanAdapter;
+import org.tomitribe.github.gen.code.BooleanString;
 
 @Data
 @Builder
@@ -25,12 +28,40 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OneOf {
 
-    @JsonbProperty("public")
-    private Object _public;
+    @JsonbTypeAdapter(StringBooleanAdapter.class)
+    private Boolean _public;
 
-    @JsonbProperty("description")
     private String description;
 
-    @JsonbProperty("files")
     private String files;
+
+    @JsonbProperty("description")
+    public String getDescription() {
+        return this.description;
+    }
+
+    @JsonbProperty("files")
+    public String getFiles() {
+        return this.files;
+    }
+
+    @JsonbProperty("public")
+    public Boolean get_public() {
+        return this._public;
+    }
+
+    @JsonbProperty("description")
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @JsonbProperty("files")
+    public void setFiles(String files) {
+        this.files = files;
+    }
+
+    @JsonbProperty("public")
+    public void set_public(Boolean _public) {
+        this._public = _public;
+    }
 }

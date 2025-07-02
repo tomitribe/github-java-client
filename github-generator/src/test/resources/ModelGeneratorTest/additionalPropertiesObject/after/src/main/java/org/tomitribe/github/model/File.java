@@ -25,6 +25,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class File {
 
-    @JsonbProperty("content")
     private String content;
+
+    @JsonbProperty("content")
+    public String getContent() {
+        return this.content;
+    }
+
+    @JsonbProperty("content")
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

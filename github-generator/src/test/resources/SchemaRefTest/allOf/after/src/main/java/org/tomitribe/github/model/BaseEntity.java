@@ -15,13 +15,13 @@ package org.tomitribe.github.model;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTypeAdapter;
-import java.util.Date;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.tomitribe.github.core.ComponentId;
-import org.tomitribe.github.core.DateAdapter;
+import org.tomitribe.github.core.InstantAdapter;
 
 @Data
 @AllArgsConstructor
@@ -30,14 +30,13 @@ import org.tomitribe.github.core.DateAdapter;
 @SuperBuilder
 public class BaseEntity {
 
-    @JsonbTypeAdapter(DateAdapter.class)
-    private Date createdAt;
+    @JsonbTypeAdapter(InstantAdapter.class)
+    private Instant createdAt;
 
     private String id;
 
-    @JsonbTypeAdapter(DateAdapter.class)
     @JsonbProperty("createdAt")
-    public Date getCreatedAt() {
+    public Instant getCreatedAt() {
         return this.createdAt;
     }
 
@@ -47,7 +46,7 @@ public class BaseEntity {
     }
 
     @JsonbProperty("createdAt")
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Instant createdAt) {
         this.createdAt = createdAt;
     }
 

@@ -27,15 +27,43 @@ import org.tomitribe.github.core.EnumAdapter;
 @NoArgsConstructor
 public class Enums {
 
-    @JsonbProperty("context")
     private String context;
 
-    @JsonbProperty("mode")
     @JsonbTypeAdapter(ModeAdapter.class)
     private Mode mode;
 
-    @JsonbProperty("text")
     private String text;
+
+    @JsonbProperty("context")
+    public String getContext() {
+        return this.context;
+    }
+
+    @JsonbTypeAdapter(ModeAdapter.class)
+    @JsonbProperty("mode")
+    public Mode getMode() {
+        return this.mode;
+    }
+
+    @JsonbProperty("text")
+    public String getText() {
+        return this.text;
+    }
+
+    @JsonbProperty("context")
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    @JsonbProperty("mode")
+    public void setMode(Mode mode) {
+        this.mode = mode;
+    }
+
+    @JsonbProperty("text")
+    public void setText(String text) {
+        this.text = text;
+    }
 
     public enum Mode {
 

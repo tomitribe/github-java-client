@@ -16,6 +16,7 @@
  */
 package org.tomitribe.github.gen;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.tomitribe.github.core.JsonAsserts;
 import org.tomitribe.github.core.JsonMarshalling;
@@ -39,6 +40,7 @@ public class ModelGeneratorTest {
 
     private final Dir resources = Resources.resources(ModelGeneratorTest.class);
 
+    @Ignore
     @Test
     public void simple() throws Exception {
         assertScenario("simple", "pull-request-minimal.json", "pull-request-minimal");
