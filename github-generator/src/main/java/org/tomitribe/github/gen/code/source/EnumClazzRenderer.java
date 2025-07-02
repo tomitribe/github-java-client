@@ -15,7 +15,6 @@ package org.tomitribe.github.gen.code.source;
 
 import com.github.javaparser.ast.Modifier;
 import com.github.javaparser.ast.body.EnumConstantDeclaration;
-import com.github.javaparser.ast.body.EnumDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.expr.StringLiteralExpr;

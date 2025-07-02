@@ -19,7 +19,6 @@ package org.tomitribe.github.gen;
 import lombok.Builder;
 import lombok.Data;
 import org.tomitribe.github.gen.code.endpoint.Endpoint;
-import org.tomitribe.github.gen.code.source.EndpointRenderer;
 import org.tomitribe.github.gen.code.model.ArrayClazz;
 import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.VoidClazz;
