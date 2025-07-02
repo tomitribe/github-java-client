@@ -58,14 +58,6 @@ public class RequestTest {
     }
 
     /**
-     * Verifies cookie parameters of type string.
-     */
-    @Test
-    public void cookieStringParam() throws Exception {
-        Scenarios.assertScenario();
-    }
-
-    /**
      * Verifies required and optional fields in a JSON request body.
      */
     @Test

@@ -1,0 +1,45 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Body JSON Required and Optional Fields",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "summary": "Create User With Required And Optional Fields",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "age": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "username",
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  }
+}

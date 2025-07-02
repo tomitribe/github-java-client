@@ -1,0 +1,51 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Body JSON Schema Ref",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/widgets": {
+      "post": {
+        "summary": "Create Widget With Schema Ref",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Widget"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Widget": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    }
+  }
+}
