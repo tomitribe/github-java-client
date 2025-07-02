@@ -60,7 +60,7 @@ public class OpenApi {
     @JsonbProperty("paths")
     private Map<String, Path> paths;
 
-    @JsonbProperty("x-webhook")
+    @JsonbProperty("x-webhooks")
     private Map<String, Webhook> webhooks;
 
     @JsonbProperty("components")

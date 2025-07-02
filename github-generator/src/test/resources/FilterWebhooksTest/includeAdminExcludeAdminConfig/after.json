@@ -1,0 +1,19 @@
+{
+  "info":{
+    "title":"Filter Webhooks Test",
+    "version":"1.0.0"
+  },
+  "openapi":"3.0.0",
+  "x-webhooks":{
+    "adminUsers":{
+      "post":{
+        "responses":{
+          "200":{
+            "description":"OK"
+          }
+        },
+        "summary":"Admin user list"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "info": {
+    "title": "Filter Webhooks Test",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "x-webhooks": {
+    "users": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Get all users"
+      }
+    },
+    "usersId": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Get user by ID"
+      }
+    }
+  }
+}
