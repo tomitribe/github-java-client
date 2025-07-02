@@ -19,11 +19,13 @@ package org.tomitribe.github.gen.openapi;
 import org.junit.Test;
 import org.tomitribe.github.core.JsonAsserts;
 import org.tomitribe.github.core.PayloadAsserts;
+import org.tomitribe.github.gen.openapi.normalize.Normalizations;
 import org.tomitribe.util.IO;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
+import java.util.function.Function;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,6 +44,11 @@ public class OpenApiTest {
         for (final Map.Entry<String, Path> entry : openApi.getPaths().entrySet()) {
             assertEquals(entry.getKey(), entry.getValue().getName());
         }
+    }
+
+    @Test
+    public void testWebook() throws Exception {
+        Normalizations.assertScenario(Function.identity());
     }
 
     public String getOpenApiJson() throws IOException {

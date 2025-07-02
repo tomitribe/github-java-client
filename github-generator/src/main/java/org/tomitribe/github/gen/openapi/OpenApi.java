@@ -60,6 +60,9 @@ public class OpenApi {
     @JsonbProperty("paths")
     private Map<String, Path> paths;
 
+    @JsonbProperty("x-webhook")
+    private Map<String, Webhook> webhooks;
+
     @JsonbProperty("components")
     private Components components;
 
@@ -67,61 +70,119 @@ public class OpenApi {
         final OpenApi openApi = JsonMarshalling.unmarshal(OpenApi.class, json);
 
         // Tell every Path instance what their actual path is
-        for (final Map.Entry<String, Path> entry : openApi.paths.entrySet()) {
-            entry.getValue().setName(entry.getKey());
+        if (openApi.paths != null) {
+            for (final Map.Entry<String, Path> entry : openApi.paths.entrySet()) {
+                entry.getValue().setName(entry.getKey());
+            }
+
+            // Tell every Method instance what kind of method it is
+            for (final Path path : openApi.paths.values()) {
+                if (path.getGet() != null) path.getGet().setName("get");
+                if (path.getPut() != null) path.getPut().setName("put");
+                if (path.getPost() != null) path.getPost().setName("post");
+                if (path.getDelete() != null) path.getDelete().setName("delete");
+                if (path.getTrace() != null) path.getTrace().setName("trace");
+                if (path.getOptions() != null) path.getOptions().setName("options");
+                if (path.getPatch() != null) path.getPatch().setName("patch");
+            }
+
+            // Link every Method path to its owning Path
+            for (final Path path : openApi.paths.values()) {
+                path.getMethods().forEach(method -> method.setPath(path));
+            }
+
+            // Tell every Response instance what its name is in the map
+            openApi.paths.values().stream()
+                    .flatMap(Path::getMethods)
+                    .forEach(method -> {
+                        for (final Map.Entry<String, Response> entry : method.getResponses().entrySet()) {
+                            entry.getValue().setName(entry.getKey());
+                        }
+                    });
+
+            // Tell every response Content instance what its name is in the map
+            openApi.paths.values().stream()
+                    .flatMap(Path::getMethods)
+                    .map(Method::getResponses)
+                    .filter(Objects::nonNull)
+                    .map(Map::values)
+                    .flatMap(Collection::stream)
+                    .filter(Objects::nonNull)
+                    .filter(response -> response.getContent() != null)
+                    .forEach(response -> {
+                        for (final Map.Entry<String, Content> entry : response.getContent().entrySet()) {
+                            entry.getValue().setName(entry.getKey());
+                        }
+                    });
+
+            // Tell every requestBody Content instance what its name is in the map
+            openApi.paths.values().stream()
+                    .flatMap(Path::getMethods)
+                    .map(Method::getRequestBody)
+                    .filter(Objects::nonNull)
+                    .filter(requestBody -> requestBody.getContent() != null)
+                    .forEach(requestBody -> {
+                        for (final Map.Entry<String, Content> entry : requestBody.getContent().entrySet()) {
+                            entry.getValue().setName(entry.getKey());
+                        }
+                    });
         }
 
-        // Tell every Method instance what kind of method it is
-        for (final Path path : openApi.paths.values()) {
-            if (path.getGet() != null) path.getGet().setName("get");
-            if (path.getPut() != null) path.getPut().setName("put");
-            if (path.getPost() != null) path.getPost().setName("post");
-            if (path.getDelete() != null) path.getDelete().setName("delete");
-            if (path.getTrace() != null) path.getTrace().setName("trace");
-            if (path.getOptions() != null) path.getOptions().setName("options");
-            if (path.getPatch() != null) path.getPatch().setName("patch");
+        if (openApi.webhooks != null) {
+            // Tell every Webhook instance what their name is
+            for (final Map.Entry<String, Webhook> entry : openApi.webhooks.entrySet()) {
+                entry.getValue().setName(entry.getKey());
+            }
+
+            // Tell every Method instance what kind of method it is
+            for (final Webhook webhook : openApi.webhooks.values()) {
+                if (webhook.getGet() != null) webhook.getGet().setName("get");
+                if (webhook.getPut() != null) webhook.getPut().setName("put");
+                if (webhook.getPost() != null) webhook.getPost().setName("post");
+                if (webhook.getDelete() != null) webhook.getDelete().setName("delete");
+                if (webhook.getTrace() != null) webhook.getTrace().setName("trace");
+                if (webhook.getOptions() != null) webhook.getOptions().setName("options");
+                if (webhook.getPatch() != null) webhook.getPatch().setName("patch");
+            }
+
+            // Tell every Response instance what its name is in the map
+            openApi.webhooks.values().stream()
+                    .flatMap(Webhook::getMethods)
+                    .forEach(method -> {
+                        for (final Map.Entry<String, Response> entry : method.getResponses().entrySet()) {
+                            entry.getValue().setName(entry.getKey());
+                        }
+                    });
+
+
+            // Tell every response Content instance what its name is in the map
+            openApi.webhooks.values().stream()
+                    .flatMap(Webhook::getMethods)
+                    .map(Method::getResponses)
+                    .filter(Objects::nonNull)
+                    .map(Map::values)
+                    .flatMap(Collection::stream)
+                    .filter(Objects::nonNull)
+                    .filter(response -> response.getContent() != null)
+                    .forEach(response -> {
+                        for (final Map.Entry<String, Content> entry : response.getContent().entrySet()) {
+                            entry.getValue().setName(entry.getKey());
+                        }
+                    });
+
+
+            // Tell every requestBody Content instance what its name is in the map
+            openApi.webhooks.values().stream()
+                    .flatMap(Webhook::getMethods)
+                    .map(Method::getRequestBody)
+                    .filter(Objects::nonNull)
+                    .filter(requestBody -> requestBody.getContent() != null)
+                    .forEach(requestBody -> {
+                        for (final Map.Entry<String, Content> entry : requestBody.getContent().entrySet()) {
+                            entry.getValue().setName(entry.getKey());
+                        }
+                    });
         }
-
-        // Link every Method path to its owning Path
-        for (final Path path : openApi.paths.values()) {
-            path.getMethods().forEach(method -> method.setPath(path));
-        }
-
-        // Tell every Response instance what its name is in the map
-        openApi.paths.values().stream()
-                .flatMap(Path::getMethods)
-                .forEach(method -> {
-                    for (final Map.Entry<String, Response> entry : method.getResponses().entrySet()) {
-                        entry.getValue().setName(entry.getKey());
-                    }
-                });
-
-        // Tell every response Content instance what its name is in the map
-        openApi.paths.values().stream()
-                .flatMap(Path::getMethods)
-                .map(Method::getResponses)
-                .filter(Objects::nonNull)
-                .map(Map::values)
-                .flatMap(Collection::stream)
-                .filter(Objects::nonNull)
-                .filter(response -> response.getContent() != null)
-                .forEach(response -> {
-                    for (final Map.Entry<String, Content> entry : response.getContent().entrySet()) {
-                        entry.getValue().setName(entry.getKey());
-                    }
-                });
-
-        // Tell every requestBody Content instance what its name is in the map
-        openApi.paths.values().stream()
-                .flatMap(Path::getMethods)
-                .map(Method::getRequestBody)
-                .filter(Objects::nonNull)
-                .filter(requestBody -> requestBody.getContent() != null)
-                .forEach(requestBody -> {
-                    for (final Map.Entry<String, Content> entry : requestBody.getContent().entrySet()) {
-                        entry.getValue().setName(entry.getKey());
-                    }
-                });
 
         // Tell every Schema in componets what its name is in the map
         if (openApi.getComponents() != null && openApi.getComponents().getSchemas() != null) {
@@ -168,7 +229,7 @@ public class OpenApi {
     }
 
     @JsonbTransient
-    public Stream<Method> getMethods() {
+    public Stream<Method> getPathMethods() {
         return getPaths().values().stream()
                 .flatMap(Path::getMethods);
     }

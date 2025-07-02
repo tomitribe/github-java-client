@@ -41,7 +41,7 @@ public class MethodNames {
         gen.getGithubOpenApiJson();
 
         final OpenApi openApi = OpenApi.parse(IO.slurp(gen.getGithubOpenApiJson()));
-        final Map<String, Name> openapiNames = openApi.getMethods()
+        final Map<String, Name> openapiNames = openApi.getPathMethods()
                 .map(Name::from)
                 .collect(Collectors.toMap(Name::getTarget, Function.identity()));
 

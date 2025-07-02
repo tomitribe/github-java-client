@@ -1,0 +1,86 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "GitHub Webhooks Example",
+    "version": "1.0.0"
+  },
+  "x-webhook": {
+    "push": {
+      "post": {
+        "summary": "Push event",
+        "description": "Triggered on a push to a repository branch.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/push_event"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook processed"
+          }
+        }
+      }
+    },
+    "ping": {
+      "post": {
+        "summary": "Ping event",
+        "description": "Occurs when a webhook is created or updated.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ping_event"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "push_event": {
+        "type": "object",
+        "properties": {
+          "ref": {
+            "type": "string"
+          },
+          "commits": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "ping_event": {
+        "type": "object",
+        "properties": {
+          "zen": {
+            "type": "string"
+          },
+          "hook_id": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

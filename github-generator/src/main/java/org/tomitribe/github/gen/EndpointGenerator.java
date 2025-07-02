@@ -70,7 +70,7 @@ public class EndpointGenerator {
 
         modelGenerator.getClasses().forEach(resolver::resolve);
 
-        final Map<String, List<EndpointMethod>> categories = openApi.getMethods()
+        final Map<String, List<EndpointMethod>> categories = openApi.getPathMethods()
                 .filter(this::isSupported)
                 .map(this::createMethod)
                 .collect(Collectors.groupingBy(EndpointMethod::getCategory));
