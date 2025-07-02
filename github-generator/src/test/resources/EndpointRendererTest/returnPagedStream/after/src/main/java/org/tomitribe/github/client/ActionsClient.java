@@ -15,6 +15,12 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.QueryParam;
+import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Paged;
 import org.tomitribe.github.model.ListSelfHostedRunnersForRepository;
 import org.tomitribe.github.model.Runner;
 import org.tomitribe.github.model.RunnersPage;
@@ -23,21 +29,10 @@ public interface ActionsClient {
 
     @GET
     @Path("/repos/{owner}/{repo}/actions/runners")
-    @OperationId("actions/list-self-hosted-runners-for-repo")
     @Docs("https://developer.github.com/v3/actions/self-hosted-runners/#list-self-hosted-runners-for-a-repository")
     @EnabledForGithubApps
-    @Category("actions")
-    @Subcategory("self-hosted-runners")
     @Paged(RunnersPage.class)
-    Stream<Runner> listSelfHostedRunnersForRepository(final ListSelfHostedRunnersForRepository listSelfHostedRunnersForRepository);
-
-    @GET
-    @Path("/repos/{owner}/{repo}/actions/runners")
-    @OperationId("actions/list-self-hosted-runners-for-repo")
-    @Docs("https://developer.github.com/v3/actions/self-hosted-runners/#list-self-hosted-runners-for-a-repository")
-    @EnabledForGithubApps
-    @Category("actions")
-    @Subcategory("self-hosted-runners")
-    @Paged(RunnersPage.class)
-    Stream<Runner> listSelfHostedRunnersForRepository(@PathParam("owner") final String owner, @PathParam("repo") final String repo);
+    default Stream<Runner> listSelfHostedRunnersForRepository(final ListSelfHostedRunnersForRepository listSelfHostedRunnersForRepository) {
+        throw new UnsupportedOperationException();
+    }
 }

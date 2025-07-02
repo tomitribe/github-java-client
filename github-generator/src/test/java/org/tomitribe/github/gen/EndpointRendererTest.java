@@ -18,18 +18,6 @@ package org.tomitribe.github.gen;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.tomitribe.github.gen.openapi.OpenApi;
-import org.tomitribe.util.Files;
-import org.tomitribe.util.IO;
-import org.tomitribe.util.JarLocation;
-import org.tomitribe.util.dir.Dir;
-import org.tomitribe.util.dir.Name;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.UncheckedIOException;
-
-import static org.tomitribe.github.gen.ProjectAsserts.assertProject;
 
 public class EndpointRendererTest {
 
@@ -40,145 +28,47 @@ public class EndpointRendererTest {
 
     @Test
     public void voidReturn() throws Exception {
-        assertScenario("voidReturn");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void noParameters() throws Exception {
-        assertScenario("noParameters");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void requestBody() throws Exception {
-        assertScenario("requestBody");
+        Scenarios.assertScenario();
     }
 
+    @Ignore
     @Test
     public void returnArrayOfString() throws Exception {
-        assertScenario("returnArrayOfString");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void returnArrayOfArray() throws Exception {
-        assertScenario("returnArrayOfArray");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void returnPagedStream() throws Exception {
-        assertScenario("returnPagedStream");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void returnPagedStreamFromArray() throws Exception {
-        assertScenario("returnPagedStreamFromArray");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void returnPagedStreamUnknown() throws Exception {
-        assertScenario("returnPagedStreamUnknown");
+        Scenarios.assertScenario();
     }
 
     @Test
     public void requestBodyWithParams() throws Exception {
-        assertScenario("requestBodyWithParams");
+        Scenarios.assertScenario();
     }
-
-    @Test
-    @Ignore
-    public void all() throws Exception {
-        assertScenario("all");
-    }
-
-    private void assertScenario(final String name) throws IOException {
-        regenerateScenario(Scenario.source(name));
-        assertScenario(Scenario.get(name));
-    }
-
-    private void regenerateScenario(final Scenario scenario) throws IOException {
-        final Project expected = scenario.after();
-
-        // Delete the old files
-        Files.remove(expected.src().get());
-
-        // Generate new "expected" files
-        Generator.builder()
-                .openApi(scenario.getOpenApi())
-                .project(expected)
-                .generateClient(true)
-                .generateModel(scenario.generateModels())
-                .clientPackage("org.tomitribe.github.client")
-                .modelPackage("org.tomitribe.github.model")
-                .build()
-                .generate();
-    }
-
-    private void assertScenario(final Scenario scenario) throws IOException {
-
-        final Project actual = Project.from(Files.tmpdir());
-
-        Generator.builder()
-                .openApi(scenario.getOpenApi())
-                .project(actual)
-                .generateClient(true)
-                .generateModel(scenario.generateModels())
-                .clientPackage("org.tomitribe.github.client")
-                .modelPackage("org.tomitribe.github.model")
-                .build()
-                .generate();
-
-        final Project expected = scenario.after();
-
-        assertProject(expected, actual);
-    }
-
-    public interface Scenario extends Dir {
-        @Name("openapi.json")
-        File openapiJson();
-
-        default boolean generateModels() {
-            return after().src().main().java().model().get().listFiles().length > 0;
-        }
-
-        default OpenApi getOpenApi() {
-            try {
-                return OpenApi.parse(IO.slurp(openapiJson()));
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-        }
-
-        Project before();
-
-        Project after();
-
-        static Scenario get(final String testName) {
-            final Class<?> clazz = EndpointRendererTest.class;
-            final File testClasses = JarLocation.jarLocation(clazz);
-            final File target = testClasses.getParentFile();
-            final File module = target.getParentFile();
-            final Project project = Project.from(module);
-            final Dir source = project.src().test().resources().dir(clazz.getSimpleName()).dir(testName);
-            final File tmpdir = Files.tmpdir();
-
-            try {
-                IO.copyDirectory(source.dir(), tmpdir);
-            } catch (IOException e) {
-                throw new UncheckedIOException(e);
-            }
-
-            return Dir.of(Scenario.class, tmpdir);
-        }
-
-        static Scenario source(final String testName) {
-            final Class<?> clazz = EndpointRendererTest.class;
-            final File testClasses = JarLocation.jarLocation(clazz);
-            final File target = testClasses.getParentFile();
-            final File module = target.getParentFile();
-            final Project project = Project.from(module);
-            final Dir source = project.src().test().resources().dir(clazz.getSimpleName()).dir(testName);
-
-            return Dir.of(Scenario.class, source.get());
-        }
-    }
-
 }

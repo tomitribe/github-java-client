@@ -115,8 +115,10 @@ public class EndpointRenderer {
             if (method.getResponse().isPaged()) {
                 if (method.getResponse() instanceof ArrayClazz) {
                     final ArrayClazz arrayClazz = (ArrayClazz) method.getResponse();
+                    definition.addImport(Stream.class);
                     methodDeclaration.setType(String.format("Stream<%s>", arrayClazz.getOf().getName().getSimpleName()));
                 } else {
+                    definition.addImport(Stream.class);
                     final Field pagedItem = getPagedItem(method.getResponse());
                     methodDeclaration.setType(String.format("Stream<%s>", pagedItem.getType().getSimpleName()));
                 }
@@ -124,6 +126,7 @@ public class EndpointRenderer {
                 final Name arrayType = getImport(method.getResponse());
                 methodDeclaration.setType(String.format("%s[][]", asRequiredType(arrayType)));
             } else if (isArray(method)) {
+                definition.addImport(Stream.class);
                 final ArrayClazz arrayClazz = (ArrayClazz) method.getResponse();
                 methodDeclaration.setType(String.format("Stream<%s>", arrayClazz.getOf().getName().getSimpleName()));
             } else {

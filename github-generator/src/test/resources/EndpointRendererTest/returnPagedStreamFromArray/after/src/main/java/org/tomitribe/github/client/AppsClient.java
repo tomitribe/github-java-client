@@ -15,7 +15,12 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Paged;
+import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.model.Installation;
 import org.tomitribe.github.model.ListInstallationsForAuthenticatedApp;
 
@@ -23,11 +28,11 @@ public interface AppsClient {
 
     @GET
     @Path("/app/installations")
-    @OperationId("apps/list-installations")
     @Docs("https://developer.github.com/v3/apps/#list-installations-for-the-authenticated-app")
     @EnabledForGithubApps
     @Preview("machine-man")
-    @Category("apps")
     @Paged(Installation[].class)
-    Stream<Installation> listInstallationsForAuthenticatedApp(final ListInstallationsForAuthenticatedApp listInstallationsForAuthenticatedApp);
+    default Stream<Installation> listInstallationsForAuthenticatedApp(final ListInstallationsForAuthenticatedApp listInstallationsForAuthenticatedApp) {
+        throw new UnsupportedOperationException();
+    }
 }

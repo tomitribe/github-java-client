@@ -16,28 +16,34 @@ package org.tomitribe.github.client;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.DeprecationDate;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.Paged;
+import org.tomitribe.github.core.RemovalDate;
 import org.tomitribe.github.model.Authorization;
 import org.tomitribe.github.model.CreateNewAuthorization;
+import org.tomitribe.github.model.ListYourAuthorizations;
 
 public interface OauthAuthorizationsClient {
 
     @POST
     @Path("/authorizations")
-    @OperationId("oauth-authorizations/create-authorization")
     @Docs("https://developer.github.com/v3/oauth_authorizations/#create-a-new-authorization")
     @RemovalDate("2020-11-13")
     @DeprecationDate("2020-02-14")
-    @Category("oauth-authorizations")
-    Authorization createNewAuthorization(final CreateNewAuthorization createNewAuthorization);
+    default Authorization createNewAuthorization(final CreateNewAuthorization createNewAuthorization) {
+        throw new UnsupportedOperationException();
+    }
 
     @GET
     @Path("/authorizations")
-    @OperationId("oauth-authorizations/list-authorizations")
     @Docs("https://developer.github.com/v3/oauth_authorizations/#list-your-authorizations")
     @RemovalDate("2020-11-13")
     @DeprecationDate("2020-02-14")
-    @Category("oauth-authorizations")
     @Paged(Authorization[].class)
-    Stream<Authorization> listYourAuthorizations();
+    default Stream<Authorization> listYourAuthorizations(final ListYourAuthorizations listYourAuthorizations) {
+        throw new UnsupportedOperationException();
+    }
 }

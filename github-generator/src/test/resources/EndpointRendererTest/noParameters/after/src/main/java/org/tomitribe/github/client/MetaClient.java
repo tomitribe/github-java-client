@@ -15,14 +15,15 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.GitHubAPIRootResponse;
 
 public interface MetaClient {
 
     @GET
     @Path("/")
-    @OperationId("meta/root")
     @EnabledForGithubApps
-    @Category("meta")
-    GitHubAPIRootResponse gitHubAPIRoot();
+    default GitHubAPIRootResponse gitHubAPIRoot() {
+        throw new UnsupportedOperationException();
+    }
 }

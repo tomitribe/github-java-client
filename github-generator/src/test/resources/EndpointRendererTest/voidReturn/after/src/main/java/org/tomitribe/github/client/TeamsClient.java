@@ -17,6 +17,10 @@ import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.PATCH;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.model.DeleteDiscussion;
 import org.tomitribe.github.model.GetDiscussion;
 import org.tomitribe.github.model.TeamDiscussion;
@@ -26,49 +30,27 @@ public interface TeamsClient {
 
     @DELETE
     @Path("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}")
-    @OperationId("teams/delete-discussion-in-org")
     @Docs("https://developer.github.com/v3/teams/discussions/#delete-a-discussion")
     @EnabledForGithubApps
-    @Category("teams")
-    @Subcategory("discussions")
-    void deleteDiscussion(final DeleteDiscussion deleteDiscussion);
-
-    @DELETE
-    @Path("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}")
-    @OperationId("teams/delete-discussion-in-org")
-    @Docs("https://developer.github.com/v3/teams/discussions/#delete-a-discussion")
-    @EnabledForGithubApps
-    @Category("teams")
-    @Subcategory("discussions")
-    void deleteDiscussion(@PathParam("org") final String org, @PathParam("team_slug") final String teamSlug, @PathParam("discussion-number") final int discussionNumber);
+    default void deleteDiscussion(final DeleteDiscussion deleteDiscussion) {
+        throw new UnsupportedOperationException();
+    }
 
     @GET
     @Path("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}")
-    @OperationId("teams/get-discussion-in-org")
     @Docs("https://developer.github.com/v3/teams/discussions/#get-a-discussion")
     @EnabledForGithubApps
     @Preview("squirrel-girl")
-    @Category("teams")
-    @Subcategory("discussions")
-    TeamDiscussion getDiscussion(final GetDiscussion getDiscussion);
-
-    @GET
-    @Path("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}")
-    @OperationId("teams/get-discussion-in-org")
-    @Docs("https://developer.github.com/v3/teams/discussions/#get-a-discussion")
-    @EnabledForGithubApps
-    @Preview("squirrel-girl")
-    @Category("teams")
-    @Subcategory("discussions")
-    TeamDiscussion getDiscussion(@PathParam("org") final String org, @PathParam("team_slug") final String teamSlug, @PathParam("discussion-number") final int discussionNumber);
+    default TeamDiscussion getDiscussion(final GetDiscussion getDiscussion) {
+        throw new UnsupportedOperationException();
+    }
 
     @PATCH
     @Path("/orgs/{org}/teams/{team_slug}/discussions/{discussion_number}")
-    @OperationId("teams/update-discussion-in-org")
     @Docs("https://developer.github.com/v3/teams/discussions/#update-a-discussion")
     @EnabledForGithubApps
     @Preview("squirrel-girl")
-    @Category("teams")
-    @Subcategory("discussions")
-    TeamDiscussion updateDiscussion(final UpdateDiscussion updateDiscussion);
+    default TeamDiscussion updateDiscussion(final UpdateDiscussion updateDiscussion) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -15,6 +15,12 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.QueryParam;
+import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Paged;
+import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.model.RepoSearchResultItem;
 import org.tomitribe.github.model.RepoSearchResultItemsPage;
 import org.tomitribe.github.model.SearchRepositories;
@@ -23,11 +29,11 @@ public interface SearchClient {
 
     @GET
     @Path("/search/repositories")
-    @OperationId("search/repos")
     @Docs("https://developer.github.com/v3/search/#search-repositories")
     @EnabledForGithubApps
     @Preview("mercy")
-    @Category("search")
     @Paged(RepoSearchResultItemsPage.class)
-    Stream<RepoSearchResultItem> searchRepositories(final SearchRepositories searchRepositories);
+    default Stream<RepoSearchResultItem> searchRepositories(final SearchRepositories searchRepositories) {
+        throw new UnsupportedOperationException();
+    }
 }

@@ -39,6 +39,7 @@ public class InlineParameterRefs implements Function<OpenApi, OpenApi> {
 
         openApi.getPaths().values().stream()
                 .flatMap(Path::getMethods)
+                .filter(method -> method.getParameters() != null)
                 .forEach(method -> {
                     method.setParameters(method.getParameters().stream()
                             .map(resolve)

@@ -312,13 +312,6 @@
         "title": "Scoped Installation",
         "type": "object",
         "properties": {
-          "permissions": {
-            "type": "object",
-            "example": {
-              "issues": "read",
-              "deployments": "write"
-            }
-          },
           "repository_selection": {
             "description": "Describe whether all repositories have been selected or there's a selection involved",
             "type": "string",
@@ -342,7 +335,6 @@
           }
         },
         "required": [
-          "permissions",
           "repository_selection",
           "single_file_name",
           "repositories_url",

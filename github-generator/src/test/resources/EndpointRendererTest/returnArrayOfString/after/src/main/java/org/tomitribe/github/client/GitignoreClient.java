@@ -16,14 +16,16 @@ package org.tomitribe.github.client;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 
 public interface GitignoreClient {
 
     @GET
     @Path("/gitignore/templates")
-    @OperationId("gitignore/get-all-templates")
     @Docs("https://developer.github.com/v3/gitignore/#get-all-gitignore-templates")
     @EnabledForGithubApps
-    @Category("gitignore")
-    Stream<String> getAllGitignoreTemplates();
+    default Stream<String> getAllGitignoreTemplates() {
+        throw new UnsupportedOperationException();
+    }
 }

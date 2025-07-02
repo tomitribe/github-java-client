@@ -61,7 +61,7 @@ public class Clazz {
         this.name = name;
         this.title = title;
         this.id.owner = this;
-        setParent(parent);
+        if (parent != null) setParent(parent);
     }
 
     public Clazz getParent() {

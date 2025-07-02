@@ -15,6 +15,10 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
+import org.tomitribe.github.core.Preview;
 import org.tomitribe.github.model.CreateInstallationAccessTokenForApp;
 import org.tomitribe.github.model.InstallationToken;
 
@@ -22,10 +26,10 @@ public interface AppsClient {
 
     @POST
     @Path("/app/installations/{installation_id}/access_tokens")
-    @OperationId("apps/create-installation-access-token")
     @Docs("https://developer.github.com/v3/apps/#create-an-installation-access-token-for-an-app")
     @EnabledForGithubApps
     @Preview("machine-man")
-    @Category("apps")
-    InstallationToken createInstallationAccessTokenForApp(final CreateInstallationAccessTokenForApp createInstallationAccessTokenForApp);
+    default InstallationToken createInstallationAccessTokenForApp(final CreateInstallationAccessTokenForApp createInstallationAccessTokenForApp) {
+        throw new UnsupportedOperationException();
+    }
 }

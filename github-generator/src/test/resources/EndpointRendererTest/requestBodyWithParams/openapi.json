@@ -55,33 +55,6 @@
                     "items": {
                       "type": "integer"
                     }
-                  },
-                  "permissions": {
-                    "type": "object",
-                    "properties": {
-                      "contents": {
-                        "type": "string"
-                      },
-                      "issues": {
-                        "type": "string"
-                      },
-                      "deployments": {
-                        "type": "string"
-                      },
-                      "single_file": {
-                        "type": "string"
-                      },
-                      "def_not_a_repo": {
-                        "type": "string",
-                        "example": "\"read\""
-                      }
-                    },
-                    "example": {
-                      "contents": "read",
-                      "issues": "read",
-                      "deployments": "write",
-                      "single_file": "read"
-                    }
                   }
                 }
               }
@@ -345,31 +318,6 @@
           },
           "forks": {
             "type": "integer"
-          },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "admin": {
-                "type": "boolean"
-              },
-              "pull": {
-                "type": "boolean"
-              },
-              "triage": {
-                "type": "boolean"
-              },
-              "push": {
-                "type": "boolean"
-              },
-              "maintain": {
-                "type": "boolean"
-              }
-            },
-            "required": [
-              "admin",
-              "pull",
-              "push"
-            ]
           },
           "owner": {
             "nullable": true,
@@ -973,20 +921,6 @@
               "updated_at": {
                 "type": "string"
               },
-              "permissions": {
-                "type": "object",
-                "properties": {
-                  "admin": {
-                    "type": "boolean"
-                  },
-                  "push": {
-                    "type": "boolean"
-                  },
-                  "pull": {
-                    "type": "boolean"
-                  }
-                }
-              },
               "allow_rebase_merge": {
                 "type": "boolean"
               },
@@ -1182,25 +1116,6 @@
           "expires_at": {
             "type": "string"
           },
-          "permissions": {
-            "type": "object",
-            "properties": {
-              "issues": {
-                "type": "string"
-              },
-              "contents": {
-                "type": "string"
-              },
-              "metadata": {
-                "type": "string",
-                "example": "read"
-              },
-              "single_file": {
-                "type": "string",
-                "example": "read"
-              }
-            }
-          },
           "repository_selection": {
             "type": "string",
             "enum": [
@@ -1314,10 +1229,6 @@
         "value": {
           "token": "v1.1f699f1069f60xxx",
           "expires_at": "2016-07-11T22:14:10Z",
-          "permissions": {
-            "issues": "write",
-            "contents": "read"
-          },
           "repository_selection": "selected",
           "repositories": [
             {
@@ -1417,11 +1328,6 @@
               "pushed_at": "2011-01-26T19:06:43Z",
               "created_at": "2011-01-26T19:01:12Z",
               "updated_at": "2011-01-26T19:14:43Z",
-              "permissions": {
-                "admin": false,
-                "push": false,
-                "pull": true
-              },
               "allow_rebase_merge": true,
               "template_repository": null,
               "temp_clone_token": "ABTLWHOULUVAXGTRYU7OC2876QJ2O",

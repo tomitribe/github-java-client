@@ -15,26 +15,19 @@ package org.tomitribe.github.client;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import java.util.stream.Stream;
+import org.tomitribe.github.core.Docs;
+import org.tomitribe.github.core.EnabledForGithubApps;
 import org.tomitribe.github.model.GetWeeklyCommitActivity;
 
 public interface ReposClient {
 
     @GET
     @Path("/repos/{owner}/{repo}/stats/code_frequency")
-    @OperationId("repos/get-code-frequency-stats")
     @Docs("https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-activity")
     @EnabledForGithubApps
-    @Category("repos")
-    @Subcategory("statistics")
-    int[][] getWeeklyCommitActivity(final GetWeeklyCommitActivity getWeeklyCommitActivity);
-
-    @GET
-    @Path("/repos/{owner}/{repo}/stats/code_frequency")
-    @OperationId("repos/get-code-frequency-stats")
-    @Docs("https://developer.github.com/v3/repos/statistics/#get-the-weekly-commit-activity")
-    @EnabledForGithubApps
-    @Category("repos")
-    @Subcategory("statistics")
-    int[][] getWeeklyCommitActivity(@PathParam("owner") final String owner, @PathParam("repo") final String repo);
+    default int[][] getWeeklyCommitActivity(final GetWeeklyCommitActivity getWeeklyCommitActivity) {
+        throw new UnsupportedOperationException();
+    }
 }
