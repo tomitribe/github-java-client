@@ -67,5 +67,21 @@ public class FilterPathsTest {
                 .build());
     }
 
+    @Test
+    public void excludeList() throws Exception {
+        Normalizations.assertScenario(FilterPaths.builder()
+                .exclude("\\{id\\}")
+                .exclude("config")
+                .build());
+    }
+
+    @Test
+    public void includeList() throws Exception {
+        Normalizations.assertScenario(FilterPaths.builder()
+                .include("\\{id\\}")
+                .include("config")
+                .build());
+    }
+
 
 }

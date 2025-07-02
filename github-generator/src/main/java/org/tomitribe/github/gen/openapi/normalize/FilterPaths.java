@@ -17,6 +17,8 @@ import lombok.AllArgsConstructor;
 import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.github.gen.openapi.Path;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -51,36 +53,23 @@ public class FilterPaths implements Function<OpenApi, OpenApi> {
     }
 
     public static class Builder {
-        private Pattern include = Pattern.compile(".*");
-        private Pattern exclude;
+        private final List<String> includes = new ArrayList<>();
+        private final List<String> excludes = new ArrayList<>();
 
-        Builder() {
-        }
-
-        public Builder include(final Pattern include) {
-            this.include = include;
+        public Builder include(final String regex) {
+            this.includes.add(regex);
             return this;
         }
 
-        public Builder include(final String includeRegex) {
-            return include(Pattern.compile(includeRegex));
-        }
-
-        public Builder exclude(final Pattern exclude) {
-            this.exclude = exclude;
+        public Builder exclude(final String regex) {
+            this.excludes.add(regex);
             return this;
-        }
-
-        public Builder exclude(final String excludeRegex) {
-            return exclude(Pattern.compile(excludeRegex));
         }
 
         public FilterPaths build() {
-            return new FilterPaths(this.include, this.exclude);
-        }
-
-        public String toString() {
-            return "FilterPaths.Builder(include=" + this.include + ", exclude=" + this.exclude + ")";
+            final Pattern includePattern = Pattern.compile(includes.isEmpty() ? ".*" : String.join("|", includes));
+            final Pattern excludePattern = excludes.isEmpty() ? null : Pattern.compile(String.join("|", excludes));
+            return new FilterPaths(includePattern, excludePattern);
         }
     }
 }
