@@ -1,0 +1,76 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Schema AnyOf Composition",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/payment": {
+      "post": {
+        "summary": "Submit payment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Payment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment accepted"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreditCard": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string"
+          },
+          "cvv": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "number",
+          "cvv"
+        ]
+      },
+      "Paypal": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ]
+      },
+      "Payment": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreditCard"
+          },
+          {
+            "$ref": "#/components/schemas/Paypal"
+          }
+        ]
+      },
+      "UnusedSchema": {
+        "type": "object",
+        "properties": {
+          "ghost": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

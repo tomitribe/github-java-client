@@ -16,14 +16,14 @@
  */
 package org.tomitribe.github.gen.openapi;
 
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import jakarta.json.bind.annotation.JsonbProperty;
-import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +31,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode
 public class Schema {
 
     @JsonbTransient
@@ -74,12 +74,14 @@ public class Schema {
     private Object defaultValue;
 
     @JsonbProperty("example")
+    @EqualsAndHashCode.Exclude
     private Object example;
 
     @JsonbProperty("format")
     private String format;
 
     @JsonbProperty("description")
+    @EqualsAndHashCode.Exclude
     private String description;
 
     @JsonbProperty("title")

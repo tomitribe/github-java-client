@@ -1,0 +1,71 @@
+{
+  "components": {
+    "schemas": {
+      "Bike": {
+        "properties": {
+          "brand": {
+            "type": "string"
+          },
+          "gears": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "brand"
+        ],
+        "type": "object"
+      },
+      "Car": {
+        "properties": {
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "make",
+          "model"
+        ],
+        "type": "object"
+      },
+      "Vehicle": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Car"
+          },
+          {
+            "$ref": "#/components/schemas/Bike"
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Schema OneOf Composition",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/vehicle": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vehicle"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Vehicle accepted"
+          }
+        },
+        "summary": "Submit vehicle"
+      }
+    }
+  }
+}

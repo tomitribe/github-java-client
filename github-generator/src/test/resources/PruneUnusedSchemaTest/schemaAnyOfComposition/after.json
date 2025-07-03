@@ -1,0 +1,68 @@
+{
+  "components": {
+    "schemas": {
+      "CreditCard": {
+        "properties": {
+          "cvv": {
+            "type": "string"
+          },
+          "number": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "number",
+          "cvv"
+        ],
+        "type": "object"
+      },
+      "Payment": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/CreditCard"
+          },
+          {
+            "$ref": "#/components/schemas/Paypal"
+          }
+        ]
+      },
+      "Paypal": {
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Schema AnyOf Composition",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/payment": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Payment"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Payment accepted"
+          }
+        },
+        "summary": "Submit payment"
+      }
+    }
+  }
+}

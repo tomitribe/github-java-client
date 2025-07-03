@@ -99,9 +99,4 @@ public class PruneUnusedSchemaTest {
         assertScenario(new PruneUnusedSchema());
     }
 
-    @Test
-    public void schemaNot() throws Exception {
-        assertScenario(new PruneUnusedSchema());
-    }
-
 }

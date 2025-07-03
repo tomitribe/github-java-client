@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Schema Additional Properties",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/metadata": {
+      "post": {
+        "summary": "Submit dynamic metadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetadataMap"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metadata accepted"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MetadataValue": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      },
+      "MetadataMap": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/components/schemas/MetadataValue"
+        }
+      },
+      "UnusedSchema": {
+        "type": "object",
+        "properties": {
+          "ignored": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

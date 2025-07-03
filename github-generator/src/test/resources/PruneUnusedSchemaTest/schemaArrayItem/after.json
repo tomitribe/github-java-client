@@ -1,0 +1,51 @@
+{
+  "components": {
+    "schemas": {
+      "User": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "UserList": {
+        "items": {
+          "$ref": "#/components/schemas/User"
+        },
+        "type": "array"
+      }
+    }
+  },
+  "info": {
+    "title": "Schema Array Item Ref",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/users": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserList"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Get user list"
+      }
+    }
+  }
+}

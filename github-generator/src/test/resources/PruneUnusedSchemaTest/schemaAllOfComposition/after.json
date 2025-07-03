@@ -1,0 +1,67 @@
+{
+  "components": {
+    "schemas": {
+      "ExtendedUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/User"
+          },
+          {
+            "$ref": "#/components/schemas/Metadata"
+          }
+        ]
+      },
+      "Metadata": {
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "createdAt"
+        ],
+        "type": "object"
+      },
+      "User": {
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Schema AllOf Composition",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/user": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtendedUser"
+                }
+              }
+            },
+            "description": "OK"
+          }
+        },
+        "summary": "Get composed user"
+      }
+    }
+  }
+}

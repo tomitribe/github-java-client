@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Schema OneOf Composition",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/vehicle": {
+      "post": {
+        "summary": "Submit vehicle",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vehicle"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Vehicle accepted"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Car": {
+        "type": "object",
+        "properties": {
+          "make": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "make",
+          "model"
+        ]
+      },
+      "Bike": {
+        "type": "object",
+        "properties": {
+          "brand": {
+            "type": "string"
+          },
+          "gears": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "brand"
+        ]
+      },
+      "Vehicle": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/Car"
+          },
+          {
+            "$ref": "#/components/schemas/Bike"
+          }
+        ]
+      },
+      "Unused": {
+        "type": "object",
+        "properties": {
+          "unusedField": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

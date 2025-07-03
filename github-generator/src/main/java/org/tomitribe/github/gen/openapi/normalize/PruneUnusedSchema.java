@@ -130,7 +130,9 @@ public class PruneUnusedSchema implements Function<OpenApi, OpenApi> {
         }
 
         public void resolve(final Schema schema) {
-            if (seen.contains(schema)) return;
+            if (seen.contains(schema)) {
+                return;
+            }
             seen.add(schema);
 
             if (schema.getRef() != null) {
@@ -172,6 +174,16 @@ public class PruneUnusedSchema implements Function<OpenApi, OpenApi> {
             // Recurse into additionalProperties
             if (schema.getAdditionalProperties() instanceof Schema) {
                 collectSchemas((Schema) schema.getAdditionalProperties(), result);
+            }
+
+            if (schema.getAdditionalProperties() instanceof Map) {
+                final Map<String, Object> additionalProperties = (Map<String, Object>) schema.getAdditionalProperties();
+                if (additionalProperties.containsKey("$ref")) {
+                    final Schema ref = Schema.builder()
+                            .ref((String) additionalProperties.get("$ref"))
+                            .build();
+                    collectSchemas(ref, result);
+                }
             }
 
             // allOf / anyOf / oneOf / not
