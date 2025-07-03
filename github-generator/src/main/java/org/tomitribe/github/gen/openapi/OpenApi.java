@@ -40,7 +40,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@JsonbPropertyOrder({"openapi", "info", "tags", "servers", "externalDocs", "paths", "components"})
+@JsonbPropertyOrder({"openapi", "info", "tags", "servers", "externalDocs", "paths", "x-webhooks", "components"})
 public class OpenApi {
     @JsonbProperty("openapi")
     private String openapi;

@@ -1,0 +1,45 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ref in Webhook Cookie Param",
+    "version": "1.0.0"
+  },
+  "x-webhooks": {
+    "org.created": {
+      "post": {
+        "summary": "Organization created webhook",
+        "parameters": [
+          {
+            "name": "session",
+            "in": "cookie",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/SessionId"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SessionId": {
+        "type": "string",
+        "format": "uuid"
+      },
+      "UnusedCookieSchema": {
+        "type": "object",
+        "properties": {
+          "notUsed": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

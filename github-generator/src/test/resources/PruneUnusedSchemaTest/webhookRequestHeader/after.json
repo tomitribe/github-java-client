@@ -1,0 +1,40 @@
+{
+  "components": {
+    "schemas": {
+      "RenameSource": {
+        "enum": [
+          "user",
+          "admin"
+        ],
+        "type": "string"
+      }
+    }
+  },
+  "info": {
+    "title": "Ref in Webhook Request Header",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "x-webhooks": {
+    "repo.renamed": {
+      "post": {
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Rename-Source",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/RenameSource"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        },
+        "summary": "Repository renamed webhook"
+      }
+    }
+  }
+}

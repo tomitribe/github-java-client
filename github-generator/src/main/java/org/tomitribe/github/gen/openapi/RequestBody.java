@@ -16,13 +16,13 @@
  */
 package org.tomitribe.github.gen.openapi;
 
+import jakarta.json.bind.annotation.JsonbProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import jakarta.json.bind.annotation.JsonbProperty;
 import java.util.Map;
 
 @Data
@@ -34,5 +34,8 @@ public class RequestBody {
 
     @JsonbProperty("content")
     private Map<String, Content> content;
+
+    @JsonbProperty
+    private Boolean required;
 
 }

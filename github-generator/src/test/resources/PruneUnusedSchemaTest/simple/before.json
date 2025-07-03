@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Unused Schemas - No Usage",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/status": {
+      "get": {
+        "summary": "Get API status",
+        "responses": {
+          "204": {
+            "description": "No content"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "sku": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

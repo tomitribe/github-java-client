@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ref in Webhook Response",
+    "version": "1.0.0"
+  },
+  "x-webhooks": {
+    "repo.deleted": {
+      "post": {
+        "summary": "Repository deleted webhook",
+        "responses": {
+          "200": {
+            "description": "Deletion acknowledged",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Acknowledgement"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Acknowledgement": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "status",
+          "timestamp"
+        ]
+      },
+      "UnusedSchema": {
+        "type": "object",
+        "properties": {
+          "zombie": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

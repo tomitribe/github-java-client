@@ -1,0 +1,38 @@
+{
+  "components": {
+    "schemas": {
+      "ArchiveReason": {
+        "enum": [
+          "user-requested",
+          "policy",
+          "inactivity"
+        ],
+        "type": "string"
+      }
+    }
+  },
+  "info": {
+    "title": "Ref in Webhook Response Header",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "x-webhooks": {
+    "repo.archived": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Archived successfully",
+            "headers": {
+              "X-Archive-Reason": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchiveReason"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Repository archived webhook"
+      }
+    }
+  }
+}

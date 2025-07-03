@@ -1,0 +1,45 @@
+{
+  "components": {
+    "schemas": {
+      "Status": {
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          },
+          "timestamp": {
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "ok"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Ref in Response Body",
+    "version": "1.0.0"
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/status": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            },
+            "description": "System status"
+          }
+        },
+        "summary": "Get system status"
+      }
+    }
+  }
+}

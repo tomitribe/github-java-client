@@ -40,6 +40,7 @@ public class Generator {
     private final String clientPackage;
     private final boolean generateModel;
     private final boolean generateClient;
+    private final boolean generateWebhooks;
     private final Project project;
     private final OpenApi openApi;
 
@@ -48,6 +49,10 @@ public class Generator {
 
         if (generateClient) {
             generate.client();
+        }
+
+        if (generateWebhooks) {
+            generate.webooks();
         }
 
         if (generateModel) {
@@ -100,6 +105,10 @@ public class Generator {
                 return arrayClazz.getOf();
             }
             return clazz;
+        }
+
+        public void webooks() {
+
         }
     }
 }

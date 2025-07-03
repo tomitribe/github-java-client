@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ref in Webhook Payload",
+    "version": "1.0.0"
+  },
+  "x-webhooks": {
+    "org.created": {
+      "post": {
+        "summary": "Organization created webhook",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Organization"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "type": "string"
+          },
+          "id": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "login",
+          "id"
+        ]
+      },
+      "UnusedSchema": {
+        "type": "object",
+        "properties": {
+          "ghost": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

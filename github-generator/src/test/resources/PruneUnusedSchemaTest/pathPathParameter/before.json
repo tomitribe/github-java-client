@@ -1,0 +1,40 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ref in Path Parameter",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users/{userId}": {
+      "get": {
+        "summary": "Get user by ID",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/UserId"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserId": {
+        "type": "string",
+        "pattern": "^[a-zA-Z0-9_-]{3,16}$"
+      },
+      "Unused": {
+        "type": "integer"
+      }
+    }
+  }
+}
