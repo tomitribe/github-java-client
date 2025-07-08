@@ -19,68 +19,68 @@ public class FilterPathsTest {
 
     @Test
     public void includeAllExcludeNone() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
-                .build());
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
+                .build()));
     }
 
     @Test
     public void includeAllExcludeAdmin() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .exclude("^/admin.*")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeUsersExcludeAdmin() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .include("^/users.*")
                 .exclude("^/admin.*")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeAdminExcludeNone() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .include("^/admin.*")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeUsersPartial() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .include("users")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeAdminExcludeAdminConfig() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .include("^/admin.*")
                 .exclude("^/admin/config")
-                .build());
+                .build()));
     }
 
     @Test
     public void excludeUsersPartial() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .exclude("users")
-                .build());
+                .build()));
     }
 
     @Test
     public void excludeList() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .exclude("\\{id\\}")
                 .exclude("config")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeList() throws Exception {
-        Normalizations.assertScenario(FilterPaths.builder()
+        Normalizations.assertScenario(new FilterPaths(Filter.builder()
                 .include("\\{id\\}")
                 .include("config")
-                .build());
+                .build()));
     }
 
 

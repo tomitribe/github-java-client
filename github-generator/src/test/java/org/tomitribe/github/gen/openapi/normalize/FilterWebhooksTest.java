@@ -19,68 +19,68 @@ public class FilterWebhooksTest {
 
     @Test
     public void includeAllExcludeNone() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
-                .build());
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
+                .build()));
     }
 
     @Test
     public void includeAllExcludeAdmin() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .exclude("^admin.*")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeUsersExcludeAdmin() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .include("^users.*")
                 .exclude("^admin.*")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeAdminExcludeNone() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .include("^admin.*")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeUsersPartial() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .include("users")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeAdminExcludeAdminConfig() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .include("^admin.*")
                 .exclude("^adminConfig")
-                .build());
+                .build()));
     }
 
     @Test
     public void excludeUsersPartial() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .exclude("users")
-                .build());
+                .build()));
     }
 
     @Test
     public void excludeList() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .exclude("Id")
                 .exclude("Config")
-                .build());
+                .build()));
     }
 
     @Test
     public void includeList() throws Exception {
-        Normalizations.assertScenario(FilterWebhooks.builder()
+        Normalizations.assertScenario(new FilterWebhooks(Filter.builder()
                 .include("Id")
                 .include("Config")
-                .build());
+                .build()));
     }
 
 

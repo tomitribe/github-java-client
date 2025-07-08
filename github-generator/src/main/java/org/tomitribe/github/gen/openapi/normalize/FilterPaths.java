@@ -17,25 +17,21 @@ import lombok.AllArgsConstructor;
 import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.github.gen.openapi.Path;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
 public class FilterPaths implements Function<OpenApi, OpenApi> {
 
-    private final Pattern include;
-    private final Pattern exclude;
+    private final Filter filter;
 
     @Override
     public OpenApi apply(final OpenApi openApi) {
         if (openApi.getPaths() == null) return openApi;
-        final Predicate<String> included = include.asPredicate();
-        final Predicate<String> excluded = (exclude == null) ? entry -> false : exclude.asPredicate();
+        final Predicate<String> included = filter.getIncluded();
+        final Predicate<String> excluded = filter.getExcluded();
 
         final Map<String, Path> paths = openApi.getPaths().entrySet().stream()
                 .filter(entry -> included.test(entry.getKey()))
@@ -47,29 +43,4 @@ public class FilterPaths implements Function<OpenApi, OpenApi> {
         return openApi;
     }
 
-
-    public static Builder builder() {
-        return new Builder();
-    }
-
-    public static class Builder {
-        private final List<String> includes = new ArrayList<>();
-        private final List<String> excludes = new ArrayList<>();
-
-        public Builder include(final String regex) {
-            this.includes.add(regex);
-            return this;
-        }
-
-        public Builder exclude(final String regex) {
-            this.excludes.add(regex);
-            return this;
-        }
-
-        public FilterPaths build() {
-            final Pattern includePattern = Pattern.compile(includes.isEmpty() ? ".*" : String.join("|", includes));
-            final Pattern excludePattern = excludes.isEmpty() ? null : Pattern.compile(String.join("|", excludes));
-            return new FilterPaths(includePattern, excludePattern);
-        }
-    }
 }
