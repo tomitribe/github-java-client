@@ -30,6 +30,7 @@ public class FilterPaths implements Function<OpenApi, OpenApi> {
     @Override
     public OpenApi apply(final OpenApi openApi) {
         if (openApi.getPaths() == null) return openApi;
+        if (filter == null) return openApi;
         final Predicate<String> included = filter.getIncluded();
         final Predicate<String> excluded = filter.getExcluded();
 

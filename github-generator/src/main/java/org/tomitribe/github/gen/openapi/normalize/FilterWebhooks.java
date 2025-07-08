@@ -17,12 +17,9 @@ import lombok.AllArgsConstructor;
 import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.github.gen.openapi.Webhook;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -33,6 +30,7 @@ public class FilterWebhooks implements Function<OpenApi, OpenApi> {
     @Override
     public OpenApi apply(final OpenApi openApi) {
         if (openApi.getWebhooks() == null) return openApi;
+        if (filter == null) return openApi;
 
         final Predicate<String> included = filter.getIncluded();
         final Predicate<String> excluded = filter.getExcluded();

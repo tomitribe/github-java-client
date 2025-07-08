@@ -49,6 +49,7 @@ public class Main {
                 .generateModel(true)
                 .clientPackage("org.tomitribe.github.client")
                 .modelPackage("org.tomitribe.github.model")
+                .modelPackage("org.tomitribe.github.model")
                 .build()
                 .generate();
 

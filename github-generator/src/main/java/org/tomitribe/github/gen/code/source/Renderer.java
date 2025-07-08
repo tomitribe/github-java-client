@@ -25,15 +25,17 @@ public class Renderer {
     private final Project project;
     private final String clientPackage;
     private final String modelPackage;
+    private final String webhookPackage;
 
     private final EndpointRenderer endpointRenderer;
     private final ClazzRenderer clazzRenderer;
     private final EnumClazzRenderer enumClazzRenderer;
 
     @lombok.Builder(builderClassName = "Builder")
-    public Renderer(final String clientPackage, final String modelPackage, final Project project) {
+    public Renderer(final String clientPackage, final String modelPackage, final String webhookPackage, final Project project) {
         this.clientPackage = clientPackage;
         this.modelPackage = modelPackage;
+        this.webhookPackage = webhookPackage;
         this.project = project;
 
         this.endpointRenderer = new EndpointRenderer(project, clientPackage, modelPackage);

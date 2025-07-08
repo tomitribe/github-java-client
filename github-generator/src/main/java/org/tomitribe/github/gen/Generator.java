@@ -25,6 +25,9 @@ import org.tomitribe.github.gen.code.model.VoidClazz;
 import org.tomitribe.github.gen.code.source.Renderer;
 import org.tomitribe.github.gen.openapi.OpenApi;
 import org.tomitribe.github.gen.openapi.normalize.AddSummary;
+import org.tomitribe.github.gen.openapi.normalize.Filter;
+import org.tomitribe.github.gen.openapi.normalize.FilterPaths;
+import org.tomitribe.github.gen.openapi.normalize.FilterWebhooks;
 import org.tomitribe.github.gen.openapi.normalize.GraduateEnumsFromParameters;
 import org.tomitribe.github.gen.openapi.normalize.InlineParameterRefs;
 import org.tomitribe.github.gen.openapi.normalize.PruneEmptyComponents;
@@ -43,11 +46,14 @@ public class Generator {
 
     private final String modelPackage;
     private final String clientPackage;
+    private final String webhookPackage;
     private final boolean generateModel;
     private final boolean generateClient;
     private final boolean generateWebhooks;
     private final Project project;
     private final OpenApi openApi;
+    private final Filter webhooks;
+    private final Filter paths;
 
     public void generate() {
         final Generate generate = new Generate();
@@ -74,6 +80,8 @@ public class Generator {
         Generate() {
 
             final OpenApi normalized = Function.<OpenApi>identity()
+                    .andThen(new FilterPaths(paths))
+                    .andThen(new FilterWebhooks(webhooks))
                     .andThen(new AddSummary())
                     .andThen(new InlineParameterRefs())
                     .andThen(new GraduateEnumsFromParameters())
@@ -85,6 +93,7 @@ public class Generator {
             this.renderer = Renderer.builder()
                     .clientPackage(clientPackage)
                     .modelPackage(modelPackage)
+                    .webhookPackage(webhookPackage)
                     .project(project)
                     .build();
         }
@@ -112,16 +121,16 @@ public class Generator {
                     .forEach(renderer::render);
         }
 
+        public void webooks() {
+
+        }
+
         private Clazz replaceArrays(final Clazz clazz) {
             if (clazz instanceof ArrayClazz) {
                 final ArrayClazz arrayClazz = (ArrayClazz) clazz;
                 return arrayClazz.getOf();
             }
             return clazz;
-        }
-
-        public void webooks() {
-
         }
     }
 }
