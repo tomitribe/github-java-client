@@ -164,12 +164,12 @@ public class EndpointGenerator {
         return true;
     }
 
-    private boolean acceptsApplicationJson(final Method method) {
+    public static boolean acceptsApplicationJson(final Method method) {
         return method.getRequestBody().getContent().keySet().stream()
                 .anyMatch(s -> s.equals("application/json"));
     }
 
-    private boolean returnsApplicationJson(final Method method) {
+    public static boolean returnsApplicationJson(final Method method) {
         return method.getResponses().values().stream()
                 .filter(response -> response.getName().startsWith("2"))
                 .map(Response::getContent)
@@ -180,7 +180,7 @@ public class EndpointGenerator {
                 .anyMatch(s -> s.equals("application/json"));
     }
 
-    private boolean returnsVoid(final Method method) {
+    public static boolean returnsVoid(final Method method) {
         return method.getResponses().keySet().stream().anyMatch(s -> s.equals("204"));
     }
 
@@ -243,9 +243,12 @@ public class EndpointGenerator {
     }
 
     private Clazz generateResponseClass(final Method method) {
-        if (method.getResponses() == null) throw new IllegalStateException("Method has no responses: " + method);
-        if (method.getResponses().values() == null)
+        if (method.getResponses() == null) {
             throw new IllegalStateException("Method has no responses: " + method);
+        }
+        if (method.getResponses().isEmpty()) {
+            throw new IllegalStateException("Method has no responses: " + method);
+        }
 
         final Response ok = method.getResponses().values().stream()
                 .filter(response -> response.getName().startsWith("2"))
@@ -276,7 +279,7 @@ public class EndpointGenerator {
         return clazz;
     }
 
-    private static void processExamples(final Content jsonResponse, final Clazz clazz) {
+    public static void processExamples(final Content jsonResponse, final Clazz clazz) {
         if (jsonResponse.getExamples() != null) {
             jsonResponse.getExamples().values().stream()
                     .map(Map.class::cast)
@@ -307,7 +310,7 @@ public class EndpointGenerator {
         }
     }
 
-    private String plural(final String name) {
+    public static String plural(final String name) {
         if (name.endsWith("y")) {
             return name.replaceAll("y$", "ies");
         }
@@ -329,7 +332,7 @@ public class EndpointGenerator {
         return arrays.get(0);
     }
 
-    private boolean isPaged(final Response response) {
+    public static boolean isPaged(final Response response) {
         /*
          * Our preferred way to detect if the response is paged is to have a `Link` header
          * However, the openapi definition for github leaves it out in a few places.
@@ -358,7 +361,7 @@ public class EndpointGenerator {
         return true;
     }
 
-    private boolean shouldHaveName(final Clazz clazz) {
+    public static boolean shouldHaveName(final Clazz clazz) {
         if (clazz instanceof ArrayClazz) return false;
         if (clazz instanceof VoidClazz) return false;
         return true;
@@ -439,13 +442,13 @@ public class EndpointGenerator {
         return new VoidClazz();
     }
 
-    private boolean isPagingParameter(final Schema schema) {
+    public static boolean isPagingParameter(final Schema schema) {
         if ("#/components/parameters/per_page".equals(schema.getRef())) return true;
         if ("#/components/parameters/page".equals(schema.getRef())) return true;
         return false;
     }
 
-    private Schema getSchema(final Parameter parameter) {
+    public static Schema getSchema(final Parameter parameter) {
         if (parameter.getSchema() != null) {
             return parameter.getSchema();
         }
@@ -459,12 +462,12 @@ public class EndpointGenerator {
         throw new IllegalStateException("No schema found for parameter: " + parameter);
     }
 
-    private String asRequestName(final String summary) {
+    public static String asRequestName(final String summary) {
         return Words.getTypeName(summary);
     }
 
-    private String asMethodName(final String summary) {
+    public static String asMethodName(final String summary) {
         return Words.getVariableName(summary);
     }
-//    public EndpointClazz
+
 }
