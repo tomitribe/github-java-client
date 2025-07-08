@@ -53,15 +53,13 @@ public class EndpointGenerator {
 
 
     private final ModelGenerator modelGenerator;
-    private final String modelPackage;
     private ComponentIndex componentIndex;
     private final String endpointPackage;
     private ResolveReferences resolver;
 
-    public EndpointGenerator(final String modelPackage, final String endpointPackage) {
-        this.modelPackage = modelPackage;
+    public EndpointGenerator(final String endpointPackage, final ModelGenerator modelGenerator) {
         this.endpointPackage = endpointPackage;
-        this.modelGenerator = new ModelGenerator(this.modelPackage);
+        this.modelGenerator = modelGenerator;
     }
 
     public List<Endpoint> build(final OpenApi openApi) {
@@ -238,7 +236,7 @@ public class EndpointGenerator {
         }
         if (shouldHaveName(clazz) && clazz.getName() == null) {
             final String name = Words.getTypeName(method.getSummary()) + "Response";
-            clazz.setName(new Name(modelPackage, name));
+            clazz.setName(new Name(modelGenerator.getPackageName(), name));
         }
 
         return endpointMethod;
@@ -304,7 +302,7 @@ public class EndpointGenerator {
 
             final String pageName = plural(items.getType().getSimpleName()) + "Page";
 
-            clazz.setName(new Name(modelPackage, pageName));
+            clazz.setName(new Name(modelGenerator.getPackageName(), pageName));
             clazz.setPaged(true);
         }
     }
@@ -376,7 +374,7 @@ public class EndpointGenerator {
                 final Schema schema = applicationJson.getSchema();
                 clazz = modelGenerator.build(schema);
                 if (clazz.getName() == null) {
-                    clazz.setName(new Name(modelPackage, requestClassName));
+                    clazz.setName(new Name(modelGenerator.getPackageName(), requestClassName));
                 }
             }
 
@@ -408,13 +406,14 @@ public class EndpointGenerator {
             final Schema schema = applicationJson.getSchema();
             final Clazz clazz = modelGenerator.build(schema);
             if (clazz.getName() == null) {
-                clazz.setName(new Name(modelPackage, requestClassName));
+                clazz.setName(new Name(modelGenerator.getPackageName(), requestClassName));
             }
             return clazz;
         }
 
         if (method.getParameters() != null) {
 
+            final String modelPackage = modelGenerator.getPackageName();
             final Clazz.Builder clazz = Clazz.builder().name(modelPackage + "." + requestClassName);
             for (final Parameter parameter : method.getParameters()) {
                 final Schema schema = getSchema(parameter);

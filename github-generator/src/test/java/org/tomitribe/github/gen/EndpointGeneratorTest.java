@@ -40,7 +40,7 @@ public class EndpointGeneratorTest {
 
         final OpenApi openApi = scenario.getOpenApi();
 
-        final EndpointGenerator endpointGenerator = new EndpointGenerator("org.tomitribe.github.model", "org.tomitribe.github.client");
+        final EndpointGenerator endpointGenerator = new EndpointGenerator("org.tomitribe.github.client", new ModelGenerator("org.tomitribe.github.model"));
         final List<Endpoint> endpoints = endpointGenerator.build(openApi);
 
         JsonAsserts.assertJsonb(scenario.expected(), endpoints);

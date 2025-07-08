@@ -49,6 +49,10 @@ public class ModelGenerator {
         this.packageName = packageName;
     }
 
+    public String getPackageName() {
+        return packageName;
+    }
+
     public Clazz build(final Schema schema) {
         if (schema.getRef() != null) {
             final ClazzReference clazzReference = new ClazzReference(schema.getRef());
