@@ -58,10 +58,10 @@ public class EndpointGenerator {
     private final String endpointPackage;
     private ResolveReferences resolver;
 
-    public EndpointGenerator() {
-        this.modelPackage = "org.tomitribe.github.model";
-        this.endpointPackage = "org.tomitribe.github.client";
-        this.modelGenerator = new ModelGenerator(modelPackage);
+    public EndpointGenerator(final String modelPackage, final String endpointPackage) {
+        this.modelPackage = modelPackage;
+        this.endpointPackage = endpointPackage;
+        this.modelGenerator = new ModelGenerator(this.modelPackage);
     }
 
     public List<Endpoint> build(final OpenApi openApi) {

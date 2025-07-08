@@ -73,7 +73,7 @@ public class Generator {
 
     class Generate {
 
-        private final EndpointGenerator endpointGenerator = new EndpointGenerator();
+        private final EndpointGenerator endpointGenerator = new EndpointGenerator(modelPackage, clientPackage);
         private final List<Endpoint> endpointList;
         private final Renderer renderer;
 
