@@ -19,7 +19,6 @@ import org.tomitribe.github.gen.openapi.Webhook;
 
 import java.util.Map;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -32,12 +31,8 @@ public class FilterWebhooks implements Function<OpenApi, OpenApi> {
         if (openApi.getWebhooks() == null) return openApi;
         if (filter == null) return openApi;
 
-        final Predicate<String> included = filter.getIncluded();
-        final Predicate<String> excluded = filter.getExcluded();
-
         final Map<String, Webhook> webhooks = openApi.getWebhooks().entrySet().stream()
-                .filter(entry -> included.test(entry.getKey()))
-                .filter(entry -> !excluded.test(entry.getKey()))
+                .filter(entry -> filter.test(entry.getKey()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
         openApi.setWebhooks(webhooks);

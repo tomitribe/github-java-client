@@ -16,14 +16,14 @@
  */
 package org.tomitribe.github.gen.openapi;
 
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbTransient;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import jakarta.json.bind.annotation.JsonbProperty;
-import jakarta.json.bind.annotation.JsonbTransient;
 import java.util.Objects;
 import java.util.stream.Stream;
 
@@ -32,7 +32,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Path {
+public class Path implements Resource {
     @JsonbTransient
     private String name;
 
@@ -56,19 +56,6 @@ public class Path {
 
     @JsonbProperty("patch")
     private Method patch;
-
-    @JsonbTransient
-    public Stream<Method> getMethods() {
-        return Stream.of(
-                get,
-                patch,
-                post,
-                put,
-                delete,
-                trace,
-                options
-        ).filter(Objects::nonNull);
-    }
 
     @Override
     public String toString() {

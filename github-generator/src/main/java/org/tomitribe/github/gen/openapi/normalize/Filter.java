@@ -21,15 +21,19 @@ import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
 @Builder(builderClassName = "Builder")
-public class Filter {
-
+public class Filter implements Predicate<String> {
 
     private final Predicate<String> included;
     private final Predicate<String> excluded;
 
     public Filter(final Pattern include, final Pattern exclude) {
-        this.included = include.asPredicate();
+        this.included = (include == null) ? entry -> true : include.asPredicate();
         this.excluded = (exclude == null) ? entry -> false : exclude.asPredicate();
+    }
+
+    @Override
+    public boolean test(final String s) {
+        return included.test(s) && !excluded.test(s);
     }
 
     public Predicate<String> getExcluded() {
@@ -59,7 +63,7 @@ public class Filter {
         }
 
         public Filter build() {
-            final Pattern includePattern = Pattern.compile(includes.isEmpty() ? ".*" : String.join("|", includes));
+            final Pattern includePattern = includes.isEmpty() ? null : Pattern.compile(String.join("|", includes));
             final Pattern excludePattern = excludes.isEmpty() ? null : Pattern.compile(String.join("|", excludes));
             return new Filter(includePattern, excludePattern);
         }

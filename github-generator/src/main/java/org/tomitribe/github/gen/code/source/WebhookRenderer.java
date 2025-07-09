@@ -61,19 +61,19 @@ import java.util.stream.Stream;
 
 import static org.tomitribe.github.gen.EndpointGenerator.getPagedItem;
 
-public class EndpointRenderer {
+public class WebhookRenderer {
 
     private final Project project;
     private final String packageName;
     private final ClazzRenderer clazzRenderer;
     private final Template template;
 
-    public EndpointRenderer(final Project project, final String clientPackage, final String modelPackage) {
+    public WebhookRenderer(final Project project, final String clientPackage, final String modelPackage) {
         this.project = project;
         this.packageName = clientPackage;
         this.clazzRenderer = new ClazzRenderer(project, modelPackage);
         this.template = Template.builder()
-                .templateName("Endpoint")
+                .templateName("Webhook")
                 .packageName(packageName)
                 .build();
 
@@ -106,8 +106,6 @@ public class EndpointRenderer {
 
             if (method.getRequest() instanceof VoidClazz) {
                 // skip setting any parameters
-            } else if (endpoint.isWebhook()) {
-                // TODO
             } else {
                 methodDeclaration.addParameter(param(
                         method.getRequest().getName().getSimpleName(),

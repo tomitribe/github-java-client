@@ -24,15 +24,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.Objects;
-import java.util.stream.Stream;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Webhook {
+public class Webhook implements Resource {
     @JsonbTransient
     private String name;
 
@@ -57,21 +54,4 @@ public class Webhook {
     @JsonbProperty("patch")
     private Method patch;
 
-    @JsonbTransient
-    public Stream<Method> getMethods() {
-        return Stream.of(
-                get,
-                patch,
-                post,
-                put,
-                delete,
-                trace,
-                options
-        ).filter(Objects::nonNull);
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
 }

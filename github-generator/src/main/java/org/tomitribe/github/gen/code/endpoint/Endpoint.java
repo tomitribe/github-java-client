@@ -29,6 +29,7 @@ import java.util.List;
 public class Endpoint {
 
     private final String className;
+    private final boolean webhook;
 
     @lombok.Builder.Default
     final List<EndpointMethod> methods = new ArrayList<>();

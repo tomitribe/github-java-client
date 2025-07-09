@@ -1,0 +1,38 @@
+{
+  "info":{
+    "title":"Filter Webhooks Test",
+    "version":"1.0.0"
+  },
+  "openapi":"3.0.0",
+  "paths":{
+    "/blue":{
+      "post":{
+        "responses":{
+          "200":{
+            "description":"OK"
+          }
+        },
+        "summary":"Admin config",
+        "x-github":{
+          "category":"adminConfig"
+        }
+      }
+    },
+    "/green":{
+      "post":{
+        "responses":{
+          "200":{
+            "description":"OK"
+          }
+        },
+        "summary":"Get user by ID",
+        "x-github":{
+          "category":"usersId"
+        }
+      }
+    }
+  },
+  "x-webhooks":{
+
+  }
+}
