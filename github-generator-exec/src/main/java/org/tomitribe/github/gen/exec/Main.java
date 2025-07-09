@@ -47,8 +47,8 @@ public class Main {
                 .project(project)
                 .generateClient(true)
                 .generateModel(true)
+                .webhookPackage("org.tomitribe.github.webhook")
                 .clientPackage("org.tomitribe.github.client")
-                .modelPackage("org.tomitribe.github.model")
                 .modelPackage("org.tomitribe.github.model")
                 .build()
                 .generate();

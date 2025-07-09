@@ -24,20 +24,13 @@ import org.tomitribe.github.gen.code.model.Clazz;
 import org.tomitribe.github.gen.code.model.VoidClazz;
 import org.tomitribe.github.gen.code.source.Renderer;
 import org.tomitribe.github.gen.openapi.OpenApi;
-import org.tomitribe.github.gen.openapi.normalize.AddSummary;
 import org.tomitribe.github.gen.openapi.normalize.Filter;
-import org.tomitribe.github.gen.openapi.normalize.FilterPaths;
-import org.tomitribe.github.gen.openapi.normalize.FilterWebhooks;
-import org.tomitribe.github.gen.openapi.normalize.GraduateEnumsFromParameters;
-import org.tomitribe.github.gen.openapi.normalize.InlineParameterRefs;
-import org.tomitribe.github.gen.openapi.normalize.PruneEmptyComponents;
-import org.tomitribe.github.gen.openapi.normalize.PruneUnusedSchema;
+import org.tomitribe.github.gen.openapi.normalize.Normalizer;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Stream;
 
 @Data
@@ -54,6 +47,8 @@ public class Generator {
     private final OpenApi openApi;
     private final Filter webhooks;
     private final Filter paths;
+    private final Filter categories;
+    private final Filter subcategories;
 
     public void generate() {
         final Generate generate = new Generate();
@@ -79,15 +74,12 @@ public class Generator {
 
         Generate() {
 
-            final OpenApi normalized = Function.<OpenApi>identity()
-                    .andThen(new FilterPaths(paths))
-                    .andThen(new FilterWebhooks(webhooks))
-                    .andThen(new AddSummary())
-                    .andThen(new InlineParameterRefs())
-                    .andThen(new GraduateEnumsFromParameters())
-                    .andThen(new PruneUnusedSchema())
-                    .andThen(new PruneEmptyComponents())
-                    .apply(openApi);
+            final OpenApi normalized = Normalizer.builder()
+                    .categories(categories)
+                    .subcategories(subcategories)
+                    .paths(paths)
+                    .webhooks(webhooks)
+                    .build().apply(openApi);
 
             this.endpointList = endpointGenerator.build(normalized);
             this.renderer = Renderer.builder()
