@@ -1,0 +1,33 @@
+{
+  "info":{
+    "title":"Filter Webhooks Test",
+    "version":"1.0.0"
+  },
+  "openapi":"3.0.0",
+  "paths":{
+    "/green":{
+      "post":{
+        "operationId":"usersId",
+        "responses":{
+          "200":{
+            "description":"OK"
+          }
+        },
+        "summary":"Get user by ID"
+      }
+    }
+  },
+  "x-webhooks":{
+    "orange":{
+      "post":{
+        "operationId":"users",
+        "responses":{
+          "200":{
+            "description":"OK"
+          }
+        },
+        "summary":"Get all users"
+      }
+    }
+  }
+}

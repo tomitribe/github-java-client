@@ -1,0 +1,55 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Filter Webhooks Test",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/green": {
+      "post": {
+        "summary": "Get user by ID",
+        "operationId": "usersId",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/blue": {
+      "post": {
+        "summary": "Admin config",
+        "operationId": "adminConfig",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "x-webhooks": {
+    "orange": {
+      "post": {
+        "summary": "Get all users",
+        "operationId": "users",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "red": {
+      "post": {
+        "summary": "Admin user list",
+        "operationId": "adminUsers",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
