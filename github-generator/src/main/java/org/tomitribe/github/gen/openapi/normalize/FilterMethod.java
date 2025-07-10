@@ -20,7 +20,7 @@ import org.tomitribe.github.gen.openapi.Path;
 import org.tomitribe.github.gen.openapi.Resource;
 import org.tomitribe.github.gen.openapi.Webhook;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -50,7 +50,7 @@ public abstract class FilterMethod implements Function<OpenApi, OpenApi> {
 
     private <PathOrWebhook extends Resource> Map<String, PathOrWebhook> filter(final Supplier<Map<String, PathOrWebhook>> resources,
                                                                                final Supplier<PathOrWebhook> supplier) {
-        final Map<String, PathOrWebhook> filteredResources = new HashMap<>();
+        final Map<String, PathOrWebhook> filteredResources = new LinkedHashMap<>();
 
         for (final Map.Entry<String, PathOrWebhook> entry : resources.get().entrySet()) {
             final PathOrWebhook pathOrWebhook = entry.getValue();

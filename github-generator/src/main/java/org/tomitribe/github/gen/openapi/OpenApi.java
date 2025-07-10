@@ -145,6 +145,11 @@ public class OpenApi {
                 if (webhook.getPatch() != null) webhook.getPatch().setName("patch");
             }
 
+            // Link every Method path to its owning Webhook
+            for (final Webhook webhook : openApi.webhooks.values()) {
+                webhook.getMethods().forEach(method -> method.setWebhook(webhook));
+            }
+
             // Tell every Response instance what its name is in the map
             openApi.webhooks.values().stream()
                     .flatMap(Webhook::getMethods)

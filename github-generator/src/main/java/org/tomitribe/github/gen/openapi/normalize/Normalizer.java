@@ -37,6 +37,7 @@ public class Normalizer implements Function<OpenApi, OpenApi> {
                 .andThen(new FilterSubcategory(subcategories))
                 .andThen(new FilterOperationId(operationId))
                 .andThen(new AddSummary())
+                .andThen(new AddCategory())
                 .andThen(new InlineParameterRefs())
                 .andThen(new GraduateEnumsFromParameters())
                 .andThen(new PruneUnusedSchema())

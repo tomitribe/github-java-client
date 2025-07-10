@@ -44,7 +44,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.lang.Boolean.TRUE;
 
@@ -218,13 +217,6 @@ public class EndpointGenerator {
                     builder.preview(preview.getName());
                 }
             }
-        } else {
-            final String name = Stream.of(method.getPath().getName().split("/"))
-                    .filter(s -> !s.isEmpty())
-                    .findFirst()
-                    .orElse("api");
-
-            builder.category(name);
         }
 
         final EndpointMethod endpointMethod = builder.build();

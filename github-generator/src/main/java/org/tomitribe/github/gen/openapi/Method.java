@@ -37,6 +37,9 @@ public class Method {
     private Path path;
 
     @JsonbTransient
+    private Webhook webhook;
+
+    @JsonbTransient
     private String name;
 
     @JsonbProperty("summary")
