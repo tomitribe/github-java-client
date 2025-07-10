@@ -16,17 +16,15 @@
  */
 package org.tomitribe.github.core;
 
-import jakarta.annotation.Priority;
-import jakarta.ws.rs.Priorities;
 import jakarta.ws.rs.client.ClientRequestContext;
 import jakarta.ws.rs.client.ClientRequestFilter;
 import jakarta.ws.rs.client.ClientResponseContext;
 import jakarta.ws.rs.client.ClientResponseFilter;
+
 import java.io.IOException;
 
 public class MessageLogger {
 
-    @Priority(Priorities.USER)
     public static class RequestFilter implements ClientRequestFilter {
 
         @Override
@@ -42,7 +40,6 @@ public class MessageLogger {
         }
     }
 
-    @Priority(Priorities.USER)
     public static class ResponseFilter implements ClientResponseFilter {
 
         @Override
