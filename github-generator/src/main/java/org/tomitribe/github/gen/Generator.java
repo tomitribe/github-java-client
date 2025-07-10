@@ -49,6 +49,7 @@ public class Generator {
     private final Filter paths;
     private final Filter categories;
     private final Filter subcategories;
+    private final Filter operationId;
 
     public void generate() {
         final Generate generate = new Generate();
@@ -79,6 +80,7 @@ public class Generator {
                     .subcategories(subcategories)
                     .paths(paths)
                     .webhooks(webhooks)
+                    .operationId(operationId)
                     .build().apply(openApi);
 
             this.endpointList = endpointGenerator.build(normalized);

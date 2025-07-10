@@ -25,6 +25,7 @@ public class Normalizer implements Function<OpenApi, OpenApi> {
     private final Filter paths;
     private final Filter categories;
     private final Filter subcategories;
+    private final Filter operationId;
 
     @Override
     public OpenApi apply(final OpenApi openApi) {
@@ -34,6 +35,7 @@ public class Normalizer implements Function<OpenApi, OpenApi> {
                 .andThen(new FilterWebhooks(webhooks))
                 .andThen(new FilterCategory(categories))
                 .andThen(new FilterSubcategory(subcategories))
+                .andThen(new FilterOperationId(operationId))
                 .andThen(new AddSummary())
                 .andThen(new InlineParameterRefs())
                 .andThen(new GraduateEnumsFromParameters())
