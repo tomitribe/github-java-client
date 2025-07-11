@@ -36,6 +36,9 @@ public class Header {
     @JsonbProperty("example")
     private String example;
 
+    @JsonbProperty("description")
+    private String description;
+
     @JsonbProperty("schema")
     private Schema schema;
 
