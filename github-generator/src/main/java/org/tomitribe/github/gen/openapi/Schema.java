@@ -18,11 +18,13 @@ package org.tomitribe.github.gen.openapi;
 
 import jakarta.json.bind.annotation.JsonbProperty;
 import jakarta.json.bind.annotation.JsonbTransient;
+import jakarta.json.bind.annotation.JsonbTypeAdapter;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.tomitribe.github.core.StringListAdapter;
 
 import java.util.List;
 import java.util.Map;
@@ -68,6 +70,7 @@ public class Schema {
     private Object additionalProperties;
 
     @JsonbProperty("enum")
+    @JsonbTypeAdapter(StringListAdapter.class)
     private List<String> enumValues;
 
     @JsonbProperty("default")

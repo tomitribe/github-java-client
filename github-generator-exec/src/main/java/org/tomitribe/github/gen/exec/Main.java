@@ -30,7 +30,7 @@ public class Main {
 
     public static void main(final String[] args) throws IOException {
 
-        final URL resource = Main.class.getResource("openapi.json");
+        final URL resource = Main.class.getResource("/openapi.json");
         final String json = IO.slurp(resource);
         final OpenApi openApi = OpenApi.parse(json);
 

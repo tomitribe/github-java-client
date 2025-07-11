@@ -59,6 +59,9 @@ public class GraduateEnumsFromParameters implements Function<OpenApi, OpenApi> {
                 .collect(Collectors.toSet());
 
         for (final Parameter parameter : parameters) {
+            if (parameter.getSchema() == null) continue;
+            if (parameter.getSchema().getRef() != null) continue; // already a ref
+
             final Enum enumm = Enum.from(parameter.getName(), parameter.getSchema());
             if (enums.contains(enumm)) {
                 parameter.setSchema(Schema.builder()
