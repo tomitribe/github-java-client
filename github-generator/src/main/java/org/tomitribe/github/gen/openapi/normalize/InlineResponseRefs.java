@@ -31,7 +31,12 @@ public class InlineResponseRefs implements Function<OpenApi, OpenApi> {
         final Function<Response, Response> resolve = response -> {
             if (response.getRef() == null) return response;
             final String name = response.getRef().replaceAll(".*/", "");
-            return responsesIndex.getOrDefault(name, response);
+            final Response result = responsesIndex.getOrDefault(name, response);
+            final Response copy = new Response();
+            copy.setContent(result.getContent());
+            copy.setDescription(result.getDescription());
+            copy.setHeaders(result.getHeaders());
+            return copy;
         };
 
         openApi.getPaths().values().stream()
@@ -39,8 +44,11 @@ public class InlineResponseRefs implements Function<OpenApi, OpenApi> {
                 .filter(method -> method.getResponses() != null)
                 .forEach(method -> {
                     final Map<String, Response> updated = new HashMap<>();
-                    method.getResponses().forEach((status, response) ->
-                            updated.put(status, resolve.apply(response)));
+                    method.getResponses().forEach((status, response) -> {
+                        final Response value = resolve.apply(response);
+                        value.setName(status);
+                        updated.put(status, value);
+                    });
                     method.setResponses(updated);
                 });
 
